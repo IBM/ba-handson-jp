@@ -1,0 +1,55 @@
+site_name: Business Automation Handson
+plugins:
+  - glightbox
+theme:
+  font:
+    text: IBM Plex Sans JP
+  palette: 
+
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+        
+  name: material
+  features:
+    - navigation.sections
+    - navigation.tabs
+    - navigation.sections
+    - content.code.copy
+    - toc.integrate
+nav:
+#- Agenda: agenda.md
+- watsonx Orchestarte:
+  - はじめに: wxo/index.md
+  - Lab1 Hello world: wxo/lab1.md
+  - Lab2 Generative AI: wxo/lab2_GenAI.md
+  - Lab3 Skill flow: wxo/lab3.md
+  - Lab4 Decision: wxo/lab4.md
+  - Lab5 AI Assistant Builder: wxo/lab5_AIAssistant.md
+  - (オプション)OpenAPI Builder: wxo/OpenAPI.md
+
+- Business Automation Workflow:
+  - はじめに: baw/index.md
+
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  generator: false
+
+
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
