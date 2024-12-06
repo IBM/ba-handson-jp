@@ -1,3 +1,3 @@
 # はじめに
 
-Business Automation Workflowのハンズオンです。  
+Business Automation Workflowのハンズオンを追加予定です。  
