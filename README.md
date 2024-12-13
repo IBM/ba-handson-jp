@@ -4,7 +4,7 @@ Business Automation 製品のハンズオンです。
 Business Automation製品のハンズオンのためのリポジトリです。
 [MkDocs](https://www.mkdocs.org/)と[material for MkDocs](https://squidfunk.github.io/mkdocs-material/)を使用しています。  
 ビルド、デプロイを行うためには上記ツールをインストールすることが必要です。編集だけならVSCodeがあれば十分です。  
-生成されたサイトは[https://pages.github.ibm.com/ba-techsales-jp/wxo_handson_jp](https://pages.github.ibm.com/ba-techsales-jp/wxo_handson_jp)にデプロイされます。
+生成されたサイトは[https://ibm.github.io/ba-handson-jp/](https://ibm.github.io/ba-handson-jp/)にデプロイされます。
 
 
 ## 環境構築
