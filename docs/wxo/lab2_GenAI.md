@@ -15,30 +15,30 @@ Skill studioで、まず Project を作成し、そのコンポーネントの1�
  ![alt text](lab2_GenAI_images/image-2.png)
 
  4. **Generative AI** (生成AI)を選択します。
- ![alt text](lab2_GenAI_images/image-3.png)
+ ![alt text](lab2_GenAI_images/image-3-v2.png)
 
  5. Name の欄に ***YourInitials* generate recommendation mail** と入力して、**Create** をクリックします。
  ![alt text](lab2_GenAI_images/image-4.png)
 
  6. Project と 生成AIのコンポーネント が作成されました。生成AIのコンポーネントが作成されると、プロンプト・エディターが開きます。
- ![alt text](lab2_GenAI_images/image-5.png)
+ ![alt text](lab2_GenAI_images/image-5-v2.png)
 
 ## プロンプトを作成してみよう
 プロンプト・エディターを用いて、プロンプトを作成し、出力を生成することができます。
 
  1. **Prompt** にある **Model:** のプルダウンメニューから、使いたいモデルを選択します。今回は、**mixtral-8x7b-instruct-v01** を選択します。
- ![alt text](<lab2_GenAI_images/image-20.png>)
+ ![alt text](<lab2_GenAI_images/image-20-v2.png>)
 
  2. プロンプトを作成します。
     1. **Context** にモデルへの命令文を入力します。今回は、「顧客の特性に応じて、おすすめの観光地を紹介するメール」を生成するプロンプトを作成します。以下の文章を参考に入力します。 (一文ごとに改行してください)   
     ***あなたは、優秀な観光業のマーケターです。***  
     ***観光地のPRをするため、お客様に興味を持ってもらえるメールを送ろうとしています。***  
     ***お客様の特性に合わせて、おすすめの観光地を紹介するメールを日本語で作成してください。***
-    ![alt text](lab2_GenAI_images/image-21.png)
+    ![alt text](lab2_GenAI_images/image-21-v2.png)
 
     2.  **Prompt input** には、モデルに応答してほしい文章を入力します。以下の文章を参考に入力します。  
     ***お客様は、20代で、写真撮影が好きです。***
-    ![alt text](lab2_GenAI_images/image-22.png)
+    ![alt text](lab2_GenAI_images/image-22-v2.png)
 
     3.  変数を追加します。
      変数は、生成AIの入力として使用されます。変数を使用しない場合も、少なくとも1つの変数を定義する必要があります。
@@ -127,10 +127,10 @@ Skill studioで、まず Project を作成し、そのコンポーネントの1�
 
  1. リストのスキル名の横にあるアイコン![alt text](lab2_GenAI_images/image-47_skill_private.png)をクリックし、スキルを非公開(Private)から公開(Public)にします。
  公開状態になるとアイコンが![alt text](lab2_GenAI_images/image-48_skill_public.png)になります。 
- ![alt text](lab2_GenAI_images/image-49.png)
+ ![alt text](lab2_GenAI_images/image-49-v2.png)
 
  2. **Share changes** をクリックします。
- ![alt text](lab2_GenAI_images/image-50.png)
+ ![alt text](lab2_GenAI_images/image-50-v2.png)
 
  3. **Share** をクリックします。
  ![alt text](lab2_GenAI_images/image-51.png)
@@ -140,7 +140,16 @@ Skill studioで、まず Project を作成し、そのコンポーネントの1�
  4. シェアが完了したら、**Back to *YourInitials*_recommendation**をクリックし、元のプロンプト・エディターの画面に戻ります。
  ![alt text](lab2_GenAI_images/image-53.png)
 
- 5. 次に **History** のタブをクリックします。
+5. **Publish**をクリックします。
+![alt text](lab2_GenAI_images/image-78.png)
+
+6. ポップアップが出てきたら、バージョンの名前の欄に **1.0.0** と入力して、**Create version and publish** をクリックします。
+![alt text](lab2_GenAI_images/image-79.png)
+
+7. バージョン履歴や現在公開しているバージョンは![alt text](lab2_GenAI_images/image-80.png)から確認することができます。
+![alt text](lab2_GenAI_images/image-81.png)
+
+<!-- 5. 次に **History** のタブをクリックします。
  ![alt text](lab2_GenAI_images/image-54.png)
 
  6. 一番上の行の **Version +** をクリックします。
@@ -158,18 +167,18 @@ Skill studioで、まず Project を作成し、そのコンポーネントの1�
 
  10. 正常に公開されると、以下のように **Published** と表示されます。
  ![alt text](lab2_GenAI_images/image-59.png)
-
- 11. 左上のメニュー (≣) から**スキル・スタジオ**をクリックして Skill studio に移動し、 **スキルおよびアプリ** タブ、**スキル** タブを順にクリックします。
+-->
+ 8. 左上のメニュー (≣) から**スキル・スタジオ**をクリックして Skill studio に移動し、 **スキルおよびアプリ** タブ、**スキル** タブを順にクリックします。
  公開した生成AIのスキルが **公開済み** の状態で表示されます。右端の ⁝ から**このスキルの強化**を選択します。
  ![alt text](lab2_GenAI_images/lab2-3.png)
 
- 12. 複数のタブがある画面が表示されます。左端の**名前**タブはスキルの名前を表しています。
+ 9. 複数のタブがある画面が表示されます。左端の**名前**タブはスキルの名前を表しています。
  ![alt text](lab2_GenAI_images/lab2-4.png)
  
- 13. **入力**タブをクリックします。この画面は、インポートしたスキルを実行する際の入力項目を表しています。  入力項目を画像の順に変更し、表示するラベルを日本語にしてみましょう。
+ 10. **入力**タブをクリックします。この画面は、インポートしたスキルを実行する際の入力項目を表しています。  入力項目を画像の順に変更し、表示するラベルを日本語にしてみましょう。
  ![alt text](lab2_GenAI_images/lab2-5.png)
 
- 14. **句**タブは、チャットからスキルを呼び出すためのフレーズを入力します。多くのフレーズを入力するほど、自然言語からスキルを判断する精度が向上します。日本語で例文を次の３つの文を追加します。
+ 11. **句**タブは、チャットからスキルを呼び出すためのフレーズを入力します。多くのフレーズを入力するほど、自然言語からスキルを判断する精度が向上します。日本語で例文を次の３つの文を追加します。
 
     - `観光地のお勧め文を作成して`
     - `おすすめ観光スポット`
@@ -181,13 +190,13 @@ Skill studioで、まず Project を作成し、そのコンポーネントの1�
     
     また、**Auto-generate phrases** をクリックすると、生成AIが自動でフレーズを生成してくれます。  
 
- 15. 他のタブも同様に動作を確認できます。
+ 12. 他のタブも同様に動作を確認できます。
     - **出力**タブは、スキルの出力を設定できます。スキルの実行結果を表やテキストの形式で出力することができます。
     - **次善のスキル**タブは、このスキルが使用された後に、次に行うべきスキルとして watsonx Orchestrate が提案するスキルを設定できます。 
 
- 16. 最後に右下の**発行**を押します。
+ 13. 最後に右下の**発行**を押します。
 
- 17. スキルが公開できたというメッセージが表示されます。
+ 14. スキルが公開できたというメッセージが表示されます。
  
  ![alt text](lab2_GenAI_images/lab2-7.png)
  
