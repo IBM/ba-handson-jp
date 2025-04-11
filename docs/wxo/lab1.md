@@ -79,7 +79,7 @@ watsonx Orchestrateには、プリビルド・スキルと呼ばれる1000以上
         "/hello-world": {
             "get": {
                 "operationId": "hello",
-                "summary": "Your-Initials Hello world",
+                "summary": "Your-Initials Hello world watsonx",
                 "responses": {
 ```
 4. インポート時に他のハンズオン実施者とスキルが重複しないように、ファイルの中の、title,summaryをユニークなものにします。これらの値のYourInitialsの部分をあなたのイニシャルに置き換えてファイルを保存してください。更新後のファイルは以下のようになるはずです。(イニシャルの置き換え箇所は、2か所あります。)
@@ -104,7 +104,7 @@ watsonx Orchestrateには、プリビルド・スキルと呼ばれる1000以上
         "/hello-world": {
             "get": {
                 "operationId": "hello",
-                "summary": "XX Hello world",
+                "summary": "XX Hello world watsonx",
                 "responses": {
 ```
 
