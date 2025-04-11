@@ -1,0 +1,58 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Your-Initials Hello World App Example",
+        "description": "This is a Hello World Example",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://ojnlvnhry9.execute-api.us-west-1.amazonaws.com/prod/"
+        }
+    ],
+    "security": [
+        {
+            "basic_auth": []
+        }
+    ],
+    "paths": {
+        "/hello-world": {
+            "get": {
+                "operationId": "hello",
+                "summary": "Your-Initials Hello world",
+                "responses": {
+                    "200": {
+                        "description": "Hello",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "x-ibm-show": false,
+                                            "example": 200,
+                                            "x-ibm-order": 1
+                                        },
+                                        "body": {
+                                            "type": "string",
+                                            "x-ibm-order": 2
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "basic_auth": {
+                "type": "http",
+                "scheme": "basic"
+            }
+        }
+    }
+}
