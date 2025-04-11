@@ -19,7 +19,7 @@
         "/hello-world": {
             "get": {
                 "operationId": "hello",
-                "summary": "Your-Initials Hello world watsonx",
+                "summary": "Your-Initials Hello World WatsonX",
                 "responses": {
                     "200": {
                         "description": "Hello",
