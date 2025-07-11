@@ -1,0 +1,1346 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../intro/">
+      
+      
+        <link rel="next" href="../tool/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+    
+    
+      
+        <title>Lab1 agent - Business Automation Handson</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+JP:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans JP";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aiagent" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Business Automation Handson" class="md-header__button md-logo" aria-label="Business Automation Handson" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Business Automation Handson
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab1 agent
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../wxo/" class="md-tabs__link">
+          
+  
+  watsonx Orchestarte
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  watsonx Orchestrate Agentic
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../baw/" class="md-tabs__link">
+          
+  
+  Business Automation Workflow
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Business Automation Handson" class="md-nav__button md-logo" aria-label="Business Automation Handson" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Business Automation Handson
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    watsonx Orchestarte
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            watsonx Orchestarte
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    はじめに
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo/lab1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab1 Hello world
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo/lab2_GenAI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab2 Generative AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo/lab3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab3 Skill flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo/lab4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab4 Decision
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo/lab5_AIAssistant/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab5 AI Assistant Builder
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo/OpenAPI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    (オプション)OpenAPI Builder
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    watsonx Orchestrate Agentic
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            watsonx Orchestrate Agentic
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    はじめに
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab0 intro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Lab1 agent
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Lab1 agent
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agentの作成
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本的な動きの確認
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Behaviorの定義
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#knowledge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Knowledgeの使用
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      エージェントのデプロイ
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      フィードバックの実施
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      お疲れ様でした！
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      オプション：モデルの変更
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ppt" class="md-nav__link">
+    <span class="md-ellipsis">
+      オプション：エージェントに知識を加える（ppt）
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab2 tool
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab3 flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prebuild/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab4 prebuild
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multi.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab5 multiagents
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Business Automation Workflow
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Business Automation Workflow
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baw/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    はじめに
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="aiagent">AIAgentを作ってみよう！</h1>
+<p>このLabでは、基本的なAIAgentの作り方を学びます。</p>
+<h2 id="agent">Agentの作成</h2>
+<ol>
+<li>
+<p>左上のメニューから<strong>Build</strong>を選択し、<strong>Agent Builder</strong>を選択します。<br />
+<a class="glightbox" href="../agent_images/agent-image01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image01.png" /></a></p>
+</li>
+<li>
+<p>右にある<strong>Create agent</strong>ボタンをクリックします。<br />
+<a class="glightbox" href="../agent_images/agent-image02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image02.png" /></a></p>
+</li>
+<li>
+<p><strong>Create from Scratch</strong>を選択します。<br />
+<a class="glightbox" href="../agent_images/agent-image03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image03.png" /></a></p>
+</li>
+<li>
+<p>このハンズオンではIBMに関する質問に回答するエージェントを作成するため、Nameを<strong>YourInitials-IBMInfo</strong>と設定します。<br />
+<a class="glightbox" href="../agent_images/agent-image04.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image04.png" /></a></p>
+</li>
+<li>
+<p>このエージェントの役割をDescriptionに記載します。watsonx Orchestrateは記載した内容をもとにどのエージェントを呼び出すかを判断するため、適切な記載が求められます。<br />
+このハンズオンでは、Descriptionに<strong>IBMの会社情報に関する質問に回答するエージェントです。</strong>と設定し、<strong>Create</strong>をクリックします。<br />
+<a class="glightbox" href="../agent_images/agent-image05.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image05.png" /></a></p>
+</li>
+<li>
+<p>Agentが作成されました。先ほど入力したNameとDescriptionが自動的に入っています。<br />
+<a class="glightbox" href="../agent_images/agent-image06.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image06.png" /></a></p>
+</li>
+</ol>
+<h2 id="_1">基本的な動きの確認</h2>
+<ol>
+<li>
+<p>右側にPreviewチャットが表示されています。ここで簡単に作成したエージェントを試すことができます。<br />
+<a class="glightbox" href="../agent_images/agent-image06-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image06-1.png" /></a></p>
+</li>
+<li>
+<p>まずは<strong>What is IBM?</strong>と入力します。<br />
+<a class="glightbox" href="../agent_images/agent-image07.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image07.png" /></a></p>
+</li>
+<li>
+<p>IBMに関する回答が返ってくることが確認できました。こちらは選択されたLLMが回答を作成しています。<br />
+<a class="glightbox" href="../agent_images/agent-image08.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image08.png" /></a></p>
+</li>
+<li>
+<p>続いて、<strong>What is the stock price of IBM?</strong>と入力します。日付などをきかれた場合には、必要に応じて回答してください。<br />
+<a class="glightbox" href="../agent_images/agent-image09.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image09.png" /></a></p>
+</li>
+<li>
+<p>その結果、最新の株価情報を得ることができないことが確認できます。<br />
+<a class="glightbox" href="../agent_images/agent-image10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image10.png" /></a></p>
+</li>
+</ol>
+<p>生成AIは案出し、要約などは得意ですが、新しい情報の取得は難しいことが確認できました。</p>
+<h2 id="behavior">Behaviorの定義</h2>
+<ol>
+<li>
+<p>Previewチャットに<strong>IBMについて教えてください。</strong>と入力します。<br />
+<a class="glightbox" href="../agent_images/agent-image11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image11.png" /></a></p>
+</li>
+<li>
+<p>その結果、ユーザーの質問は理解しているようですが、英語で回答が返ってきました。<br />
+<a class="glightbox" href="../agent_images/agent-image12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image12.png" /></a></p>
+</li>
+<li>
+<p>ユーザーが使いやすいよう利用ユーザーに合わせた動きを行うために、<strong>Behavior</strong>に応答の定義を行います。このハンズオンでは、日本人を対象としたAgentの作成のために、<strong>回答は必ず日本語で行ってください。</strong>と入力します。<br />
+<a class="glightbox" href="../agent_images/agent-image13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image13.png" /></a></p>
+</li>
+<li>
+<p>Previewチャットをリフレッシュしてください。<br />
+<a class="glightbox" href="../agent_images/agent-image14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image14.png" /></a></p>
+</li>
+<li>
+<p>再度、<strong>IBMについて教えてください。</strong>と入力します。<br />
+<a class="glightbox" href="../agent_images/agent-image11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image11.png" /></a></p>
+</li>
+<li>
+<p>次は日本語で返ってくることが確認できました。<br />
+<a class="glightbox" href="../agent_images/agent-image16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image16.png" /></a></p>
+</li>
+</ol>
+<p>このように、ユーザビリティを上げるために、behaviorを適切に定義することが必須です。</p>
+<h2 id="knowledge">Knowledgeの使用</h2>
+<p>watsonx Orchestrateは組み込みのRAG (Retrieval Augmented Generation) 機能を提供し、エージェントごとにドキュメントをアップロードすることで、その内容をもとに回答を生成することが可能です。<br />
+1. このハンズオンでは年次報告書を読み込ませて、それに基づいた質問に対応するエージェントを作成します。<br />
+エージェントが適切なタイミングでKnowledgeを使用するために、読み込むファイルがどのようなものであるかを定義する必要があります。<br />
+今回は、Descriptionに<strong>これは2024年のIBMの年次報告書です。財務情報とIBMのコア事業戦略を含んでいます。</strong>と入力します。<br />
+<a class="glightbox" href="../agent_images/agent-image17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image17.png" /></a></p>
+<ol>
+<li>
+<p><strong>Upload files</strong>のボタンをクリックします。ボックスにドラッグするか、または青字のテキストをクリックしてファイル・アップロード・ウィンドウを開いて、ファイルをアップロードします。<br />
+今回のハンズオンでは、<a href="../files/2024-annual-report.pdf">こちらのファイル</a>を使用します。<br />
+<a class="glightbox" href="../agent_images/agent-image18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image18.png" /></a></p>
+</li>
+<li>
+<p>レポートが取り込まれるまでには少し時間がかかります。完了すると、すべてのファイルがFilesのリストに表示されます。<br />
+<a class="glightbox" href="../agent_images/agent-image19.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image19.png" /></a></p>
+</li>
+<li>
+<p>Previewチャットで<strong>IBMの2024 年のフリー・キャッシュ・フローはいくらですか。</strong>と入力します。<br />
+<a class="glightbox" href="../agent_images/agent-image20.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image20.png" /></a></p>
+</li>
+<li>
+<p>watsonx Orchestrateが先ほど読み込んだファイルの内容をもとに、適切な回答を行っていることが確認できます。<br />
+<a class="glightbox" href="../agent_images/agent-image21.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image21.png" /></a></p>
+</li>
+</ol>
+<p>ドキュメントをアップロードすることで、エージェントに対して簡単にRAGを構成できることが確認できました。</p>
+<h2 id="_2">エージェントのデプロイ</h2>
+<p>誰でもこのエージェントを使うことができるように、エージェント作成後は<strong>Deploy</strong>をする必要があります。<br />
+1. 右上の<strong>Deploy</strong>ボタンをクリックします。<br />
+<a class="glightbox" href="../agent_images/agent-image22.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image22.png" /></a>
+2. 特に何も入力せず、右下の<strong>Deploy</strong>をクリックします。<br />
+<a class="glightbox" href="../agent_images/agent-image23.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image23.png" /></a>
+3. これでDeployが完了しました。<br />
+左上のメニューから<strong>Chat</strong>を選択すると、チャット画面に移動します。Deployされていることが確認できました。<br />
+<a class="glightbox" href="../agent_images/agent-image24.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image24.png" /></a></p>
+<h2 id="_3">フィードバックの実施</h2>
+<p>ユーザーからのフィードバックを元に、回答を改善することも重要です。watsonx Orchestrateではユーザーのフィードバックを受け付ける機能を提供します。どの様なフィードバックが可能かを見てみましょう。  </p>
+<ol>
+<li>
+<p>再度<strong>IBM の 2024 年のフリー・キャッシュ・フローはいくらですか。</strong>と入力し、回答に対して👍をクリックします。<br />
+<a class="glightbox" href="../agent_images/agent-image25.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image25.png" /></a></p>
+</li>
+<li>
+<p>回答が簡潔であったため、<strong>Concise</strong>を選択し、<strong>Submit</strong>をクリックします。<br />
+<a class="glightbox" href="../agent_images/agent-image26.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image26.png" /></a></p>
+</li>
+<li>
+<p>一方で、再度<strong>IBMの今日の株価を教えてください。</strong>と入力すると、求めていた回答が返ってきませんでした。<br />
+<a class="glightbox" href="../agent_images/agent-image27.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image27.png" /></a></p>
+</li>
+<li>
+<p>そのため、👎をクリックし、<strong>Incomplete</strong>を選択し、<strong>Submit</strong>をクリックします。<br />
+<a class="glightbox" href="../agent_images/agent-image28.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image28.png" /></a></p>
+</li>
+<li>
+<p>ビルダーと管理者はこのフィードバック結果を、APIで確認し、回答の改善に役立てることが可能です。APIの使用方法などは、今回のハンズオンでは省略します。  </p>
+</li>
+</ol>
+<h2 id="_4">お疲れ様でした！</h2>
+<p>このLab1では、watsonx OrchestrateのGUIを使って、簡単にAgentを作成しました。利用ユーザーや業務内容に合わせてカスタマイズを行うことで、ユーザービリティを上げることが可能です。  </p>
+<h2 id="_5">オプション：モデルの変更</h2>
+<ol>
+<li>
+<p>デフォルトでLLMが選択されています。現在のバージョンでは、<strong>llama-3-2-90b-vision-instruct</strong>が選択されています。<br />
+<a class="glightbox" href="../agent_images/agent-image29.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image29.png" /></a></p>
+</li>
+<li>
+<p>wxOがサポートしているモデルに切り替えることが可能になります。このハンズオンでは、<strong>llama-3-405b-instruct</strong>に切り替えます。<br />
+現在サポートしているLLMは<a href="https://www.ibm.com/docs/ja/watsonx/watson-orchestrate/base?topic=agents-choosing-foundation-model">こちら</a>です。<br />
+<a class="glightbox" href="../agent_images/agent-image30.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image30.png" /></a></p>
+</li>
+</ol>
+<p>ユースケースに合わせたLLMを選択することで、適切な回答、処理を行うエージェントを作成することができます。</p>
+<h2 id="ppt">オプション：エージェントに知識を加える（ppt）</h2>
+<p>watsonx Orchestrateには、エージェントチャットと呼ばれるユーザーインターフェースから生成AIを活用したチャットを使用することが可能ですが、以下の方法でLLMに知識を加えることができます。：</p>
+<ul>
+<li>エージェントに直接ファイルをアップロード</li>
+<li>エージェントへ知識に関するコンテキストの提供</li>
+<li>外部コンテンツ・リポジトリへの接続</li>
+</ul>
+<p>このLabでは、エージェントに直接ファイルをアップロードしてエージェントに知識を加える方法について学びます。では、始めましょう！</p>
+<ol>
+<li>
+<p><a href="../files/BWL_Pricing_Overview.PPTX">こちらのリンク</a>を右クリックしてファイルに保存してください。このファイルはBWLの価格について説明した資料です。</p>
+</li>
+<li>
+<p>P4,5にそれぞれ汎用版とUS版のBWLの価格が記載されていることを確認します。
+<a class="glightbox" href="../intro_images/image-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../intro_images/image-5.png" /></a>
+<a class="glightbox" href="../intro_images/image-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../intro_images/image-6.png" /></a>  </p>
+</li>
+<li>
+<p>メニューからAgent Builderを選択します。<br />
+<a class="glightbox" href="../intro_images/image-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../intro_images/image-7.png" /></a></p>
+</li>
+<li>
+<p>Create agentを選択します。
+<a class="glightbox" href="../intro_images/image-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../intro_images/image-8.png" /></a></p>
+</li>
+<li>
+<p>Create from scratchが選択されていることを確認します。Nameに’XX-BWL-Price’(XXは自身のイニシャル)、Descriptionに’Agents who can answer BWL prices.’と入力し、Createをクリックします。
+<a class="glightbox" href="../intro_images/image-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../intro_images/image-9.png" /></a></p>
+</li>
+<li>
+<p>LLMとしてllama-3-2-90b-vision-instructが選択されていることを確認します。
+<a class="glightbox" href="../intro_images/image-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../intro_images/image-10.png" /></a></p>
+</li>
+<li>
+<p>チャットに画面の記載のように入力してください。AIから何度か回答までに質問が繰り返される様子がわかります。
+<a class="glightbox" href="../intro_images/image-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../intro_images/image-11.png" /></a></p>
+</li>
+<li>
+<p>Knowledgeを選択し、Documentsの下にあるUpload filesをクリックします。
+<a class="glightbox" href="../intro_images/image-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../intro_images/image-12.png" /></a></p>
+</li>
+<li>
+<p>先ほどダウンロードしたファイルをアップロードします。
+<a class="glightbox" href="../intro_images/image-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../intro_images/image-13.png" /></a></p>
+</li>
+<li>
+<p>アップロードが成功したら更新ボタンをクリックします。
+<a class="glightbox" href="../intro_images/image-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../intro_images/image-14.png" /></a></p>
+</li>
+<li>
+<p>デフォルトのチャットに戻るので、再び「Blueworks Liveの価格について教えてください。」と入力します。ファイルをアップロードする前の結果とは異なり、プランごとの価格が一覧として表示されることがわかります。
+<a class="glightbox" href="../intro_images/image-15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../intro_images/image-15.png" /></a></p>
+</li>
+</ol>
+<!-- 
+ブラウザで定義→こんにちは→英語で返答→日本語で会話可能であることを指示。→大阪弁で会話可能なことを指示
+大阪弁を削除。ペルソナを設定することが大事であることを学ぶ。
+
+
+
+
+生成AIが得意なのは、案だし、要約など、検索は新しい情報が無いことを確認する（大谷翔平は昨日ホームランを打ちましたか？）
+
+生成AIに関するセミナーのタイトルを10個挙げてください
+
+
+## Knowledgeの使用
+RAGの設定（IBMのAnnualReportを読み込む）
+
+IBMの2021年の売り上げは？
+
+## フィードバックの実施
+
+
+
+フィードバックの実施
+
+
+
+## オプション：モデルを変更して試してもらう。俳句で回答するなど、自由に試してもらう。ペルソナを変更してみる。
+
+## watsonx Orchestrateの画面を確認してみよう
+このセクションでは、watsonx Orchestrateの主な画面構成について学びます。
+
+ 1. watsonx Orchestrateにログインします。
+ 2. IBM-idを入力して、**Continue** ボタンをクリックします。
+ 3. 複数テナントに所属する場合には、テナント選択画面が表示されるので、適切なテナント名を選択してください。  
+　
+　![alt text](lab1_images/lab1-1.png)
+
+ 4. 以下のような画面が表示されます。（ツアーのダイアログが表示された場合にはスキップしてください。）  
+　![alt text](lab1_images/lab1-2.png)
+
+ 5. 詳細は以下の通りです。
+
+    1.メニュー  
+    各画面へ遷移するためのメニューが表示されます。    
+
+    2.チャット画面  
+    watsonx Orchestrateへ様々な処理を依頼するためのチャット画面    
+
+    3.AI assistant builder 
+    外部のWebサイトなどに組みこんだり、Slackなどのチャネルと統合可能なAIアシスタントの構成が可能です。  
+
+    4.Skill studio 
+    スキルの追加やスキルフローの作成、意思決定、ワークフロー、生成AIに関する処理をローコードで実装し、スキル(Automations)として公開が可能です。  
+
+    5.ヘルプ  
+    各種ヘルプへのリンクが表示されます。複数アカウントに所属する場合には、Swtich Accountからアカウントの切り替えが可能です。  
+
+    6.タスク・リスト  
+    ワークフローを使用している場合に、自分に割り当てられたタスクが表示されます。  
+
+    7.プロファイル/設定  
+    ユーザーのプロファイル設定が可能です。
+
+6. テナントIDを取得するには、右上のイニシャルが表示されているアイコンをクリックし、製品情報を選択します。  
+![alt text](lab1_images/lab1-3.png)
+
+7. 以下のようなダイアログが表示されます。crnからはじまる文字列がIDです。サポートに問い合わせる際にはこのIDを伝える必要があるため、覚えておきましょう。  
+![alt text](lab1_images/lab1-4.png)
+
+## スキルの追加
+watsonx Orchestrateには、プリビルド・スキルと呼ばれる1000以上の様々なスキルが付属し、すぐに使用することが可能ですが、以下の方法でスキルを追加することも可能です。：
+
+- Open APIの定義ファイル(json/yaml)をインポートする。
+- 既存スキル(ワークフローやRPA)のディスカバリー
+- スキルフローの作成
+- Automation Builderによるスキルの実装
+
+このLabでは、OpenAPI定義をインポートしてスキルをカタログに追加する方法について学びます。では、始めましょう！
+
+1. まず[こちらのリンク](https://n28bf9mpmg.execute-api.us-west-2.amazonaws.com/default/hellowatonx)をクリックして、Hello world OpenAPIが利用可能であることを確認してください。 {"message":"Missing Authentication Token"}と表示されればOKです。このAPIはAWS上で動作するシンプルなAPIです。
+
+2. [こちらのリンク](./files/helloworld-watsonx.yaml)を右クリックしてファイルに保存してください。このファイルは先ほどのAPIの定義情報です。
+
+3. notepad, VSCode, vi/vimといったお好みのエディタでファイルを開き編集します。
+<div class="highlight"><pre><span></span><code>openapi: 3.0.3
+info:
+  title: YourInitials-helloworld-watsonx
+  description: Hello world WatsonX
+  version: 1.0.0
+  x-ibm-annotations: true
+  x-ibm-application-name: IBM Watsonx - Training
+  x-ibm-application-id: watsonxai-YourInitials-training
+  x-ibm-skill-type: imported
+  x-ibm-application-icon: &lt;svg version=&quot;1.1&quot; id=&quot;Layer_1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot; 
+servers:
+  - url: https://n28bf9mpmg.execute-api.us-west-2.amazonaws.com/default
+security:
+  - passwordGrant: [ ]
+paths:
+  /hellowatsonx:
+    post:
+      summary: YourInitials Hello World WatsonX
+      operationId: Hello-YourInitials-watsonx
+</code></pre></div>
+4. インポート時に他のハンズオン実施者とスキルが重複しないように、ファイルの中の、x-ibm-application-id, title,summaryとoperationIdをユニークにする必要があります。これらの値のYourInitialsの部分をあなたのイニシャルに置き換えてファイルを保存してください。更新後のファイルは以下のようになるはずです。(イニシャルの置き換え箇所は、4か所あります。)
+<div class="highlight"><pre><span></span><code>openapi: 3.0.3
+info:
+  title: XX-helloworld-watsonx
+  description: Hello world WatsonX
+  version: 1.0.0
+  x-ibm-annotations: true
+  x-ibm-application-name: IBM Watsonx - Training
+  x-ibm-application-id: watsonxai-XX-training
+  x-ibm-skill-type: imported
+  x-ibm-application-icon: &lt;svg version=&quot;1.1&quot; id=&quot;Layer_1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot; 
+servers:
+  - url: https://n28bf9mpmg.execute-api.us-west-2.amazonaws.com/default
+security:
+  - passwordGrant: [ ]
+paths:
+  /hellowatsonx:
+    post:
+      summary: XX Hello World WatsonX
+      operationId: Hello-XX-watsonx
+</code></pre></div>
+
+5. メニューから**スキル・スタジオ**を選択します。  
+![alt text](lab1_images/lab1-5.png)
+
+6. 右上にある**作成**ボタンをクリックし、**APIのインポート**をクリックします。  
+![alt text](lab1_images/lab1-6.png)
+
+7. **ファイルから**を選択してください。  
+![alt text](lab1_images/lab1-7.png)
+
+8. 先ほど保存したファイルをドラッグ＆ドロップするか、クリックして選択してください。
+9. ファイルの検証が実施され、問題無ければ以下の様に表示されます。  
+![alt text](lab1_images/lab1-8.png)
+
+10. 右下の**次へ**をクリックしてください。追加するAPIの内容が表示されます。
+11. Hello World WatsonXのチェックボックスをチェックし、右下の**追加**ボタンをクリックしてください。  
+![alt text](lab1_images/lab1-9.png)
+
+12. スキル一覧にインポートしたスキルが表示されるので、右側のメニューを展開し、**このスキルの強化**を選択してください。  
+![alt text](lab1_images/lab1-10.png)
+
+13. スキルの詳細が表示されます。スキルの強化画面から、スキルの入出力の表示、スキルを呼び出すためのフレーズ、watsonx Orchestrateが次に実行するスキルの提案を行う次善のスキルの設定などを行うことが可能です。  
+![alt text](lab1_images/lab1-11.png)
+
+14. **入力**タブをクリックしてください。入力タブでは、スキルの入力について確認することができます。スキルの入力パラメータに**name**があり、必須のパラメータで無いことが分かります。  
+![alt text](lab1_images/lab1-12.png)
+
+15. **出力**タブをクリックしてください。Outputタブでは、スキルの出力について確認することが可能です。スキルの出力パラメータとして**greeting**が定義されていることが分かります。  
+![alt text](lab1_images/lab1-13.png)
+
+16. **セキュリティー**タブをクリックしてください。セキュリティータブでは、認証情報や、URLを確認することができます。また、接続のテストを行うことができます。  
+![alt text](lab1_images/lab1-14.png)
+
+17. 接続のテストを実行してみましょう。**ユーザー名**に test@acme.com、**パスワード**にtestを入力します。今回使用するAPIについては認証不要のため、どんな値を入力しても問題ありません。
+
+18. **送信**ボタンをクリックし、**認証に成功しました**と表示されることを確認します。  
+![alt text](lab1_images/lab1-15.png)
+
+19. **句**タブをクリックしてください。句タブでは、スキルを呼び出す際に使用するフレーズを登録します。ユーザーがここに登録した例文にマッチした文章をチャットから入力することでこのスキルが呼び出されます。複数のスキルがマッチした場合にはwatsonx Orchestrateは実行するスキルを確認してきます。既にフレーズが登録済みのはずですが、いくつかのフレーズを追加してみてください。また、入力フィールドにカーソルを移動させると表示される、**Auto-generate phrases**ボタンをクリックすることで生成AIを用いてフレーズのサンプルを自動生成することも可能です。  
+![alt text](lab1_images/lab1-16.png)
+
+20. **次善のスキル**タブをクリックしてください。このタブでは、スキルを実行した後に次に実行すべきスキルの選択肢として表示される複数のスキルを定義することが可能です。
+![alt text](lab1_images/lab1-17.png)
+    * 次善のスキルは10個まで登録することが可能です。
+    * 次善のスキルに追加した各スキルに対して明示的に変数のマッピングを行うことが可能です。  
+
+21. **発行**ボタンをクリックして、スキルを発行してください。  
+![alt text](lab1_images/lab1-18.png)
+
+
+## Personal Skillへのスキルの追加
+ここまでの作業で、カタログにスキルを追加することができました。次のステップとしてPersonal Skillにカタログからスキルを追加します。
+
+1. 左上のメニューから**チャット**を選択してチャット画面を表示します。  
+![alt text](lab1_images/lab1-19.png)
+
+2. 以下のような画面が表示されるはずです。左下の**スキルをカタログから追加**をクリックします。  
+![alt text](lab1_images/lab1-20.png)
+
+3. 検索フォームに先ほど作成したスキルの名前(hello world)を入力して検索を実行してください。表示されたアプリをクリックします。
+![alt text](lab1_images/lab1-21.png)
+
+4. スキルを選択して、**スキルの追加**をクリックしてスキルを追加します。  
+![alt text](lab1_images/lab1-22.png)
+
+5. 右上の**アプリの接続**をクリックしてアプリケーションと接続します。
+![alt text](lab1_images/lab1-23.png)
+
+6. username,passwordに任意の値を入力し、**アプリの接続**ボタンをクリックします。  
+今回は、username は**test@acme.com**、passwordは**test**となります。
+![alt text](lab1_images/lab1-24.png)
+
+7. アプリケーションとの接続が完了しました！なお、接続はカタログからではなく、チャットからスキルを呼び出した際に実行することも可能です。  
+![alt text](lab1_images/lab1-25.png)
+
+8. メニューからチャット画面に戻ります。スキルが追加されていることが分かります。  
+![alt text](lab1_images/lab1-26.png)
+
+## スキルの動作確認
+カタログから追加したスキルは以下の2つの方法で実行可能です:  
+- チャット画面下部に表示されているスキルをクリックする  
+- スキルをEnhanceした際に指定したフレーズ(watsonx Orchestrateが指定されたフレーズを元に学習するため、完全一致する必要はありません)を入力する
+
+1. チャットの入力欄に、**Hello World WatsonX**と入力してみてください。  
+![alt text](lab1_images/lab1-27.png)
+
+2. 先ほど追加したスキルが呼び出され、入力フォームが表示されます。  
+![alt text](lab1_images/lab1-28.png)
+
+3. 自分の名前を入力し、**適用**ボタンをクリックしてください。  
+![alt text](lab1_images/lab1-29.png)
+
+
+4. 結果が表示されるはずです。  
+![alt text](lab1_images/image-45.png)
+
+4. チャットの内容は右上のホウキアイコンをクリックすることで削除することが可能です。  
+![alt text](lab1_images/lab1-31.png)
+
+## お疲れさまでした！
+このハンズオンでは、watsonx Orchestrateにログインし、カスタムスキルを追加、強化してから発行し、カタログに追加しました。そしてカタログからスキルを追加し、チャット画面から呼び出しました。　
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.tabs", "navigation.sections", "content.code.copy", "toc.integrate"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dd8806f2.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
