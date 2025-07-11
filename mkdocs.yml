@@ -36,6 +36,16 @@ nav:
   - Lab5 AI Assistant Builder: wxo/lab5_AIAssistant.md
   - (オプション)OpenAPI Builder: wxo/OpenAPI.md
 
+- watsonx Orchestrate Agentic:
+  - はじめに: wxoagent/index.md
+  - Lab0 intro: wxoagent/intro.md
+  - Lab1 agent: wxoagent/agent.md
+  - Lab2 tool: wxoagent/tool.md
+  - Lab3 flow: wxoagent/flow.md
+  - Lab4 prebuild: wxoagent/prebuild.md
+  - Lab5 multiagents: wxoagent/multi.md
+
+
 - Business Automation Workflow:
   - はじめに: baw/index.md
 
