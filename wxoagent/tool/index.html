@@ -1,0 +1,1121 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../agent/">
+      
+      
+        <link rel="next" href="../flow/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+    
+    
+      
+        <title>Lab2 tool - Business Automation Handson</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+JP:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans JP";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tool" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Business Automation Handson" class="md-header__button md-logo" aria-label="Business Automation Handson" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Business Automation Handson
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab2 tool
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../wxo/" class="md-tabs__link">
+          
+  
+  watsonx Orchestarte
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  watsonx Orchestrate Agentic
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../baw/" class="md-tabs__link">
+          
+  
+  Business Automation Workflow
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Business Automation Handson" class="md-nav__button md-logo" aria-label="Business Automation Handson" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Business Automation Handson
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    watsonx Orchestarte
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            watsonx Orchestarte
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    はじめに
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo/lab1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab1 Hello world
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo/lab2_GenAI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab2 Generative AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo/lab3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab3 Skill flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo/lab4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab4 Decision
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo/lab5_AIAssistant/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab5 AI Assistant Builder
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo/OpenAPI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    (オプション)OpenAPI Builder
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    watsonx Orchestrate Agentic
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            watsonx Orchestrate Agentic
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    はじめに
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab0 intro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agent/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab1 agent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Lab2 tool
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Lab2 tool
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tool_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tool のインポート
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      出来ることの確認
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Toolの利用
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      複数地名の確認（エージェンティックな振る舞い）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      表形式の表示
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      エージェントスタイルの違いの確認
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optionmcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option：MCPの利用
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      お疲れさまでした！
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab3 flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prebuild/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab4 prebuild
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multi.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab5 multiagents
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Business Automation Workflow
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Business Automation Workflow
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baw/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    はじめに
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="tool">Tool を定義して呼び出してみよう！</h1>
+<p>Tool は、ユーザーに代わってデータを照会したり、ドキュメントを作成したり、トランザクションを実行したりするコンポーネントです。
+この Lab では、外部の API をインポートして Tool を定義し、AI Agent から利用する方法について学びます。</p>
+<h2 id="tool_1">Tool のインポート</h2>
+<p>天気の情報を取得する OpenAPI 形式のファイルをインポートします。インポートする前に、Lab1 で作成した AI Agent で天気の質問に回答できるか確認してみましょう。</p>
+<ol>
+<li>
+<p>左上のメニューを開き、<strong>Chat</strong> を選択してください。<br />
+<a class="glightbox" href="../tool_images/image.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image.png" /></a></p>
+</li>
+<li>
+<p>左上の Agents が <strong>(YourInitials)-IBMInfo</strong> になっていることを確認してください。<br />
+<a class="glightbox" href="../tool_images/image-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-1.png" /></a></p>
+</li>
+<li>
+<p>お好きな地域の天気を聞いてみてください。Tool をインポートする前の状態では、正しく回答できないことを確認します。<br />
+<a class="glightbox" href="../tool_images/image-42.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-42.png" /></a></p>
+</li>
+<li>
+<p>インポートする Tool を用意します。<a href="../files/weather.yaml">こちらのリンク</a>を右クリックし、名前を付けて保存してください。</p>
+<ul>
+<li>Tool は、OpenAPI 形式 もしくは MCP に対応した物をインポート可能です。</li>
+<li>Python で Tool を実装し、SaaS 環境に導入することも可能です。  </li>
+</ul>
+</li>
+<li>
+<p>左上のメニューを開き、<strong>Build &gt; Agent Builder</strong> を選択してください。<br />
+<a class="glightbox" href="../tool_images/image-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-3.png" /></a></p>
+</li>
+<li>
+<p><strong>(YourInitials)-IBMInfo</strong> のエージェントをクリックします。<br />
+<a class="glightbox" href="../tool_images/image-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-4.png" /></a></p>
+</li>
+<li>
+<p>Toolset のメニューで <strong>Add tool</strong> をクリックします。<br />
+<a class="glightbox" href="../tool_images/image-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-5.png" /></a></p>
+</li>
+<li>
+<p>Toolset では、以下の4つの方法でエージェントに Tool を追加できます。</p>
+<ul>
+<li>カタログからのプリビルドツールの追加 (Add from catalog)</li>
+<li>ローカルインスタンスからのカスタムツールの追加 (Add from local instance)</li>
+<li>カスタムツールのインポート (Import)</li>
+<li>ツール・フローの作成 (Create a new flow)　※ Lab3 で実施します。</li>
+</ul>
+<p>今回は <strong>Import</strong> をクリックします。
+<a class="glightbox" href="../tool_images/image-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-6.png" /></a></p>
+</li>
+<li>
+<p><strong>Import from file</strong> をクリックします。
+<a class="glightbox" href="../tool_images/image-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-8.png" /></a></p>
+</li>
+<li>
+<p>先ほど保存した weather.yaml をアップロードし、<strong>Next</strong> をクリックします。
+<a class="glightbox" href="../tool_images/image-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-9.png" /></a></p>
+</li>
+<li>
+<p>Operations のチェックボックスにチェックを入れ、<strong>Done</strong> をクリックします。<br />
+<a class="glightbox" href="../tool_images/image-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-10.png" /></a></p>
+</li>
+<li>
+<p>以下のメッセージが表示されたら、Tool の追加は完了です。<br />
+<a class="glightbox" href="../tool_images/image-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-11.png" /></a></p>
+</li>
+</ol>
+<h2 id="_1">出来ることの確認</h2>
+<ol>
+<li>
+<p>右側の Preview のチャットに、<strong>あなたのできることを教えてください。</strong> と聞いてみましょう。</p>
+</li>
+<li>
+<p>1回目の質問では定型のあいさつが返ってきましたが、2回目に同じ質問をすると 1. 天気情報の取得、2. IBMの年次報告書の提供が実行できると回答されます。
+<a class="glightbox" href="../tool_images/image-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-12.png" /></a></p>
+</li>
+<li>
+<p>(オプション) Behavior の Instructions に <strong>定型の挨拶は省略し、最初の質問から回答してください。</strong> のように指示を追加すると、1回目から正しく回答してくれるようになります。
+<a class="glightbox" href="../tool_images/image-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-13.png" /></a></p>
+</li>
+</ol>
+<h2 id="tool_2">Toolの利用</h2>
+<ol>
+<li>
+<p>Toolを正しく実行するため、Instructions をすべて削除します。
+<a class="glightbox" href="../tool_images/image-26.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-26.png" /></a></p>
+</li>
+<li>
+<p>チャットをリロードし、先ほどと同じくお好きな地域の天気を聞いてみましょう。正しく回答が返ってくることを確認できます。
+<a class="glightbox" href="../tool_images/image-16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-16.png" /></a></p>
+<p>Show Reasoning をクリックして Step1 を開いてみると、入力した地名から緯度と経度を認識し、パラメータを適切に変換してくれていることが確認できます。
+<a class="glightbox" href="../tool_images/image-17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-17.png" /></a></p>
+<p>うまく回答されない場合は、以下の文章を Instructions に追加し、チャットをリロードして再度質問してみてください。<br />
+<div class="highlight"><pre><span></span><code>ユーザーから特定の都市の気象情報を求められた場合には適切なパラメータでToolを呼び出してください。
+</code></pre></div></p>
+</li>
+</ol>
+<h2 id="_2">複数地名の確認（エージェンティックな振る舞い）</h2>
+<p>次に、複数の地域の天気を比較する質問をし、エージェンティックな振る舞いを体験してみましょう。</p>
+<ol>
+<li>
+<p>チャットに、<strong>横浜と宇都宮はどっちが涼しい？</strong> と入力してみてください。<br />
+横浜と宇都宮の気温を表示し、どちらの方が涼しいか回答してくれるはずです。
+<a class="glightbox" href="../tool_images/image-18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-18.png" /></a></p>
+</li>
+<li>
+<p>Show Reasoning をクリックすると、Step1 と Step2 で横浜と宇都宮の天気が取得されていることが確認できます。<br />
+ただ、2つを比較するという処理は Tool に定義されていないため、AI Agent のベースとなる LLM がエージェンティック (自律的) に実行したと読み取ることができます。</p>
+</li>
+</ol>
+<h2 id="_3">表形式の表示</h2>
+<p>今度は、複数の地域の天気を表形式で表示してみましょう。</p>
+<ol>
+<li>北海道の市町村を3つ選択し、それらの市町村の気温を表形式で出力してみましょう。<br />
+3市町村の緯度・経度ができるだけ異なるように選んでみてください。
+<a class="glightbox" href="../tool_images/image-20.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-20.png" /></a></li>
+</ol>
+<p>こちらも、各市町村の気温は Tool によって取得されていますが、表形式での出力は LLM のエージェンティックな判断によって行われていることがわかります。</p>
+<p>もしうまく表示されない場合は、<strong>Githubマークダウン形式の表形式で表示して</strong> とチャットに入力してみましょう。</p>
+<h2 id="_4">エージェントスタイルの違いの確認</h2>
+<p>エージェントスタイルの違いにより、Agent の振る舞いがどのように変わるか確認してみましょう。<br />
+エージェントスタイルは デフォルト と ReAct の2種類があり、最初はデフォルトで設定されています。</p>
+<ol>
+<li>
+<p>エージェントスタイルがデフォルトの状態で、<strong>明日の千葉の気温は、今日より10度高くなるらしいのですが、何度になりますか？</strong> と質問してみましょう。おそらく、正しい回答は返ってこないと思います。
+<a class="glightbox" href="../tool_images/image-21.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-21.png" /></a></p>
+</li>
+<li>
+<p>エージェントスタイルを ReAct に変更してみましょう。左側の Profile の中にある Agent Style を <strong>ReAct</strong> に変更してください。
+<a class="glightbox" href="../tool_images/image-23.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-23.png" /></a></p>
+</li>
+<li>
+<p>チャットをリロードし、もう一度 1 と同じ質問をしてみましょう。今度は正しく回答できているかと思います。
+<a class="glightbox" href="../tool_images/image-24.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-24.png" /></a></p>
+</li>
+</ol>
+<p>このように、ReAct の方が複雑な質問や指示も正しく考えて実行することができます。ただ、その分デフォルトよりも回答が遅くなるため、用途に応じた使い分けが重要です。</p>
+<p>各エージェントスタイルの概要は、<a href="https://www.ibm.com/docs/ja/watsonx/watson-orchestrate/base?topic=agents-choosing-agent-style">製品ドキュメント</a>に以下のように記載されています。</p>
+<table>
+<thead>
+<tr>
+<th>エージェントスタイル</th>
+<th>特徴</th>
+<th>適した作業</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>デフォルト</td>
+<td>プロンプトを理解し、最適なアクションを決定し、利用可能なツールを使用するために、その基礎となる言語モデルの組み込み推論機能を使用する。</td>
+<td>・ 迅速で、単純な作業に適している。<br>・ ロジックが直線的で、文脈に応じた絞り込みが必要ないシナリオに最適。</td>
+</tr>
+<tr>
+<td>ReAct</td>
+<td>エージェントがステップを計画し、タスクを熟考し、実行前に確認を求めたり、修正を提案したりすることを可能にする。 要求をより小さな構成要素に分解し、中間結果を評価し、必要に応じてアプローチを修正する。</td>
+<td>・ より複雑な作業や発展的な作業に適している。<br>・ 意思決定が条件ロジック、文脈の理解、複数のツール間のコラボレーションを伴うようなユースケースに最適。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="optionmcp">Option：MCPの利用</h2>
+<p>MCP を利用して、Time MCP Server という MCP サーバーをインポートしてみましょう。  </p>
+<p>MCP (Model Context Protocol) は、生成AIが外部のツールやデータソースと連携するための標準規格です。MCP により、AI Agent は MCP サーバーが提供する外部ツールを検出し、使用することができます。<br />
+今回は、Time MCP Server という MCP サーバーをインポートし、時刻を取得する外部のツールを呼び出してみましょう。</p>
+<p>(ハンズオン環境に既に MCP サーバーが追加されている場合は、4-7 をスキップし 8 から始めてください)</p>
+<ol>
+<li>
+<p>左側の Toolset で <strong>Add tool</strong> をクリックします。
+<a class="glightbox" href="../tool_images/image-27.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-27.png" /></a></p>
+</li>
+<li>
+<p><strong>Import</strong> をクリックします。
+<a class="glightbox" href="../tool_images/image-28.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-28.png" /></a></p>
+</li>
+<li>
+<p><strong>Import from MCP server</strong> をクリックします。
+<a class="glightbox" href="../tool_images/image-29.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-29.png" /></a></p>
+</li>
+<li>
+<p><strong>Add MCP server</strong> をクリックします。
+<a class="glightbox" href="../tool_images/image-31.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-31.png" /></a></p>
+</li>
+<li>
+<p>以下のように入力し、<strong>Connect</strong> をクリックします。<br />
+<strong>Server name:</strong> time_mcp<br />
+<strong>Install command:</strong> npx -y time-mcp<br />
+<a class="glightbox" href="../tool_images/image-32.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-32.png" /></a></p>
+</li>
+<li>
+<p>Connect が成功したら、<strong>Done</strong> をクリックします。<br />
+<a class="glightbox" href="../tool_images/image-33.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-33.png" /></a></p>
+</li>
+<li>
+<p>Manage MCP servers のメニューが出たら、右上の × で閉じます。<br />
+<a class="glightbox" href="../tool_images/image-34.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-34.png" /></a></p>
+</li>
+<li>
+<p>(MCP追加済みの方のみ) 左上の Select MCP server より、<strong>time_mcp</strong> を選択してください。
+<a class="glightbox" href="../tool_images/image-41.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-41.png" /></a></p>
+</li>
+<li>
+<p>接続した Time MCP Server で利用できる外部ツールの一覧が表示されます。<br />
+Activation toggle を On にすると、Agent に Tool として追加されます。今回は <strong>convert_time</strong> と <strong>current_time</strong> を On にしてみましょう。
+<a class="glightbox" href="../tool_images/image-36.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-36.png" /></a></p>
+</li>
+<li>
+<p>右上の × でメニューを閉じます。Toolset を見てみると、先ほど On にした2つが Tool として追加されていることが分かります。<br />
+<a class="glightbox" href="../tool_images/image-38.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-38.png" /></a></p>
+</li>
+<li>
+<p>右側のチャットから、current_time を呼んでみましょう。current_time は現在の日付と時間を教えてくれるので、お好きな地域の現在の日時を聞いてみてください。日時を正しく回答してくれると思います。<br />
+もし英語で回答されたり、format を問われたりする場合は、質問の仕方を変えて再度試してみてください。<br />
+<a class="glightbox" href="../tool_images/image-39.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-39.png" /></a></p>
+</li>
+<li>
+<p>次に convert_time を使ってみます。convert_time は各地域のタイムゾーンに合わせて時刻を変換してくれるので、<strong>日本時間の〇時は、△△の時刻だと何時になりますか？</strong> と質問してみましょう。こちらも正しく回答されると思います。<br />
+<a class="glightbox" href="../tool_images/image-40.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-40.png" /></a></p>
+</li>
+</ol>
+<p>このように、MCPサーバーを追加すると、既存の外部ツールをすぐに Agent に連携して活用することができます。</p>
+<h2 id="_5">お疲れさまでした！</h2>
+<p>このハンズオンでは、Tool のインポートや、Agent からの Tool の利用について学びました。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.tabs", "navigation.sections", "content.code.copy", "toc.integrate"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dd8806f2.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
