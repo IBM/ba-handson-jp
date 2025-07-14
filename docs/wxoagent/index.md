@@ -10,7 +10,7 @@ watsonx Orchestrateのハンズオンです。
 |[Lab2](tool.md)       |Toolを定義して呼び出してみよう！                      |20           |
 |[Lab3](flow.md)       |フローを実装してみよう！                      |20           |
 |[Lab4](prebuild.md)       |プリビルド・Agent/Toolを使ってみよう！                      |20           |
-|[Lab5](multi_agent.md)       |複数Agentを連携させてみよう！                      |10           |
+|[Lab5](multi_agent.md)       |複数Agentを連携させてみよう！（準備中）                   |10           |
 |[オプション](option.md) |自分独自のAgentを作ってみよう         |-           |
 
 ## 前提条件
