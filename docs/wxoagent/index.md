@@ -10,13 +10,13 @@ watsonx Orchestrateのハンズオンです。
 |[Lab2](tool.md)       |Toolを定義して呼び出してみよう！                      |20           |
 |[Lab3](flow.md)       |フローを実装してみよう！                      |20           |
 |[Lab4](prebuild.md)       |プリビルド・Agent/Toolを使ってみよう！                      |20           |
-|[Lab5](multi_agent.md)       |複数Agentを連携させてみよう！（準備中）                   |10           |
-|[オプション](option.md) |自分独自のAgentを作ってみよう         |-           |
+|[Lab5](multi.md)       |複数Agentを連携させてみよう！（準備中）                   |10           |
+|オプション |自分独自のAgentを作ってみよう         |-           |
 
 ## 前提条件
  
  1. watsonx Orchestrateの環境にアクセスできること。※アクセス先のURLは環境により異なります。講師の指示に従ってください。  
- [https://dl.watson-orchestrate.ibm.com/](https://dl.watson-orchestrate.ibm.com/) 　　 
+ [https://ap-southeast-1.dl.watson-orchestrate.ibm.com](https://ap-southeast-1.dl.watson-orchestrate.ibm.com) 　　 
  2. IBM-idを用いてログイン可能であること。
  3. <a href="https://www.ibm.com/docs/ja/watsonx/watson-orchestrate/current?topic=team-roles-watsonx-orchestrate#builder" target="_blank" rel="noopener noreferrer">ビルダー</a>権限を有すること。
 
