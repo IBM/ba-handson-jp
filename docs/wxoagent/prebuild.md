@@ -51,7 +51,7 @@ Jira URLの右側の編集ボタンをクリックしてください。設定画
 3. User Name,Passwordに講師から共有された値を入力して、**Connect**ボタンをクリックしてください。Passwordをコピー＆ペーストする際にスペースなどが付加されていないことを確認してください。
 4. 接続が成功するはずです。  
  ![alt text](prebuild_images/image-12.png)
-5. プロジェクトの一覧が表示されます。Toolの初回利用時には、バックグラウンドで導入を実施するので、時間をおいてから再度実行してくださいというメッセージが表示される場合があります。その場合は指示に従ってください。
+5. プロジェクトの一覧が表示されます。Toolの初回利用時には、バックグラウンドで導入を実施するので、時間をおいてから再度実行してくださいというメッセージ(We are configuring your tool in the background. This may take a few minutes, please try after some time.)が表示される場合があります。その場合は指示に従ってしばらくしてからもう一度実行してみてください。
 ![alt text](prebuild_images/image-13.png)
 6. Issue Manaement Agentはissueの取得や作成など他にも機能があります。その他のToolも実行して動作を確認してください。例えば以下のような処理が可能です。   
  
