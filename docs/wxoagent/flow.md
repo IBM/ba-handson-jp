@@ -73,64 +73,93 @@ AIAgentはエージェンティックな振る舞いによって様々な処理�
 ![alt text](flow_images/flow_image0170.png)  
 
 
-## Python Codeblockの定義
-XX_weatherFlowに気温を摂氏から華氏表記に変更するコードブロックを追加します。  
+## 分岐とPython Codeblockの定義
+東京以外の都市が指定された場合には、気温を華氏表記にするようにXX_weatherFlowを変更します。  
 
-1. Agent BuilderでXX-IBMInfoを開いた状態で、XX_weatherFlowの縦三点リーダーをクリックして表示されたメニューからOpen in flow builderをクリックします。  
+1. Agent BuilderでXX-IBMInfoを開いた状態で、XX_weatherFlowの縦三点リーダーをクリックして表示されたメニューからEdit detailsをクリックします。  
 ![alt text](flow_images/flow_image0180.png)
 
-2. current weather for coordinatesとEndの間の矢印にカーソルを合わせると＋マークが表示されます。それをクリックし、表示されたメニューからCode Blockを選択します。  
+2. Add Outputボタンを押して次の値を設定し、Save changesをクリックします。
+    - Name: temp_unit
+    - Type: string	
+    - Description: indicates whether temp is in degrees Celsius or Fahrenheit
+![alt text](flow_images/flow_image0181.png)
+
+3. XX_weatherFlowの縦三点リーダーをクリックして表示されたメニューからOpen in flow builderをクリックします。  
+![alt text](flow_images/flow_image0180.png)
+
+4. current weather for coordinatesとEndの間の矢印にカーソルを合わせると＋マークが表示されます。それをクリックし、表示されたメニューからBranchを選択します。  
 ![alt text](flow_images/flow_image0190.png)  
 
-3. 配置したCode blockをクリックし、表示されたOpen code editorをクリックします。  
-![alt text](flow_images/flow_image0200.png)  
-
-4. Outputsタブを選択し、Add outputボタンをクリックします。  
-![alt text](flow_images/flow_image0211.png)  
-
-5. 次の値を設定後、Saveボタンをクリックします。  
-    - Name: Fahrenheit  
-    - Type: Integer  
-    - Description: temperature in degrees Fahrenheit  
-![alt text](flow_images/flow_image0221.png)  
-![alt text](flow_images/flow_image0222.png)  
-
-6. 摂氏を華氏に変換するコードをCode editorに入力します。Code editorタブを選択し、次のコードを設定後に右上の×をクリックして閉じます。    
-```
-self.output.Fahrenheit = (flow["current weather for coordinates"].output.current_weather.temperature*9/5)+32
-```  
-![alt text](flow_images/flow_image0232.png)   
-
-
-
-## 分岐の定義
-東京が指定された場合は摂氏で表示するように分岐を設定します。
-
-1. current weather for coordinatesとCode blockの間の矢印にカーソルを合わせて、表示された＋マークをクリックし、表示されたメニューからBranchを選択します。  
-![alt text](flow_images/flow_image0250.png)
-
-2. Code blockをドラッグ&ドロップで左へ移動します。  
+5. 追加したBranchとEndの間の矢印にカーソルを合わせて＋マークをクリックし、表示されたメニューからCode Blockを選択します。追加したCode block1をドラッグ&ドロップで左へ移動します。  
 ![alt text](flow_images/flow_image0260.png)  
 
-3. Branchにカーソルを合わせると⚫️が表示されます。  
+6. Branchにカーソルを合わせると⚫️が表示されます。  
 ![alt text](flow_images/flow_image0270.png)  
 
-4. それをEndの⚫️にドラッグ&ドロップして矢印を追加します。  
+7. それをEndの⚫️にドラッグ&ドロップして矢印を追加します。  
 ![alt text](flow_images/flow_image0280.png)  
 ![alt text](flow_images/flow_image0290.png)  
 
-5. Branchをクリックして編集画面を表示させます。  
-![alt text](flow_images/flow_image0300.png)  
+8. BranchとEndの間の矢印(Case2)にカーソルを合わせて＋マークをクリックし、表示されたメニューからCode Blockを再度選択します。2つのCode Blockが重なる場合は見やすいように位置を調整してください。  
+![alt text](flow_images/flow_image0291.png)  
 
-6. Expressionの入力欄をクリックし、キーボードからctrl+spaceを入力するとコードアシストが表示されます。flow.input.city_nameを選択します。  
-![alt text](flow_images/flow_image0310.png)
+9. 最初に追加したCode block1を編集します。
+     1. Code block1をクリックし、表示されたOpen code editorをクリックします。  
+     ![alt text](flow_images/flow_image0200.png)  
+     
+     2. Outputsタブを選択し、Add outputボタンをクリックします。  
+     ![alt text](flow_images/flow_image0211.png)  
+     
+     3. 次の値を設定後、Saveボタンをクリックします。  
+         - Name: temp_unit  
+         - Type: String  
+         - Description: Celsius or Fahrenheit  
+     ![alt text](flow_images/flow_image0221.png)  
+     ![alt text](flow_images/flow_image0222.png)  
+     
+     4. Code editorタブを選択し、摂氏を華氏に変換する処理を含む次のコードを設定後に右上の×をクリックして閉じます。    
+     ```
+     flow["current weather for coordinates"].output.current_weather.temperature = (flow["current weather for coordinates"].output.current_weather.temperature*9/5)+32
+     self.output.temp_unit = "Fahrenheit"
+     ```  
+     ![alt text](flow_images/flow_image0232.png)   
 
-7. Case 2のValueとしてTokyoを設定します。  
-![alt text](flow_images/flow_image0320.png)
+10. ２番目に追加したCode block2を編集します。
+     1. Code block2をクリックし、表示されたOpen code editorをクリックします。
+    
+     2. 同様にOutputsタブに次の値を設定します。  
+         - Name: temp_unit  
+         - Type: String  
+         - Description: Celsius or Fahrenheit  
+     ![alt text](flow_images/flow_image0240.png)  
+    
+     3. Code editorタブを選択し、次のコードを設定後に右上の×をクリックして閉じます。    
+     ```
+     self.output.temp_unit = "Celsius"
+     ```
+     ![alt text](flow_images/flow_image0241.png)  
 
-8. 右上のDoneボタンをクリックしてflow builderを閉じます。
+11. Branchを編集します。
+     1. Branchをクリックして編集画面を表示させます。  
+     ![alt text](flow_images/flow_image0300.png)  
+     
+     2. Expressionの入力欄をクリックし、キーボードからctrl+spaceを入力するとコードアシストが表示されます。flow.input.city_nameを選択します。  
+     ![alt text](flow_images/flow_image0310.png)
+    
+     3. Case 2のValueとして東京を設定します。  
+     ![alt text](flow_images/flow_image0320.png)
+     
+     4. 右上のDoneボタンをクリックしてflow builderを閉じて、XX-IBMInfoに戻ります。
 
-9. IBMInfoのAgent Builderの画面に戻るので、右側のPreviewで再度「大阪の気温は？」と尋ねると華氏で表示され、「東京の気温は？」と尋ねると摂氏で表示されます。  
+12. XX-IBMInfoのBehaviorに次の文を追加します。  
+```
+XX_weatherFlowのcity_nameには、日本の都市名は日本語で設定してください。
+気温の単位については、XX_weatherFlowのtemp_unitに従って℃あるいは℉を使用してください。
+```
+![alt text](flow_images/flow_image0321.png)  
+
+13. 右側のPreviewで再度「大阪の気温は？」と尋ねると華氏で表示され、「東京の気温は？」と尋ねると摂氏で表示されます。  
 ![alt text](flow_images/flow_image0330.png)
 
 ## お疲れさまでした！
