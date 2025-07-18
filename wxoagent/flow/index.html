@@ -666,7 +666,7 @@
         <li class="md-nav__item">
   <a href="#python-codeblock" class="md-nav__link">
     <span class="md-ellipsis">
-      Python Codeblockの定義
+      分岐とPython Codeblockの定義
     </span>
   </a>
   
@@ -674,15 +674,6 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      分岐の定義
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       お疲れさまでした！
     </span>
@@ -926,51 +917,32 @@
 <a class="glightbox" href="../flow_images/flow_image0170.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0170.png" /></a>  </p>
 </li>
 </ol>
-<h2 id="python-codeblock">Python Codeblockの定義</h2>
-<p>XX_weatherFlowに気温を摂氏から華氏表記に変更するコードブロックを追加します。  </p>
+<h2 id="python-codeblock">分岐とPython Codeblockの定義</h2>
+<p>東京以外の都市が指定された場合には、気温を華氏表記にするようにXX_weatherFlowを変更します。  </p>
 <ol>
 <li>
-<p>Agent BuilderでXX-IBMInfoを開いた状態で、XX_weatherFlowの縦三点リーダーをクリックして表示されたメニューからOpen in flow builderをクリックします。<br />
+<p>Agent BuilderでXX-IBMInfoを開いた状態で、XX_weatherFlowの縦三点リーダーをクリックして表示されたメニューからEdit detailsをクリックします。<br />
 <a class="glightbox" href="../flow_images/flow_image0180.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0180.png" /></a></p>
 </li>
 <li>
-<p>current weather for coordinatesとEndの間の矢印にカーソルを合わせると＋マークが表示されます。それをクリックし、表示されたメニューからCode Blockを選択します。<br />
-<a class="glightbox" href="../flow_images/flow_image0190.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0190.png" /></a>  </p>
-</li>
-<li>
-<p>配置したCode blockをクリックし、表示されたOpen code editorをクリックします。<br />
-<a class="glightbox" href="../flow_images/flow_image0200.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0200.png" /></a>  </p>
-</li>
-<li>
-<p>Outputsタブを選択し、Add outputボタンをクリックします。<br />
-<a class="glightbox" href="../flow_images/flow_image0211.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0211.png" /></a>  </p>
-</li>
-<li>
-<p>次の値を設定後、Saveボタンをクリックします。  </p>
+<p>Add Outputボタンを押して次の値を設定し、Save changesをクリックします。</p>
 <ul>
-<li>Name: Fahrenheit  </li>
-<li>Type: Integer  </li>
-<li>Description: temperature in degrees Fahrenheit<br />
-<a class="glightbox" href="../flow_images/flow_image0221.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0221.png" /></a><br />
-<a class="glightbox" href="../flow_images/flow_image0222.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0222.png" /></a>  </li>
+<li>Name: temp_unit</li>
+<li>Type: string  </li>
+<li>Description: indicates whether temp is in degrees Celsius or Fahrenheit
+<a class="glightbox" href="../flow_images/flow_image0181.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0181.png" /></a></li>
 </ul>
 </li>
 <li>
-<p>摂氏を華氏に変換するコードをCode editorに入力します。Code editorタブを選択し、次のコードを設定後に右上の×をクリックして閉じます。  <br />
-<div class="highlight"><pre><span></span><code>self.output.Fahrenheit = (flow[&quot;current weather for coordinates&quot;].output.current_weather.temperature*9/5)+32
-</code></pre></div>
-<a class="glightbox" href="../flow_images/flow_image0232.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0232.png" /></a>   </p>
-</li>
-</ol>
-<h2 id="_2">分岐の定義</h2>
-<p>東京が指定された場合は摂氏で表示するように分岐を設定します。</p>
-<ol>
-<li>
-<p>current weather for coordinatesとCode blockの間の矢印にカーソルを合わせて、表示された＋マークをクリックし、表示されたメニューからBranchを選択します。<br />
-<a class="glightbox" href="../flow_images/flow_image0250.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0250.png" /></a></p>
+<p>XX_weatherFlowの縦三点リーダーをクリックして表示されたメニューからOpen in flow builderをクリックします。<br />
+<a class="glightbox" href="../flow_images/flow_image0180.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0180.png" /></a></p>
 </li>
 <li>
-<p>Code blockをドラッグ&amp;ドロップで左へ移動します。<br />
+<p>current weather for coordinatesとEndの間の矢印にカーソルを合わせると＋マークが表示されます。それをクリックし、表示されたメニューからBranchを選択します。<br />
+<a class="glightbox" href="../flow_images/flow_image0190.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0190.png" /></a>  </p>
+</li>
+<li>
+<p>追加したBranchとEndの間の矢印にカーソルを合わせて＋マークをクリックし、表示されたメニューからCode Blockを選択します。追加したCode block1をドラッグ&amp;ドロップで左へ移動します。<br />
 <a class="glightbox" href="../flow_images/flow_image0260.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0260.png" /></a>  </p>
 </li>
 <li>
@@ -983,6 +955,66 @@
 <a class="glightbox" href="../flow_images/flow_image0290.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0290.png" /></a>  </p>
 </li>
 <li>
+<p>BranchとEndの間の矢印(Case2)にカーソルを合わせて＋マークをクリックし、表示されたメニューからCode Blockを再度選択します。2つのCode Blockが重なる場合は見やすいように位置を調整してください。<br />
+<a class="glightbox" href="../flow_images/flow_image0291.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0291.png" /></a>  </p>
+</li>
+<li>
+<p>最初に追加したCode block1を編集します。</p>
+<ol>
+<li>
+<p>Code block1をクリックし、表示されたOpen code editorをクリックします。<br />
+<a class="glightbox" href="../flow_images/flow_image0200.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0200.png" /></a>  </p>
+</li>
+<li>
+<p>Outputsタブを選択し、Add outputボタンをクリックします。<br />
+<a class="glightbox" href="../flow_images/flow_image0211.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0211.png" /></a>  </p>
+</li>
+<li>
+<p>次の値を設定後、Saveボタンをクリックします。  </p>
+<ul>
+<li>Name: temp_unit  </li>
+<li>Type: String  </li>
+<li>Description: Celsius or Fahrenheit<br />
+<a class="glightbox" href="../flow_images/flow_image0221.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0221.png" /></a><br />
+<a class="glightbox" href="../flow_images/flow_image0222.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0222.png" /></a>  </li>
+</ul>
+</li>
+<li>
+<p>Code editorタブを選択し、摂氏を華氏に変換する処理を含む次のコードを設定後に右上の×をクリックして閉じます。  <br />
+ <div class="highlight"><pre><span></span><code>flow[&quot;current weather for coordinates&quot;].output.current_weather.temperature = (flow[&quot;current weather for coordinates&quot;].output.current_weather.temperature*9/5)+32
+self.output.temp_unit = &quot;Fahrenheit&quot;
+</code></pre></div>
+ <a class="glightbox" href="../flow_images/flow_image0232.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0232.png" /></a>   </p>
+</li>
+</ol>
+</li>
+<li>
+<p>２番目に追加したCode block2を編集します。</p>
+<ol>
+<li>
+<p>Code block2をクリックし、表示されたOpen code editorをクリックします。</p>
+</li>
+<li>
+<p>同様にOutputsタブに次の値を設定します。  </p>
+<ul>
+<li>Name: temp_unit  </li>
+<li>Type: String  </li>
+<li>Description: Celsius or Fahrenheit<br />
+<a class="glightbox" href="../flow_images/flow_image0240.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0240.png" /></a>  </li>
+</ul>
+</li>
+<li>
+<p>Code editorタブを選択し、次のコードを設定後に右上の×をクリックして閉じます。  <br />
+ <div class="highlight"><pre><span></span><code>self.output.temp_unit = &quot;Celsius&quot;
+</code></pre></div>
+ <a class="glightbox" href="../flow_images/flow_image0241.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0241.png" /></a>  </p>
+</li>
+</ol>
+</li>
+<li>
+<p>Branchを編集します。</p>
+<ol>
+<li>
 <p>Branchをクリックして編集画面を表示させます。<br />
 <a class="glightbox" href="../flow_images/flow_image0300.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0300.png" /></a>  </p>
 </li>
@@ -991,18 +1023,27 @@
 <a class="glightbox" href="../flow_images/flow_image0310.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0310.png" /></a></p>
 </li>
 <li>
-<p>Case 2のValueとしてTokyoを設定します。<br />
+<p>Case 2のValueとして東京を設定します。<br />
 <a class="glightbox" href="../flow_images/flow_image0320.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0320.png" /></a></p>
 </li>
 <li>
-<p>右上のDoneボタンをクリックしてflow builderを閉じます。</p>
+<p>右上のDoneボタンをクリックしてflow builderを閉じて、XX-IBMInfoに戻ります。</p>
+</li>
+</ol>
 </li>
 <li>
-<p>IBMInfoのAgent Builderの画面に戻るので、右側のPreviewで再度「大阪の気温は？」と尋ねると華氏で表示され、「東京の気温は？」と尋ねると摂氏で表示されます。<br />
+<p>XX-IBMInfoのBehaviorに次の文を追加します。<br />
+<div class="highlight"><pre><span></span><code>XX_weatherFlowのcity_nameには、日本の都市名は日本語で設定してください。
+気温の単位については、XX_weatherFlowのtemp_unitに従って℃あるいは℉を使用してください。
+</code></pre></div>
+<a class="glightbox" href="../flow_images/flow_image0321.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0321.png" /></a>  </p>
+</li>
+<li>
+<p>右側のPreviewで再度「大阪の気温は？」と尋ねると華氏で表示され、「東京の気温は？」と尋ねると摂氏で表示されます。<br />
 <a class="glightbox" href="../flow_images/flow_image0330.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0330.png" /></a></p>
 </li>
 </ol>
-<h2 id="_3">お疲れさまでした！</h2>
+<h2 id="_2">お疲れさまでした！</h2>
 <p>このハンズオンでは、flow builderの使い方について説明しました。</p>
 
 
