@@ -16,7 +16,8 @@ watsonx Orchestrateのハンズオンです。
 ## 前提条件
  
  1. watsonx Orchestrateの環境にアクセスできること。※アクセス先のURLは環境により異なります。講師の指示に従ってください。  
- [https://ap-southeast-1.dl.watson-orchestrate.ibm.com](https://ap-southeast-1.dl.watson-orchestrate.ibm.com) 　　 
+ [https://ap-southeast-1.dl.watson-orchestrate.ibm.com](https://ap-southeast-1.dl.watson-orchestrate.ibm.com)   　　 
+ [https://dl.watson-orchestrate.ibm.com/](https://dl.watson-orchestrate.ibm.com/)
  2. IBM-idを用いてログイン可能であること。
  3. <a href="https://www.ibm.com/docs/ja/watsonx/watson-orchestrate/current?topic=team-roles-watsonx-orchestrate#builder" target="_blank" rel="noopener noreferrer">ビルダー</a>権限を有すること。
 
