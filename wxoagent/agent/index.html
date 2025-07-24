@@ -943,18 +943,25 @@
 <h2 id="knowledge">Knowledgeの使用</h2>
 <p>watsonx Orchestrateは組み込みのRAG (Retrieval Augmented Generation) 機能を提供し、エージェントごとにドキュメントをアップロードすることで、その内容をもとに回答を生成することが可能です。<br />
 1. このハンズオンでは年次報告書を読み込ませて、それに基づいた質問に対応するエージェントを作成します。<br />
-エージェントが適切なタイミングでKnowledgeを使用するために、読み込むファイルがどのようなものであるかを定義する必要があります。<br />
-今回は、Descriptionに<strong>これは2024年のIBMの年次報告書です。財務情報とIBMのコア事業戦略を含んでいます。</strong>と入力します。<br />
-<a class="glightbox" href="../agent_images/agent-image17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image17.png" /></a></p>
+Choose Knowledgeのボタンをクリックします。<br />
+<a class="glightbox" href="../agent_images/image.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image.png" /></a>  </p>
 <ol>
 <li>
-<p><strong>Upload files</strong>のボタンをクリックします。ボックスにドラッグするか、または青字のテキストをクリックしてファイル・アップロード・ウィンドウを開いて、ファイルをアップロードします。<br />
-今回のハンズオンでは、<a href="../files/2024-annual-report.pdf">こちらのファイル</a>を使用します。<br />
-<a class="glightbox" href="../agent_images/agent-image18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image18.png" /></a></p>
+<p>Knowledgeの追加画面が出るので、<strong>Upload File</strong>をクリックし、<strong>Next</strong>ボタンをクリックします。<br />
+<a class="glightbox" href="../agent_images/image-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-1.png" /></a></p>
 </li>
 <li>
-<p>レポートが取り込まれるまでには少し時間がかかります。完了すると、すべてのファイルがFilesのリストに表示されます。<br />
-<a class="glightbox" href="../agent_images/agent-image19.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image19.png" /></a></p>
+<p>今回のハンズオンでは、<a href="../files/2024-annual-report.pdf">こちらのファイル</a>を使用します。 ダウンロードして保存して使用してください。<strong>Upload files</strong>のボタンをクリックします。ボックスにドラッグするか、または青字のテキストをクリックしてファイル・アップロード・ウィンドウを開いて、ファイルをアップロードし、<strong>Next</strong>をクリックします。 <br />
+<a class="glightbox" href="../agent_images/image-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-2.png" /></a></p>
+</li>
+<li>
+<p>エージェントが適切なタイミングでKnowledgeを使用するために、読み込むファイルがどのようなものであるかを定義する必要があります。 
+今回は、Descriptionに<strong>これは2024年のIBMの年次報告書です。財務情報とIBMのコア事業戦略を含んでいます。</strong>と入力し<strong>Save</strong>ボタンをクリックしてください。<br />
+<a class="glightbox" href="../agent_images/image-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-3.png" /></a></p>
+</li>
+<li>
+<p>レポートが取り込まれるまでには少し時間がかかります。完了すると、ファイルがFilesのリストに表示されます。<br />
+<a class="glightbox" href="../agent_images/image-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-4.png" /></a></p>
 </li>
 <li>
 <p>Previewチャットで<strong>IBMの2024 年のフリー・キャッシュ・フローはいくらですか。</strong>と入力します。<br />
