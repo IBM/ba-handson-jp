@@ -64,16 +64,21 @@
 ## Knowledgeの使用
 watsonx Orchestrateは組み込みのRAG (Retrieval Augmented Generation) 機能を提供し、エージェントごとにドキュメントをアップロードすることで、その内容をもとに回答を生成することが可能です。  
 1. このハンズオンでは年次報告書を読み込ませて、それに基づいた質問に対応するエージェントを作成します。  
-エージェントが適切なタイミングでKnowledgeを使用するために、読み込むファイルがどのようなものであるかを定義する必要があります。  
-今回は、Descriptionに**これは2024年のIBMの年次報告書です。財務情報とIBMのコア事業戦略を含んでいます。**と入力します。  
-![alt text](agent_images/agent-image17.png)
+Choose Knowledgeのボタンをクリックします。  
+![alt text](agent_images/image.png)  
 
-2. **Upload files**のボタンをクリックします。ボックスにドラッグするか、または青字のテキストをクリックしてファイル・アップロード・ウィンドウを開いて、ファイルをアップロードします。  
-今回のハンズオンでは、[こちらのファイル](./files/2024-annual-report.pdf)を使用します。  
-![alt text](agent_images/agent-image18.png)
+2. Knowledgeの追加画面が出るので、**Upload File**をクリックし、**Next**ボタンをクリックします。  
+![alt text](agent_images/image-1.png)
 
-3. レポートが取り込まれるまでには少し時間がかかります。完了すると、すべてのファイルがFilesのリストに表示されます。  
-![alt text](agent_images/agent-image19.png)
+2. 今回のハンズオンでは、[こちらのファイル](./files/2024-annual-report.pdf)を使用します。 ダウンロードして保存して使用してください。**Upload files**のボタンをクリックします。ボックスにドラッグするか、または青字のテキストをクリックしてファイル・アップロード・ウィンドウを開いて、ファイルをアップロードし、**Next**をクリックします。   
+![alt text](agent_images/image-2.png)
+
+3.  エージェントが適切なタイミングでKnowledgeを使用するために、読み込むファイルがどのようなものであるかを定義する必要があります。 
+今回は、Descriptionに**これは2024年のIBMの年次報告書です。財務情報とIBMのコア事業戦略を含んでいます。**と入力し**Save**ボタンをクリックしてください。  
+![alt text](agent_images/image-3.png)
+
+3. レポートが取り込まれるまでには少し時間がかかります。完了すると、ファイルがFilesのリストに表示されます。  
+![alt text](agent_images/image-4.png)
 
 4. Previewチャットで**IBMの2024 年のフリー・キャッシュ・フローはいくらですか。**と入力します。  
 ![alt text](agent_images/agent-image20.png)
