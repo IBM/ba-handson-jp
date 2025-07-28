@@ -20,6 +20,7 @@
 ![alt text](agent_images/agent-image05.png)
 
 6. Agentが作成されました。先ほど入力したNameとDescriptionが自動的に入っています。  
+※エラーが発生する場合は、エージェントの名前が重複している可能性があります。イニシャルを変更するなどして再度試してみてください。    
 ![alt text](agent_images/agent-image06.png)
 
 ## 基本的な動きの確認

@@ -35,7 +35,8 @@ AIAgentはエージェンティックな振る舞いによって様々な処理�
     ![alt text](flow_images/flow_image0050.png)
 
 
-5. 画面左上のToolsタブを選択し、検索ボックスにweatherを入力します。表示されたcurrent weather for coordinatesをStartとEndの間にドラッグ&ドロップします.  
+5. 画面左上のToolsタブを選択し、検索ボックスにweatherを入力します。表示されたcurrent weather for coordinatesをStartとEndの間にドラッグ&ドロップします。  
+※複数のユーザーがToolをImportしている場合、current weather for coordinates (4) など、後ろに数字がついたものが表示されますが、数字がついていないものを選択してください。
 ![alt text](flow_images/flow_image0060.png)  
 ![alt text](flow_images/flow_image0070.png)
 
