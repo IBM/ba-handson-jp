@@ -926,7 +926,7 @@
 <a class="glightbox" href="../tool_images/image-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-12.png" /></a></p>
 </li>
 <li>
-<p>(オプション) Behavior の Instructions に <strong>定型の挨拶は省略し、最初の質問から回答してください。</strong> のように指示を追加すると、1回目から正しく回答してくれるようになります。
+<p>(オプション) BehaviorのInstructionsに <strong>定型の挨拶は省略し、最初の質問から回答してください。</strong> のように指示を追加すると、1回目から正しく回答してくれるようになります。
 <a class="glightbox" href="../tool_images/image-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-13.png" /></a></p>
 </li>
 </ol>
@@ -935,15 +935,11 @@
 <li>チャットをリロードし、先ほどと同じくお好きな地域の天気を聞いてみましょう。正しく回答が返ってくることを確認できます。<br />
 <a class="glightbox" href="../tool_images/image-48.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-48.png" /></a></li>
 </ol>
-<p>うまく回答されない場合は、以下の文章を BehaviorのInstructions に追加し、チャットをリロードして再度質問してみてください。  </p>
-<pre><code>```
-ユーザーから特定の都市の気象情報を求められた場合は、適切なパラメータでToolを呼び出してください。
-```
-</code></pre>
-<ol>
-<li>Show Reasoning をクリックして Step1 を開いてみると、入力した地名から緯度と経度を認識し、パラメータを適切に変換してくれていることが確認できます。<br />
-<a class="glightbox" href="../tool_images/image-17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-17.png" /></a></li>
-</ol>
+<p>うまく回答されない場合は、以下の文章を BehaviorのInstructions に追加し、チャットをリロードして再度質問してみてください。<br />
+   <div class="highlight"><pre><span></span><code>ユーザーから特定の都市の気象情報を求められた場合は、適切なパラメータでToolを呼び出してください。
+</code></pre></div>
+2. Show Reasoning をクリックして Step1 を開いてみると、入力した地名から緯度と経度を認識し、パラメータを適切に変換してくれていることが確認できます。  　
+    <a class="glightbox" href="../tool_images/image-17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-17.png" /></a></p>
 <h2 id="_1">複数地名の確認（エージェンティックな振る舞い）</h2>
 <p>次に、複数の地域の天気を比較する質問をし、エージェンティックな振る舞いを体験してみましょう。</p>
 <ol>
@@ -1031,8 +1027,8 @@
 <a class="glightbox" href="../tool_images/image-31.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-31.png" /></a></p>
 </li>
 <li>
-<p>以下のように入力し、<strong>Connect</strong> をクリックします。<br />
-<strong>Server name:</strong> time_mcp<br />
+<p>以下のように入力し、<strong>Connect</strong> をクリックします。 (XX は自身のイニシャル)<br />
+<strong>Server name:</strong> XX_time_mcp<br />
 <strong>Install command:</strong> npx -y time-mcp<br />
 <a class="glightbox" href="../tool_images/image-32.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-32.png" /></a></p>
 </li>
@@ -1060,7 +1056,9 @@ Activation toggle を On にすると、Agent に Tool として追加されま�
 <li>
 <p>右側のチャットから、追加した Tool を呼んでみましょう。<br />
 current_time は現在の日付と時間を教えてくれるため、<strong>ロンドンの現在の日時は何ですか？</strong> のように、お好きな地域の日時を聞いてみてください。日時を正しく回答してくれると思います。<br />
-もし英語で回答されたり、format を問われたりする場合は、質問の仕方を変えて再度試してみてください。<br />
+正しい時刻が返ってこなかったり、format を問われたりする場合は、以下の指示をBehaviorに追加してみてください。
+<div class="highlight"><pre><span></span><code>current_time toolを使用する際には、formatとして　&quot;YYYY/MM/DD HH:mm&quot;　を指定してください。
+</code></pre></div>
 <a class="glightbox" href="../tool_images/image-39.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-39.png" /></a></p>
 </li>
 </ol>
