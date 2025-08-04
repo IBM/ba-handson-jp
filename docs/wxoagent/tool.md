@@ -60,7 +60,7 @@ Tool は、ユーザーに代わってデータを照会したり、ドキュメ
 2. 1回目の質問では定型のあいさつが返ってきましたが、2回目に同じ質問をすると 1. 天気情報の取得、2. IBMの年次報告書の提供が実行できると回答されます。  
 ![alt text](tool_images/image-12.png)
 
-3. (オプション) Behavior の Instructions に **定型の挨拶は省略し、最初の質問から回答してください。** のように指示を追加すると、1回目から正しく回答してくれるようになります。
+3. (オプション) BehaviorのInstructionsに **定型の挨拶は省略し、最初の質問から回答してください。** のように指示を追加すると、1回目から正しく回答してくれるようになります。
 ![alt text](tool_images/image-13.png)
 
 ## Toolの利用
@@ -68,12 +68,10 @@ Tool は、ユーザーに代わってデータを照会したり、ドキュメ
 ![alt text](tool_images/image-48.png)
 
    うまく回答されない場合は、以下の文章を BehaviorのInstructions に追加し、チャットをリロードして再度質問してみてください。  
-
-    ```
-    ユーザーから特定の都市の気象情報を求められた場合は、適切なパラメータでToolを呼び出してください。
-    ```
-
-2. Show Reasoning をクリックして Step1 を開いてみると、入力した地名から緯度と経度を認識し、パラメータを適切に変換してくれていることが確認できます。  
+   ```
+   ユーザーから特定の都市の気象情報を求められた場合は、適切なパラメータでToolを呼び出してください。
+   ```
+2. Show Reasoning をクリックして Step1 を開いてみると、入力した地名から緯度と経度を認識し、パラメータを適切に変換してくれていることが確認できます。  　
     ![alt text](tool_images/image-17.png)
 
 
@@ -144,8 +142,8 @@ MCP (Model Context Protocol) は、生成AIが外部のツールやデータソ�
 4. **Add MCP server** をクリックします。
 ![alt text](tool_images/image-31.png)
 
-5. 以下のように入力し、**Connect** をクリックします。  
-**Server name:** time_mcp  
+5. 以下のように入力し、**Connect** をクリックします。 (XX は自身のイニシャル)  
+**Server name:** XX_time_mcp  
 **Install command:** npx -y time-mcp  
 ![alt text](tool_images/image-32.png)
 
@@ -167,7 +165,10 @@ Activation toggle を On にすると、Agent に Tool として追加されま�
 
 11. 右側のチャットから、追加した Tool を呼んでみましょう。  
 current_time は現在の日付と時間を教えてくれるため、**ロンドンの現在の日時は何ですか？** のように、お好きな地域の日時を聞いてみてください。日時を正しく回答してくれると思います。  
-もし英語で回答されたり、format を問われたりする場合は、質問の仕方を変えて再度試してみてください。  
+正しい時刻が返ってこなかったり、format を問われたりする場合は、以下の指示をBehaviorに追加してみてください。
+```
+current_time toolを使用する際には、formatとして　"YYYY/MM/DD HH:mm"　を指定してください。
+```    
 ![alt text](tool_images/image-39.png)
 
 このように、MCPサーバーを追加すると、既存の外部ツールをすぐに Agent に連携して活用することができます。
