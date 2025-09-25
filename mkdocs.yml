@@ -45,6 +45,11 @@ nav:
   - Lab4 prebuild: wxoagent/prebuild.md
   - Lab5 multiagents: wxoagent/multi.md
 
+- watsonx Orchestrate Usecase:
+  - はじめに: wxo_usecase/index.md
+  - 人事シナリオ: wxo_usecase/hr.md
+  - 営業シナリオ: wxo_usecase/sales.md
+  - IT運用シナリオ: wxo_usecase/it.md
 
 - Business Automation Workflow:
   - はじめに: baw/index.md
@@ -63,3 +68,5 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - admonition
+  - pymdownx.details
