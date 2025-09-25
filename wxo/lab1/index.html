@@ -215,6 +215,24 @@
     
     
       <li class="md-tabs__item">
+        <a href="../../wxo_usecase/" class="md-tabs__link">
+          
+  
+  watsonx Orchestrate Usecase
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
         <a href="../../baw/" class="md-tabs__link">
           
   
@@ -765,7 +783,7 @@
             
   
   <span class="md-ellipsis">
-    Business Automation Workflow
+    watsonx Orchestrate Usecase
   </span>
   
 
@@ -774,6 +792,137 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            watsonx Orchestrate Usecase
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_usecase/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    はじめに
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_usecase/hr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    人事シナリオ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_usecase/sales/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    営業シナリオ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_usecase/it/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IT運用シナリオ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Business Automation Workflow
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Business Automation Workflow
           </label>
@@ -874,61 +1023,55 @@ watsonx Orchestrateへ様々な処理を依頼するためのチャット画面 
 <p>このLabでは、OpenAPI定義をインポートしてスキルをカタログに追加する方法について学びます。では、始めましょう！</p>
 <ol>
 <li>
-<p>まず<a href="https://ojnlvnhry9.execute-api.us-west-1.amazonaws.com/prod/hello-world">こちらのリンク</a>をクリックして、Hello world OpenAPIが利用可能であることを確認してください。 {"statusCode": 200, "body": "Hello From My Lambda!"}と表示されればOKです。このAPIはAWS上で動作するシンプルなAPIです。</p>
+<p>まず<a href="https://n28bf9mpmg.execute-api.us-west-2.amazonaws.com/default/hellowatonx">こちらのリンク</a>をクリックして、Hello world OpenAPIが利用可能であることを確認してください。 {"message":"Missing Authentication Token"}と表示されればOKです。このAPIはAWS上で動作するシンプルなAPIです。</p>
 </li>
 <li>
-<p><a href="../files/helloworld-watsonx.json">こちらのリンク</a>を右クリックしてファイルに保存してください。このファイルは先ほどのAPIの定義情報です。</p>
+<p><a href="../files/helloworld-watsonx.yaml">こちらのリンク</a>を右クリックしてファイルに保存してください。このファイルは先ほどのAPIの定義情報です。</p>
 </li>
 <li>
 <p>notepad, VSCode, vi/vimといったお好みのエディタでファイルを開き編集します。
-<div class="highlight"><pre><span></span><code>    &quot;openapi&quot;: &quot;3.0.1&quot;,
-    &quot;info&quot;: {
-        &quot;title&quot;: &quot;Your-Initials Hello World App Example&quot;,
-        &quot;description&quot;: &quot;This is a Hello World Example&quot;,
-        &quot;version&quot;: &quot;1.0.0&quot;
-    },
-    &quot;servers&quot;: [
-        {
-            &quot;url&quot;: &quot;https://ojnlvnhry9.execute-api.us-west-1.amazonaws.com/prod/&quot;
-        }
-    ],
-    &quot;security&quot;: [
-        {
-            &quot;basic_auth&quot;: []
-        }
-    ],
-    &quot;paths&quot;: {
-        &quot;/hello-world&quot;: {
-            &quot;get&quot;: {
-                &quot;operationId&quot;: &quot;hello&quot;,
-                &quot;summary&quot;: &quot;Your-Initials Hello World WatsonX&quot;,
-                &quot;responses&quot;: {
+<div class="highlight"><pre><span></span><code>openapi: 3.0.3
+info:
+  title: YourInitials-helloworld-watsonx
+  description: Hello world WatsonX
+  version: 1.0.0
+  x-ibm-annotations: true
+  x-ibm-application-name: IBM Watsonx - Training
+  x-ibm-application-id: watsonxai-YourInitials-training
+  x-ibm-skill-type: imported
+  x-ibm-application-icon: &lt;svg version=&quot;1.1&quot; id=&quot;Layer_1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot; 
+servers:
+  - url: https://n28bf9mpmg.execute-api.us-west-2.amazonaws.com/default
+security:
+  - passwordGrant: [ ]
+paths:
+  /hellowatsonx:
+    post:
+      summary: YourInitials Hello World WatsonX
+      operationId: Hello-YourInitials-watsonx
 </code></pre></div></p>
 </li>
 <li>
-<p>インポート時に他のハンズオン実施者とスキルが重複しないように、ファイルの中の、title,summaryをユニークなものにします。これらの値のYourInitialsの部分をあなたのイニシャルに置き換えてファイルを保存してください。更新後のファイルは以下のようになるはずです。(イニシャルの置き換え箇所は、2か所あります。)
-<div class="highlight"><pre><span></span><code>    &quot;openapi&quot;: &quot;3.0.1&quot;,
-    &quot;info&quot;: {
-        &quot;title&quot;: &quot;XX Hello World App Example&quot;,
-        &quot;description&quot;: &quot;This is a Hello World Example&quot;,
-        &quot;version&quot;: &quot;1.0.0&quot;
-    },
-    &quot;servers&quot;: [
-        {
-            &quot;url&quot;: &quot;https://ojnlvnhry9.execute-api.us-west-1.amazonaws.com/prod/&quot;
-        }
-    ],
-    &quot;security&quot;: [
-        {
-            &quot;basic_auth&quot;: []
-        }
-    ],
-    &quot;paths&quot;: {
-        &quot;/hello-world&quot;: {
-            &quot;get&quot;: {
-                &quot;operationId&quot;: &quot;hello&quot;,
-                &quot;summary&quot;: &quot;XX Hello World WatsonX&quot;,
-                &quot;responses&quot;: {
+<p>インポート時に他のハンズオン実施者とスキルが重複しないように、ファイルの中の、x-ibm-application-id, title,summaryとoperationIdをユニークにする必要があります。これらの値のYourInitialsの部分をあなたのイニシャルに置き換えてファイルを保存してください。更新後のファイルは以下のようになるはずです。(イニシャルの置き換え箇所は、4か所あります。)
+<div class="highlight"><pre><span></span><code>openapi: 3.0.3
+info:
+  title: XX-helloworld-watsonx
+  description: Hello world WatsonX
+  version: 1.0.0
+  x-ibm-annotations: true
+  x-ibm-application-name: IBM Watsonx - Training
+  x-ibm-application-id: watsonxai-XX-training
+  x-ibm-skill-type: imported
+  x-ibm-application-icon: &lt;svg version=&quot;1.1&quot; id=&quot;Layer_1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot; 
+servers:
+  - url: https://n28bf9mpmg.execute-api.us-west-2.amazonaws.com/default
+security:
+  - passwordGrant: [ ]
+paths:
+  /hellowatsonx:
+    post:
+      summary: XX Hello World WatsonX
+      operationId: Hello-XX-watsonx
 </code></pre></div></p>
 </li>
 <li>
