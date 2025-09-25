@@ -12,7 +12,7 @@
         <link rel="prev" href="../prebuild/">
       
       
-        <link rel="next" href="../../baw/">
+        <link rel="next" href="../../wxo_usecase/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -201,6 +201,24 @@
           
   
   watsonx Orchestrate Agentic
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../wxo_usecase/" class="md-tabs__link">
+          
+  
+  watsonx Orchestrate Usecase
 
         </a>
       </li>
@@ -679,25 +697,25 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#collaborator-agent" class="md-nav__link">
-    <span class="md-ellipsis">
-      Collaborator Agentの設定
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#agent" class="md-nav__link">
-    <span class="md-ellipsis">
-      Agentの実行
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      コラボレーター・エージェントの設定
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      エージェントの実行
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       お疲れさまでした！
     </span>
@@ -747,7 +765,7 @@
             
   
   <span class="md-ellipsis">
-    Business Automation Workflow
+    watsonx Orchestrate Usecase
   </span>
   
 
@@ -756,6 +774,137 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            watsonx Orchestrate Usecase
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_usecase/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    はじめに
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_usecase/hr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    人事シナリオ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_usecase/sales/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    営業シナリオ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_usecase/it/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IT運用シナリオ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Business Automation Workflow
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Business Automation Workflow
           </label>
@@ -806,45 +955,45 @@
 
 <h1 id="_1">複数エージェントを組み合わせてみよう！</h1>
 <p>watsonx Orchestrateでは複数エージェント間の連携も簡単に行うことができます。エージェントが連携すべきエージェントを判断し適切にメッセージを転送して処理を行うことが可能です。このLabでは、これまで作成してきたエージェントに、株価情報などを取得可能なエージェントとの連携を設定し、機能を拡張する手順を学びます。</p>
-<h2 id="collaborator-agent">Collaborator Agentの設定</h2>
+<h2 id="_2">コラボレーター・エージェントの設定</h2>
 <ol>
 <li>
-<p>左上のメニューを開き、<strong>Build &gt; Agent Builder</strong> を選択し、これまで作成してきたXX-IBMInfoエージェントを探して開きます。<br />
-<a class="glightbox" href="../multi_images/image.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../multi_images/image.png" /></a></p>
+<p>左上のメニューを開き、<strong>ビルド &gt; エージェント・ビルダー</strong> を選択し、これまで作成してきたXX-IBMInfoエージェントを探して開きます。<br />
+<a class="glightbox" href="../multi_images/image-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../multi_images/image-8.png" /></a></p>
 </li>
 <li>
-<p>Agentsの欄の<strong>Add Agents</strong>ボタンをクリックしてください。<br />
-<a class="glightbox" href="../multi_images/image-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../multi_images/image-1.png" /></a></p>
+<p>エージェントの欄の<strong>エージェントの追加</strong>ボタンをクリックしてください。<br />
+<a class="glightbox" href="../multi_images/image-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../multi_images/image-9.png" /></a></p>
 </li>
 <li>
-<p>ダイアログが表示されるので、<strong>Add from local instance</strong>を選択してください。<br />
-<a class="glightbox" href="../multi_images/image-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../multi_images/image-2.png" /></a></p>
+<p>ダイアログが表示されるので、<strong>ローカルインスタンスから追加</strong>を選択してください。<br />
+<a class="glightbox" href="../multi_images/image-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../multi_images/image-10.png" /></a></p>
 </li>
 <li>
-<p>追加可能なAgentのリストが表示されるので、<strong>yfinance_agent</strong>を選択し、右下の<strong>Add to agent</strong>ボタンをクリックしてください。<br />
-<a class="glightbox" href="../multi_images/image-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../multi_images/image-3.png" /></a></p>
+<p>追加可能なAgentのリストが表示されるので、<strong>yfinance_agent</strong>を選択し、右下の<strong>エージェントに追加</strong>ボタンをクリックしてください。<br />
+<a class="glightbox" href="../multi_images/image-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../multi_images/image-11.png" /></a></p>
 </li>
 <li>
 <p>yfinance_agentが追加されました。このエージェントは、2つのToolを用いて、株価や会社情報を取得可能なエージェントです。XX-IBMInfoエージェントは、このエージェントの説明を元に、必要に応じて処理をルーティングします。<br />
-<a class="glightbox" href="../multi_images/image-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../multi_images/image-4.png" /></a></p>
+<a class="glightbox" href="../multi_images/image-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../multi_images/image-12.png" /></a></p>
 </li>
 </ol>
-<h2 id="agent">Agentの実行</h2>
+<h2 id="_3">エージェントの実行</h2>
 <ol>
 <li>
 <p>チャット欄に<strong>IBMの会社情報を教えて</strong>と入力してください。次の様に結果が返ってくるはずです<br />
-<a class="glightbox" href="../multi_images/image-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../multi_images/image-5.png" /></a></p>
+<a class="glightbox" href="../multi_images/image-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../multi_images/image-14.png" /></a></p>
 </li>
 <li>
-<p><strong>Show Reasoning</strong>をクリックし、Stepを展開して確認してください。おそらく、Step1でyfinance_agentに処理が転送され、Step2でToolが呼び出されて会社情報を取得しているはずです。<br />
-<a class="glightbox" href="../multi_images/image-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../multi_images/image-6.png" /></a></p>
+<p><strong>理由の表示</strong>をクリックし、ステップを展開して確認してください。おそらく、ステップ1でyfinance_agentに処理が転送され、ステップ2でToolが呼び出されて会社情報を取得しているはずです。<br />
+<a class="glightbox" href="../multi_images/image-15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../multi_images/image-15.png" /></a></p>
 </li>
 <li>
 <p>&lt;オプション&gt;<strong>IBMとOracleの会社情報と株価を表形式で比較して</strong>と入力してどの様な振る舞いになるか確認してみましょう。<br />
-<a class="glightbox" href="../multi_images/image-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../multi_images/image-7.png" /></a></p>
+<a class="glightbox" href="../multi_images/image-16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../multi_images/image-16.png" /></a></p>
 </li>
 </ol>
-<h2 id="_2">お疲れさまでした！</h2>
+<h2 id="_4">お疲れさまでした！</h2>
 <p>このハンズオンでは、複数エージェントを連携させるための設定を学び、これまで作成したエージェントに株価や会社情報を取得する機能を追加しました。</p>
 
 
