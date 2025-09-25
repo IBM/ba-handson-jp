@@ -17,16 +17,16 @@
  ![alt text](lab4_images/image-2.png)
 
  4. **Decision** (意思決定の自動化)を選択します。
- ![alt text](lab4_images/image-3-v2.png)
+ ![alt text](lab4_images/image-3.png)
 
  5. 次にDecisionのモデルを選択します。3つのモデルを選択可能ですが、今回はDecision Modelを作成します。Decision ModelはDMN(Decision Model Notation)と呼ばれる標準の形式で意思決定をモデル化することが可能です。  
- ![alt text](lab4_images/image-4-v2.png)
+ ![alt text](lab4_images/image-4.png)
 
  6. Decisionの名前を指定します。***YourInitials* Personal Loan** という名前を指定して、**Create** ボタンをクリックしてください。  
  ![alt text](lab4_images/image-5.png)
  
  7. 次のようなDMN形式のダイアグラムが表示されます。
- ![alt text](lab4_images/image-6-v2.png)
+ ![alt text](lab4_images/image-6.png)
      - 緑のノード(Inputノード)はルールによって使用されるデータを表現します。
      - 青いノード(意思決定ノード)は意思決定のステップを表現します。
      - 意思決定ノードにはそのステップで実行されるルールが含まれ、それぞれの意思決定ノードは部分的な意思決定の結果を出力します。
@@ -37,7 +37,7 @@
 このセクションでは、Inputノードの定義をしていきます。
 
  1. Inputノードをクリックし、右側に表示される編集欄から、Node nameを**applicant name**に変更してください。  
- ![alt text](lab4_images/image-10-v2.png)
+ ![alt text](lab4_images/image-10.png)
 
  2. Inputノードを追加します。追加方法は次の2通りあります。
     - ①左側にあるパレットからAdd Input Nodeをクリックし、新規にInputノードを追加し、Decisionノードに接続する方法
@@ -110,33 +110,24 @@
 正しく動作することが確認できたら、スキルとして呼び出せるようにサービスをデプロイします。  
 
  1. **Back to *YourInitials* Personal Loan** をクリックしてください。  
- ![alt text](lab4_images/image-40-v2.png)
+ ![alt text](lab4_images/image-40.png)
  
  2. リストのスキル名の横にあるアイコン![alt text](lab2_GenAI_images/image-47_skill_private.png)をクリックし、スキルを非公開(Private)から公開(Public)にします。
  公開状態になるとアイコンが![alt text](lab2_GenAI_images/image-48_skill_public.png)になります。 
- ![alt text](lab4_images/image-41-v2.png)
+ ![alt text](lab4_images/image-41.png)
 
- 3. 画面右上にある**Share changes** をクリックします。
- ![alt text](lab4_images/image-42-v2.png)
+ 2. 画面右上にある**Share changes** をクリックします。
+ ![alt text](lab4_images/image-42.png)
 
- 4. **Share** をクリックします。
+ 3. **Share** をクリックします。
  ![alt text](lab4_images/image-43.png)
  ポップアップが出てきたら再度 **Share** をクリックします。
  ![alt text](lab4_images/image-44.png)
 
- 5. シェアが完了したら、**Back to *YourInitials*_Lending_Services**をクリックし、元のプロンプト・エディターの画面に戻ります。
+ 4. シェアが完了したら、**Back to *YourInitials*_Lending_Services**をクリックし、元のプロンプト・エディターの画面に戻ります。
  ![alt text](lab4_images/image-45.png)
 
-6. **Publish**をクリックします。
-![alt text](lab4_images/image-101.png)
-
-7. ポップアップが出てきたら、バージョンの名前の欄に **1.0.0** と入力して、**Create version and publish** をクリックします。
-![alt text](lab4_images/image-102.png)
-
-8. バージョン履歴や現在公開しているバージョンは![alt text](lab2_GenAI_images/image-80.png)から確認することができます。
-![alt text](lab4_images/image-103.png)
-
- <!--6. 次に **History** のタブをクリックして表示された **View history** において、一番上の行の **Version +** をクリックします。
+ 5. 次に **History** のタブをクリックして表示された **View history** において、一番上の行の **Version +** をクリックします。
  ![alt text](lab4_images/image-46.png)
 
  7. ポップアップが出てきたら、バージョンの名前の欄に **1.0.0** と入力して、**Create** をクリックします。
@@ -151,7 +142,6 @@
 
  10. 正常に公開されると、以下のように **Published** と表示されます。
  ![alt text](lab4_images/image-51.png)
- -->
 
   
 ## スキルのエンハンス (強化)

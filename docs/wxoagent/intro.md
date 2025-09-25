@@ -5,7 +5,7 @@
 ## watsonx Orchestrateの画面を確認してみよう
 このセクションでは、watsonx Orchestrateの主な画面構成について学びます。
 
- 1. watsonx Orchestrateにログインします。
+ 1. watsonx Orchestrateにログインします。  
   ![alt text](intro_images/image-1.png)
 
  2. IBM-idを入力して、**Continue** ボタンをクリックします。
@@ -15,8 +15,8 @@
 
 
  4. 以下のような画面が表示されます。（ツアーのダイアログが表示された場合にはスキップしてください。）  
-  ![alt text](intro_images/image-3.png)  
-  ![alt text](intro_images/image-4.png)  
+  ![alt text](intro_images/image-3-1.png)  
+  ![alt text](intro_images/image-4-1.png)  
  5. 詳細は以下の通りです。  
     1.メニュー  
     各画面へ遷移するためのメニューが表示されます。    

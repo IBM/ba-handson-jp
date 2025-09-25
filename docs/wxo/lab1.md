@@ -53,59 +53,53 @@ watsonx Orchestrateには、プリビルド・スキルと呼ばれる1000以上
 
 このLabでは、OpenAPI定義をインポートしてスキルをカタログに追加する方法について学びます。では、始めましょう！
 
-1. まず[こちらのリンク](https://ojnlvnhry9.execute-api.us-west-1.amazonaws.com/prod/hello-world)をクリックして、Hello world OpenAPIが利用可能であることを確認してください。 {"statusCode": 200, "body": "Hello From My Lambda!"}と表示されればOKです。このAPIはAWS上で動作するシンプルなAPIです。
+1. まず[こちらのリンク](https://n28bf9mpmg.execute-api.us-west-2.amazonaws.com/default/hellowatonx)をクリックして、Hello world OpenAPIが利用可能であることを確認してください。 {"message":"Missing Authentication Token"}と表示されればOKです。このAPIはAWS上で動作するシンプルなAPIです。
 
-2. [こちらのリンク](./files/helloworld-watsonx.json)を右クリックしてファイルに保存してください。このファイルは先ほどのAPIの定義情報です。
+2. [こちらのリンク](./files/helloworld-watsonx.yaml)を右クリックしてファイルに保存してください。このファイルは先ほどのAPIの定義情報です。
 
 3. notepad, VSCode, vi/vimといったお好みのエディタでファイルを開き編集します。
 ```
-    "openapi": "3.0.1",
-    "info": {
-        "title": "Your-Initials Hello World App Example",
-        "description": "This is a Hello World Example",
-        "version": "1.0.0"
-    },
-    "servers": [
-        {
-            "url": "https://ojnlvnhry9.execute-api.us-west-1.amazonaws.com/prod/"
-        }
-    ],
-    "security": [
-        {
-            "basic_auth": []
-        }
-    ],
-    "paths": {
-        "/hello-world": {
-            "get": {
-                "operationId": "hello",
-                "summary": "Your-Initials Hello World WatsonX",
-                "responses": {
+openapi: 3.0.3
+info:
+  title: YourInitials-helloworld-watsonx
+  description: Hello world WatsonX
+  version: 1.0.0
+  x-ibm-annotations: true
+  x-ibm-application-name: IBM Watsonx - Training
+  x-ibm-application-id: watsonxai-YourInitials-training
+  x-ibm-skill-type: imported
+  x-ibm-application-icon: <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" 
+servers:
+  - url: https://n28bf9mpmg.execute-api.us-west-2.amazonaws.com/default
+security:
+  - passwordGrant: [ ]
+paths:
+  /hellowatsonx:
+    post:
+      summary: YourInitials Hello World WatsonX
+      operationId: Hello-YourInitials-watsonx
 ```
-4. インポート時に他のハンズオン実施者とスキルが重複しないように、ファイルの中の、title,summaryをユニークなものにします。これらの値のYourInitialsの部分をあなたのイニシャルに置き換えてファイルを保存してください。更新後のファイルは以下のようになるはずです。(イニシャルの置き換え箇所は、2か所あります。)
+4. インポート時に他のハンズオン実施者とスキルが重複しないように、ファイルの中の、x-ibm-application-id, title,summaryとoperationIdをユニークにする必要があります。これらの値のYourInitialsの部分をあなたのイニシャルに置き換えてファイルを保存してください。更新後のファイルは以下のようになるはずです。(イニシャルの置き換え箇所は、4か所あります。)
 ```
-    "openapi": "3.0.1",
-    "info": {
-        "title": "XX Hello World App Example",
-        "description": "This is a Hello World Example",
-        "version": "1.0.0"
-    },
-    "servers": [
-        {
-            "url": "https://ojnlvnhry9.execute-api.us-west-1.amazonaws.com/prod/"
-        }
-    ],
-    "security": [
-        {
-            "basic_auth": []
-        }
-    ],
-    "paths": {
-        "/hello-world": {
-            "get": {
-                "operationId": "hello",
-                "summary": "XX Hello World WatsonX",
-                "responses": {
+openapi: 3.0.3
+info:
+  title: XX-helloworld-watsonx
+  description: Hello world WatsonX
+  version: 1.0.0
+  x-ibm-annotations: true
+  x-ibm-application-name: IBM Watsonx - Training
+  x-ibm-application-id: watsonxai-XX-training
+  x-ibm-skill-type: imported
+  x-ibm-application-icon: <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" 
+servers:
+  - url: https://n28bf9mpmg.execute-api.us-west-2.amazonaws.com/default
+security:
+  - passwordGrant: [ ]
+paths:
+  /hellowatsonx:
+    post:
+      summary: XX Hello World WatsonX
+      operationId: Hello-XX-watsonx
 ```
 
 5. メニューから**スキル・スタジオ**を選択します。  
