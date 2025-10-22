@@ -577,12 +577,12 @@
 <a class="glightbox" href="../agent_images/agent-image33.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image33.png" /></a></p>
 </li>
 <li>
-<p>このハンズオンではIBMに関する質問に回答するエージェントを作成するため、Nameを<strong>YourInitials-IBMInfo</strong>と設定します。<br />
+<p>このハンズオンではIBMに関する質問に回答するエージェントを作成するため、名前を<strong>YourInitials-IBMInfo</strong>と設定します。<br />
 <a class="glightbox" href="../agent_images/agent-image34.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image34.png" /></a></p>
 </li>
 <li>
-<p>このエージェントの役割をDescriptionに記載します。watsonx Orchestrateは記載した内容をもとにどのエージェントを呼び出すかを判断するため、適切な記載が求められます。<br />
-このハンズオンでは、Descriptionに<strong>IBMの会社情報に関する質問に回答するエージェントです</strong>と設定し、<strong>作成</strong>をクリックします。<br />
+<p>このエージェントの役割を説明に記載します。watsonx Orchestrateは記載した内容をもとにどのエージェントを呼び出すかを判断するため、適切な記載が求められます。<br />
+このハンズオンでは、説明に<strong>IBMの会社情報に関する質問に回答するエージェントです</strong>と設定し、<strong>作成</strong>をクリックします。<br />
 <a class="glightbox" href="../agent_images/agent-image35.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image35.png" /></a></p>
 </li>
 <li>
@@ -590,12 +590,25 @@
 ※エラーが発生する場合は、エージェントの名前が重複している可能性があります。イニシャルを変更するなどして再度試してみてください。<br />
 <a class="glightbox" href="../agent_images/agent-image36.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image36.png" /></a></p>
 </li>
+<li>
+<p>ユーザーがエージェントを開くと表示される<strong>ウェルカムメッセージ</strong>と<strong>スタータープロンプト</strong>を設定します。ウェルカムメッセージに<strong>こんにちは、IBMエージェントへようこそ</strong>と入力します。
+<a class="glightbox" href="../agent_images/agent-image58.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image58.png" /></a></p>
+</li>
+<li>
+<p>続いて、スタータープロンプトにあるデフォルトの設定を削除します。削除後、<strong>プロンプトの作成</strong>ボタンをクリックします。<strong>IBMについて教えてください</strong>と入力後、再度<strong>プロンプトの作成</strong>ボタンをクリックし、もう一つ追加します。<strong>あなたのできることを教えてください</strong>と入力してください。
+スタータープロンプトを設定することで、ユーザーはここをクリックすることで会話を始めることができるようになります。
+<a class="glightbox" href="../agent_images/agent-image59.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image59.png" /></a></p>
+</li>
+<li>
+<p>プレビューチャットをリフレッシュしてください。設定が反映されます。
+<a class="glightbox" href="../agent_images/agent-image44.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image44.png" /></a></p>
+</li>
 </ol>
 <h2 id="_1">基本的な動きの確認</h2>
 <ol>
 <li>
 <p>右側にプレビューチャットが表示されています。ここで簡単に作成したエージェントを試すことができます。<br />
-<a class="glightbox" href="../agent_images/agent-image36-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image36-1.png" /></a></p>
+<a class="glightbox" href="../agent_images/agent-image60.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image60.png" /></a></p>
 </li>
 <li>
 <p>まずは<strong>What is IBM?</strong>と入力します。<br />
@@ -618,7 +631,7 @@
 <h2 id="_2">動作の定義</h2>
 <ol>
 <li>
-<p>プレビューチャットに<strong>IBMについて教えてください</strong>と入力します。<br />
+<p>プレビューチャットに<strong>IBMについて教えてください</strong>と入力します。もしくはスタータープロンプトのIBMについて教えてくださいをクリックします。
 <a class="glightbox" href="../agent_images/agent-image41.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image41.png" /></a></p>
 </li>
 <li>
@@ -630,7 +643,7 @@
 <a class="glightbox" href="../agent_images/agent-image43.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image43.png" /></a></p>
 </li>
 <li>
-<p>Previewチャットをリフレッシュしてください。<br />
+<p>プレビューチャットをリフレッシュしてください。<br />
 <a class="glightbox" href="../agent_images/agent-image44.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image44.png" /></a></p>
 </li>
 <li>
@@ -640,6 +653,15 @@
 <li>
 <p>次は日本語で返ってくることが確認できました。<br />
 <a class="glightbox" href="../agent_images/agent-image16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image16.png" /></a></p>
+</li>
+<li>
+<p>続いて、<strong>Guidelines</strong>の設定を行います。ガイドラインを設定することで、特定の状況でどのように行動するかを定義することができます。<strong>Add Guideline</strong>をクリックし、Nameに<strong>挨拶</strong>と設定します。
+また、Conditionには<strong>こんにちはなどと挨拶をされました</strong>、Actionには<strong>ユーザーに合わせて挨拶を返します</strong>と入力し、<strong>保存</strong>をクリックします。
+<a class="glightbox" href="../agent_images/agent-image61.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image61.png" /></a></p>
+</li>
+<li>
+<p>プレビューチャットをリフレッシュして、<strong>こんばんは</strong>とチャットに入力します。挨拶が返ってくることが確認できます。
+<a class="glightbox" href="../agent_images/agent-image62.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image62.png" /></a></p>
 </li>
 </ol>
 <p>このように、ユーザビリティを上げるために、動作を適切に定義することが必須です。</p>
@@ -730,10 +752,10 @@
 </ol>
 <p>ユースケースに合わせたLLMを選択することで、適切な回答、処理を行うエージェントを作成することができます。</p>
 <h2 id="ppt">オプション：エージェントに知識を加える（ppt）</h2>
-<p>Knowledgeは、PDF以外にもPowerPointなどのファイルも使用可能です。</p>
+<p>知識は、PDF以外にもPowerPointなどのファイルも使用可能です。</p>
 <ol>
 <li>
-<p><a href="../files/BWL_Pricing_Overview.PPTX">こちらのリンク</a>を右クリックしてファイルに保存してください。このファイルはBWLの価格について説明した資料です。</p>
+<p><a href="../files/BWL_Pricing_Overview.PPTX">こちらのリンク</a>を右クリックしてファイルに保存してください。このファイルはIBM製品の一つBlueworks Liveの価格について説明した資料です。</p>
 </li>
 <li>
 <p>P4,5にそれぞれ汎用版とUS版のBWLの価格が記載されていることを確認します。<br />
@@ -745,10 +767,11 @@
 <a class="glightbox" href="../intro_images/image-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../intro_images/image-11.png" /></a></p>
 </li>
 <li>
-<p>先ほど実施した手順と同じようにPPTファイルをアップロードし、適切な説明を追加してください。</p>
+<p>先ほど実施した手順と同じようにPPTファイルをアップロードします。説明に<strong>Blueworks Liveの価格情報です</strong>と追加してください。
+<a class="glightbox" href="../agent_images/agent-image63.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image63.png" /></a></p>
 </li>
 <li>
-<p>ファイルの処理が完了したら、再びチャット画面で「Blueworks Liveの価格について教えてください。」と入力します。ファイルをアップロードする前の結果とは異なり、プランごとの価格が一覧として表示されることがわかります。<br />
+<p>ファイルの処理が完了したら、再びチャット画面で<strong>Blueworks Liveの価格について教えてください</strong>と入力します。ファイルをアップロードする前の結果とは異なり、プランごとの価格が一覧として表示されることがわかります。<br />
 <a class="glightbox" href="../intro_images/image-15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../intro_images/image-15.png" /></a></p>
 </li>
 </ol>

@@ -16,7 +16,7 @@
     
     
       
-        <title>プリビルドAgent/Toolを使ってみよう！ - Business Automation Handson</title>
+        <title>人事エージェント - 従業員向けアシスタントのユースケース - Business Automation Handson</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#agenttool" class="md-skip">
+        <a href="#-" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              プリビルドAgent/Toolを使ってみよう！
+              人事エージェント - 従業員向けアシスタントのユースケース
             
           </span>
         </div>
@@ -428,69 +428,142 @@
                   
 
 
-<h1 id="agenttool">プリビルドAgent/Toolを使ってみよう！</h1>
-<p>watsonx Orchestrateには、事前定義されたAgentやToolがカタログに多数含まれ、テンプレートとして利用することが可能です。
-また、Connectionsという仕組みを使うことで、接続情報を柔軟に管理、設定することが可能です。
-このLabでは、Jiraへ接続可能なAgentを構成し、利用する手順について説明します。</p>
-<h2 id="connections">Connectionsの設定</h2>
-<p>定義済みのConnectionsを確認し、Jiraに接続するために必要な構成を行います。<br />
-1. 左側のメニューより、Manage &gt; Connectionsを選択してください。<br />
-<a class="glightbox" href="prebuild_images/image.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="prebuild_images/image.png" /></a><br />
-2. Connectionsの管理画面が表示されます。  <br />
-3. 検索ボックスに、<strong>jira</strong>と入力してください。Jiraに関する2つのConnectionsが表示されるはずです。</p>
+<h1 id="-">人事エージェント - 従業員向けアシスタントのユースケース</h1>
+<p>この Lab では、従業員が行う人事関連業務をアシストする AI エージェント作成を行います。<br />
+対象システム（サンプル人事システム）は kintone を使って作成した Web アプリケーションです。kintone はプリビルドスキルの用意が無いため、当ハンズオンではカスタムで作成済みの Connections（接続設定）およびツールを利用します。</p>
+<h2 id="_1">実装シナリオ</h2>
+<p>下記の処理を行うことができるエージェントを実装します。<br />
+<strong>①人事規則を確認する</strong><br />
+<strong>②自身の組織情報を確認する</strong><br />
+<strong>③自身の上司の休暇予定を確認する</strong><br />
+<strong>④休暇申請する</strong></p>
+<h2 id="connections">Connections（接続設定）の設定確認</h2>
+<p>あらかじめ定義済みの接続設定を確認します。<br />
+1. 左側のメニューより、「管理」 &gt; 「接続」を選択してください。<br />
+2. 接続設定の管理画面が表示されます。<br />
+3. 検索ボックスに、<strong>kintone</strong> と入力してください。kintone が名称に含まれるいくつかの接続設定が表示されます。今回のハンズオンで利用する <strong>kintone-os-employeelist</strong> および <strong>kintone-os-timeoff</strong> の接続設定が存在することを確認します。</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <ul>
-<li>Jiraは基本認証に必要な情報を設定するConnectionで、ユーザー毎に異なるユーザーIDとパスワードを設定します。このように、ユーザー毎に異なる値を設定する場合には、Member Creadentialsを使用します。</li>
-<li>Jira URLは、接続先のドメインを設定するためのkey_value型のConnectionsで、全体で共通の値を設定します。これをTeam Credentialsと呼びます。Team Credentialsは管理者のみ設定可能です。  </li>
+<li>接続設定は参加者が共通で使う設定のため、<strong>変更しないようご注意ください。</strong></li>
 </ul>
-<p><a class="glightbox" href="prebuild_images/image-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="prebuild_images/image-2.png" /></a><br />
-4. Jira URLの設定（管理者のみ。共有のテナントを使用する場合は、管理者に設定を依頼してください。既に接続済みの場合はスキップして、Step5のJiraの設定に進んでください。）<br />
-Jira URLの右側の編集ボタンをクリックしてください。設定画面が開くので、<strong>Team credentials</strong>が選択されていることを確認してから、以下の値を設定し、<strong>Connect</strong>ボタンをクリックしてください。 <br />
-なお、設定値はDraft/Liveの2つの値を設定することで、開発画面とデプロイされたToolで異なる接続情報を使い分けることが可能です。今回はDraftのみを設定してください。  </p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <ul>
-<li><strong>Authentication Type:</strong> Key Value Pair</li>
-<li><strong>Server URL:</strong>空欄のままでOK</li>
-<li><strong>key:</strong> base_url</li>
-<li><strong>Value:</strong>講師から共有されたドメイン名</li>
+<li>kintone はプリビルドツールが無いため、watsonx Orchestrate のエージェントから接続するためにはカスタムで接続設定およびツールの追加が必要になります。接続設定はこの画面の「新規接続の追加」または ADK の Connections コマンドにより追加し、ツールは python または json/yaml ファイルを作成してインポートします。</li>
+<li>今回のハンズオンでは、kintone で作成した <strong>社員名簿</strong> のアプリケーションと <strong>休暇情報</strong> のアプリケーションに接続するため、それぞれのアプリケーションに対する接続設定があらかじめ設定されています。</li>
 </ul>
-<p><a class="glightbox" href="prebuild_images/image-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="prebuild_images/image-4.png" /></a> 
-接続が成功したら、<strong>Save</strong>ボタンをクリックしてください。<br />
-5. Jiraの設定<br />
-次にJiraの右側の編集ボタンをクリックします。<strong>Member credentials</strong>が選択されていることを確認し、Authentication Typeとしては、<strong>Basic Auth</strong>を選択してSaveボタンをクリックしてください。
-<a class="glightbox" href="prebuild_images/image-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="prebuild_images/image-5.png" /></a></p>
-<h2 id="agent">Agentの作成</h2>
-<p>カタログにあるJiraを用いるAgentをテンプレートにしてAgentを作成します。<br />
-1. 左側のメニューからBuild &gt; Agent Builderと進み、<strong>Create Agent</strong>ボタンをクリックしてください。<br />
-<a class="glightbox" href="prebuild_images/image-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="prebuild_images/image-6.png" /></a><br />
-2. Agent作成のウィザードが開くので、右側の<strong>Create from template</strong>を選択してください。
-<a class="glightbox" href="prebuild_images/image-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="prebuild_images/image-7.png" /></a><br />
-3. 検索Boxに<strong>jira</strong>と入力してください。Jiraを使用する2つのAgentが表示されるので、<strong>Issue management</strong>を選択してください。
-<a class="glightbox" href="prebuild_images/image-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="prebuild_images/image-8.png" /></a>
-4. Agentの詳細が表示されるので、内容を確認し、右下の<strong>Use as template</strong>をクリックしてください。
-<a class="glightbox" href="prebuild_images/image-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="prebuild_images/image-9.png" /></a>
-5. Agentが作成されます。共用の環境を使用している場合は、Agentの名前の右側の編集ボタンをクリックし、あなたの名前を付けるなど、区別がつくようにしてください。<br />
-6. Agentの設定を確認し、利用可能なToolや、Behaviorの記述内容を確認してください。特にBehaviorについてはかなり細かく設定がされていることが分かります。</p>
-<h2 id="agent_1">Agentの実行</h2>
-<ol>
-<li>右側のチャット欄に<strong>プロジェクトのリストを表示して</strong>と入力してください。<br />
-<a class="glightbox" href="prebuild_images/image-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="prebuild_images/image-10.png" /></a></li>
-<li>Member Credentialsが設定されており、まだ接続が行われていない場合には、以下の様にパラメータを設定するフォームが表示されます。<br />
-<a class="glightbox" href="prebuild_images/image-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="prebuild_images/image-11.png" /></a></li>
-<li>User Name,Passwordに講師から共有された値を入力して、<strong>Connect</strong>ボタンをクリックしてください。Passwordをコピー＆ペーストする際にスペースなどが付加されていないことを確認してください。</li>
-<li>接続が成功するはずです。<br />
-<a class="glightbox" href="prebuild_images/image-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="prebuild_images/image-12.png" /></a></li>
-<li>プロジェクトの一覧が表示されます。Toolの初回利用時には、バックグラウンドで導入を実施するので、時間をおいてから再度実行してくださいというメッセージが表示される場合があります。その場合は指示に従ってください。
-<a class="glightbox" href="prebuild_images/image-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="prebuild_images/image-13.png" /></a></li>
-<li>
-<p>Issue Manaement Agentはissueの取得や作成など他にも機能があります。その他のToolも実行して動作を確認してください。例えば以下のような処理が可能です。   </p>
+</div>
+<p><strong>社員名簿</strong> アプリケーションのイメージ
+<a class="glightbox" href="../hr_images/kintone_%E7%A4%BE%E5%93%A1%E6%83%85%E5%A0%B1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../hr_images/kintone_%E7%A4%BE%E5%93%A1%E6%83%85%E5%A0%B1.png" /></a></p>
+<p><strong>休暇情報</strong> アプリケーションのイメージ
+<a class="glightbox" href="../hr_images/kintone_%E4%BC%91%E6%9A%87%E6%83%85%E5%A0%B1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../hr_images/kintone_%E4%BC%91%E6%9A%87%E6%83%85%E5%A0%B1.png" /></a></p>
+<h2 id="1-">シナリオ① - 人事規則を確認する</h2>
+<p>エージェント・ビルダーからご自身の名前をつけたエージェントを作成し、人事規則に関する回答ができるよう設定していきます。
+サンプルの人事規則は <a href="../files/%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E4%BA%BA%E4%BA%8B%E8%A6%8F%E5%89%87.docx">こちらのファイル</a> からダウンロードしてください。</p>
+<p><a class="glightbox" href="../hr_images/senario1_flow.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../hr_images/senario1_flow.png" /></a></p>
+<h3 id="_2">完成したエージェントの挙動イメージ</h3>
+<p>サンプル人事規則に記載されている内容を元にした、たとえば以下のような質疑応答ができるようになっていれば、完成です。</p>
 <ul>
-<li>issueの表示</li>
-<li>issueの作成</li>
-<li>issueの削除</li>
+<li>Q：試用期間について教えてください<br />
+    A：原則3ヶ月</li>
+<li>Q：テレワークをするのに申請は必要ですか？<br />
+    A：原則事前申請・上長承認が必要</li>
+<li>Q：新入社員研修はどんなものがありますか？<br />
+    A：入社時導入研修（オリエンテーション、業務基礎、 コンプライアンス等）</li>
+<li>Q：年次有給休暇は入社後何ヶ月で付与される？<br />
+    A：6ヶ月</li>
 </ul>
-</li>
-</ol>
-<h2 id="_1">お疲れさまでした！</h2>
-<p>このハンズオンでは、Connectionsを構成する方法を学び、プリビルドのAgentをテンプレートにAgentを作成する手順を実行しました。</p>
+<p><a class="glightbox" href="../hr_images/senario1_sample-preview.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../hr_images/senario1_sample-preview.png" /></a></p>
+<details class="question">
+<summary>エージェント作成のヒント</summary>
+<ul>
+<li>ファイルを追加する際、どういった内容のファイルなのかをナレッジソースの説明に追加することでエージェントの参考になります。
+<div class="highlight"><pre><span></span><code>[Sample]
+このファイルは人事規則を記載しています。採用・勤務・賃金・休暇・退職・福利厚生などの情報が含まれます。
+</code></pre></div></li>
+<li>どの情報を使ってどんな処理をすべきエージェントなのか、Behavior（動作）に定義することで LLM の挙動を操作できます。
+<div class="highlight"><pre><span></span><code>[Sample]
+ナレッジソースを使用して、人事規則に関する質問に回答します。
+
+ナレッジソース：
+- サンプル人事規則.pdf：人事規則に関するドキュメント
+
+エージェントの動作方針：
+- 回答が分からない場合は、それを伝えます。LLMの知識でオリジナルの回答を作成しません。
+- ユーザーとのコミュニケーションは、必ずユーザーが話す言語で行います。例えば、ユーザーが日本語で話す場合は、日本語で回答します。
+</code></pre></div></li>
+<li>LLM が質問を上手く理解できない場合は、エージェント・スタイルを <strong>ReAct</strong> に変更したり、他の AI モデルに変更して試します。<br />
+※上記に載せているサンプルの会話は、llama-3-2-90b-vision-instruct モデルと ReAct スタイルで実行しています</li>
+<li>LLM がナレッジソースではなく独自の回答を含めてしまう場合は、Knowledge setting（知識設定）の「応答」値の変更を試します。</li>
+</ul>
+<p><a class="glightbox" href="../hr_images/senario1_knowledgesetting.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../hr_images/senario1_knowledgesetting.png" /></a></p>
+</details>
+<h2 id="2-">シナリオ② - 自身の組織情報を確認する</h2>
+<p>kintone で作成された社員情報アプリにアクセスし、ユーザーと同じ組織の情報を回答できるよう設定していきます。
+社員情報アプリから社員情報を取得するツールは、ローカル・インスタンスから <strong>kintone_get_employeelist</strong> および <strong>kintone_get_reportline</strong> を追加して利用してください。</p>
+<p><a class="glightbox" href="../hr_images/senario2_flow.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../hr_images/senario2_flow.png" /></a></p>
+<p>ツールを追加したら、まずはどのような社員データがあるのか確認してみましょう。社員の全情報が取得できる <strong>kintone_get_employeelist</strong> を呼び出すと、以下のようなデータが確認できます。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>リスト系データを複数行表示する場合は、表形式で表示させるようプロンプトに含めると見やすくなります。</li>
+</ul>
+</div>
+<p><a class="glightbox" href="../hr_images/senario2_employeelist-preview.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../hr_images/senario2_employeelist-preview.png" /></a></p>
+<h3 id="_3">完成したエージェントの挙動イメージ</h3>
+<p>ご自身の社員番号を仮で決め、たとえば以下のように同じ部署の社員やそのレポートラインを共有できるようになっていれば、完成です。<br />
+※今回利用するツールは個人認証を行わないため、特定ユーザーの組織情報を取得するためには対象のユーザーの社員番号を AI エージェントに連携します。</p>
+<p><a class="glightbox" href="../hr_images/senario2_orginfo_preview02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../hr_images/senario2_orginfo_preview02.png" /></a></p>
+<details class="question">
+<summary>エージェント作成のヒント</summary>
+<ul>
+<li>対象ユーザーと同じ組織の情報を上手く出力できない場合は、組織情報について聞かれた際のデータの検索方法を Behavior（動作）あるいは Guidelines に示します。<br />
+以下は特定条件のガイドラインとして定義した例です。</li>
+</ul>
+<p><a class="glightbox" href="../hr_images/senario2_guideline.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../hr_images/senario2_guideline.png" /></a></p>
+</details>
+<h2 id="3-">シナリオ③ - 自身の上司の休暇予定を確認する</h2>
+<p>先ほど実装した組織情報を利用し、自身の上司の次回休暇予定を確認できるよう設定していきます。
+特定社員の次回休暇情報を取得するツール <strong>kintone_get_nextoff</strong> を追加し利用してください。</p>
+<h3 id="_4">完成したエージェントの挙動イメージ</h3>
+<p>ご自身の社員番号を仮で決め、たとえば以下のように上司（＝同じ部署で役職が1つの社員）の次回休暇日を表示することができるようになっていれば、完成です。<br />
+※「理由の表示」をクリックして、上司の社員を正しく認識できていることを確認してください。</p>
+<p><a class="glightbox" href="../hr_images/senario3_sample-preview.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../hr_images/senario3_sample-preview.png" /></a></p>
+<details class="question">
+<summary>エージェント作成のヒント</summary>
+<ul>
+<li>対象ユーザー（質問者の上司）を探し、その上司に対して休暇日取得のツールを実行するよう Behavior（動作）あるいは Guidelines に示します。<br />
+以下は特定条件のガイドラインとして定義した例です。</li>
+</ul>
+<p><a class="glightbox" href="../hr_images/senario3_guideline.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../hr_images/senario3_guideline.png" /></a></p>
+</details>
+<h2 id="4-">シナリオ④ - 休暇申請する</h2>
+<p>休暇申請処理ができるよう設定していきます。kintone で作成された休暇情報アプリにアクセスし、有給休暇データを取得できるツール <strong>kintone_get_timeofflist</strong> および更新できるツール <strong>kintone_update_timeoff</strong> を追加し利用してください。</p>
+<p><a class="glightbox" href="../hr_images/senario4_flow.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../hr_images/senario4_flow.png" /></a></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul>
+<li>休暇情報アプリは参加者が共通で使うため、<strong>ご自身に割り当てられた社員番号データのみ更新するようご注意ください。</strong></li>
+</ul>
+</div>
+<p>ツールを追加したら、まずはご自身の有給休暇が何日あるのか確認してみましょう。社員の有給休暇日数が取得できる <strong>kintone_get_timeofflist</strong> を呼び出すと、以下のようなデータが確認できます。</p>
+<p><a class="glightbox" href="../hr_images/senario4_balance-preview.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../hr_images/senario4_balance-preview.png" /></a></p>
+<h3 id="_5">完成したエージェントの挙動イメージ</h3>
+<p>ご自身のデータに対し、休暇申請処理（休暇申請アプリの残日数データを更新）することができるようになっていれば、完成です。<br />
+※「理由の表示」をクリックしたり、実施後に再度 <strong>kintone_get_timeofflist</strong> を呼び出したりして、正しく処理が行われたことを確認してください。</p>
+<p><a class="glightbox" href="../hr_images/senario4_sample-preview.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../hr_images/senario4_sample-preview.png" /></a></p>
+<details class="question">
+<summary>エージェント作成のヒント</summary>
+<ul>
+<li>申請前に、休暇の残数確認や、休暇の取得開始日および日数を確認する必要があります。<br />
+以下は特定条件のガイドラインとして定義した例です。</li>
+</ul>
+<p><a class="glightbox" href="../hr_images/senario4_guideline.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../hr_images/senario4_guideline.png" /></a></p>
+</details>
+<h2 id="_6">お疲れさまでした！</h2>
+<p>このハンズオンでは、カスタムの接続設定とツールを使い、kintone で作成した人事アプリケーションと連携したエージェントを実装しました。</p>
 
 
 
