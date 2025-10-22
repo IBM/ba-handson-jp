@@ -430,25 +430,81 @@
 
 <h1 id="it">IT運用のユースケース</h1>
 <p>IT運用のユースケースを想定して、watsonx Orchestrateでの実践的なエージェント作成について学びます。</p>
-<h2 id="_1">実装シナリオ</h2>
+<h2 id="connections">Connections（接続設定）の設定確認</h2>
+<p>あらかじめ定義済みの接続設定を確認します。<br />
+1. 左側のメニューより、「管理」 &gt; 「接続」を選択してください。<br />
+2. 接続設定の管理画面が表示されます。<br />
+3. 検索ボックスに、<strong>servicenow</strong> と入力してください。servicenowが名称に含まれるいくつかの接続設定が表示されます。本ハンズオンでは事前に接続定義済みなので変更は必要ありません。
+<a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-01%2016.08.15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-01%2016.08.15.png" /></a></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul>
+<li>接続設定は参加者が共通で使う設定のため、<strong>変更しないようご注意ください。</strong></li>
+</ul>
+</div>
+<h2 id="1-">シナリオ① - プリビルドエージェント</h2>
+<p>watsonx Orchestrateでは人事や調達、ITといった業務領域に特化した事前構築済みエージェントを提供しています。ServiceNowと連携するエージェントも用意されているので、まずはそちらを試してみます。
+エージェント・ビルダー→エージェントの作成→テンプレートから作成をクリックします。
+<a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-02%2010.05.34.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-02%2010.05.34.png" /></a></p>
+<p>検索窓に"servicenow"と入力します。ServiceNowを使うプリビルドエージェントだけでも様々な種類がありますが、今回は"Incident manager"を選択します。
+<a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-02%2010.06.19.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-02%2010.06.19.png" /></a></p>
+<p>テンプレートとして使用をクリックしてエージェントを作成します。
+<a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-02%2010.08.31.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-02%2010.08.31.png" /></a></p>
+<p>エージェントが作成されます。共用の環境を使用している場合は、エージェントの名前の右側の編集ボタンをクリックし、あなたの名前を付けるなど、区別がつくようにしてください。
+<a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-02%2010.11.26.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-02%2010.11.26.png" /></a></p>
+<p>まずはインシデントを起票してみてください。
+以下の例ではテンプレートの指示が英語で書かれているため、英語で回答してしまっていますが、インシデントが起票できています。モデルはllama-3-2-90b-vision-instruct、エージェントスタイルはReActにしています。</p>
+<p><a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-02%2010.44.48.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-02%2010.44.48.png" /></a></p>
+<p>最近起票されたインシデントのリストを確認してみましょう。（Short Descriptionの日本語がおかしいインシデントがありますが、リスト自体は正しく取得できています。）
+<a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-21%2017.31.54.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-21%2017.31.54.png" /></a></p>
+<p>ツールの詳細を確認してどのような入力と出力を定義しているか確認してみましょう。
+"Create an incident in ServiceNow"のツールで詳細の編集をクリックします。
+<a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-21%2017.35.06.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-21%2017.35.06.png" /></a></p>
+<p>入力を7項目、出力を5項目定義していることがわかります。これらはすべて必須の項目ではなく、このツールの場合は"impact_value"、"urgency_value"、"short_description"の3つの入力項目を必須としています。
+<a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-21%2017.34.48.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-21%2017.34.48.png" /></a></p>
+<h2 id="2-it">シナリオ② - ITサポートエージェント</h2>
 <p>下記の業務シナリオを実装します。</p>
 <p><strong>自然言語での問い合わせ受付→過去の障害ログ・ナレッジベースから類似事例を検索、解決方法を提示→ServiceNowへインシデント起票</strong></p>
-<p><a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-09-24%2023.13.42.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-09-24%2023.13.42.png" /></a></p>
-<h2 id="servicenow">ServiceNowとの接続</h2>
-<p>このLabではServiceNowの環境作成からwatsonx Orchestrateとの接続を実施していただきます。
-ServiceNowの環境作成と接続手順は<a href="https://qiita.com/thayate/items/7b6b088baeed44a4b26a">Qiita記事</a>を参考にしてください。</p>
-<h2 id="_2">エージェント作成のヒント</h2>
+<p>本シナリオはプリビルドエージェントを使用せず、1からエージェントを作成していただきます。</p>
+<p><a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-08%2013.14.21.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-08%2013.14.21.png" /></a></p>
 <p>エージェントでの会話フロー例です。以下のイメージの通りにならなくても問題ございません。
 <a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-09-24%2022.53.48.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-09-24%2022.53.48.png" /></a>
 <a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-09-24%2022.52.54.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-09-24%2022.52.54.png" /></a></p>
-<p>ナレッジソースは<a href="https://support.apple.com/ja-jp/102437">Macのサポートページ</a>を使用しました。Webページをpdf化してwatsonx Orchestrateにアップロードしています。好きなドキュメントに差し替えてください。
+<p>ナレッジソースは<a href="https://support.apple.com/ja-jp/102437">Macのサポートページ</a>を使用しました。Webページをpdf化してwatsonx Orchestrateにアップロードしています。ここは好きなドキュメントに差し替えたり、新たに別のドキュメントを追加して試してみてください。
 <a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-09-17%2017.40.42.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-09-17%2017.40.42.png" /></a></p>
-<h2 id="_3">オプション: 様々なプリビルドツールの活用</h2>
+<details class="question">
+<summary>エージェント作成のヒント（ナレッジソース）</summary>
+<p>LLM がナレッジソースではなく独自の回答を含めてしまう場合は、Knowledge setting（知識設定）の「応答」値の変更を試します。</p>
+<p><a class="glightbox" href="../it_images/image.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/image.png" /></a></p>
+</details>
+<p>ツールの実行はフローを使って実装しています。</p>
+<p><a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-08%2013.20.29.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-08%2013.20.29.png" /></a></p>
+<p>ウェルカム・メッセージやクイック・スタート・プロンプトも定義してみましょう。</p>
+<p><a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-14%2013.33.42.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-14%2013.33.42.png" /></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>現状ではフローを使うとインシデントの短い説明が文字化けすることがあります。実運用ではモデルを変えると回避できることがあります。</p>
+</div>
+<details class="question">
+<summary>エージェント作成のヒント（フロー作成）</summary>
+<p>フローの概要は以下のように定義しています。
+<a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-14%2011.03.08.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-14%2011.03.08.png" /></a></p>
+<p>ServiceNowインシデント起票のツールのデータマッピングは修正せず、オート・マップのままにしています。</p>
+<p><a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-14%2011.04.59.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-14%2011.04.59.png" /></a></p>
+<p>Brevoでのメール送信ツールはcontentをServiceNowのshort_description、subjectを「インシデントが起票されました」と定義しています。</p>
+<p><a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-14%2011.12.34.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-14%2011.12.34.png" /></a></p>
+</details>
+<details class="question">
+<summary>エージェント作成のヒント（フロー呼出時の動作）</summary>
+<p>Guidelineにフローを呼び出す際のステップをGuidelineに記述しています。これを記述しなくても動作しますが、インシデント起票に必要な情報をエージェントに与える際の順番を明示的に指定しています。</p>
+<p><a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-14%2010.25.35.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-14%2010.25.35.png" /></a></p>
+</details>
+<h2 id="_1">オプション: 様々なプリビルドツールの活用</h2>
 <p>2025年9月現在、ServiceNowに関連するプリビルドツールだけで46種類のツールが用意されています。</p>
 <p>これらのツールを組み合わせて、ご自身が使ってみたい実用的なエージェントを作成してみてください。
 <a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-09-17%2017.20.45.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-09-17%2017.20.45.png" /></a></p>
-<h2 id="_4">お疲れ様でした！</h2>
-<p>このハンズオンでは、IT運用のユースケースを想定して、ServiceNowと連携したエージェントを作成しました。</p>
+<h2 id="_2">お疲れ様でした！</h2>
+<p>このハンズオンでは、IT運用のユースケースを想定して、ServiceNowとメールシステムを連携したエージェントを作成しました。</p>
 
 
 
