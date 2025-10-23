@@ -23,11 +23,21 @@
 ## エージェント作成のヒント
 
 エージェントでの **会話フロー例** です。以下のイメージの通りにならなくても問題ございません。  
-![alt text](sales_images/image-1.png)  
-![alt text](sales_images/image-2.png)  
+![alt text](sales_images/image-11.png)  
+![alt text](sales_images/image-12.png)  
 
 !!! note
     講師から提供される Salesforce 環境を使用する場合は、お客様名は「AA」もしくは「BB」で検索してください。
+
+<br>
+Salesforceの商談一覧にはこのように登録されています。  
+![alt text](sales_images/image-9.png)  
+
+Slackにはこのようにメッセージが送信されています。
+![alt text](sales_images/image-13.png)  
+
+!!! note
+    今回使用するモデルでは日本語が文字化けしてしまうことがあるため、気になる方は案件名を英語で入力してみてください。実運用では他のモデルに変更することで解消可能です。
 
 <br>
 以下はエージェント作成に関するヒントです。必要に応じてご参照ください。  
@@ -60,6 +70,10 @@
     チャンネルIDは C08NG6VCCE7 です。
     ```
 
+<br> 
+AIエージェントで無事にシナリオを実行できたら、最後に Salesforce で案件を作成できているか確認してみましょう。  
+**List opportunities in Salesforce** というプリビルドツールをAIエージェントに追加し、本日作成された案件リストを表形式で取得してみます。ご自身で作成した案件が表示されているか確認してみましょう。  
+![alt text](sales_images/image-14.png)
 
 ## オプション: 様々なプリビルドツールの活用
 2025年10月現在、Salesforce や Slack に関連する多くのプリビルドツールが用意されています。
