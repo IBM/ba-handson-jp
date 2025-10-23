@@ -685,11 +685,20 @@
 - <a href="https://qiita.com/ikeda_24/items/7b94effc4eafd008203f">Slack の環境作成と接続手順</a></p>
 <h2 id="_4">エージェント作成のヒント</h2>
 <p>エージェントでの <strong>会話フロー例</strong> です。以下のイメージの通りにならなくても問題ございません。<br />
-<a class="glightbox" href="../sales_images/image-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../sales_images/image-1.png" /></a><br />
-<a class="glightbox" href="../sales_images/image-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../sales_images/image-2.png" /></a>  </p>
+<a class="glightbox" href="../sales_images/image-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../sales_images/image-11.png" /></a><br />
+<a class="glightbox" href="../sales_images/image-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../sales_images/image-12.png" /></a>  </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>講師から提供される Salesforce 環境を使用する場合は、お客様名は「AA」もしくは「BB」で検索してください。</p>
+</div>
+<p><br>
+Salesforceの商談一覧にはこのように登録されています。<br />
+<a class="glightbox" href="../sales_images/image-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../sales_images/image-9.png" /></a>  </p>
+<p>Slackにはこのようにメッセージが送信されています。
+<a class="glightbox" href="../sales_images/image-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../sales_images/image-13.png" /></a>  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>今回使用するモデルでは日本語が文字化けしてしまうことがあるため、気になる方は案件名を英語で入力してみてください。実運用では他のモデルに変更することで解消可能です。</p>
 </div>
 <p><br>
 以下はエージェント作成に関するヒントです。必要に応じてご参照ください。  </p>
@@ -721,6 +730,10 @@ stage_name を質問する際は、「フェーズ」と言ってください。
 チャンネルIDは C08NG6VCCE7 です。
 </code></pre></div>
 </details>
+<p><br> 
+AIエージェントで無事にシナリオを実行できたら、最後に Salesforce で案件を作成できているか確認してみましょう。<br />
+<strong>List opportunities in Salesforce</strong> というプリビルドツールをAIエージェントに追加し、本日作成された案件リストを表形式で取得してみます。ご自身で作成した案件が表示されているか確認してみましょう。<br />
+<a class="glightbox" href="../sales_images/image-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../sales_images/image-14.png" /></a></p>
 <h2 id="_5">オプション: 様々なプリビルドツールの活用</h2>
 <p>2025年10月現在、Salesforce や Slack に関連する多くのプリビルドツールが用意されています。
 これらのツールを組み合わせて、ご自身が使ってみたい実用的なエージェントを作成してみてください。</p>
