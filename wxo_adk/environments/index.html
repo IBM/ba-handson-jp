@@ -880,7 +880,7 @@
 <p>ADKのコマンドを用いることで、watsonx Orchestrateのサーバーに対して様々な処理を実行することが可能です。対象の環境は、  </p>
 <ul>
 <li>watsonx Orchestrate Developer Edition</li>
-<li>watsonx Orchestrate SaaS（IBMCloud/AWS)</li>
+<li>watsonx Orchestrate SaaS(IBMCloud/AWS)</li>
 <li>watsonx Orchestrate オンプレミス  </li>
 </ul>
 <p>のいずれも対応しています。これらの環境を複数登録し、対象の環境を切り替えてコマンドを発行することが可能です。</p>
@@ -907,10 +907,19 @@
 </div>
 </li>
 <li>
-<p>以下のコマンドでサーバーを起動します。初回起動時には、イメージをダウンロードするため、時間がかかります。（数十分から数時間程度。ネットワーク環境に依存）
-    <div class="highlight"><pre><span></span><code>    orchestrate server start -e ./env
+<p>以下のコマンドでサーバーを起動します。初回起動時には、イメージをダウンロードするため、時間がかかります。（数十分から数時間程度。ネットワーク環境に依存）  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>venvをactivateしていない場合には以下のコマンドを実行して下さい。  </p>
+<pre><code>## windowsの場合
+. ./venv/Scripts/activate
+## mac/Linuxの場合
+source ./venv/bin/activate
+</code></pre>
+</div>
+<p><div class="highlight"><pre><span></span><code>    orchestrate server start -e ./env
 </code></pre></div>
-    <a class="glightbox" href="../environments_images/image-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../environments_images/image-2.png" /></a></p>
+<a class="glightbox" href="../environments_images/image-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../environments_images/image-2.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>サーバー起動時に以下のようなエラーが発生する場合があります。Dockerレジストリへのログインがタイムアウトしていることが原因であることが多いため、このエラーが発生した場合は、再度コマンドを実行してみてください。
