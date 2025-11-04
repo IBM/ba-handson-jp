@@ -208,6 +208,24 @@
   
 
       
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../wxo_adk/" class="md-tabs__link">
+          
+  
+  watsonx Orchestrate ADK
+
+        </a>
+      </li>
+    
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -736,6 +754,200 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    watsonx Orchestrate ADK
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            watsonx Orchestrate ADK
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_adk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    はじめに
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_adk/install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    install
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_adk/environments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    env
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_adk/agents/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    agent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_adk/tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    tool
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_adk/langfuse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    langfuse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_adk/autotune/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    autotune
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -832,6 +1044,7 @@
 <p class="admonition-title">Note</p>
 <ul>
 <li>リスト系データを複数行表示する場合は、表形式で表示させるようプロンプトに含めると見やすくなります。</li>
+<li>件数が多いと表示に時間がかかってしまう場合があるため、ここでのテストは "10件まで" のように数を絞って表示させることを推奨します。</li>
 </ul>
 </div>
 <p><a class="glightbox" href="../hr_images/senario2_employeelist-preview.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../hr_images/senario2_employeelist-preview.png" /></a></p>
@@ -846,12 +1059,20 @@
 以下は特定条件のガイドラインとして定義した例です。</li>
 </ul>
 <p><a class="glightbox" href="../hr_images/senario2_guideline.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../hr_images/senario2_guideline.png" /></a></p>
+<p>条件
+<div class="highlight"><pre><span></span><code>[Sample]
+ユーザーの「上司」「組織図」などを取得・表示するリクエスト
+</code></pre></div>
+アクション
+<div class="highlight"><pre><span></span><code>[Sample]
+まずユーザーの社員番号を確認し、そのユーザーと同じ部署名の社員を、役職順で表示します。「組織図」を表示する場合は、表形式で表示します。
+</code></pre></div></p>
 </details>
 <h2 id="3-">シナリオ③ - 自身の上司の休暇予定を確認する</h2>
 <p>先ほど実装した組織情報を利用し、自身の上司の次回休暇予定を確認できるよう設定していきます。
 特定社員の次回休暇情報を取得するツール <strong>kintone_get_nextoff</strong> を追加し利用してください。</p>
 <h3 id="_4">完成したエージェントの挙動イメージ</h3>
-<p>ご自身の社員番号を仮で決め、たとえば以下のように上司（＝同じ部署で役職が1つの社員）の次回休暇日を表示することができるようになっていれば、完成です。<br />
+<p>ご自身の社員番号を仮で決め、たとえば以下のように上司（＝同じ部署で役職が1つ上の社員）の次回休暇日を表示することができるようになっていれば、完成です。<br />
 ※「理由の表示」をクリックして、上司の社員を正しく認識できていることを確認してください。</p>
 <p><a class="glightbox" href="../hr_images/senario3_sample-preview.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../hr_images/senario3_sample-preview.png" /></a></p>
 <details class="question">
@@ -861,6 +1082,14 @@
 以下は特定条件のガイドラインとして定義した例です。</li>
 </ul>
 <p><a class="glightbox" href="../hr_images/senario3_guideline.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../hr_images/senario3_guideline.png" /></a></p>
+<p>条件
+<div class="highlight"><pre><span></span><code>[Sample]
+ユーザーの上司の次回休暇日を取得・表示するリクエスト
+</code></pre></div>
+アクション
+<div class="highlight"><pre><span></span><code>[Sample]
+ユーザーの社員番号を確認し、kintone_get_reportline ツールを呼び出して、そのユーザーと同じ&quot;部署&quot;に所属しており、役職が1つ上の社員（上司）の社員番号と氏名を確認します。 その社員番号を使って kintone_get_nextoff ツールを呼び出し、上司の社員番号・上司の氏名・次の休暇日を表示します。
+</code></pre></div></p>
 </details>
 <h2 id="4-">シナリオ④ - 休暇申請する</h2>
 <p>休暇申請処理ができるよう設定していきます。kintone で作成された休暇情報アプリにアクセスし、有給休暇データを取得できるツール <strong>kintone_get_timeofflist</strong> および更新できるツール <strong>kintone_update_timeoff</strong> を追加し利用してください。</p>
@@ -881,9 +1110,20 @@
 <summary>エージェント作成のヒント</summary>
 <ul>
 <li>申請前に、休暇の残数確認や、休暇の取得開始日および日数を確認する必要があります。<br />
-以下は特定条件のガイドラインとして定義した例です。</li>
+以下は特定条件のガイドラインとして定義した例です。休暇申請ツールの実行前にユーザーに最終確認を入れるよう指示しています。</li>
 </ul>
 <p><a class="glightbox" href="../hr_images/senario4_guideline.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../hr_images/senario4_guideline.png" /></a></p>
+<p>条件
+<div class="highlight"><pre><span></span><code>[Sample]
+有給休暇申請処理のリクエスト
+</code></pre></div>
+アクション
+<div class="highlight"><pre><span></span><code>[Sample]
+Step1: ユーザーの社員番号を確認して、kintone_get_timeofflist ツールを呼び出し、有給休暇の残日数を回答します。
+Step2: 休暇の開始日（日付）・日数を確認します。
+Step3: 休暇申請処理を進めてもよいかどうか、ユーザーに必ず確認します。
+Step4: OKの場合は、kintone_update_timeoff ツールを呼び出します。NGの場合は、処理をキャンセルします。
+</code></pre></div></p>
 </details>
 <h2 id="_6">お疲れさまでした！</h2>
 <p>このハンズオンでは、カスタムの接続設定とツールを使い、kintone で作成した人事アプリケーションと連携したエージェントを実装しました。</p>
