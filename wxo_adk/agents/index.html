@@ -1,0 +1,1130 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../environments/">
+      
+      
+        <link rel="next" href="../tools/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+    
+    
+      
+        <title>agent - Business Automation Handson</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+JP:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans JP";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Business Automation Handson" class="md-header__button md-logo" aria-label="Business Automation Handson" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Business Automation Handson
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              agent
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../wxoagent/" class="md-tabs__link">
+          
+  
+  watsonx Orchestrate Agentic
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../wxo_usecase/" class="md-tabs__link">
+          
+  
+  watsonx Orchestrate Usecase
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  watsonx Orchestrate ADK
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Business Automation Handson" class="md-nav__button md-logo" aria-label="Business Automation Handson" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Business Automation Handson
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    watsonx Orchestrate Agentic
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            watsonx Orchestrate Agentic
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxoagent/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    はじめに
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxoagent/intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab0 intro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxoagent/agent/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab1 agent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxoagent/tool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab2 tool
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxoagent/flow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab3 flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxoagent/prebuild/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab4 prebuild
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxoagent/multi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab5 multiagents
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    watsonx Orchestrate Usecase
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            watsonx Orchestrate Usecase
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_usecase/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    はじめに
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_usecase/hr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    人事シナリオ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_usecase/sales/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    営業シナリオ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_usecase/it/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IT運用シナリオ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    watsonx Orchestrate ADK
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            watsonx Orchestrate ADK
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    はじめに
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    install
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../environments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    env
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    agent
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    agent
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#activate" class="md-nav__link">
+    <span class="md-ellipsis">
+      環境のactivate
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      エージェントの確認
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      エージェントの作成とインポート
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      スターター・プロンプトの変更とエージェントの更新
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option#1 ガイドラインの設定
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option2-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option#2 JSONによる出力
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      お疲れさまでした！
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    tool
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../langfuse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    langfuse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../autotune/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    autotune
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">エージェントを作ってみよう！</h1>
+<p>エージェントはGUIベースのエージェント・ビルダーを用いて開発することもできますが、ADKを用いることで、より多くの機能を利用することができます。また、yamlファイルなどを用いて作成するため、Gitとの連動や、CI/CDパイプラインを実装し、より効率的に開発することが可能です。このLabでは、基本的なエージェントの実装方法と、サーバーへのインポート方法について学びます。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>手順はDeveloper Editionを用いた場合を想定してますが、SaaS版でもほぼ同様です。</p>
+</div>
+<h2 id="activate">環境のactivate</h2>
+<ol>
+<li>必要に応じて、local環境をactivateします。
+    <div class="highlight"><pre><span></span><code>    orchestrate env activate local
+</code></pre></div></li>
+</ol>
+<h2 id="_2">エージェントの確認</h2>
+<p>まず、現在の環境に存在するエージェントを確認してみましょう。  </p>
+<ol>
+<li>エージェントの一覧をagents listコマンドで確認します。
+    <div class="highlight"><pre><span></span><code>    orchestrate agents list
+</code></pre></div>
+    <a class="glightbox" href="../agents_images/image.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agents_images/image.png" /></a><br />
+    エージェントの一覧が表示されます。エージェントには通常のエージェントの他に、外部エージェントとアシスタントがありますが、それらも表示されます。<br />
+    エージェントの説明や、使用されているLLMを確認することが可能です。</li>
+</ol>
+<h2 id="_3">エージェントの作成とインポート</h2>
+<p>シンプルなエージェントを作成してみましょう。ここでは、日本語で企業情報について会話可能なエージェントを作成してみることにします。</p>
+<ol>
+<li>
+<p>agentsフォルダを必要に応じて作成し、以下の内容でfinance_agent.yamlファイルをagentsフォルダ配下に作成します。
+    <div class="highlight"><span class="filename">finance_agent.yaml</span><pre><span></span><code><span class="nt">spec_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">native</span>
+<span class="nt">style</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">finance_agent</span>
+<span class="nt">llm</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">watsonx/meta-llama/llama-3-2-90b-vision-instruct</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+<span class="w">    </span><span class="no">企業情報の専門家のエージェントです。 </span>
+<span class="nt">instructions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+<span class="w">    </span><span class="no">企業情報について日本語で回答してください。</span>
+</code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Visual Studio CodeにADK拡張が導入されている場合は、Ctrl+Shift+pでコマンド・パレットを表示し、Create Agentコマンドを用いることでテンプレートを適切なフォルダに自動生成することが可能です。  </p>
+<p><a class="glightbox" href="../agents_images/image-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agents_images/image-2.png" /></a>  </p>
+</div>
+</li>
+<li>
+<p>agents importコマンドで作成したエージェントをインポートします。
+    <div class="highlight"><pre><span></span><code>    orchestrate agents import -f ./agents/finance_agent.yaml
+</code></pre></div>
+    <a class="glightbox" href="../agents_images/image-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agents_images/image-3.png" /></a></p>
+</li>
+<li>
+<p>agents list コマンドでインポートされたエージェントを確認してみましょう。
+    <div class="highlight"><pre><span></span><code>    orchestrate agents list
+</code></pre></div>
+    <a class="glightbox" href="../agents_images/image-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agents_images/image-7.png" /></a></p>
+</li>
+<li>
+<p>chat UI<a href="http://localhost:3000">(http://localhost:3000)</a>にアクセスし、左下のManage Agentsをクリックすると、インポートしたfinance_agentが表示されているはずです。<br />
+<a class="glightbox" href="../agents_images/image-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agents_images/image-4.png" /></a></p>
+</li>
+<li>
+<p>finance_agentをクリックします。先ほどyamlファイルで指定した情報が設定されていることを確認してください。
+    <a class="glightbox" href="../agents_images/image-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agents_images/image-5.png" /></a></p>
+</li>
+<li>
+<p>まだ利用可能なToolなどを指定していないため、外部の処理を呼び出すことはできませんが、LLMによる基本的な会話は可能です。右側のチャット欄に以下の様に記入して返答を確認してみましょう。
+    <div class="highlight"><pre><span></span><code>    企業の業績を表す代表的な指標を教えて。
+</code></pre></div></p>
+<p><a class="glightbox" href="../agents_images/image-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agents_images/image-6.png" /></a></p>
+</li>
+</ol>
+<h2 id="_4">スターター・プロンプトの変更とエージェントの更新</h2>
+<p>よくある問い合わせ等、代表的なプロンプトをスターター・プロンプトとしてあらかじめ3つまで定義しておくことが可能です。スターター・プロンプトを定義し、エージェントを更新してみましょう。</p>
+<ol>
+<li>
+<p>finance_agent.yamlを以下の様に修正します。welcom_contentでエージェントを表示した際のメッセージを、starter_promptsで、スターター・プロンプトを定義することが可能です。</p>
+<p><div class="highlight"><span class="filename">finance_agent.yaml</span><pre><span></span><code><span class="nt">spec_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">native</span>
+<span class="nt">style</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">finance_agent</span>
+<span class="nt">llm</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">watsonx/meta-llama/llama-3-2-90b-vision-instruct</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+<span class="l l-Scalar l-Scalar-Plain">企業情報の専門家のエージェントです。</span><span class="w"> </span>
+<span class="nt">instructions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+<span class="l l-Scalar l-Scalar-Plain">企業情報について日本語で回答してください。</span>
+<span class="nt">welcome_content</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">welcome_message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;企業情報エージェント&quot;</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;企業情報についてはお任せください&quot;</span>
+<span class="nt">starter_prompts</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">is_default_prompts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">prompts</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;prompt_id_1&quot;</span>
+<span class="w">            </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;用語のリスト&quot;</span>
+<span class="w">            </span><span class="nt">subtitle</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;企業の業績に関する指標をリストします。&quot;</span>
+<span class="w">            </span><span class="nt">prompt</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;企業の業績を表す代表的な指標を5個リストして&quot;</span>
+<span class="w">            </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;active&quot;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;prompt_id_2&quot;</span>
+<span class="w">            </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;用語の比較&quot;</span>
+<span class="w">            </span><span class="nt">subtitle</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ROAとROEの違いを説明します。&quot;</span>
+<span class="w">            </span><span class="nt">prompt</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ROAとROEの意味とその違いを表形式で整理して&quot;</span>
+<span class="w">            </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;active&quot;</span>
+</code></pre></div>
+2. エージェントを更新します。インポートと同じ手順で行うことで同じ名前のエージェントが存在する場合には自動的に更新されます。
+<div class="highlight"><pre><span></span><code>    orchestrate agents import -f ./agents/finance_agent.yaml
+</code></pre></div>
+<a class="glightbox" href="../agents_images/image-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agents_images/image-8.png" /></a></p>
+</li>
+<li>
+<p>ChatUI上で、Previewのリセットボタンをクリックし、チャットを更新してください。以下の様に表示されるはずです。</p>
+<p><a class="glightbox" href="../agents_images/image-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agents_images/image-9.png" /></a></p>
+</li>
+<li>
+<p>クリックして動作を確認してみましょう。</p>
+</li>
+</ol>
+<h2 id="option1">Option#1 ガイドラインの設定</h2>
+<p>ガイドラインを定義することで、特定の条件にマッチした場合のアクションや、toolの呼び出しを指定することができます。ガイドラインを用いることで、通常のプロンプトより強い指示を与え、よりルール・ベースで動作させることが可能になります。今回は、顧客が大阪出身であると判断した場合、大阪弁で会話するようなガイドラインを設定してみましょう。</p>
+<ol>
+<li>
+<p>以下のようにfinance_agent.yamlを修正し、ガイドラインに関する定義を追加してください。</p>
+<div class="highlight"><span class="filename">finance_agent.yaml</span><pre><span></span><code><span class="nt">spec_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">native</span>
+<span class="nt">style</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">finance_agent</span>
+<span class="nt">llm</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">watsonx/meta-llama/llama-3-2-90b-vision-instruct</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+<span class="l l-Scalar l-Scalar-Plain">企業情報の専門家のエージェントです。</span><span class="w"> </span>
+<span class="nt">instructions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+<span class="l l-Scalar l-Scalar-Plain">企業情報について日本語で回答してください。</span>
+<span class="nt">welcome_content</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">welcome_message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;企業情報エージェント&quot;</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;企業情報についてはお任せください&quot;</span>
+<span class="nt">starter_prompts</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">is_default_prompts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">prompts</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;prompt_id_1&quot;</span>
+<span class="w">            </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;用語のリスト&quot;</span>
+<span class="w">            </span><span class="nt">subtitle</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;企業の業績に関する指標をリストします。&quot;</span>
+<span class="w">            </span><span class="nt">prompt</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;企業の業績を表す代表的な指標を5個リストして&quot;</span>
+<span class="w">            </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;active&quot;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;prompt_id_2&quot;</span>
+<span class="w">            </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;用語の比較&quot;</span>
+<span class="w">            </span><span class="nt">subtitle</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ROAとROEの違いを説明します。&quot;</span>
+<span class="w">            </span><span class="nt">prompt</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ROAとROEの意味とその違いを表形式で整理して&quot;</span>
+<span class="w">            </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;active&quot;</span>
+<span class="nt">guidelines</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;大阪出身&quot;</span>
+<span class="w">        </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;顧客が大阪出身&quot;</span>
+<span class="w">        </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;大阪弁で会話してください。&quot;</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>tool呼び出しを実行させたい場合には以下の様に実行するtoolの名前を指定します。
+ - display_name: "Check user"
+    condition: "If the customer expresses the need to check a user in the system."
+    action: "Use the 'get_user' tool to check the user in the system"
+    tool: "get_user"</p>
+</div>
+</li>
+<li>
+<p>agents import　コマンドを用いてエージェントを更新します。
+    <div class="highlight"><pre><span></span><code>    orchestrate agents import -f ./tools/finance_agent.yaml
+</code></pre></div></p>
+</li>
+<li>チャットをリセットしてから、<strong>大阪から来ました</strong>と入力し、ガイドラインが動作していることを確認してください。<br />
+<a class="glightbox" href="../agents_images/image-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agents_images/image-10.png" /></a></li>
+</ol>
+<h2 id="option2-json">Option#2 JSONによる出力</h2>
+<p>エージェントをリストするコマンドなどは、-v オプションを用いることで、json形式で出力することができます。jsonで出力することにより、スクリプトによる自動化などを実装することが容易になります。
+以下のコマンドでjsonで出力されることを確認してみましょう。</p>
+<p><div class="highlight"><pre><span></span><code>    orchestrate agents list -v
+</code></pre></div>
+<a class="glightbox" href="../agents_images/image-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agents_images/image-11.png" /></a></p>
+<h2 id="_5">お疲れさまでした！</h2>
+<p>このLabでは、ADKを用いてAgentを定義、インポートする手順について学びました。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.tabs", "navigation.sections", "content.code.copy", "toc.integrate"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dd8806f2.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
