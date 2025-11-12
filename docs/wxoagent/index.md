@@ -9,7 +9,7 @@ watsonx Orchestrateのハンズオンです。
 |[Lab1](agent.md)       |AIAgentを作ってみよう！                      |20           |
 |[Lab2](tool.md)       |Toolを定義して呼び出してみよう！                      |20           |
 |[Lab3](flow.md)       |フローを実装してみよう！                      |20           |
-|[Lab4](prebuild.md)       |プリビルド・エージェント/ツールを使ってみよう！                      |20           |
+|[Lab4](prebuild-box.md)       |プリビルド・エージェント/ツールを使ってみよう！                      |20           |
 |[Lab5](multi.md)       |複数エージェントを連携させてみよう！                      |10           |
 |オプション |自分独自のAgentを作ってみよう         |-           |
 
