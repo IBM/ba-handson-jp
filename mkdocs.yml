@@ -42,6 +42,15 @@ nav:
   - 営業シナリオ: wxo_usecase/sales.md
   - IT運用シナリオ: wxo_usecase/it.md
   
+- watsonx Orchestrate ADK:
+  - はじめに: wxo_adk/index.md
+  - install: wxo_adk/install.md
+  - env: wxo_adk/environments.md
+  - agent: wxo_adk/agents.md
+  - tool: wxo_adk/tools.md
+  - langfuse: wxo_adk/langfuse.md
+  - autotune: wxo_adk/autotune.md
+  
 extra_css:
   - stylesheets/extra.css
 

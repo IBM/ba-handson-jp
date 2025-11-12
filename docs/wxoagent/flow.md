@@ -25,11 +25,19 @@ AIAgentはエージェンティックな振る舞いによって様々な処理�
         - 名前: city_name	
         - 説明: 都市名
         - 必須: オン
-    3. **出力の追加** ボタンを押して**ストリング**を選択し、次の値を設定してください。
+    3. 同様に以下二つの値も設定してください。
+        - 名前: latitude	
+        - 説明: 緯度
+        - 必須: オン
+          
+        - 名前: longitude	
+        - 説明: 都市名
+        - 必須: オン
+    4. **出力の追加**ボタンを押して**ストリング**を選択し、次の値を設定してください。
         - 名前: temp
         - 説明: 都市の気温
-    4. **保存** をクリックします。  
-    ![alt text](flow_images/flow_image0050.png)
+    5. **保存** をクリックします。  
+    ![alt text](flow_images/flow_image0051.png)
 
 
 5. 画面左上の **ツール** タブを選択し、検索ボックスにweatherを入力します。表示されたcurrent weather for coordinatesを **開始** と **終了** の間にドラッグ&ドロップします.  
@@ -42,15 +50,18 @@ AIAgentはエージェンティックな振る舞いによって様々な処理�
 ![alt text](flow_images/flow_image0080.png)
 
 2. current_weatherはオート・マップではなくtrueを設定するために、オート・マップ の×をクリックして削除します。  
-![alt text](flow_images/flow_image0090.png)  
-![alt text](flow_images/flow_image0100.png)  
+![alt text](flow_images/flow_image0091.png)  
+![alt text](flow_images/flow_image0101.png)  
 
-3. さらに **値を入力してください** をクリックし、On-Offのスライドボタンを表示させてON(true)に切り替えます。  
-![alt text](flow_images/flow_image0110.png)  
+3. さらに **値を入力してください** をクリックし、**はい**に切り替えます。  
+![alt text](flow_images/flow_image0111.png)  
 
-4. 右上の×をクリックしてマッピング画面を閉じます。
+4. **自動マッピングが成功しない場合は、ユーザーにインプットを求めてください**を**オフ**にします。
+![alt text](flow_images/flow_image0112.png)
 
-5. 右上の**完了**ボタンをクリックしてフロー・ビルダーを閉じます。  
+5. 右上の×をクリックしてマッピング画面を閉じます。
+
+6. 右上の**完了**ボタンをクリックしてフロー・ビルダーを閉じます。  
 ![alt text](flow_images/flow_image0120.png)  
 
 ## エージェントへのツール追加とテスト実行
