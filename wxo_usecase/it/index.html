@@ -637,15 +637,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#connections" class="md-nav__link">
-    <span class="md-ellipsis">
-      Connections（接続設定）の設定確認
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#1-" class="md-nav__link">
     <span class="md-ellipsis">
       シナリオ① - プリビルドエージェント
@@ -907,19 +898,8 @@
 
 
 <h1 id="it">IT運用のユースケース</h1>
-<p>IT運用のユースケースを想定して、watsonx Orchestrateでの実践的なエージェント作成について学びます。</p>
-<h2 id="connections">Connections（接続設定）の設定確認</h2>
-<p>あらかじめ定義済みの接続設定を確認します。<br />
-1. 左側のメニューより、「管理」 &gt; 「接続」を選択してください。<br />
-2. 接続設定の管理画面が表示されます。<br />
-3. 検索ボックスに、<strong>servicenow</strong> と入力してください。servicenowが名称に含まれるいくつかの接続設定が表示されます。本ハンズオンでは事前に接続定義済みなので変更は必要ありません。
-<a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-01%2016.08.15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-01%2016.08.15.png" /></a></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<ul>
-<li>接続設定は参加者が共通で使う設定のため、<strong>変更しないようご注意ください。</strong></li>
-</ul>
-</div>
+<p>IT運用のユースケースを想定して、watsonx Orchestrateでの実践的なエージェント作成について学びます。
+本ハンズオンではServiceNowとBrevo（メールツール）を使用してエージェントを作成します。これらの環境やConnections（接続設定）は既に設定済みのものを使用します。</p>
 <h2 id="1-">シナリオ① - プリビルドエージェント</h2>
 <p>watsonx Orchestrateでは人事や調達、ITといった業務領域に特化した事前構築済みエージェントを提供しています。ServiceNowと連携するエージェントも用意されているので、まずはそちらを試してみます。
 エージェント・ビルダー→エージェントの作成→テンプレートから作成をクリックします。
@@ -930,17 +910,19 @@
 <a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-02%2010.08.31.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-02%2010.08.31.png" /></a></p>
 <p>エージェントが作成されます。共用の環境を使用している場合は、エージェントの名前の右側の編集ボタンをクリックし、あなたの名前を付けるなど、区別がつくようにしてください。
 <a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-02%2010.11.26.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-02%2010.11.26.png" /></a></p>
+<p>エージェントの動作の先頭に「日本語で回答してください。」と追記してください。
+<a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-11-13%2017.23.18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-11-13%2017.23.18.png" /></a></p>
 <p>まずはインシデントを起票してみてください。
-以下の例ではテンプレートの指示が英語で書かれているため、英語で回答してしまっていますが、インシデントが起票できています。モデルはllama-3-2-90b-vision-instruct、エージェントスタイルはReActにしています。</p>
-<p><a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-02%2010.44.48.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-02%2010.44.48.png" /></a></p>
-<p>最近起票されたインシデントのリストを確認してみましょう。（Short Descriptionの日本語がおかしいインシデントがありますが、リスト自体は正しく取得できています。）
-<a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-21%2017.31.54.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-21%2017.31.54.png" /></a></p>
-<p>ツールの詳細を確認してどのような入力と出力を定義しているか確認してみましょう。
+以下の例ではモデルは<strong>llama-3-2-90b-vision-instruct</strong>、エージェントスタイルは<strong>デフォルト</strong>にしています。
+<a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-11-13%2016.35.18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-11-13%2016.35.18.png" /></a>
+<a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-11-13%2016.35.30.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-11-13%2016.35.30.png" /></a></p>
+<p>インシデントのリストを確認してみましょう。「インシデントのリストを5件取得したい」と入力してみてください。（Short Descriptionの日本語がおかしいインシデントがある場合があります。）
+<a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-11-13%2016.30.00.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-11-13%2016.30.00.png" /></a></p>
+<p>ツールの詳細を確認して、どのような入力と出力を定義しているか確認してみましょう。
 "Create an incident in ServiceNow"のツールで詳細の編集をクリックします。
 <a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-21%2017.35.06.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-21%2017.35.06.png" /></a></p>
 <p>入力を7項目、出力を5項目定義していることがわかります。これらはすべて必須の項目ではなく、このツールの場合は"impact_value"、"urgency_value"、"short_description"の3つの入力項目を必須としています。
-<a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-21%2017.34.48.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-21%2017.34.48.png" /></a>
-d</p>
+<a class="glightbox" href="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-21%2017.34.48.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../it_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-10-21%2017.34.48.png" /></a></p>
 <h2 id="2-it">シナリオ② - ITサポートエージェント</h2>
 <p>下記の業務シナリオを実装します。</p>
 <p><strong>自然言語での問い合わせ受付→過去の障害ログ・ナレッジベースから類似事例を検索、解決方法を提示→ServiceNowへインシデント起票</strong></p>
