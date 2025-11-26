@@ -947,8 +947,8 @@
 <h2 id="agent">Agentの作成</h2>
 <ol>
 <li>
-<p>左上のメニューから<strong>ビルド</strong>を選択し、<strong>エージェント・ビルダー</strong>を選択します。<br />
-<a class="glightbox" href="../agent_images/agent-image31.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image31.png" /></a></p>
+<p>左上のメニューから<strong>ビルド</strong>を選択します。<br />
+<a class="glightbox" href="../agent_images/image-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-5.png" /></a></p>
 </li>
 <li>
 <p>右にある<strong>エージェントの作成</strong>ボタンをクリックします。<br />
@@ -977,7 +977,7 @@
 <a class="glightbox" href="../agent_images/agent-image58.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image58.png" /></a></p>
 </li>
 <li>
-<p>続いて、スタータープロンプトにあるデフォルトの設定を削除します。削除後、<strong>プロンプトの作成</strong>ボタンをクリックします。<strong>IBMについて教えてください</strong>と入力後、再度<strong>プロンプトの作成</strong>ボタンをクリックし、もう一つ追加します。<strong>あなたのできることを教えてください</strong>と入力してください。
+<p>続いて、スタータープロンプトにあるデフォルトの設定を削除します。削除後、<strong>プロンプトの追加</strong>ボタンをクリックします。<strong>IBMについて教えてください</strong>と入力後、再度<strong>プロンプトの追加</strong>ボタンをクリックし、もう一つ追加します。<strong>あなたのできることを教えてください</strong>と入力してください。
 スタータープロンプトを設定することで、ユーザーはここをクリックすることで会話を始めることができるようになります。
 <a class="glightbox" href="../agent_images/agent-image59.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image59.png" /></a></p>
 </li>
@@ -1050,12 +1050,16 @@
 <h2 id="_3">知識の使用</h2>
 <p>watsonx Orchestrateは組み込みのRAG (Retrieval Augmented Generation) 機能を提供し、エージェントごとにドキュメントをアップロードすることで、その内容をもとに回答を生成することが可能です。<br />
 1. このハンズオンでは年次報告書を読み込ませて、それに基づいた質問に対応するエージェントを作成します。<br />
-<strong>ナレッジを選択</strong>のボタンをクリックします。<br />
-<a class="glightbox" href="../agent_images/agent-image45.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image45.png" /></a>  </p>
+<strong>ソースを追加する</strong>のボタンをクリックします。<br />
+<a class="glightbox" href="../agent_images/image-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-6.png" /></a>  </p>
 <ol>
 <li>
-<p>ナレッジソースの選択画面が出るので、<strong>ファイルのアップロード</strong>をクリックし、<strong>次へ</strong>ボタンをクリックします。<br />
-<a class="glightbox" href="../agent_images/agent-image46.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image46.png" /></a></p>
+<p>知識の追加画面が出るので、<strong>新しい知識</strong>をクリックします。
+<a class="glightbox" href="../agent_images/image-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-7.png" /></a></p>
+</li>
+<li>
+<p>知識ソースの選択画面が出るので、<strong>ファイルのアップロード</strong>をクリックし、<strong>次へ</strong>ボタンをクリックします。<br />
+<a class="glightbox" href="../agent_images/image-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-8.png" /></a>  </p>
 </li>
 <li>
 <p>今回のハンズオンでは、<a href="../files/2024-annual-report.pdf">こちらのファイル</a>を使用します。 ダウンロードして保存して使用してください。ボックスにドラッグするか、または青字のテキストをクリックしてファイル・アップロード・ウィンドウを開いて、ファイルをアップロードし、<strong>次へ</strong>をクリックします。 <br />
@@ -1063,12 +1067,12 @@
 </li>
 <li>
 <p>エージェントが適切なタイミングで知識を使用するために、読み込むファイルがどのようなものであるかを定義する必要があります。 
-今回は、説明に<strong>これは2024年のIBMの年次報告書です。財務情報とIBMのコア事業戦略を含んでいます</strong>と入力し<strong>保存</strong>ボタンをクリックしてください。<br />
-<a class="glightbox" href="../agent_images/agent-image48.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image48.png" /></a></p>
+今回は、名前に<strong>IBM年次報告書(2024)</strong>、説明に<strong>これは2024年のIBMの年次報告書です。財務情報とIBMのコア事業戦略を含んでいます</strong>と入力し、<strong>保存</strong>ボタンをクリックしてください。<br />
+<a class="glightbox" href="../agent_images/image-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-9.png" /></a>  </p>
 </li>
 <li>
-<p>レポートが取り込まれるまでには少し時間がかかります。完了すると、ファイルがナレッジソースのリストに表示されます。<br />
-<a class="glightbox" href="../agent_images/agent-image49.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image49.png" /></a></p>
+<p>レポートが取り込まれるまでには少し時間がかかります。完了すると、ファイルが知識ソースのリストに表示されます。<br />
+<a class="glightbox" href="../agent_images/image-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-10.png" /></a>  </p>
 </li>
 <li>
 <p>プレビューチャットで<strong>IBMの2024 年のフリー・キャッシュ・フローはいくらですか</strong>と入力します。<br />
@@ -1082,7 +1086,7 @@
 <p>ドキュメントをアップロードすることで、エージェントに対して簡単にRAGを構成できることが確認できました。</p>
 <h2 id="_4">エージェントのデプロイ</h2>
 <p>誰でもこのエージェントを使うことができるように、エージェント作成後は<strong>デプロイ</strong>をする必要があります。<br />
-1. 右上の<strong>Deploy</strong>ボタンをクリックします。<br />
+1. 右上の<strong>デプロイ</strong>ボタンをクリックします。<br />
 <a class="glightbox" href="../agent_images/agent-image36-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image36-2.png" /></a></p>
 <ol>
 <li>
@@ -1091,7 +1095,7 @@
 </li>
 <li>
 <p>これでデプロイが完了しました。<br />
-左上のメニューから<strong>チャット</strong>を選択すると、チャット画面に移動します。デプロイされていることが確認できました。<br />
+左上のメニューから<strong>チャット</strong>を選択すると、チャット画面に移動します。左上のエージェント選択メニューから作成したエージェントの名前を選択します。デプロイされていることが確認できました。<br />
 <a class="glightbox" href="../agent_images/agent-image52.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image52.png" /></a></p>
 </li>
 </ol>
@@ -1103,16 +1107,16 @@
 <a class="glightbox" href="../agent_images/agent-image53.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image53.png" /></a></p>
 </li>
 <li>
-<p>回答が簡潔であったため、<strong>Concise</strong>を選択し、<strong>Submit</strong>をクリックします。<br />
-<a class="glightbox" href="../agent_images/agent-image54.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image54.png" /></a></p>
+<p>回答が簡潔であったため、<strong>簡略</strong>を選択し、<strong>送信</strong>をクリックします。<br />
+<a class="glightbox" href="../agent_images/image-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-11.png" /></a>  </p>
 </li>
 <li>
 <p>一方で、再度<strong>IBMの今日の株価を教えてください</strong>と入力すると、求めていた回答が返ってきませんでした。<br />
 <a class="glightbox" href="../agent_images/agent-image27.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image27.png" /></a></p>
 </li>
 <li>
-<p>そのため、👎をクリックし、<strong>Incomplete</strong>を選択し、<strong>Submit</strong>をクリックします。<br />
-<a class="glightbox" href="../agent_images/agent-image55.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image55.png" /></a></p>
+<p>そのため、👎をクリックし、<strong>未完了</strong>を選択し、<strong>送信</strong>をクリックします。<br />
+<a class="glightbox" href="../agent_images/image-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-12.png" /></a>  </p>
 </li>
 <li>
 <p>ビルダーと管理者はこのフィードバック結果を、APIで確認し、回答の改善に役立てることが可能です。APIの使用方法などは、今回のハンズオンでは省略します。  </p>
@@ -1128,8 +1132,8 @@
 </li>
 <li>
 <p>wxOがサポートしているモデルに切り替えることが可能になります。このハンズオンでは、<strong>llama-3-405b-instruct</strong>に切り替えます。<br />
-現在サポートしているLLMは<a href="https://www.ibm.com/docs/ja/watsonx/watson-orchestrate/base?topic=agents-choosing-foundation-model">こちら</a>です。<br />
-<a class="glightbox" href="../agent_images/agent-image57.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image57.png" /></a></p>
+現在サポートしているLLMは<a href="https://www.ibm.com/docs/ja/watsonx/watson-orchestrate/base?topic=model-available-ai-models">こちら</a>です。<br />
+<a class="glightbox" href="../agent_images/image-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-13.png" /></a>  </p>
 </li>
 </ol>
 <p>ユースケースに合わせたLLMを選択することで、適切な回答、処理を行うエージェントを作成することができます。</p>
@@ -1149,8 +1153,8 @@
 <a class="glightbox" href="../intro_images/image-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../intro_images/image-11.png" /></a></p>
 </li>
 <li>
-<p>先ほど実施した手順と同じようにPPTファイルをアップロードします。説明に<strong>Blueworks Liveの価格情報です</strong>と追加してください。
-<a class="glightbox" href="../agent_images/agent-image63.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image63.png" /></a></p>
+<p><strong>ソースの置換</strong>をクリックし、先ほど実施した手順と同じようにPPTファイルをアップロードします。名前に<strong>Blueworks Liveの価格情報です</strong>、説明に<strong>Blueworks Liveの価格情報です</strong>と追加してください。
+<a class="glightbox" href="../agent_images/image-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-14.png" /></a>  </p>
 </li>
 <li>
 <p>ファイルの処理が完了したら、再びチャット画面で<strong>Blueworks Liveの価格について教えてください</strong>と入力します。ファイルをアップロードする前の結果とは異なり、プランごとの価格が一覧として表示されることがわかります。<br />

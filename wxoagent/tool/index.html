@@ -943,7 +943,7 @@
 <ol>
 <li>
 <p>左上のメニューを開き、<strong>チャット</strong> を選択してください。<br />
-<a class="glightbox" href="../tool_images/image-56.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-56.png" /></a></p>
+<a class="glightbox" href="../tool_images/image-88.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-88.png" /></a>  </p>
 </li>
 <li>
 <p>左上のエージェントが <strong>(YourInitials)-IBMInfo</strong> になっていることを確認してください。<br />
@@ -953,6 +953,12 @@
 <p><strong>東京の天気は？</strong> のようにお好きな地域の天気を聞いてみてください。ツールをインポートする前の状態では、正しく回答できないことを確認します。<br />
 <a class="glightbox" href="../tool_images/image-67.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-67.png" /></a></p>
 </li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">注意</p>
+<p>「現在の東京の天気は晴れています。」のように最もらしい回答を返すこともありますが、公開されている天気情報などの根拠に基づいていないことに注意してください。</p>
+</div>
+<ol>
 <li>
 <p>インポートするツールを用意します。<a href="../files/weather.yaml">こちらのリンク</a>を右クリックし、名前を付けて保存してください。<br />
 今回使用する weather.yaml は、ある地域の緯度 (<strong>latitude</strong>) ・ 経度 (<strong>longitude</strong>)、そして current_weather を <strong>true</strong> と入力すると、その地域の現在の気温や天気、風速などを回答してくれるツールです。  </p>
@@ -962,8 +968,8 @@
 </ul>
 </li>
 <li>
-<p>左上のメニューを開き、<strong>ビルド &gt; エージェント・ビルダー</strong> を選択してください。<br />
-<a class="glightbox" href="../tool_images/image-59.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-59.png" /></a></p>
+<p>左上のメニューを開き、<strong>ビルド</strong> を選択してください。<br />
+<a class="glightbox" href="../tool_images/image-89.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-89.png" /></a>  </p>
 </li>
 <li>
 <p><strong>(YourInitials)-IBMInfo</strong> のエージェントをクリックします。<br />
@@ -974,15 +980,16 @@
 <a class="glightbox" href="../tool_images/image-61.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-61.png" /></a></p>
 </li>
 <li>
-<p>ツールセット では、以下の4つの方法でエージェントにツールを追加できます。</p>
+<p>ツールセット では、以下の5つの方法でエージェントにツールを追加するか新規作成できます。</p>
 <ul>
 <li>カタログから追加 (プリビルドツール)</li>
 <li>ローカル・インスタンスから追加 (カスタムツール)</li>
-<li>インポート (OpenAPIのカスタムツール)</li>
-<li>新しいフローを作成する　※ Lab3 で実施します。</li>
+<li>MCPサーバーからインポート</li>
+<li>OpenAPIファイルからインポート</li>
+<li>エージェント型ワークフローを作成する　※ Lab3 で実施します。</li>
 </ul>
-<p>今回は <strong>インポート</strong> をクリックします。<br />
-<a class="glightbox" href="../tool_images/image-62.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-62.png" /></a></p>
+<p>今回は <strong>OpenAPI</strong> をクリックします。<br />
+<a class="glightbox" href="../tool_images/image-90.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-90.png" /></a></p>
 </li>
 <li>
 <p><strong>ファイルからインポート</strong> をクリックします。<br />
@@ -1007,25 +1014,26 @@
 <p>右側のプレビューチャットに、<strong>あなたのできることを教えてください。</strong> と聞いてみましょう。</p>
 </li>
 <li>
-<p>1回目の質問では定型のあいさつが返ってきましたが、2回目に同じ質問をすると 1. 天気情報の提供、2. 2024年のIBMの年次報告書の提供ができると回答されます。<br />
-<a class="glightbox" href="../tool_images/image-68.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-68.png" /></a></p>
-</li>
-<li>
-<p>(オプション) 動作の指示に <strong>定型の挨拶は省略し、最初の質問から回答してください。</strong> のように指示を追加すると、1回目から回答してくれるようになります。<br />
-<a class="glightbox" href="../tool_images/image-69.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-69.png" /></a></p>
+<p>1つ目に気象情報の提供、2つ目に 2024 年の IBM の年次報告書の提供ができると回答されます。(Lab1のオプションを実施された方は、1つ目に「Blueworks Liveの価格を提供できる」と回答されます)<br />
+<a class="glightbox" href="../tool_images/image-91.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-91.png" /></a>  </p>
 </li>
 </ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>もし1回目の質問では定型の挨拶が回答される場合は、動作に <strong>定型の挨拶は省略し、最初の質問から回答してください。</strong> のように指示を追加すると、1回目から回答してくれるようになります。<br />
+<a class="glightbox" href="../tool_images/image-69.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-69.png" /></a></p>
+</div>
 <h2 id="_4">ツールの利用</h2>
 <ol>
 <li>チャットをリロードし、先ほどと同じくお好きな地域の天気を聞いてみましょう。正しく回答が返ってくることを確認できます。<br />
 <a class="glightbox" href="../tool_images/image-48.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-48.png" /></a><br />
-以下の様にうまく回答されない場合は、もう一度同じリクエストを入力すると正しく呼び出されるはずです。 
+うまく回答されない場合は、もう一度同じリクエストを入力すると正しく呼び出されるはずです。 
 <a class="glightbox" href="../tool_images/image-70.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-70.png" /></a>  </li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>この挙動は、製品が使用しているシステム・プロンプトが、変数の値を勝手に想定、生成するなという指示を与えていることによるものです。
-エージェントの指示や、ツールの説明を調整することにより、適切な動作を行うように調整することが可能ですが、今回のハンズオンではスコープ外とします。</p>
+エージェントの指示やツールの説明を調整することにより、適切な動作を行うように調整することが可能ですが、今回のハンズオンではスコープ外とします。</p>
 </div>
 <ol>
 <li><strong>理由の表示</strong> をクリックして <strong>ステップ1</strong> を開いてみると、入力した地名から緯度と経度を認識し、パラメータを適切に変換してくれていることが確認できます。<br />
@@ -1035,9 +1043,10 @@
 <p>次に、複数の地域の天気を比較する質問をし、エージェンティックな振る舞いを体験してみましょう。</p>
 <ol>
 <li>
-<p>先ほどと同じチャットに、<strong>横浜と宇都宮ではどちらの方が涼しい？</strong> と入力してみてください。<br />
+<p>チャットをリロードし、<strong>横浜と宇都宮ではどちらの方が涼しい？</strong> と入力してみてください。<br />
 横浜と宇都宮の気温を表示し、どちらの方が涼しいか回答してくれるはずです。<br />
-<a class="glightbox" href="../tool_images/image-72.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-72.png" /></a></p>
+<a class="glightbox" href="../tool_images/image-72.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-72.png" /></a>  </p>
+<p>上記で記載したシステム・プロンプトの影響により正しく回答されない場合は、横浜と宇都宮の2回分は適切に回答されない可能性が高いため、3回同じ質問をしてみてください。</p>
 </li>
 <li>
 <p><strong>理由の表示</strong> をクリックすると、ステップ1 と ステップ2 で横浜と宇都宮の天気が取得されていることが確認できます。<br />
@@ -1047,11 +1056,11 @@
 <h2 id="_6">表形式の表示</h2>
 <p>今度は、複数の地域の天気を表形式で表示してみましょう。</p>
 <p>北海道の市町村を3つ選択し、それらの市町村の気温を表形式で出力してみましょう。<br />
-3市町村の緯度・経度ができるだけ異なるように選び、先ほどのチャットの続きで質問してみてください。<br />
+チャットをリロードし、3市町村の緯度・経度ができるだけ異なるように選び、以下のように質問してみてください。<br />
 <strong>例: 函館市、稚内市、羅臼町の気温を表形式で比較してください。</strong><br />
 <a class="glightbox" href="../tool_images/image-73.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-73.png" /></a></p>
 <p>こちらも、各市町村の気温はツールによって取得されていますが、表形式での出力は LLM のエージェンティックな判断によって行われていることがわかります。</p>
-<p>もしうまく表示されない場合は、<strong>Githubマークダウン形式の表で表示して</strong> とチャットに入力してみましょう。</p>
+<p>もし表形式で表示されない場合は、<strong>Githubマークダウン形式の表で表示して</strong> とチャットに入力してみましょう。</p>
 <h2 id="_7">エージェントスタイルの違いの確認</h2>
 <p>エージェントスタイルの違いにより、エージェントの振る舞いがどのように変わるか確認してみましょう。<br />
 エージェントスタイルは デフォルト と ReAct の2種類があり、最初はデフォルトで設定されています。</p>
@@ -1071,7 +1080,7 @@
 </li>
 </ol>
 <p>このように、ReAct の方が複雑な質問や指示も正しく考えて実行することができます。ただ、その分デフォルトよりも回答が遅くなるため、用途に応じた使い分けが重要です。</p>
-<p>各エージェントスタイルの概要は、<a href="https://www.ibm.com/docs/ja/watsonx/watson-orchestrate/base?topic=agents-choosing-style-your-agent">製品ドキュメント</a>に以下のように記載されています。</p>
+<p>各エージェントスタイルの概要は、<a href="https://www.ibm.com/docs/ja/watsonx/watson-orchestrate/base?topic=agents-choosing-style-agent">製品ドキュメント</a>に以下のように記載されています。</p>
 <table>
 <thead>
 <tr>
@@ -1100,19 +1109,14 @@
 <p>MCP を利用して、Time MCP Server という MCP サーバーをインポートしてみましょう。  </p>
 <p>MCP (Model Context Protocol) は、生成AIが外部のツールやデータソースと連携するための標準規格です。MCP により、AI エージェントは MCP サーバーが提供する外部ツールを検出し、使用することができます。<br />
 今回は、Time MCP Server という MCP サーバーをインポートし、時刻を取得する外部のツールを呼び出してみましょう。</p>
-<p>(ハンズオン環境に既に MCP サーバーが追加されている場合は、4-6 をスキップし 7 から始めてください)</p>
 <ol>
 <li>
 <p>左側のツールセットで <strong>ツールの追加</strong> をクリックします。<br />
 <a class="glightbox" href="../tool_images/image-77.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-77.png" /></a></p>
 </li>
 <li>
-<p><strong>インポート</strong> をクリックします。<br />
-<a class="glightbox" href="../tool_images/image-78.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-78.png" /></a></p>
-</li>
-<li>
-<p><strong>MCP サーバーからのインポート</strong> をクリックします。<br />
-<a class="glightbox" href="../tool_images/image-79.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-79.png" /></a></p>
+<p><strong>MCPサーバー</strong> をクリックします。<br />
+<a class="glightbox" href="../tool_images/image-92.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-92.png" /></a>  </p>
 </li>
 <li>
 <p><strong>MCP サーバーの追加</strong> をクリックします。<br />
@@ -1133,10 +1137,6 @@
 <a class="glightbox" href="../tool_images/image-86.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-86.png" /></a></p>
 </li>
 <li>
-<p>(MCP追加済みの方のみ) 左上の <strong>MCP サーバーを選択</strong> より、<strong>time_mcp</strong> を選択してください。<br />
-<a class="glightbox" href="../tool_images/image-87.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-87.png" /></a></p>
-</li>
-<li>
 <p>接続した Time MCP Server で利用できる外部ツールの一覧が表示されます。<br />
 アクティブ化トグルをオンにすると、エージェントにツールとして追加されます。今回は <strong>current_time</strong> をオンにしてみましょう。<br />
 <a class="glightbox" href="../tool_images/image-83.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-83.png" /></a>  </p>
@@ -1148,10 +1148,10 @@
 <li>
 <p>右側のチャットから、追加したツールを呼んでみましょう。<br />
 current_time は現在の日付と時間を教えてくれるため、<strong>ロンドンの現在の日時は何ですか？</strong> のように、お好きな地域の日時を聞いてみてください。日時を正しく回答してくれると思います。<br />
+<a class="glightbox" href="../tool_images/image-85.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-85.png" /></a> 
 正しい時刻が返ってこなかったり、フォーマットを問われたりする場合は、以下の指示を動作に追加してみてください。
     <div class="highlight"><pre><span></span><code>current_time toolを使用する際は、formatとして　&quot;YYYY/MM/DD HH:mm&quot;　を指定してください。
-</code></pre></div>
-    <a class="glightbox" href="../tool_images/image-85.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-85.png" /></a>  </p>
+</code></pre></div></p>
 </li>
 </ol>
 <p>このように、MCPサーバーを追加すると、既存の外部ツールをすぐにエージェントに連携して活用することができます。</p>

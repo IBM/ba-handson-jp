@@ -912,60 +912,65 @@
 <h2 id="_2">シンプルなフローの作成と呼び出し</h2>
 <ol>
 <li>
-<p>左上のメニューから <strong>ビルド</strong> を選択し、<strong>エージェント・ビルダー</strong> を選択します。<br />
-<a class="glightbox" href="../flow_images/flow_image0010.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0010.png" /></a></p>
+<p>左上のメニューから <strong>ビルド</strong> を選択します。<br />
+<a class="glightbox" href="../flow_images/image.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/image.png" /></a>  </p>
 </li>
 <li>
 <p>左側の <strong>すべてのツール</strong> を選択し、<strong>ツールの作成</strong> をクリックします。<br />
 <a class="glightbox" href="../flow_images/flow_image0020.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0020.png" /></a></p>
 </li>
 <li>
-<p><strong>新しいフローを作成する</strong> をクリックします。<br />
-<a class="glightbox" href="../flow_images/flow_image0030.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0030.png" /></a></p>
+<p><strong>エージェント型ワークフロー</strong> をクリックします。<br />
+<a class="glightbox" href="../flow_images/image-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/image-1.png" /></a>  </p>
 </li>
 <li>
-<p>左上のUntitled横の編集ボタンをクリックします。<br />
-<a class="glightbox" href="../flow_images/flow_image0040.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0040.png" /></a></p>
+<p>名前に<strong>XX_weatherFlow</strong> (XXにはイニシャルを設定してください。) を入力し、<strong>構築の開始</strong>ボタンをクリックします。<br />
+<a class="glightbox" href="../flow_images/image-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/image-2.png" /></a></p>
+</li>
+<li>
+<p>名前の右にある<strong>詳細の編集</strong>をクリックします。
+<a class="glightbox" href="../flow_images/image-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/image-3.png" /></a></p>
 <ol>
 <li>次の値を設定します。<ul>
-<li>名前: XX_weatherFlow (XXにはイニシャルを設定してください。)</li>
 <li>説明: 特定の都市の天気情報を取得する</li>
 </ul>
 </li>
+</ol>
+</li>
+<li>
+<p>左上の<strong>パラメーター</strong>タブをクリックします。</p>
+<ol>
 <li><strong>入力の追加</strong> ボタンを押して<strong>ストリング</strong>を選択し、次の値を設定してください。<ul>
 <li>名前: city_name </li>
 <li>説明: 都市名</li>
-<li>必須: オン</li>
 </ul>
 </li>
 <li>
 <p>同様に以下二つの値も設定してください。</p>
 <ul>
 <li>名前: latitude  </li>
-<li>説明: 緯度</li>
 <li>
-<p>必須: オン</p>
+<p>説明: 緯度</p>
 </li>
 <li>
 <p>名前: longitude </p>
 </li>
-<li>説明: 都市名</li>
-<li>必須: オン<ol>
-<li><strong>出力の追加</strong>ボタンを押して<strong>ストリング</strong>を選択し、次の値を設定してください。</li>
-</ol>
-</li>
-<li>名前: temp</li>
-<li>説明: 都市の気温<ol>
-<li><strong>保存</strong> をクリックします。<br />
-<a class="glightbox" href="../flow_images/flow_image0051.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0051.png" /></a></li>
-</ol>
-</li>
+<li>説明: 経度</li>
 </ul>
 </li>
+<li>
+<p><strong>出力の追加</strong>ボタンを押して<strong>ストリング</strong>を選択し、次の値を設定してください。</p>
+<ul>
+<li>名前: temp</li>
+<li>説明: 都市の気温</li>
+</ul>
+</li>
+<li><strong>完了</strong> をクリックします。<br />
+<a class="glightbox" href="../flow_images/image-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/image-4.png" /></a>  </li>
 </ol>
 </li>
 <li>
-<p>画面左上の <strong>ツール</strong> タブを選択し、検索ボックスにweatherを入力します。表示されたcurrent weather for coordinatesを <strong>開始</strong> と <strong>終了</strong> の間にドラッグ&amp;ドロップします.<br />
+<p>画面左上の <strong>ツールの追加</strong> アイコンをクリックし、<strong>ツール</strong>タブを選択します。検索ボックスに weather と入力し、表示された current weather for coordinates を <strong>開始</strong> と <strong>終了</strong> の間にドラッグ&amp;ドロップします.<br />
 <a class="glightbox" href="../flow_images/flow_image0060.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0060.png" /></a><br />
 <a class="glightbox" href="../flow_images/flow_image0070.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0070.png" /></a></p>
 </li>
@@ -974,10 +979,10 @@
 <ol>
 <li>
 <p>配置したcurrent weather for coordinatesをクリックし、表示された <strong>データマッピングの編集</strong> をクリックします。<br />
-<a class="glightbox" href="../flow_images/flow_image0080.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0080.png" /></a></p>
+<a class="glightbox" href="../flow_images/image-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/image-5.png" /></a>  </p>
 </li>
 <li>
-<p>current_weatherはオート・マップではなくtrueを設定するために、オート・マップ の×をクリックして削除します。<br />
+<p>current_weatherにはオート・マップではなくtrueを設定するため、オート・マップ の×をクリックして削除します。<br />
 <a class="glightbox" href="../flow_images/flow_image0091.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0091.png" /></a><br />
 <a class="glightbox" href="../flow_images/flow_image0101.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0101.png" /></a>  </p>
 </li>
@@ -994,7 +999,7 @@
 </li>
 <li>
 <p>右上の<strong>完了</strong>ボタンをクリックしてフロー・ビルダーを閉じます。<br />
-<a class="glightbox" href="../flow_images/flow_image0120.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0120.png" /></a>  </p>
+<a class="glightbox" href="../flow_images/image-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/image-6.png" /></a>  </p>
 </li>
 </ol>
 <h2 id="_4">エージェントへのツール追加とテスト実行</h2>
@@ -1004,8 +1009,8 @@
 <a class="glightbox" href="../flow_images/flow_image0130.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0130.png" /></a></p>
 </li>
 <li>
-<p><strong>ローカル・インスタンスから追加</strong> を選択します。<br />
-<a class="glightbox" href="../flow_images/flow_image0140.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0140.png" /></a>  </p>
+<p><strong>ローカル・インスタンス</strong> を選択します。<br />
+<a class="glightbox" href="../flow_images/image-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/image-7.png" /></a>  </p>
 </li>
 <li>
 <p>検索ボックスにXX_weatherと入力し、表示されたXX_weatherFlowのチェックボックスを有効にして エージェントに追加 ボタンをクリックします。<br />
@@ -1016,8 +1021,8 @@
 <a class="glightbox" href="../flow_images/flow_image0160.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0160.png" /></a>  </p>
 </li>
 <li>
-<p>右側のプレビューで「東京の気温は？」と尋ねると、フローが呼び出されます。処理は非同期に実施され、応答を待っている間は追加の入力ができません。<br />
-<a class="glightbox" href="../flow_images/flow_image0170.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0170.png" /></a>  </p>
+<p>右側のプレビューで「東京の気温を教えて」と尋ねると、フローが呼び出されます。処理は非同期に実施され、応答を待っている間は追加の入力ができません。<br />
+<a class="glightbox" href="../flow_images/image-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/image-8.png" /></a>  </p>
 </li>
 </ol>
 <h2 id="python">ブランチ(分岐)とPython コード・ブロックの定義</h2>
@@ -1028,16 +1033,16 @@
 <a class="glightbox" href="../flow_images/flow_image0180.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0180.png" /></a></p>
 </li>
 <li>
-<p><strong>出力の追加</strong> ボタンを押して<strong>ストリング</strong>を選択し、次の値を設定後、<strong>保存</strong> をクリックします。</p>
+<p><strong>パラメーター</strong>タブを開きます。<strong>出力の追加</strong> ボタンを押して<strong>ストリング</strong>を選択し、次の値を設定後、<strong>完了</strong> をクリックします。</p>
 <ul>
 <li>名前: temp_unit</li>
 <li>説明: tempが摂氏か華氏かを示す<br />
-<a class="glightbox" href="../flow_images/flow_image0181.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0181.png" /></a>  </li>
+<a class="glightbox" href="../flow_images/image-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/image-9.png" /></a>  </li>
 </ul>
 </li>
 <li>
-<p>XX_weatherFlowの縦三点リーダーをクリックして表示されたメニューから <strong>フロー・ビルダー</strong> をクリックします。<br />
-<a class="glightbox" href="../flow_images/flow_image0180.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0180.png" /></a></p>
+<p>XX_weatherFlowの縦三点リーダーをクリックして表示されたメニューから <strong>フロー・ビルダーで開く</strong> をクリックします。<br />
+<a class="glightbox" href="../flow_images/image-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/image-10.png" /></a>  </p>
 </li>
 <li>
 <p>current weather for coordinatesと終了の間の矢印にカーソルを合わせると＋マークが表示されます。それをクリックし、表示されたメニューから <strong>ブランチ</strong> を選択します。<br />
@@ -1067,8 +1072,8 @@
 <ul>
 <li>名前: temp_unit   </li>
 <li>説明: tempが摂氏か華氏かを示す<br />
-<a class="glightbox" href="../flow_images/flow_image0221.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0221.png" /></a><br />
-<a class="glightbox" href="../flow_images/flow_image0222.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0222.png" /></a>  </li>
+<a class="glightbox" href="../flow_images/image-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/image-11.png" /></a><br />
+<a class="glightbox" href="../flow_images/image-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/image-12.png" /></a>  </li>
 </ul>
 </li>
 <li>
@@ -1113,9 +1118,9 @@ self.output.temp_unit = &quot;華氏&quot;
 <a class="glightbox" href="../flow_images/flow_image0300.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0300.png" /></a>  </p>
 </li>
 <li>
-<p><strong>if</strong>の右にある <strong>+</strong> ボタンをクリックし、表示されたセレクト変数において <strong>フロー入力</strong> &gt; <strong>city_name</strong> を選択します。<br />
+<p><strong>if</strong>の右にある <strong>+</strong> ボタンをクリックし、表示されたセレクト変数において <strong>入力</strong> &gt; <strong>city_name</strong> を選択します。<br />
 <a class="glightbox" href="../flow_images/flow_image0310.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0310.png" /></a><br />
-<a class="glightbox" href="../flow_images/flow_image0311.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0311.png" /></a></p>
+<a class="glightbox" href="../flow_images/image-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/image-14.png" /></a>  </p>
 </li>
 <li>
 <p><strong>オペレーター</strong> として <strong>==</strong> を選択します。<br />
@@ -1127,7 +1132,7 @@ self.output.temp_unit = &quot;華氏&quot;
 </li>
 <li>
 <p>右上の <strong>完了</strong> ボタンをクリックしてフロー・ビルダーを閉じて、XX-IBMInfoに戻ります。<br />
-<a class="glightbox" href="../flow_images/flow_image0314.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0314.png" /></a></p>
+<a class="glightbox" href="../flow_images/image-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/image-6.png" /></a>  </p>
 </li>
 </ol>
 </li>
