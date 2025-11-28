@@ -3,8 +3,8 @@
 このLabでは、基本的なAIAgentの作り方を学びます。
 
 ## Agentの作成
-1. 左上のメニューから**ビルド**を選択し、**エージェント・ビルダー**を選択します。  
-![alt text](agent_images/agent-image31.png)
+1. 左上のメニューから**ビルド**を選択します。  
+![alt text](agent_images/image-5.png)
 
 2. 右にある**エージェントの作成**ボタンをクリックします。  
 ![alt text](agent_images/agent-image32.png)
@@ -26,7 +26,7 @@
 7. ユーザーがエージェントを開くと表示される**ウェルカムメッセージ**と**スタータープロンプト**を設定します。ウェルカムメッセージに**こんにちは、IBMエージェントへようこそ**と入力します。
 ![alt text](agent_images/agent-image58.png)
 
-8. 続いて、スタータープロンプトにあるデフォルトの設定を削除します。削除後、**プロンプトの作成**ボタンをクリックします。**IBMについて教えてください**と入力後、再度**プロンプトの作成**ボタンをクリックし、もう一つ追加します。**あなたのできることを教えてください**と入力してください。
+8. 続いて、スタータープロンプトにあるデフォルトの設定を削除します。削除後、**プロンプトの追加**ボタンをクリックします。**IBMについて教えてください**と入力後、再度**プロンプトの追加**ボタンをクリックし、もう一つ追加します。**あなたのできることを教えてください**と入力してください。
 スタータープロンプトを設定することで、ユーザーはここをクリックすることで会話を始めることができるようになります。
 ![alt text](agent_images/agent-image59.png)
 
@@ -70,9 +70,9 @@
 6. 次は日本語で返ってくることが確認できました。  
 ![alt text](agent_images/agent-image16.png)
 
-7. 続いて、**Guidelines**の設定を行います。ガイドラインを設定することで、特定の状況でどのように行動するかを定義することができます。**Add Guideline**をクリックし、Nameに**挨拶**と設定します。
-また、Conditionには**こんにちはなどと挨拶をされました**、Actionには**ユーザーに合わせて挨拶を返します**と入力し、**保存**をクリックします。
-![alt text](agent_images/agent-image61.png)
+7. 続いて、**ガイドライン**の設定を行います。ガイドラインを設定することで、特定の状況でどのように行動するかを定義することができます。**ガイドラインの追加**をクリックし、名前に**挨拶**と設定します。
+また、条件には**こんにちはなどと挨拶をされました**、アクションには**ユーザーに合わせて挨拶を返します**と入力し、**保存**をクリックします。
+![alt text](agent_images/image-15.png)  
 
 8. プレビューチャットをリフレッシュして、**こんばんは**とチャットに入力します。挨拶が返ってくることが確認できます。
 ![alt text](agent_images/agent-image62.png)
@@ -82,21 +82,24 @@
 ## 知識の使用
 watsonx Orchestrateは組み込みのRAG (Retrieval Augmented Generation) 機能を提供し、エージェントごとにドキュメントをアップロードすることで、その内容をもとに回答を生成することが可能です。  
 1. このハンズオンでは年次報告書を読み込ませて、それに基づいた質問に対応するエージェントを作成します。  
-**ナレッジを選択**のボタンをクリックします。  
-![alt text](agent_images/agent-image45.png)  
+**ソースを追加する**のボタンをクリックします。  
+![alt text](agent_images/image-6.png)  
 
-2. ナレッジソースの選択画面が出るので、**ファイルのアップロード**をクリックし、**次へ**ボタンをクリックします。  
-![alt text](agent_images/agent-image46.png)
+2. 知識の追加画面が出るので、**新しい知識**をクリックします。
+![alt text](agent_images/image-7.png)
+
+2. 知識ソースの選択画面が出るので、**ファイルのアップロード**をクリックし、**次へ**ボタンをクリックします。  
+![alt text](agent_images/image-8.png)  
 
 3. 今回のハンズオンでは、[こちらのファイル](./files/2024-annual-report.pdf)を使用します。 ダウンロードして保存して使用してください。ボックスにドラッグするか、または青字のテキストをクリックしてファイル・アップロード・ウィンドウを開いて、ファイルをアップロードし、**次へ**をクリックします。   
 ![alt text](agent_images/agent-image47.png)
 
 4.  エージェントが適切なタイミングで知識を使用するために、読み込むファイルがどのようなものであるかを定義する必要があります。 
-今回は、説明に**これは2024年のIBMの年次報告書です。財務情報とIBMのコア事業戦略を含んでいます**と入力し**保存**ボタンをクリックしてください。  
-![alt text](agent_images/agent-image48.png)
+今回は、名前に**IBM年次報告書(2024)**、説明に**これは2024年のIBMの年次報告書です。財務情報とIBMのコア事業戦略を含んでいます**と入力し、**保存**ボタンをクリックしてください。  
+![alt text](agent_images/image-9.png)  
 
-5. レポートが取り込まれるまでには少し時間がかかります。完了すると、ファイルがナレッジソースのリストに表示されます。  
-![alt text](agent_images/agent-image49.png)
+5. レポートが取り込まれるまでには少し時間がかかります。完了すると、ファイルが知識ソースのリストに表示されます。  
+![alt text](agent_images/image-10.png)  
 
 6. プレビューチャットで**IBMの2024 年のフリー・キャッシュ・フローはいくらですか**と入力します。  
 ![alt text](agent_images/agent-image50.png)
@@ -108,14 +111,14 @@ watsonx Orchestrateは組み込みのRAG (Retrieval Augmented Generation) 機能
 
 ## エージェントのデプロイ
 誰でもこのエージェントを使うことができるように、エージェント作成後は**デプロイ**をする必要があります。  
-1. 右上の**Deploy**ボタンをクリックします。  
+1. 右上の**デプロイ**ボタンをクリックします。  
 ![alt text](agent_images/agent-image36-2.png)
 
 2. 特に何も入力せず、右下の**デプロイ**をクリックします。  
 ![alt text](agent_images/agent-image51.png)
 
 3. これでデプロイが完了しました。  
-左上のメニューから**チャット**を選択すると、チャット画面に移動します。デプロイされていることが確認できました。  
+左上のメニューから**チャット**を選択すると、チャット画面に移動します。左上のエージェント選択メニューから作成したエージェントの名前を選択します。デプロイされていることが確認できました。  
 ![alt text](agent_images/agent-image52.png)
 
 ## フィードバックの実施
@@ -124,14 +127,14 @@ watsonx Orchestrateは組み込みのRAG (Retrieval Augmented Generation) 機能
 1. 再度**IBM の 2024 年のフリー・キャッシュ・フローはいくらですか**と入力し、回答に対して👍をクリックします。  
 ![alt text](agent_images/agent-image53.png)
 
-2. 回答が簡潔であったため、**Concise**を選択し、**Submit**をクリックします。  
-![alt text](agent_images/agent-image54.png)
+2. 回答が簡潔であったため、**簡略**を選択し、**送信**をクリックします。  
+![alt text](agent_images/image-11.png)  
 
 3. 一方で、再度**IBMの今日の株価を教えてください**と入力すると、求めていた回答が返ってきませんでした。  
 ![alt text](agent_images/agent-image27.png)
 
-4. そのため、👎をクリックし、**Incomplete**を選択し、**Submit**をクリックします。  
-![alt text](agent_images/agent-image55.png)
+4. そのため、👎をクリックし、**未完了**を選択し、**送信**をクリックします。  
+![alt text](agent_images/image-12.png)  
 
 5. ビルダーと管理者はこのフィードバック結果を、APIで確認し、回答の改善に役立てることが可能です。APIの使用方法などは、今回のハンズオンでは省略します。  
   
@@ -144,8 +147,8 @@ watsonx Orchestrateは組み込みのRAG (Retrieval Augmented Generation) 機能
 ![alt text](agent_images/agent-image56.png)
 
 2. wxOがサポートしているモデルに切り替えることが可能になります。このハンズオンでは、**llama-3-405b-instruct**に切り替えます。  
-現在サポートしているLLMは[こちら](https://www.ibm.com/docs/ja/watsonx/watson-orchestrate/base?topic=agents-choosing-foundation-model)です。  
-![alt text](agent_images/agent-image57.png)
+現在サポートしているLLMは[こちら](https://www.ibm.com/docs/ja/watsonx/watson-orchestrate/base?topic=model-available-ai-models)です。  
+![alt text](agent_images/image-13.png)  
 
 ユースケースに合わせたLLMを選択することで、適切な回答、処理を行うエージェントを作成することができます。
 
@@ -161,8 +164,8 @@ watsonx Orchestrateは組み込みのRAG (Retrieval Augmented Generation) 機能
 3. チャット画面で、**Blueworks Liveの価格について教えてください**のように入力してください。AIから何度か回答までに質問が繰り返されますが、正しい回答は得られないはずです。
 ![alt text](intro_images/image-11.png)
 
-4. 先ほど実施した手順と同じようにPPTファイルをアップロードします。説明に**Blueworks Liveの価格情報です**と追加してください。
-![alt text](agent_images/agent-image63.png)
+4. **ソースの置換**をクリックし、先ほど実施した手順と同じようにPPTファイルをアップロードします。名前に**Blueworks Liveの価格情報です**、説明に**Blueworks Liveの価格情報です**と追加してください。
+![alt text](agent_images/image-14.png)  
 
 5. ファイルの処理が完了したら、再びチャット画面で**Blueworks Liveの価格について教えてください**と入力します。ファイルをアップロードする前の結果とは異なり、プランごとの価格が一覧として表示されることがわかります。  
 ![alt text](intro_images/image-15.png)

@@ -33,7 +33,8 @@ nav:
   - Lab1 agent: wxoagent/agent.md
   - Lab2 tool: wxoagent/tool.md
   - Lab3 flow: wxoagent/flow.md
-  - Lab4 prebuild: wxoagent/prebuild.md
+  - Lab4 prebuild jira: wxoagent/prebuild.md
+  - Lab4 prebuild box: wxoagent/prebuild-box.md
   - Lab5 multiagents: wxoagent/multi.md
 
 - watsonx Orchestrate Usecase:
