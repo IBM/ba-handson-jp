@@ -46,7 +46,7 @@ Slackにはこのようにメッセージが送信されています。
 
 ??? question "プリビルドツール"
     - Retrieve Salesforce accounts  <br>
-    - Create an opportunity in Salesforce (Create opportunities in Salesforce)  <br>
+    - Create opportunity in Salesforce  <br>
     - Send a message in Slack  
 
 <br>
