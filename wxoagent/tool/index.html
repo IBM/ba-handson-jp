@@ -952,16 +952,14 @@
 <li>
 <p><strong>東京の天気は？</strong> のようにお好きな地域の天気を聞いてみてください。ツールをインポートする前の状態では、正しく回答できないことを確認します。<br />
 <a class="glightbox" href="../tool_images/image-67.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-67.png" /></a></p>
-</li>
-</ol>
 <div class="admonition warning">
 <p class="admonition-title">注意</p>
 <p>「現在の東京の天気は晴れています。」のように最もらしい回答を返すこともありますが、公開されている天気情報などの根拠に基づいていないことに注意してください。</p>
 </div>
-<ol>
+</li>
 <li>
 <p>インポートするツールを用意します。<a href="../files/weather.yaml">こちらのリンク</a>を右クリックし、名前を付けて保存してください。<br />
-今回使用する weather.yaml は、ある地域の緯度 (<strong>latitude</strong>) ・ 経度 (<strong>longitude</strong>)、そして current_weather を <strong>true</strong> と入力すると、その地域の現在の気温や天気、風速などを回答してくれるツールです。  </p>
+    今回使用する weather.yaml は、ある地域の緯度 (<strong>latitude</strong>) ・ 経度 (<strong>longitude</strong>)、そして current_weather を <strong>true</strong> と入力すると、その地域の現在の気温や天気、風速などを回答してくれるツールです。  </p>
 <ul>
 <li>ツールは、OpenAPI 形式 もしくは MCP に対応したものをインポート可能です。</li>
 <li>Python でツールを実装し、SaaS 環境に導入することも可能です。  </li>
@@ -989,11 +987,7 @@
 <li>エージェント型ワークフローを作成する　※ Lab3 で実施します。</li>
 </ul>
 <p>今回は <strong>OpenAPI</strong> をクリックします。<br />
-<a class="glightbox" href="../tool_images/image-90.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-90.png" /></a></p>
-</li>
-<li>
-<p><strong>ファイルからインポート</strong> をクリックします。<br />
-<a class="glightbox" href="../tool_images/image-63.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-63.png" /></a></p>
+<a class="glightbox" href="../tool_images/image-90.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-90.png" /></a>  </p>
 </li>
 <li>
 <p>先ほど保存した weather.yaml をアップロードし、<strong>次へ</strong> をクリックします。
@@ -1025,19 +1019,21 @@
 </div>
 <h2 id="_4">ツールの利用</h2>
 <ol>
-<li>チャットをリロードし、先ほどと同じくお好きな地域の天気を聞いてみましょう。正しく回答が返ってくることを確認できます。<br />
+<li>
+<p>チャットをリロードし、先ほどと同じくお好きな地域の天気を聞いてみましょう。正しく回答が返ってくることを確認できます。<br />
 <a class="glightbox" href="../tool_images/image-48.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-48.png" /></a><br />
 うまく回答されない場合は、もう一度同じリクエストを入力すると正しく呼び出されるはずです。 
-<a class="glightbox" href="../tool_images/image-70.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-70.png" /></a>  </li>
-</ol>
+<a class="glightbox" href="../tool_images/image-70.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-70.png" /></a>  </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>この挙動は、製品が使用しているシステム・プロンプトが、変数の値を勝手に想定、生成するなという指示を与えていることによるものです。
 エージェントの指示やツールの説明を調整することにより、適切な動作を行うように調整することが可能ですが、今回のハンズオンではスコープ外とします。</p>
 </div>
-<ol>
-<li><strong>理由の表示</strong> をクリックして <strong>ステップ1</strong> を開いてみると、入力した地名から緯度と経度を認識し、パラメータを適切に変換してくれていることが確認できます。<br />
-<a class="glightbox" href="../tool_images/image-71.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-71.png" /></a></li>
+</li>
+<li>
+<p><strong>理由の表示</strong> をクリックして <strong>ステップ1</strong> を開いてみると、入力した地名から緯度と経度を認識し、パラメータを適切に変換してくれていることが確認できます。<br />
+<a class="glightbox" href="../tool_images/image-71.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-71.png" /></a></p>
+</li>
 </ol>
 <h2 id="_5">複数地名の確認（エージェンティックな振る舞い）</h2>
 <p>次に、複数の地域の天気を比較する質問をし、エージェンティックな振る舞いを体験してみましょう。</p>
