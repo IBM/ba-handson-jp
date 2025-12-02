@@ -467,15 +467,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      エージェントスタイルの違いの確認
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#optionmcp" class="md-nav__link">
     <span class="md-ellipsis">
       Option：MCPの利用
@@ -485,7 +476,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       お疲れさまでした！
     </span>
@@ -936,7 +927,7 @@
 <h1 id="_1">ツールを定義して呼び出してみよう！</h1>
 <p>ツールは、ユーザーに代わってデータを照会したり、ドキュメントを作成したり、トランザクションを実行したりするコンポーネントです。
 この Lab では、外部の API をインポートしてツールを定義し、AI エージェントから利用する方法について学びます。</p>
-<p>※AI エージェントのモデルは <strong>llama-3-2-90b-vision-instruct</strong> を使用しています。他のモデルで実行すると結果が異なる場合があります。</p>
+<p>※AI エージェントのモデルは <strong>GPT-OSS 120B －OpenAI (via Groq)</strong> を使用しています。他のモデルで実行すると結果が異なる場合があります。</p>
 <h2 id="_2">ツールのインポート</h2>
 <p>天気の情報を取得する OpenAPI 形式のファイルを
 インポートします。インポートする前に、Lab1 で作成した AI エージェントで天気の質問に回答できるか確認してみましょう。</p>
@@ -1057,26 +1048,32 @@
 <a class="glightbox" href="../tool_images/image-73.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-73.png" /></a></p>
 <p>こちらも、各市町村の気温はツールによって取得されていますが、表形式での出力は LLM のエージェンティックな判断によって行われていることがわかります。</p>
 <p>もし表形式で表示されない場合は、<strong>Githubマークダウン形式の表で表示して</strong> とチャットに入力してみましょう。</p>
-<h2 id="_7">エージェントスタイルの違いの確認</h2>
-<p>エージェントスタイルの違いにより、エージェントの振る舞いがどのように変わるか確認してみましょう。<br />
-エージェントスタイルは デフォルト と ReAct の2種類があり、最初はデフォルトで設定されています。</p>
-<ol>
-<li>
-<p>エージェントスタイルがデフォルトの状態で、<strong>明日の千葉の気温は、今日より10度高くなるらしいのですが、何度になりますか？</strong> と質問してみましょう。おそらく、正しい回答は返ってこないと思います。<br />
-(正しく回答が返ってくる場合は、モデルを <strong>llama-3-2-90b-vision-instruct</strong> に設定してください)<br />
-<a class="glightbox" href="../tool_images/image-74.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-74.png" /></a></p>
-</li>
-<li>
-<p>エージェントスタイルを ReAct に変更してみましょう。左側のプロファイルの中にあるエージェント・スタイルを <strong>ReAct</strong> に変更してください。<br />
-<a class="glightbox" href="../tool_images/image-75.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-75.png" /></a></p>
-</li>
-<li>
-<p>チャットをリロードし、もう一度 1 と同じ質問をしてみましょう。今度は正しく回答できているかと思います。<br />
-<a class="glightbox" href="../tool_images/image-76.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-76.png" /></a></p>
-</li>
-</ol>
-<p>このように、ReAct の方が複雑な質問や指示も正しく考えて実行することができます。ただ、その分デフォルトよりも回答が遅くなるため、用途に応じた使い分けが重要です。</p>
-<p>各エージェントスタイルの概要は、<a href="https://www.ibm.com/docs/ja/watsonx/watson-orchestrate/base?topic=agents-choosing-style-agent">製品ドキュメント</a>に以下のように記載されています。</p>
+<!--
+## エージェントスタイルの違いの確認
+
+エージェントスタイルの違いにより、エージェントの振る舞いがどのように変わるか確認してみましょう。  
+エージェントスタイルは デフォルト と ReAct の2種類があり、最初はデフォルトで設定されています。
+
+1. エージェントスタイルがデフォルトの状態で、**明日の千葉の気温は、今日より10度高くなるらしいのですが、何度になりますか？** と質問してみましょう。おそらく、正しい回答は返ってこないと思います。  
+(正しく回答が返ってくる場合は、モデルを **llama-3-2-90b-vision-instruct** に設定してください)  
+![alt text](tool_images/image-74.png)
+
+2. エージェントスタイルを ReAct に変更してみましょう。左側のプロファイルの中にあるエージェント・スタイルを **ReAct** に変更してください。  
+![alt text](tool_images/image-75.png)
+
+3. チャットをリロードし、もう一度 1 と同じ質問をしてみましょう。今度は正しく回答できているかと思います。  
+![alt text](tool_images/image-76.png)
+
+このように、ReAct の方が複雑な質問や指示も正しく考えて実行することができます。ただ、その分デフォルトよりも回答が遅くなるため、用途に応じた使い分けが重要です。
+
+各エージェントスタイルの概要は、[製品ドキュメント](https://www.ibm.com/docs/ja/watsonx/watson-orchestrate/base?topic=agents-choosing-style-agent)に以下のように記載されています。
+-->
+
+<details class="note">
+<summary>エージェントスタイルの違い</summary>
+<p>エージェントスタイルは、AIエージェントがどのように指示を解釈し、ツールを選択し、タスクを完了するかのパターンを選択する機能です。
+エージェント作成画面からはデフォルトまたは ReAct を選択でき、最初はデフォルトで設定されています。  </p>
+<p>各エージェントスタイルの概要は、<a href="https://www.ibm.com/docs/ja/watsonx/watson-orchestrate/base?topic=agents-choosing-style-agent">製品ドキュメント</a>に以下のように記載されています。ReAct の方が複雑な質問や指示も正しく考えて実行することができますが、その分デフォルトよりも回答が遅くなるため、用途に応じた使い分けが重要です。</p>
 <table>
 <thead>
 <tr>
@@ -1101,6 +1098,7 @@
 </tr>
 </tbody>
 </table>
+</details>
 <h2 id="optionmcp">Option：MCPの利用</h2>
 <p>MCP を利用して、Time MCP Server という MCP サーバーをインポートしてみましょう。  </p>
 <p>MCP (Model Context Protocol) は、生成AIが外部のツールやデータソースと連携するための標準規格です。MCP により、AI エージェントは MCP サーバーが提供する外部ツールを検出し、使用することができます。<br />
@@ -1151,7 +1149,7 @@ current_time は現在の日付と時間を教えてくれるため、<strong>�
 </li>
 </ol>
 <p>このように、MCPサーバーを追加すると、既存の外部ツールをすぐにエージェントに連携して活用することができます。</p>
-<h2 id="_8">お疲れさまでした！</h2>
+<h2 id="_7">お疲れさまでした！</h2>
 <p>このハンズオンでは、ツールのインポートや、エージェントからのツールの利用について学びました。</p>
 
 
