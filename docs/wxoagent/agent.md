@@ -7,7 +7,7 @@
 ![alt text](agent_images/image-5.png)
 
 2. 右にある**エージェントの作成**ボタンをクリックします。  
-![alt text](agent_images/agent-image32.png)
+![alt text](agent_images/agent-image32-1.png)
 
 3. **最初から作成**を選択します。  
 ![alt text](agent_images/agent-image33.png)
@@ -23,30 +23,33 @@
 ※エラーが発生する場合は、エージェントの名前が重複している可能性があります。イニシャルを変更するなどして再度試してみてください。  
 ![alt text](agent_images/agent-image36.png)
 
-7. ユーザーがエージェントを開くと表示される**ウェルカムメッセージ**と**スタータープロンプト**を設定します。ウェルカムメッセージに**こんにちは、IBMエージェントへようこそ**と入力します。
+7. LLMを**GPT-OSS 120B- OpenAI(via Groq)**に変更します。モデルを変更すると、規約に関するメッセージが表示されます。
+![alt text](agent_images/agent-image64.png)
+
+8. ユーザーがエージェントを開くと表示される**ウェルカムメッセージ**と**スタータープロンプト**を設定します。ウェルカムメッセージに**こんにちは、IBMエージェントへようこそ**と入力します。
 ![alt text](agent_images/agent-image58.png)
 
-8. 続いて、スタータープロンプトにあるデフォルトの設定を削除します。削除後、**プロンプトの追加**ボタンをクリックします。**IBMについて教えてください**と入力後、再度**プロンプトの追加**ボタンをクリックし、もう一つ追加します。**あなたのできることを教えてください**と入力してください。
+9. 続いて、スタータープロンプトにあるデフォルトの設定を削除します。削除後、**プロンプトの追加**ボタンをクリックします。**What is watsonx Orchestrate?**と入力後、再度**プロンプトの追加**ボタンをクリックし、もう一つ追加します。**あなたのできることを教えてください**と入力してください。
 スタータープロンプトを設定することで、ユーザーはここをクリックすることで会話を始めることができるようになります。
-![alt text](agent_images/agent-image59.png)
+![alt text](agent_images/agent-image59-1.png)
 
-9. プレビューチャットをリフレッシュしてください。設定が反映されます。
+10. プレビューチャットをリフレッシュしてください。設定が反映されます。
 ![alt text](agent_images/agent-image44.png)
 
 ## 基本的な動きの確認
 1. 右側にプレビューチャットが表示されています。ここで簡単に作成したエージェントを試すことができます。  
 ![alt text](agent_images/agent-image60.png)
 
-2. まずは**What is IBM?**と入力します。  
-![alt text](agent_images/agent-image37.png)
+2. まずは**What is watsonx Orchestrate?**と入力もしくはチャット上にある**What is watsonx Orchestrate?**を選択します。  
+![alt text](agent_images/agent-image37-1.png)
 
-3. IBMに関する回答が返ってくることが確認できました。こちらは選択されたLLMが回答を作成しています。  
-![alt text](agent_images/agent-image08.png)
+3. watsonx Orchestrateに関する回答が返ってくることが確認できました。こちらは選択されたLLMが回答を作成しています。  
+![alt text](agent_images/agent-image08-1.png)
 
 4. 続いて、**What is the stock price of IBM?**と入力します。日付などをきかれた場合には、必要に応じて回答してください。  
 ![alt text](agent_images/agent-image39.png)
 
-5. その結果、最新の株価情報を得ることができないことが確認できます。  
+5. その結果、最新の株価情報は得ることができないことを確認できます。  
 ![alt text](agent_images/agent-image10.png)
   
 生成AIは案出し、要約などは得意ですが、新しい情報の取得は難しいことが確認できました。
@@ -55,12 +58,13 @@
 1. プレビューチャットに**IBMについて教えてください**と入力します。もしくはスタータープロンプトのIBMについて教えてくださいをクリックします。
 ![alt text](agent_images/agent-image41.png)
 
-2. その結果、ユーザーの質問は理解しているようですが、英語で回答が返ってきました。  
+2. その結果、適切な回答が返ってきました。場合によっては、英語での返答となるケースがあります。そのような場合に備えて、ステップ3を行います。  
 ![alt text](agent_images/agent-image12.png)
 
-3. ユーザーが使いやすいよう利用ユーザーに合わせた動きを行うために、**動作**に応答の定義を行います。このハンズオンでは、日本人を対象としたAgentの作成のために、**回答は必ず日本語で行ってください**と入力します。  
+3. ユーザーが使いやすいよう利用ユーザーに合わせた動きを行うために、**動作**に応答の定義を行います。このハンズオンでは、日本人を対象としたAgentの作成のために、念のために**回答は必ず日本語で行ってください**と入力します。  
 ![alt text](agent_images/agent-image43.png)
 
+<!--
 4. プレビューチャットをリフレッシュしてください。  
 ![alt text](agent_images/agent-image44.png)
 
@@ -69,13 +73,16 @@
 
 6. 次は日本語で返ってくることが確認できました。  
 ![alt text](agent_images/agent-image16.png)
+-->
 
+<!--修正予定
 7. 続いて、**ガイドライン**の設定を行います。ガイドラインを設定することで、特定の状況でどのように行動するかを定義することができます。**ガイドラインの追加**をクリックし、名前に**挨拶**と設定します。
 また、条件には**こんにちはなどと挨拶をされました**、アクションには**ユーザーに合わせて挨拶を返します**と入力し、**保存**をクリックします。
 ![alt text](agent_images/image-15.png)  
 
 8. プレビューチャットをリフレッシュして、**こんばんは**とチャットに入力します。挨拶が返ってくることが確認できます。
 ![alt text](agent_images/agent-image62.png)
+-->
   
 このように、ユーザビリティを上げるために、動作を適切に定義することが必須です。
 
@@ -142,30 +149,32 @@ watsonx Orchestrateは組み込みのRAG (Retrieval Augmented Generation) 機能
 ## お疲れ様でした！
 このLab1では、watsonx OrchestrateのGUIを使って、簡単にAgentを作成しました。利用ユーザーや業務内容に合わせてカスタマイズを行うことで、ユーザービリティを上げることが可能です。  
 
-## オプション：モデルの変更
-1. デフォルトでLLMが選択されています。現在のバージョンでは、**llama-3-2-90b-vision-instruct**が選択されています。  
-![alt text](agent_images/agent-image56.png)
-
-2. wxOがサポートしているモデルに切り替えることが可能になります。このハンズオンでは、**llama-3-405b-instruct**に切り替えます。  
-現在サポートしているLLMは[こちら](https://www.ibm.com/docs/ja/watsonx/watson-orchestrate/base?topic=model-available-ai-models)です。  
-![alt text](agent_images/image-13.png)  
-
-ユースケースに合わせたLLMを選択することで、適切な回答、処理を行うエージェントを作成することができます。
 
 ## オプション：エージェントに知識を加える（ppt）
 知識は、PDF以外にもPowerPointなどのファイルも使用可能です。
 
-1. [こちらのリンク](./files/BWL_Pricing_Overview.PPTX)を右クリックしてファイルに保存してください。このファイルはIBM製品の一つBlueworks Liveの価格について説明した資料です。
+1. [こちらのリンク](./files/wxO_Overview.pptx)を右クリックしてファイルに保存してください。このファイルはIBM製品の一つwatsonx Orchestrateの概要について説明した資料です。
 
-2. P4,5にそれぞれ汎用版とUS版のBWLの価格が記載されていることを確認します。  
-![alt text](intro_images/image-5.png)  
-![alt text](intro_images/image-6.png)  
+2. チャット画面で、**watsonx Orchestrateのプランについて教えてください**のように入力してください。正しい回答は得られないはずです。  
+![alt text](agent_images/image-18.png)
 
-3. チャット画面で、**Blueworks Liveの価格について教えてください**のように入力してください。AIから何度か回答までに質問が繰り返されますが、正しい回答は得られないはずです。
-![alt text](intro_images/image-11.png)
+3. 知識ソースのIBM年次報告書(2024)のボックス内にある**オプション**をクリックし、**詳細の編集**を選択します。
+![alt text](agent_images/image-16.png)
 
-4. **ソースの置換**をクリックし、先ほど実施した手順と同じようにPPTファイルをアップロードします。名前に**Blueworks Liveの価格情報です**、説明に**Blueworks Liveの価格情報です**と追加してください。
-![alt text](agent_images/image-14.png)  
+4. 右にある**文書の追加**を選択し、先ほど実施した手順と同じようにPPTファイルをアップロードします。
 
-5. ファイルの処理が完了したら、再びチャット画面で**Blueworks Liveの価格について教えてください**と入力します。ファイルをアップロードする前の結果とは異なり、プランごとの価格が一覧として表示されることがわかります。  
-![alt text](intro_images/image-15.png)
+5. アップロード完了後、先程設定した名前を**IBM関連文書**に更新します。また説明についても**財務情報とIBMのコア事業戦略を含んだ、2024年のIBMの年次報告書です。watsonx Orchestrateの概要情報です。**と更新します。
+![alt text](agent_images/image-17.png)
+
+6. 再びチャット画面に戻り、**watsonx Orchestrateのプランについて教えてください**と入力します。ファイルをアップロードする前の結果とは異なり、プランの一覧の詳細が表示されることがわかります。  
+![alt text](agent_images/image-19.png)
+
+## 参考：モデルの変更
+1. デフォルトでLLMが選択されています。現在のバージョンでは、**llama-3-2-90b-vision-instruct**が選択されています。  
+![alt text](agent_images/agent-image56.png)
+
+2. wxOがサポートしているモデルに切り替えることが可能になります。 
+現在サポートしているLLMは[こちら](https://www.ibm.com/docs/ja/watsonx/watson-orchestrate/base?topic=model-available-ai-models)です。  
+![alt text](agent_images/image-13.png)  
+
+ユースケースに合わせたLLMを選択することで、適切な回答、処理を行うエージェントを作成することができます。

@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Open-Meteo APIs
-  description: 'Open-Meteo offers free weather forecast APIs for open-source developers and non-commercial use. No API key is required.'
+  description: '天気情報を取得するためのツールです。都市名から天気情報を取得する際には、緯度や経度を想定してこのツールを利用してください。ユーザーに緯度や経度を確認しないでください。current_weatherは常にtrueを指定します。'
   version: '1.0'
   contact:
     name: Open-Meteo
