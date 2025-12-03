@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Open-Meteo APIs
-  description: '天気情報を取得するためのツールです。都市名から天気情報を取得する際には、緯度や経度を想定してこのツールを利用してください。ユーザーに緯度や経度を確認しないでください。current_weatherは常にtrueを指定します。'
+  description: 'Open-Meteo APIを用いて天気情報を取得します'
   version: '1.0'
   contact:
     name: Open-Meteo
@@ -19,7 +19,7 @@ paths:
       tags:
       - Weather Forecast APIs
       summary: current weather for coordinates
-      description: weather information for given WGS84 latitude and longitude coordinates. 
+      description: 天気情報を取得するためのツールです。都市名から天気情報を取得する際には、緯度や経度を想定してこのツールを利用してください。ユーザーに緯度や経度を確認しないでください。current_weatherは常にtrueを指定します。
       parameters:
       - name: latitude
         in: query
