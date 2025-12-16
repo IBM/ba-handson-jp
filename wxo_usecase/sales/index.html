@@ -627,7 +627,7 @@
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      オプション: 外部アプリケーションとの接続
+      エージェント作成のヒント
     </span>
   </a>
   
@@ -636,7 +636,7 @@
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      エージェント作成のヒント
+      オプション: 様々なプリビルドツールの活用
     </span>
   </a>
   
@@ -645,7 +645,7 @@
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      オプション: 様々なプリビルドツールの活用
+      オプション: 外部アプリケーションとの接続
     </span>
   </a>
   
@@ -912,27 +912,23 @@
 <p>下記の業務シナリオを実装します。</p>
 <p><strong>お客様名を検索→新規案件を登録、Slackで共有</strong>  </p>
 <p><a class="glightbox" href="../sales_images/image.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../sales_images/image.png" /></a></p>
-<h2 id="_3">オプション: 外部アプリケーションとの接続</h2>
-<p>この Lab では Salesforce と Slack を watsonx Orchestrate に接続してエージェントを作成します。環境作成と接続手順は、以下のQiita記事を参考にしてください。<br />
-- <a href="https://qiita.com/y175/items/4aa9ee1fde4f12171ca3">Salesforce の環境作成と接続手順</a><br />
-- <a href="https://qiita.com/ikeda_24/items/7b94effc4eafd008203f">Slack の環境作成と接続手順</a></p>
-<h2 id="_4">エージェント作成のヒント</h2>
+<h2 id="_3">エージェント作成のヒント</h2>
 <p>エージェントでの <strong>会話フロー例</strong> です。以下のイメージの通りにならなくても問題ございません。<br />
-<a class="glightbox" href="../sales_images/image-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../sales_images/image-11.png" /></a><br />
-<a class="glightbox" href="../sales_images/image-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../sales_images/image-12.png" /></a>  </p>
+モデルは <strong>GPT-OSS 120B－OpenAI(via Groq)</strong> を使用しています。<br />
+<a class="glightbox" href="../sales_images/image-18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../sales_images/image-18.png" /></a><br />
+<a class="glightbox" href="../sales_images/image-19.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../sales_images/image-19.png" /></a><br />
+<a class="glightbox" href="../sales_images/image-20.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../sales_images/image-20.png" /></a>  </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>講師から提供される Salesforce 環境を使用する場合は、お客様名は「AA」もしくは「BB」で検索してください。</p>
+<p>お客様名は「AA銀行」もしくは「BB自動車」で検索してください。<br>
+また Slack へのメッセージ送信に必要なチャンネルIDは "C08NG6VCCE7" に指定してください。</p>
 </div>
 <p><br>
-Salesforceの商談一覧にはこのように登録されています。<br />
-<a class="glightbox" href="../sales_images/image-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../sales_images/image-9.png" /></a>  </p>
-<p>Slackにはこのようにメッセージが送信されています。
-<a class="glightbox" href="../sales_images/image-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../sales_images/image-13.png" /></a>  </p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>今回使用するモデルでは日本語が文字化けしてしまうことがあるため、気になる方は案件名を英語で入力してみてください。実運用では他のモデルに変更することで解消可能です。</p>
-</div>
+案件が作成されると、Salesforce の 商談一覧には以下のように登録されます。<br />
+<a class="glightbox" href="../sales_images/image-25.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../sales_images/image-25.png" /></a>  </p>
+<p><br>
+また、Slack には以下のようにメッセージが送信されます。
+<a class="glightbox" href="../sales_images/image-21.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../sales_images/image-21.png" /></a>  </p>
 <p><br>
 以下はエージェント作成に関するヒントです。必要に応じてご参照ください。  </p>
 <p><strong>プリビルドツール</strong> は以下の3つを使用しています。</p>
@@ -945,34 +941,83 @@ Salesforceの商談一覧にはこのように登録されています。<br />
 </ul>
 </details>
 <p><br>
-ツールを呼び出す順番や、エージェントからの質問・回答の仕方を指定したい場合は、<strong>動作</strong> の指示に記載すると調整できます。<br />
-動作の指示には、エージェントが行うべきこと、応答方法、および従うべき制限事項を指定してください。以下に参考例を記載いたします。  </p>
+ツールを呼び出す順番や、エージェントからの質問・回答の仕方を指定したい場合は、<strong>動作</strong> や <strong>ガイドライン</strong> に記載すると調整できます。<br />
+動作には、エージェントが行うべきこと、応答方法、および従うべき制限事項を指定してください。以下に参考例を記載いたします。  </p>
 <details class="question">
-<summary>参考例</summary>
+<summary>動作の参考例</summary>
 <div class="highlight"><pre><span></span><code>質問・回答はすべて日本語で行ってください。
 
-案件を作成したいと言われたら、必ず以下の順番で処理を実行してください。ユーザーへの確認は行わず、すぐに実行してください。
-- Retrieve Salesforce accounts を実行する
-- お客様名を聞き、account_ID を取得する。
+ユーザーに案件を作成したいと言われたら、必ず以下の順番で処理を実行してください。
+- ユーザーにお客様名を聞き、Retrieve Salesforce accounts を実行する
 - お客様名が正しいか確認し、Create an opportunity in Salesforce を実行する
-
-Create an opportunity in Salesforce の入力パラメータは、account_ID を前の処理から引き継ぎ、その他は必須パラメータのみユーザーに質問してください。必須パラメータにはユーザーが回答した値以外を入力しないでください。
-stage_name を質問する際は、「フェーズ」と言ってください。また、Prospecting、Qualification、Negotiation から選択させるようにしてください。
-
-最後に、案件を作成したというメッセージをSlackに送信してください。メッセージには案件名と案件IDを含め、送信前にメッセージの文面をユーザーに確認してください。
-チャンネルIDは C08NG6VCCE7 です。
+- 案件を作成したというメッセージを Slack に送信する
 </code></pre></div>
+</details>
+<p>また、ガイドラインには特定の条件下（例：あるツールの実行時）にエージェントに行ってほしいアクションや応答を指定します。
+以下に参考例を記載いたします。</p>
+<details class="question">
+<summary>ガイドラインの参考例 1 - お客様名の検索がうまくいかない時</summary>
+<p><a class="glightbox" href="../sales_images/image-22.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../sales_images/image-22.png" /></a></p>
+<p>名前:
+<div class="highlight"><pre><span></span><code>お客様情報の取得
+</code></pre></div></p>
+<p>条件:
+<div class="highlight"><pre><span></span><code>お客様名で検索し、お客様情報を取得する
+</code></pre></div></p>
+<p>アクション:
+<div class="highlight"><pre><span></span><code>例えば「AA銀行」というお客様名を検索する場合、以下の形式で検索します。
+&quot;search&quot;: &quot;Name=&#39;AA銀行&#39;&quot;
+</code></pre></div></p>
+<p>ツール:<br>
+<code>Retieve Salesforce accounts</code></p>
+</details>
+<details class="question">
+<summary>ガイドラインの参考例 2 - 案件の作成時</summary>
+<p><a class="glightbox" href="../sales_images/image-23.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../sales_images/image-23.png" /></a></p>
+<p>名前:
+<div class="highlight"><pre><span></span><code>案件作成時のパラメータ
+</code></pre></div></p>
+<p>条件:
+<div class="highlight"><pre><span></span><code>Salesforce に案件を作成する
+</code></pre></div></p>
+<p>アクション:
+<div class="highlight"><pre><span></span><code>入力パラメータは、account_ID を前の処理から引き継ぎ、その他は必須パラメータのみユーザーに質問します。
+必須パラメータは、1回の質問につき1項目ずつユーザーに尋ねます。ユーザーから回答されていない値は勝手に入力しません。
+stage_name を質問する際は「フェーズ」と言い、Prospecting、Qualification、Negotiation のいずれかから選択してもらいます。
+</code></pre></div>
+ツール:<br>
+<code>Create opportunity in Salesforce</code></p>
+</details>
+<details class="question">
+<summary>ガイドラインの参考例 3 - メッセージの送信時</summary>
+<p><a class="glightbox" href="../sales_images/image-24.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../sales_images/image-24.png" /></a></p>
+<p>名前:
+<div class="highlight"><pre><span></span><code>メッセージの送信
+</code></pre></div></p>
+<p>条件:
+<div class="highlight"><pre><span></span><code>Slack にメッセージを送信する
+</code></pre></div></p>
+<p>アクション:
+<div class="highlight"><pre><span></span><code>メッセージには案件名と案件IDを含め、送信する前にメッセージの文面が問題ないかユーザーに確認します。
+channel IDは &quot;C08NG6VCCE7&quot; です。
+</code></pre></div></p>
+<p>ツール:<br>
+<code>Send a message in Slack</code></p>
 </details>
 <p><br> 
 AIエージェントで無事にシナリオを実行できたら、最後に Salesforce で案件を作成できているか確認してみましょう。<br />
-<strong>List opportunities in Salesforce</strong> というプリビルドツールをAIエージェントに追加し、本日作成された案件リストを表形式で取得してみます。ご自身で作成した案件が表示されているか確認してみましょう。<br />
+<strong>List opportunities in Salesforce</strong> というプリビルドツールをAIエージェントに追加し、<strong>本日作成された案件リストを表形式で取得してください</strong> と入力します。ご自身で作成した案件が表示されているか確認してみましょう。<br />
 <a class="glightbox" href="../sales_images/image-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../sales_images/image-14.png" /></a></p>
-<h2 id="_5">オプション: 様々なプリビルドツールの活用</h2>
-<p>2025年10月現在、Salesforce や Slack に関連する多くのプリビルドツールが用意されています。
-これらのツールを組み合わせて、ご自身が使ってみたい実用的なエージェントを作成してみてください。</p>
+<h2 id="_4">オプション: 様々なプリビルドツールの活用</h2>
+<p>Salesforce や Slack に関連するプリビルドツールは多数用意されています。
+これらのツールを組み合わせて、ご自身が使ってみたいエージェントを作成してみましょう。</p>
 <p><strong>参考ドキュメント:</strong><br />
 - <a href="https://www.ibm.com/docs/ja/watsonx/watson-orchestrate/base?topic=tools-sales#salesforce">Salesforce プリビルドツール</a><br />
 - <a href="https://www.ibm.com/docs/ja/watsonx/watson-orchestrate/base?topic=tools-productivity#slack">Slace プリビルドツール</a>  </p>
+<h2 id="_5">オプション: 外部アプリケーションとの接続</h2>
+<p>この Lab では Salesforce と Slack を watsonx Orchestrate に接続してエージェントを作成しました。ご自身で環境作成や接続も含めて試してみたい際は、以下の Qiita 記事をご参照ください。<br />
+- <a href="https://qiita.com/y175/items/4aa9ee1fde4f12171ca3">Salesforce の環境作成と接続手順</a><br />
+- <a href="https://qiita.com/ikeda_24/items/7b94effc4eafd008203f">Slack の環境作成と接続手順</a></p>
 <h2 id="_6">お疲れ様でした！</h2>
 <p>このハンズオンでは、営業支援のユースケースを想定して、Salesforce や Slack と連携したエージェントを作成しました。</p>
 

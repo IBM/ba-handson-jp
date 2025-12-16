@@ -1039,20 +1039,19 @@
 <div class="highlight"><pre><span></span><code>[Sample]
 このファイルは人事規則を記載しています。採用・勤務・賃金・休暇・退職・福利厚生などの情報が含まれます。
 </code></pre></div></li>
-<li>どの情報を使ってどんな処理をすべきエージェントなのか、Behavior（動作）に定義することで LLM の挙動を操作できます。
+<li>LLM が質問を上手く理解できない場合や、LLM がナレッジソースではなく独自の回答を含めてしまう場合は、どの情報を使ってどんな処理をすべきエージェントなのか Behavior（動作）に定義することで LLM の挙動を操作します。
+<!-- ※上記に載せているサンプルの会話は、llama-3-2-90b-vision-instruct モデルと ReAct スタイルで実行しています -->
 <div class="highlight"><pre><span></span><code>[Sample]
-ナレッジソースを使用して、人事規則に関する質問に回答します。
+知識ソースを使用して、人事規則に関する質問に回答します。
 
-ナレッジソース：
+知識ソース：
 - サンプル人事規則.pdf：人事規則に関するドキュメント
 
 エージェントの動作方針：
 - 回答が分からない場合は、それを伝えます。LLMの知識でオリジナルの回答を作成しません。
 - ユーザーとのコミュニケーションは、必ずユーザーが話す言語で行います。例えば、ユーザーが日本語で話す場合は、日本語で回答します。
 </code></pre></div></li>
-<li>LLM が質問を上手く理解できない場合は、エージェント・スタイルを <strong>ReAct</strong> に変更したり、他の AI モデルに変更して試します。<br />
-※上記に載せているサンプルの会話は、llama-3-2-90b-vision-instruct モデルと ReAct スタイルで実行しています</li>
-<li>LLM がナレッジソースではなく独自の回答を含めてしまう場合は、Knowledge setting（知識設定）の「応答」値の変更を試します。</li>
+<li>また、Knowledge setting（知識設定）の「応答」値の変更も試してみてください。</li>
 </ul>
 <p><a class="glightbox" href="../hr_images/senario1_knowledgesetting.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../hr_images/senario1_knowledgesetting.png" /></a></p>
 </details>
@@ -1064,6 +1063,8 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
+<li>ツール kintone_get_employeelist は、社員名簿アプリケーションが持つ全社員の個人データ（社員番号や氏名の他、住所やメールアドレスなど）を取得し、社員番号順に並べて出力します。</li>
+<li>ツール kintone_get_reportline は、社員名簿アプリケーションが持つ全社員の役職情報を取得し、役職順に並べて出力します。</li>
 <li>リスト系データを複数行表示する場合は、表形式で表示させるようプロンプトに含めると見やすくなります。</li>
 <li>件数が多いと表示に時間がかかってしまう場合があるため、ここでのテストは "10件まで" のように数を絞って表示させることを推奨します。</li>
 </ul>
@@ -1076,7 +1077,7 @@
 <details class="question">
 <summary>エージェント作成のヒント</summary>
 <ul>
-<li>対象ユーザーと同じ組織の情報を上手く出力できない場合は、組織情報について聞かれた際のデータの検索方法を Behavior（動作）あるいは Guidelines に示します。<br />
+<li>特定ユーザーと同じ組織の情報を出力させるため、組織情報について聞かれた際のデータの検索方法を Behavior（動作）あるいは Guidelines に示します。<br />
 以下は特定条件のガイドラインとして定義した例です。</li>
 </ul>
 <p><a class="glightbox" href="../hr_images/senario2_guideline.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../hr_images/senario2_guideline.png" /></a></p>
@@ -1096,10 +1097,17 @@
 <p>ご自身の社員番号を仮で決め、たとえば以下のように上司（＝同じ部署で役職が1つ上の社員）の次回休暇日を表示することができるようになっていれば、完成です。<br />
 ※「理由の表示」をクリックして、上司の社員を正しく認識できていることを確認してください。</p>
 <p><a class="glightbox" href="../hr_images/senario3_sample-preview.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../hr_images/senario3_sample-preview.png" /></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>ツール kintone_get_nextoff は、社員名簿アプリケーションから「社員番号」で特定のデータを検索し、次の休暇予定日と共に出力します。
+※次の休暇予定日はサンプル値になっています</li>
+</ul>
+</div>
 <details class="question">
 <summary>エージェント作成のヒント</summary>
 <ul>
-<li>対象ユーザー（質問者の上司）を探し、その上司に対して休暇日取得のツールを実行するよう Behavior（動作）あるいは Guidelines に示します。<br />
+<li>対象ユーザー（仮で決めたユーザーの上司）を探し、その上司に対して休暇日取得のツールを実行するよう Behavior（動作）あるいは Guidelines に示します。<br />
 以下は特定条件のガイドラインとして定義した例です。</li>
 </ul>
 <p><a class="glightbox" href="../hr_images/senario3_guideline.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../hr_images/senario3_guideline.png" /></a></p>
@@ -1119,6 +1127,14 @@
 <p class="admonition-title">Warning</p>
 <ul>
 <li>休暇情報アプリは参加者が共通で使うため、<strong>ご自身に割り当てられた社員番号データのみ更新するようご注意ください。</strong></li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>ツール kintone_get_timeofflist は、休暇情報アプリケーションから「社員番号」で特定のデータを検索し、休暇データを出力します。</li>
+<li>ツール kintone_update_timeoff は、休暇情報アプリケーションのデータから「社員番号」で検索した1つのデータに対し、「取得日数」の値を更新（追加）します。実行のためには社員番号の他、新たに取得する日付と日数の値が必要です。
+※「残日数」のデータは、「付与日数」「取得日数」の値に応じて休暇情報アプリケーション側で自動計算されます。</li>
 </ul>
 </div>
 <p>ツールを追加したら、まずはご自身の有給休暇が何日あるのか確認してみましょう。社員の有給休暇日数が取得できる <strong>kintone_get_timeofflist</strong> を呼び出すと、以下のようなデータが確認できます。</p>
