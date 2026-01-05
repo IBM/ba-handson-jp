@@ -999,13 +999,13 @@
 <p>右側のプレビューチャットに、<strong>あなたのできることを教えてください。</strong> と聞いてみましょう。</p>
 </li>
 <li>
-<p>1つ目に気象情報の提供、2つ目に 2024 年の IBM の年次報告書の提供ができると回答されます。(Lab1のオプションを実施された方は、1つ目に「Blueworks Liveの価格を提供できる」と回答されます)<br />
-<a class="glightbox" href="../tool_images/image-91.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-91.png" /></a>  </p>
+<p>気象情報の提供や、IBM の年次報告書の提供ができると回答されます。(Lab1のオプションを実施された方は、1つ目に「Blueworks Liveの価格を提供できる」と回答されます)<br />
+<a class="glightbox" href="../tool_images/image-94.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-94.png" /></a></p>
 </li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>もし1回目の質問では定型の挨拶が回答される場合は、動作に <strong>定型の挨拶は省略し、最初の質問から回答してください。</strong> のように指示を追加すると、1回目から回答してくれるようになります。<br />
+<p>使用しているモデルによっては、1回目の質問では定型の挨拶が回答されることがあります。その場合は、動作に <strong>定型の挨拶は省略し、最初の質問から回答してください。</strong> のように指示を追加すると、1回目から回答してくれるようになります。<br />
 <a class="glightbox" href="../tool_images/image-69.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-69.png" /></a></p>
 </div>
 <h2 id="_4">ツールの利用</h2>
@@ -1013,12 +1013,13 @@
 <li>チャットをリロードし、先ほどと同じくお好きな地域の天気を聞いてみましょう。正しく回答が返ってくることを確認できます。<br />
 <a class="glightbox" href="../tool_images/image-48.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-48.png" /></a>  </li>
 </ol>
-<p>うまく回答されない場合は、もう一度同じリクエストを入力すると正しく呼び出されるはずです。 
+<p>以下のように、緯度や経度を確認される場合がありますが、もう一度同じリクエストを入力すると正しく呼び出されるはずです。 
 <a class="glightbox" href="../tool_images/image-70.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-70.png" /></a>  </p>
-<pre><code>!!!note
-    この挙動は、製品が使用しているシステム・プロンプトが、変数の値を勝手に想定、生成するなという指示を与えていることによるものです。
-    エージェントの指示やツールの説明を調整することにより、適切な動作を行うように調整することが可能ですが、今回のハンズオンではスコープ外とします。
-</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>この挙動は、製品が使用しているシステム・プロンプトが、変数の値を勝手に想定、生成するなという指示を与えていることによるものです。
+エージェントの指示やツールの説明を調整することにより、適切な動作を行うように調整することが可能ですが、今回のハンズオンではスコープ外とします。</p>
+</div>
 <ol>
 <li><strong>理由の表示</strong> をクリックして <strong>ステップ1</strong> を開いてみると、入力した地名から緯度と経度を認識し、パラメータを適切に変換してくれていることが確認できます。<br />
 <a class="glightbox" href="../tool_images/image-71.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-71.png" /></a></li>
@@ -1043,8 +1044,12 @@
 チャットをリロードし、3市町村の緯度・経度ができるだけ異なるように選び、以下のように質問してみてください。<br />
 <strong>例: 函館市、稚内市、羅臼町の気温を表形式で比較してください。</strong><br />
 <a class="glightbox" href="../tool_images/image-73.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tool_images/image-73.png" /></a></p>
-<p>こちらも、各市町村の気温はツールによって取得されていますが、表形式での出力は LLM のエージェンティックな判断によって行われていることがわかります。</p>
-<p>もし表形式で表示されない場合は、<strong>Githubマークダウン形式の表で表示して</strong> とチャットに入力してみましょう。</p>
+<p>こちらも、各市町村の気温はツールによって取得されていますが、LLMがユーザーの指示に従って表形式で出力をしてくれます。
+もし表形式で表示されない場合は、<strong>Githubマークダウン形式の表で表示して</strong> とチャットに入力してみましょう。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>GPT-OSS-120bは複数項目を表示する際に、表形式で出力する傾向があるため、特に指示をしなくても表形式で出力されることがあります。</p>
+</div>
 <!--
 ## エージェントスタイルの違いの確認
 
