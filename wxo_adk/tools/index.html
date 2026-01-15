@@ -1000,17 +1000,18 @@
 <li>
 <p>まずは単体のPythonのプログラムとしての動作を確認してみましょう。以下のコマンドを入力します。
     <div class="highlight"><pre><span></span><code>    python  .\tools\yfinance_tools.py
-</code></pre></div>
-    エラーが返ってくるはずです。これは、この環境にyfinanceというPythonのモジュールが未導入のため発生するエラーです。ツールを実装する際には、Python単体で動作するのか、watsonx Orchesrateの環境に問題があるのかを切り分けるためにもまずは単体での動作確認をすることをお勧めします。<br />
-<a class="glightbox" href="../tools_images/image-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tools_images/image-12.png" /></a></p>
-</li>
-<li>
-<p>yfinanceのモジュールをインポートし、再度先ほどのコマンドを実行してみましょう。
-    <div class="highlight"><pre><span></span><code>    pip install yfinance
-    python  .\tools\yfinance_tools.py
-</code></pre></div>
-    今回は、以下のように、IBMの株価や会社情報が表示されたはずです。<br />
+</code></pre></div></p>
+<p>IBMの株価や会社情報が表示されたはずです。<br />
 <a class="glightbox" href="../tools_images/image-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tools_images/image-13.png" /></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>環境によっては、モジュールが無いというエラーが返ってくることがあります。これは、この環境にyfinanceというPythonのモジュールが未導入のため発生するエラーです。ツールを実装する際には、Python単体で動作するのか、watsonx Orchesrateの環境に問題があるのかを切り分けるためにもまずは単体での動作確認をすることをお勧めします。<br />
+<a class="glightbox" href="../tools_images/image-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../tools_images/image-12.png" /></a></p>
+<p>yfinanceのモジュールをインポートしてから、再度先ほどのコマンドを実行してください。
+<div class="highlight"><pre><span></span><code>    pip install yfinance
+    python  .\tools\yfinance_tools.py
+</code></pre></div></p>
+</div>
 </li>
 </ol>
 <h2 id="_4">ツールのインポート</h2>

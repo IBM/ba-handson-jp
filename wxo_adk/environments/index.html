@@ -906,6 +906,9 @@
 </ul>
 <p>のいずれも対応しています。これらの環境を複数登録し、対象の環境を切り替えてコマンドを発行することが可能です。</p>
 <h2 id="developer-edition">Developer Editionの導入・環境の追加</h2>
+<pre><code>!!! note
+    ハンズオン環境にはADKおよびDeveloperEditionが導入済みで、サーバーの起動に必要なenvファイルの設定なども完了しています。以下の手順1,2はスキップし、3から開始してください。
+</code></pre>
 <p>watsonx Orchestrate Devloper EditionはローカルPC上で動作するサーバーです。
 ここでは、インストール手順の詳細については説明せず、wasonx OrchestrateのSaaS版を使用してサーバーを起動する場合の設定について説明します。<br />
 詳細については、<a href="https://developer.watson-orchestrate.ibm.com/developer_edition/wxOde_setup">ADKの公式サイト</a>の情報を参照してください。<br />
@@ -938,7 +941,7 @@
 source ./venv/bin/activate
 </code></pre>
 </div>
-<p><div class="highlight"><pre><span></span><code>    orchestrate server start -e ./env
+<p><div class="highlight"><pre><span></span><code>    orchestrate server start -e ./env -l
 </code></pre></div>
 <a class="glightbox" href="../environments_images/image-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../environments_images/image-2.png" /></a></p>
 <div class="admonition note">

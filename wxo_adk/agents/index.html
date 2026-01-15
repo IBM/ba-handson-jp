@@ -1004,10 +1004,8 @@
 <span class="nt">style</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
 <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">finance_agent</span>
 <span class="nt">llm</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">watsonx/meta-llama/llama-3-2-90b-vision-instruct</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
-<span class="l l-Scalar l-Scalar-Plain">企業情報の専門家のエージェントです。</span><span class="w"> </span>
-<span class="nt">instructions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
-<span class="l l-Scalar l-Scalar-Plain">企業情報について日本語で回答してください。</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">企業情報の専門家のエージェントです。</span>
+<span class="nt">instructions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">企業情報について日本語で回答してください。</span>
 <span class="nt">welcome_content</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">welcome_message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;企業情報エージェント&quot;</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;企業情報についてはお任せください&quot;</span>
@@ -1015,15 +1013,16 @@
 <span class="w">    </span><span class="nt">is_default_prompts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">prompts</span><span class="p">:</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;prompt_id_1&quot;</span>
-<span class="w">            </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;用語のリスト&quot;</span>
-<span class="w">            </span><span class="nt">subtitle</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;企業の業績に関する指標をリストします。&quot;</span>
-<span class="w">            </span><span class="nt">prompt</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;企業の業績を表す代表的な指標を5個リストして&quot;</span>
-<span class="w">            </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;active&quot;</span>
+<span class="w">          </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;用語のリスト&quot;</span>
+<span class="w">          </span><span class="nt">subtitle</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;企業の業績に関する指標をリストします。&quot;</span>
+<span class="w">          </span><span class="nt">prompt</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;企業の業績を表す代表的な指標を5個リストして&quot;</span>
+<span class="w">          </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;active&quot;</span>
+
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;prompt_id_2&quot;</span>
-<span class="w">            </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;用語の比較&quot;</span>
-<span class="w">            </span><span class="nt">subtitle</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ROAとROEの違いを説明します。&quot;</span>
-<span class="w">            </span><span class="nt">prompt</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ROAとROEの意味とその違いを表形式で整理して&quot;</span>
-<span class="w">            </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;active&quot;</span>
+<span class="w">          </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;用語の比較&quot;</span>
+<span class="w">          </span><span class="nt">subtitle</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ROAとROEの違いを説明します。&quot;</span>
+<span class="w">          </span><span class="nt">prompt</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ROAとROEの意味とその違いを表形式で整理して&quot;</span>
+<span class="w">          </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;active&quot;</span>
 </code></pre></div>
 2. エージェントを更新します。インポートと同じ手順で行うことで同じ名前のエージェントが存在する場合には自動的に更新されます。
 <div class="highlight"><pre><span></span><code>    orchestrate agents import -f ./agents/finance_agent.yaml
@@ -1048,10 +1047,8 @@
 <span class="nt">style</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
 <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">finance_agent</span>
 <span class="nt">llm</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">watsonx/meta-llama/llama-3-2-90b-vision-instruct</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
-<span class="l l-Scalar l-Scalar-Plain">企業情報の専門家のエージェントです。</span><span class="w"> </span>
-<span class="nt">instructions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
-<span class="l l-Scalar l-Scalar-Plain">企業情報について日本語で回答してください。</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">企業情報の専門家のエージェントです。</span>
+<span class="nt">instructions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">企業情報について日本語で回答してください。</span>
 <span class="nt">welcome_content</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">welcome_message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;企業情報エージェント&quot;</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;企業情報についてはお任せください&quot;</span>
@@ -1059,19 +1056,20 @@
 <span class="w">    </span><span class="nt">is_default_prompts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">prompts</span><span class="p">:</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;prompt_id_1&quot;</span>
-<span class="w">            </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;用語のリスト&quot;</span>
-<span class="w">            </span><span class="nt">subtitle</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;企業の業績に関する指標をリストします。&quot;</span>
-<span class="w">            </span><span class="nt">prompt</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;企業の業績を表す代表的な指標を5個リストして&quot;</span>
-<span class="w">            </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;active&quot;</span>
+<span class="w">          </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;用語のリスト&quot;</span>
+<span class="w">          </span><span class="nt">subtitle</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;企業の業績に関する指標をリストします。&quot;</span>
+<span class="w">          </span><span class="nt">prompt</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;企業の業績を表す代表的な指標を5個リストして&quot;</span>
+<span class="w">          </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;active&quot;</span>
+
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;prompt_id_2&quot;</span>
-<span class="w">            </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;用語の比較&quot;</span>
-<span class="w">            </span><span class="nt">subtitle</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ROAとROEの違いを説明します。&quot;</span>
-<span class="w">            </span><span class="nt">prompt</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ROAとROEの意味とその違いを表形式で整理して&quot;</span>
-<span class="w">            </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;active&quot;</span>
+<span class="w">          </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;用語の比較&quot;</span>
+<span class="w">          </span><span class="nt">subtitle</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ROAとROEの違いを説明します。&quot;</span>
+<span class="w">          </span><span class="nt">prompt</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ROAとROEの意味とその違いを表形式で整理して&quot;</span>
+<span class="w">          </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;active&quot;</span>
 <span class="nt">guidelines</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;大阪出身&quot;</span>
-<span class="w">        </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;顧客が大阪出身&quot;</span>
-<span class="w">        </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;大阪弁で会話してください。&quot;</span>
+<span class="w">      </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;顧客が大阪出身&quot;</span>
+<span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;大阪弁で会話してください。&quot;</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
