@@ -99,16 +99,19 @@ Pythonを用いたツールを作成してみます。ここでは、yfinanceと
     ```
         python  .\tools\yfinance_tools.py
     ```
-    エラーが返ってくるはずです。これは、この環境にyfinanceというPythonのモジュールが未導入のため発生するエラーです。ツールを実装する際には、Python単体で動作するのか、watsonx Orchesrateの環境に問題があるのかを切り分けるためにもまずは単体での動作確認をすることをお勧めします。  
-    ![alt text](tools_images/image-12.png)
 
-3. yfinanceのモジュールをインポートし、再度先ほどのコマンドを実行してみましょう。
-    ```
-        pip install yfinance
-        python  .\tools\yfinance_tools.py
-    ```
-    今回は、以下のように、IBMの株価や会社情報が表示されたはずです。  
+    IBMの株価や会社情報が表示されたはずです。  
     ![alt text](tools_images/image-13.png)
+
+    !!! note
+        環境によっては、モジュールが無いというエラーが返ってくることがあります。これは、この環境にyfinanceというPythonのモジュールが未導入のため発生するエラーです。ツールを実装する際には、Python単体で動作するのか、watsonx Orchesrateの環境に問題があるのかを切り分けるためにもまずは単体での動作確認をすることをお勧めします。  
+        ![alt text](tools_images/image-12.png)
+
+        yfinanceのモジュールをインポートしてから、再度先ほどのコマンドを実行してください。
+        ```
+            pip install yfinance
+            python  .\tools\yfinance_tools.py
+        ```
 
 
 ## ツールのインポート

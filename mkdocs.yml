@@ -49,6 +49,7 @@ nav:
   - env: wxo_adk/environments.md
   - agent: wxo_adk/agents.md
   - tool: wxo_adk/tools.md
+  - aigateway: wxo_adk/ai_gateway.md
   - langfuse: wxo_adk/langfuse.md
   - autotune: wxo_adk/autotune.md
   

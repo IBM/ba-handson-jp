@@ -64,7 +64,7 @@
 
 6. まだ利用可能なToolなどを指定していないため、外部の処理を呼び出すことはできませんが、LLMによる基本的な会話は可能です。右側のチャット欄に以下の様に記入して返答を確認してみましょう。
     ```
-        企業の業績を表す代表的な指標を教えて。
+        企業の業績を表す代表的な指標を5つ教えて。
     ```
 
     ![alt text](agents_images/image-6.png)
@@ -81,10 +81,8 @@
     style: default
     name: finance_agent
     llm: watsonx/meta-llama/llama-3-2-90b-vision-instruct
-    description: >
-    企業情報の専門家のエージェントです。 
-    instructions: >
-    企業情報について日本語で回答してください。
+    description: 企業情報の専門家のエージェントです。
+    instructions: 企業情報について日本語で回答してください。
     welcome_content:
         welcome_message: "企業情報エージェント"
         description: "企業情報についてはお任せください"
@@ -92,15 +90,16 @@
         is_default_prompts: false
         prompts:
             - id: "prompt_id_1"
-                title: "用語のリスト"
-                subtitle: "企業の業績に関する指標をリストします。"
-                prompt: "企業の業績を表す代表的な指標を5個リストして"
-                state: "active"
+              title: "用語のリスト"
+              subtitle: "企業の業績に関する指標をリストします。"
+              prompt: "企業の業績を表す代表的な指標を5個リストして"
+              state: "active"
+
             - id: "prompt_id_2"
-                title: "用語の比較"
-                subtitle: "ROAとROEの違いを説明します。"
-                prompt: "ROAとROEの意味とその違いを表形式で整理して"
-                state: "active"
+              title: "用語の比較"
+              subtitle: "ROAとROEの違いを説明します。"
+              prompt: "ROAとROEの意味とその違いを表形式で整理して"
+              state: "active"
     ```
 2. エージェントを更新します。インポートと同じ手順で行うことで同じ名前のエージェントが存在する場合には自動的に更新されます。
     ```
@@ -125,10 +124,8 @@
     style: default
     name: finance_agent
     llm: watsonx/meta-llama/llama-3-2-90b-vision-instruct
-    description: >
-    企業情報の専門家のエージェントです。 
-    instructions: >
-    企業情報について日本語で回答してください。
+    description: 企業情報の専門家のエージェントです。
+    instructions: 企業情報について日本語で回答してください。
     welcome_content:
         welcome_message: "企業情報エージェント"
         description: "企業情報についてはお任せください"
@@ -136,19 +133,20 @@
         is_default_prompts: false
         prompts:
             - id: "prompt_id_1"
-                title: "用語のリスト"
-                subtitle: "企業の業績に関する指標をリストします。"
-                prompt: "企業の業績を表す代表的な指標を5個リストして"
-                state: "active"
+              title: "用語のリスト"
+              subtitle: "企業の業績に関する指標をリストします。"
+              prompt: "企業の業績を表す代表的な指標を5個リストして"
+              state: "active"
+
             - id: "prompt_id_2"
-                title: "用語の比較"
-                subtitle: "ROAとROEの違いを説明します。"
-                prompt: "ROAとROEの意味とその違いを表形式で整理して"
-                state: "active"
+              title: "用語の比較"
+              subtitle: "ROAとROEの違いを説明します。"
+              prompt: "ROAとROEの意味とその違いを表形式で整理して"
+              state: "active"
     guidelines:
         - display_name: "大阪出身"
-            condition: "顧客が大阪出身"
-            action: "大阪弁で会話してください。"
+          condition: "顧客が大阪出身"
+          action: "大阪弁で会話してください。"
     ```
     !!!note
         tool呼び出しを実行させたい場合には以下の様に実行するtoolの名前を指定します。
@@ -159,7 +157,7 @@
 
 2. agents import　コマンドを用いてエージェントを更新します。
     ```
-        orchestrate agents import -f ./tools/finance_agent.yaml
+        orchestrate agents import -f ./agents/finance_agent.yaml
     ```
 3. チャットをリセットしてから、**大阪から来ました**と入力し、ガイドラインが動作していることを確認してください。  
     ![alt text](agents_images/image-10.png)
