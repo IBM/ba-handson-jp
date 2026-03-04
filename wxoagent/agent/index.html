@@ -539,6 +539,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../flow-userActivity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab3 flow user activity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../prebuild/" class="md-nav__link">
         
   
@@ -985,7 +1006,7 @@
 </li>
 <li>
 <p>このエージェントの役割を説明に記載します。watsonx Orchestrateは記載した内容をもとにどのエージェントを呼び出すかを判断するため、適切な記載が求められます。<br />
-このハンズオンでは、説明に<strong>IBMの会社情報に関する質問に回答するエージェントです</strong>と設定し、<strong>作成</strong>をクリックします。<br />
+このハンズオンでは、説明に<strong>IBMの会社情報に関する質問に回答するエージェントです。</strong>と設定し、<strong>作成</strong>をクリックします。<br />
 <a class="glightbox" href="../agent_images/agent-image35.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image35.png" /></a></p>
 </li>
 <li>
@@ -994,15 +1015,15 @@
 <a class="glightbox" href="../agent_images/agent-image36.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image36.png" /></a></p>
 </li>
 <li>
-<p>LLMを<strong>GPT-OSS 120B- OpenAI(via Groq)</strong>に変更します。モデルを変更すると、規約に関するメッセージが表示されます。
-<a class="glightbox" href="../agent_images/agent-image64.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image64.png" /></a></p>
+<p>LLMが<strong>GPT-OSS 120B- OpenAI(via Groq)</strong>に設定されていることを確認します。サードパーティーのライセンスのため、規約に関するメッセージが表示されています。
+<a class="glightbox" href="../agent_images/image-20.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-20.png" /></a>  </p>
 </li>
 <li>
 <p>ユーザーがエージェントを開くと表示される<strong>ウェルカムメッセージ</strong>と<strong>スタータープロンプト</strong>を設定します。ウェルカムメッセージに<strong>こんにちは、IBMエージェントへようこそ</strong>と入力します。
 <a class="glightbox" href="../agent_images/agent-image58.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image58.png" /></a></p>
 </li>
 <li>
-<p>続いて、スタータープロンプトにあるデフォルトの設定を削除します。削除後、<strong>プロンプトの追加</strong>ボタンをクリックします。<strong>What is watsonx Orchestrate?</strong>と入力後、再度<strong>プロンプトの追加</strong>ボタンをクリックし、もう一つ追加します。<strong>IBMについて教えてください</strong>と入力してください。
+<p>続いて、スタータープロンプトにあるデフォルトの設定を削除します。削除後、<strong>プロンプトの追加</strong>ボタンをクリックします。<strong>watsonx Orchestrate とは何ですか？</strong>と入力後、再度<strong>プロンプトの追加</strong>ボタンをクリックし、もう一つ追加します。<strong>IBMについて教えてください</strong>と入力してください。
 スタータープロンプトを設定することで、ユーザーはここをクリックすることで会話を始めることができるようになります。
 <a class="glightbox" href="../agent_images/agent-image59-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image59-1.png" /></a></p>
 </li>
@@ -1015,23 +1036,23 @@
 <ol>
 <li>
 <p>右側にプレビューチャットが表示されています。ここで簡単に作成したエージェントを試すことができます。<br />
-<a class="glightbox" href="../agent_images/agent-image60.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image60.png" /></a></p>
+<a class="glightbox" href="../agent_images/image-21.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-21.png" /></a>  </p>
 </li>
 <li>
-<p>まずは<strong>What is watsonx Orchestrate?</strong>と入力もしくはチャット上にある<strong>What is watsonx Orchestrate?</strong>を選択します。<br />
-<a class="glightbox" href="../agent_images/agent-image37-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image37-1.png" /></a></p>
+<p>まずは<strong>watsonx Orchestrate とは何ですか？</strong>と入力もしくはチャット上にある<strong>watsonx Orchestrate とは何ですか？</strong>を選択します。<br />
+<a class="glightbox" href="../agent_images/image-22.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-22.png" /></a></p>
 </li>
 <li>
 <p>watsonx Orchestrateに関する回答が返ってくることが確認できました。こちらは選択されたLLMが回答を作成しています。<br />
-<a class="glightbox" href="../agent_images/agent-image08-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image08-1.png" /></a></p>
+<a class="glightbox" href="../agent_images/image-23.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-23.png" /></a></p>
 </li>
 <li>
-<p>続いて、<strong>What is the stock price of IBM?</strong>と入力します。日付などをきかれた場合には、必要に応じて回答してください。<br />
-<a class="glightbox" href="../agent_images/agent-image39.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image39.png" /></a></p>
+<p>続いて、<strong>IBMの株価はいくらですか？</strong>と入力します。日付などをきかれた場合には、必要に応じて回答してください。<br />
+<a class="glightbox" href="../agent_images/image-24.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-24.png" /></a></p>
 </li>
 <li>
 <p>その結果、最新の株価情報は得ることができないことを確認できます。<br />
-<a class="glightbox" href="../agent_images/agent-image10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image10.png" /></a></p>
+<a class="glightbox" href="../agent_images/image-25.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-25.png" /></a></p>
 </li>
 </ol>
 <p>生成AIは案出し、要約などは得意ですが、新しい情報の取得は難しいことが確認できました。</p>
@@ -1039,15 +1060,15 @@
 <ol>
 <li>
 <p>プレビューチャットに<strong>IBMについて教えてください</strong>と入力します。もしくはスタータープロンプトのIBMについて教えてくださいをクリックします。
-<a class="glightbox" href="../agent_images/agent-image41.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image41.png" /></a></p>
+<a class="glightbox" href="../agent_images/image-26.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-26.png" /></a></p>
 </li>
 <li>
 <p>その結果、適切な回答が返ってきました。場合によっては、英語での返答となるケースがあります。そのような場合に備えて、ステップ3を行います。<br />
 <a class="glightbox" href="../agent_images/agent-image12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image12.png" /></a></p>
 </li>
 <li>
-<p>ユーザーが使いやすいよう利用ユーザーに合わせた動きを行うために、<strong>動作</strong>に応答の定義を行います。このハンズオンでは、日本人を対象としたAgentの作成のために、念のために<strong>回答は必ず日本語で行ってください</strong>と入力します。<br />
-<a class="glightbox" href="../agent_images/agent-image43.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image43.png" /></a></p>
+<p>ユーザーが使いやすいよう利用ユーザーに合わせた動きを行うために、<strong>動作</strong>に応答の定義を行います。このハンズオンでは、日本人を対象としたAgentの作成のために、念のために<strong>回答は必ず日本語で行ってください。</strong>と入力します。<br />
+<a class="glightbox" href="../agent_images/image-27.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-27.png" /></a></p>
 </li>
 </ol>
 <!--
@@ -1096,15 +1117,27 @@
 </li>
 <li>
 <p>レポートが取り込まれるまでには少し時間がかかります。完了すると、ファイルが知識ソースのリストに表示されます。<br />
-<a class="glightbox" href="../agent_images/image-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-10.png" /></a>  </p>
+<a class="glightbox" href="../agent_images/image-28.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-28.png" /></a>  </p>
+</li>
+<li>
+<p>知識ソースのリストの右上にある3点メニューをクリックし、<strong>詳細の編集</strong>を選択します。
+<a class="glightbox" href="../agent_images/image-31.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-31.png" /></a>  </p>
+</li>
+<li>
+<p>画面左にある<strong>知識設定の編集</strong>をクリックします。応答はデフォルトでは動的に設定されていますが、<strong>クラシック</strong>を選択して<strong>保存</strong>をクリックします。
+クラシックモードは、読み込ませたドキュメントから情報を取得して回答を生成しますが、動的モードは、取得した情報を回答生成に使用するだけでなく、AIエージェントがタスクを完了するためのコンテキストとして使用することも可能です。今回は、ドキュメントの内容に基づいて正確に回答してほしいため、クラシックモードを選択しています。
+<a class="glightbox" href="../agent_images/image-32.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-32.png" /></a>  </p>
+</li>
+<li>
+<p>左上の<strong>YourInitials-IBMInfo</strong>のリンクをクリックし、エージェント作成画面に戻ります。</p>
 </li>
 <li>
 <p>プレビューチャットで<strong>IBMの2024 年のフリー・キャッシュ・フローはいくらですか</strong>と入力します。<br />
-<a class="glightbox" href="../agent_images/agent-image50.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image50.png" /></a></p>
+<a class="glightbox" href="../agent_images/image-29.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-29.png" /></a></p>
 </li>
 <li>
 <p>watsonx Orchestrateが先ほど読み込んだファイルの内容をもとに、適切な回答を行っていることが確認できます。<br />
-<a class="glightbox" href="../agent_images/agent-image21.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image21.png" /></a></p>
+<a class="glightbox" href="../agent_images/image-30.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-30.png" /></a></p>
 </li>
 </ol>
 <p>ドキュメントをアップロードすることで、エージェントに対して簡単にRAGを構成できることが確認できました。</p>
@@ -1115,7 +1148,7 @@
 <ol>
 <li>
 <p>特に何も入力せず、右下の<strong>デプロイ</strong>をクリックします。<br />
-<a class="glightbox" href="../agent_images/agent-image51.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image51.png" /></a></p>
+<a class="glightbox" href="../agent_images/image-33.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-33.png" /></a></p>
 </li>
 <li>
 <p>これでデプロイが完了しました。<br />
@@ -1136,7 +1169,7 @@
 </li>
 <li>
 <p>一方で、再度<strong>IBMの今日の株価を教えてください</strong>と入力すると、求めていた回答が返ってきませんでした。<br />
-<a class="glightbox" href="../agent_images/agent-image27.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image27.png" /></a></p>
+<a class="glightbox" href="../agent_images/image-34.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-34.png" /></a>  </p>
 </li>
 <li>
 <p>そのため、👎をクリックし、<strong>未完了</strong>を選択し、<strong>送信</strong>をクリックします。<br />
@@ -1155,12 +1188,12 @@
 <p><a href="../files/wxO_Overview.pptx">こちらのリンク</a>を右クリックしてファイルに保存してください。このファイルはIBM製品の一つwatsonx Orchestrateの概要について説明した資料です。</p>
 </li>
 <li>
-<p>チャット画面で、<strong>watsonx Orchestrateのプランについて教えてください</strong>のように入力してください。正しい回答は得られないはずです。<br />
+<p>チャット画面で、<strong>watsonx Orchestrateのプランについて教えてください</strong>のように入力してください。LLMが何らかの回答を生成してくれる場合もありますが、根拠に基づく正しい回答は得られないはずです。<br />
 <a class="glightbox" href="../agent_images/image-18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-18.png" /></a></p>
 </li>
 <li>
 <p>知識ソースのIBM年次報告書(2024)のボックス内にある<strong>オプション</strong>をクリックし、<strong>詳細の編集</strong>を選択します。
-<a class="glightbox" href="../agent_images/image-16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-16.png" /></a></p>
+<a class="glightbox" href="../agent_images/image-31.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-31.png" /></a></p>
 </li>
 <li>
 <p>右にある<strong>文書の追加</strong>を選択し、先ほど実施した手順と同じようにPPTファイルをアップロードします。</p>
@@ -1177,13 +1210,13 @@
 <h2 id="_7">参考：モデルの変更</h2>
 <ol>
 <li>
-<p>デフォルトでLLMが選択されています。現在のバージョンでは、<strong>llama-3-2-90b-vision-instruct</strong>が選択されています。<br />
-<a class="glightbox" href="../agent_images/agent-image56.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/agent-image56.png" /></a></p>
+<p>デフォルトでLLMが選択されています。現在のバージョンでは、<strong>GPT-OSS 120B- OpenAI(via Groq)</strong>が選択されています。<br />
+<a class="glightbox" href="../agent_images/image-35.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-35.png" /></a></p>
 </li>
 <li>
 <p>wxOがサポートしているモデルに切り替えることが可能になります。 
 現在サポートしているLLMは<a href="https://www.ibm.com/docs/ja/watsonx/watson-orchestrate/base?topic=model-available-ai-models">こちら</a>です。<br />
-<a class="glightbox" href="../agent_images/image-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-13.png" /></a>  </p>
+<a class="glightbox" href="../agent_images/image-36.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agent_images/image-36.png" /></a>  </p>
 </li>
 </ol>
 <p>ユースケースに合わせたLLMを選択することで、適切な回答、処理を行うエージェントを作成することができます。</p>

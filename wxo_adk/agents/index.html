@@ -413,6 +413,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../wxoagent/flow-userActivity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab3 flow user activity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../wxoagent/prebuild/" class="md-nav__link">
         
   
@@ -1011,6 +1032,7 @@
 <li>
 <p>まだ利用可能なToolなどを指定していないため、外部の処理を呼び出すことはできませんが、LLMによる基本的な会話は可能です。右側のチャット欄に以下の様に記入して返答を確認してみましょう。
     <div class="highlight"><pre><span></span><code>    企業の業績を表す代表的な指標を5つ教えて。
+    企業の業績を表す代表的な指標を5つ教えて。
 </code></pre></div></p>
 <p><a class="glightbox" href="../agents_images/image-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../agents_images/image-6.png" /></a></p>
 </li>
@@ -1025,6 +1047,8 @@
 <span class="nt">style</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
 <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">finance_agent</span>
 <span class="nt">llm</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">watsonx/meta-llama/llama-3-2-90b-vision-instruct</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">企業情報の専門家のエージェントです。</span>
+<span class="nt">instructions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">企業情報について日本語で回答してください。</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">企業情報の専門家のエージェントです。</span>
 <span class="nt">instructions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">企業情報について日本語で回答してください。</span>
 <span class="nt">welcome_content</span><span class="p">:</span>
@@ -1070,6 +1094,8 @@
 <span class="nt">llm</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">watsonx/meta-llama/llama-3-2-90b-vision-instruct</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">企業情報の専門家のエージェントです。</span>
 <span class="nt">instructions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">企業情報について日本語で回答してください。</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">企業情報の専門家のエージェントです。</span>
+<span class="nt">instructions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">企業情報について日本語で回答してください。</span>
 <span class="nt">welcome_content</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">welcome_message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;企業情報エージェント&quot;</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;企業情報についてはお任せください&quot;</span>
@@ -1091,6 +1117,8 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;大阪出身&quot;</span>
 <span class="w">      </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;顧客が大阪出身&quot;</span>
 <span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;大阪弁で会話してください。&quot;</span>
+<span class="w">      </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;顧客が大阪出身&quot;</span>
+<span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;大阪弁で会話してください。&quot;</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1104,6 +1132,7 @@
 <li>
 <p>agents import　コマンドを用いてエージェントを更新します。
     <div class="highlight"><pre><span></span><code>    orchestrate agents import -f ./agents/finance_agent.yaml
+    orchestrate agents import -f ./agents/finance_agent.yaml
 </code></pre></div></p>
 </li>
 <li>チャットをリセットしてから、<strong>大阪から来ました</strong>と入力し、ガイドラインが動作していることを確認してください。<br />
