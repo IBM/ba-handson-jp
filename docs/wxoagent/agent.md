@@ -183,7 +183,7 @@ watsonx Orchestrateは組み込みのRAG (Retrieval Augmented Generation) 機能
 ![alt text](agent_images/image-35.png)
 
 2. wxOがサポートしているモデルに切り替えることが可能になります。 
-現在サポートしているLLMは[こちら](https://www.ibm.com/docs/ja/watsonx/watson-orchestrate/base?topic=model-available-ai-models)です。  
-![alt text](agent_images/image-36.png)  
+現在サポートしているLLMは[こちら](https://www.ibm.com/docs/ja/watsonx/watson-orchestrate/base?topic=agent-available-ai-models)です。  
+![alt text](agent_images/image-37.png)  
 
 ユースケースに合わせたLLMを選択することで、適切な回答、処理を行うエージェントを作成することができます。
