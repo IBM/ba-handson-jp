@@ -1,0 +1,1362 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+    
+    
+      
+        <title>エージェント型ワークフローを実装してみよう！ - Business Automation Handson</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+JP:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans JP";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Business Automation Handson" class="md-header__button md-logo" aria-label="Business Automation Handson" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Business Automation Handson
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              エージェント型ワークフローを実装してみよう！
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../" class="md-tabs__link">
+          
+  
+  watsonx Orchestrate Agentic
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../wxo_usecase/" class="md-tabs__link">
+          
+  
+  watsonx Orchestrate Usecase
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../wxo_adk/" class="md-tabs__link">
+          
+  
+  watsonx Orchestrate ADK
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Business Automation Handson" class="md-nav__button md-logo" aria-label="Business Automation Handson" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Business Automation Handson
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    watsonx Orchestrate Agentic
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            watsonx Orchestrate Agentic
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    はじめに
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab0 intro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agent/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab1 agent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab2 tool
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab3 flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flow-userActivity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab3 flow user activity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prebuild/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab4 prebuild jira
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prebuild-box/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab4 prebuild box
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab5 multiagents
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    watsonx Orchestrate Usecase
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            watsonx Orchestrate Usecase
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_usecase/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    はじめに
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_usecase/hr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    人事シナリオ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_usecase/sales/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    営業シナリオ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_usecase/it/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IT運用シナリオ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    watsonx Orchestrate ADK
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            watsonx Orchestrate ADK
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_adk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    はじめに
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_adk/install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    install
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_adk/environments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    env
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_adk/agents/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    agent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_adk/tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    tool
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_adk/ai_gateway/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    aigateway
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_adk/langfuse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    langfuse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wxo_adk/autotune/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    autotune
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">エージェント型ワークフローを実装してみよう！</h1>
+<p>AIAgentはエージェンティックな振る舞いによって様々な処理を呼び出しますが、一連の処理を事前定義して制御したいケースもあります。
+エージェント型ワークフローとは、エージェントが一連の処理を再利用可能な構造として実行する仕組みです。ツール呼び出し、入力取得、分岐やループなどを定義し、開始から完了までを自動管理します。
+このLabでは、パスポートの顔写真ページをもとに銀行口座開設を受け付けるエージェント型ワークフローをフロー・ビルダーを用いて定義し、エージェントから呼び出す方法について確認します。</p>
+<h2 id="_2">参考データについて</h2>
+<p>ここではパスポート画像の例として、こちらの論文「<a href="https://arxiv.org/html/2505.07540v1">SynID: Passport Synthetic Dataset for Presentation Attack Detection</a>{:target="_blank"}」に掲載されている合成パスポート画像を参照します。  </p>
+<p>本サイトでは、当該論文に含まれる画像ファイルの再配布や二次利用は行いません。実際の画像および詳細は、必ず原論文をご参照ください。  </p>
+<h2 id="_3">エージェント型ワークフローの作成</h2>
+<ol>
+<li>
+<p>左上のメニューから <strong>ビルド</strong> を選択します。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0010.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0010.png" /></a>  </p>
+</li>
+<li>
+<p>左側の <strong>すべてのツール</strong> を選択し、<strong>ツールの作成</strong> をクリックします。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0020.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0020.png" /></a></p>
+</li>
+<li>
+<p><strong>エージェント型ワークフロー</strong> をクリックします。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0030.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0030.png" /></a>  </p>
+</li>
+<li>
+<p>名前に<strong>XX_CreateNewAccountWorkflow</strong> (XXにはイニシャルを設定してください。) を入力し、<strong>構築の開始</strong>ボタンをクリックします。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0040.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0040.png" /></a>  </p>
+</li>
+<li>
+<p>名前の右にある<strong>詳細の編集</strong>をクリックします。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0050.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0050.png" /></a>  </p>
+</li>
+<li>
+<p>説明に次の値を設定し、<strong>完了</strong>をクリックします。（このワークフロー・ツールでは入出力を必要としませんが、入出力が必要な場合は<strong>パラメーター</strong>タブで設定できます。）
+<div class="highlight"><pre><span></span><code>このツールは、新しい銀行口座を開設するためのリクエストを作成します。入力は必要ありません。
+</code></pre></div>
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0060.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0060.png" /></a>  </p>
+</li>
+</ol>
+<h2 id="_4">ドキュメントからの詳細情報抽出</h2>
+<p>ここでは、パスポート画像から口座開設に必要な詳細情報（パスポート番号、国籍、氏名などの構造化データ）を収集・抽出するためのユーザー・アクティビティとドキュメント抽出・アクティビティを設定します。</p>
+<ol>
+<li>
+<p>watsonx Orchestrate のワークフローに戻り、<strong>Add +</strong> アイコンをクリックし、 <strong>ユーザーに提示する</strong> &gt; <strong>メッセージ</strong> をクリックします。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0070.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0070.png" /></a>  </p>
+</li>
+<li>
+<p><strong>ユーザー・アクティビティー1</strong> を選択し、鉛筆アイコンをクリックして名前を <strong>パスポートのアップロード</strong> に変更します。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0080.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0080.png" /></a>  </p>
+</li>
+<li>
+<p><strong>メッセージ1</strong> を選択し、次のメッセージを追加します。
+<div class="highlight"><pre><span></span><code>開始するには、パスポートの画像をアップロードしてください。
+</code></pre></div>
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0090.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0090.png" /></a>  </p>
+</li>
+<li>
+<p><strong>メッセージ1</strong> のボックスの下の矢印にカーソルを合わせて表示される <strong>+</strong> アイコンをクリックし、 <strong>ユーザーから収集する</strong> &gt; <strong>ファイルのアップロード</strong> をクリックします。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0100.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0100.png" /></a>  </p>
+</li>
+<li>
+<p><strong>パスポートのアップロード</strong>のボックスの下の矢印にカーソルを合わせて表示される <strong>+</strong> アイコンをクリックし、 <strong>フローアクティビティを追加する</strong> &gt; <strong>ドキュメント抽出</strong> をクリックします。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0110.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0110.png" /></a>  </p>
+</li>
+<li>
+<p><strong>文書フォーマットの選択</strong>では<strong>無構造</strong>を選択します。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0120.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0120.png" /></a>  </p>
+</li>
+<li>
+<p>トレーニング用にパスポート画像のファイルをアップロードします。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0130.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0130.png" /></a>  </p>
+</li>
+<li>
+<p><strong>フィールドの追加 +</strong>から次の５つのフィールドを追加します。  </p>
+<ul>
+<li>Passport number  </li>
+<li>Nationality  </li>
+<li>Given name  </li>
+<li>Surname  </li>
+<li>Date of birth<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0140.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0140.png" /></a>  </li>
+</ul>
+</li>
+<li>
+<p><strong>Nationality</strong> はパスポートの母国語で記載されているため、英語の国名に統一する必要があります。<strong>Nationality</strong> にマウスを移動し、表示される<strong>フィールドの詳細を表示</strong>をクリックします。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0150.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0150.png" /></a>  </p>
+</li>
+<li>
+<p><strong>説明</strong> と <strong>例</strong> のトグルをオンにして、それぞれ次の内容を追加後に<strong>文書に表示</strong>をクリックします。正しく値が取得できていることを確認し、<strong>←</strong> をクリックして前の画面に戻ります。<br />
+     &lt;説明&gt;
+     <div class="highlight"><pre><span></span><code>国籍を検出します。「Nationality」というフィールドで確認できます。
+国名が母国語で表示されている場合は、英語の正式な国名表記に変換してください。国籍形容詞は使用しないでください。
+</code></pre></div>
+     &lt;例&gt;</p>
+<table>
+<thead>
+<tr>
+<th>入力</th>
+<th>出力</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PORTUGUESA</td>
+<td>Portugal</td>
+</tr>
+<tr>
+<td>POLSKIE / POLISH</td>
+<td>Poland</td>
+</tr>
+<tr>
+<td>ESPAÑOLA</td>
+<td>Spain</td>
+</tr>
+</tbody>
+</table>
+<p><a class="glightbox" href="../flow-OpenAccount_images/flow_image0160.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0160.png" /></a></p>
+</li>
+<li>
+<p><strong>Date of birth</strong> についても誤ってマッピングされることを回避し、表記を統一させます。<strong>Date of birth</strong> にマウスを移動し、表示される<strong>フィールドの詳細を表示</strong>をクリックします。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0180.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0180.png" /></a>  </p>
+</li>
+<li>
+<p><strong>データ・タイプ</strong>を<strong>日付</strong>にします。<strong>説明</strong> のトグルをオンにして、次の内容を追加後に<strong>文書に表示</strong>をクリックします。(<strong>例</strong> のトグルはオフにします。)YYYY-MM-DD形式で値が正しく取得できていることを確認し、<strong>←</strong> をクリックして前の画面に戻ります。<br />
+     &lt;説明&gt;
+     <div class="highlight"><pre><span></span><code>パスポート画像から生年月日を抽出します。「生年月日（Date of Birth）」「生年月日（Date de naissance）」などのラベル、または同様の多言語表記を探します。日付はYYYY-MM-DD（例：1988-08-08）という一貫した形式で返します。
+</code></pre></div>
+     <a class="glightbox" href="../flow-OpenAccount_images/flow_image0190.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0190.png" /></a></p>
+</li>
+<li>
+<p><strong>文書の管理</strong>をクリックします。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0210.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0210.png" /></a>  </p>
+</li>
+<li>
+<p>追加でトレーニングする場合には <strong>文書の追加</strong> をクリックし、別のパスポート画像のファイルをアップロードします。アップロード完了後、<strong>完了</strong>をクリックします。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0220.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0220.png" /></a>  </p>
+</li>
+<li>
+<p>追加したパスポート画像のファイルに切り替えます。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0230.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0230.png" /></a>  </p>
+</li>
+<li>
+<p>値が取得できていることを確認し、右上の <strong>×</strong> をクリックしてドキュメント抽出を閉じます。 <br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0240.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0240.png" /></a> </p>
+</li>
+</ol>
+<h2 id="_5">ブランチ（分岐）の追加</h2>
+<p>ここでは、パスポートから抽出された国籍情報をもとにフローを条件分岐する処理を追加します。  </p>
+<ol>
+<li>
+<p><strong>ドキュメント抽出</strong> のボックスの下の矢印にカーソルを合わせて表示される <strong>+</strong> アイコンをクリックし、 <strong>フロー制御を追加する</strong> &gt; <strong>ブランチ</strong> をクリックします。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0300.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0300.png" /></a>  </p>
+</li>
+<li>
+<p>追加した<strong>ブランチ</strong>を選択し、鉛筆アイコンをクリックして名前を <strong>国籍?</strong> に変更します。また、<strong>パス1</strong>をクリックして名前を <strong>スペイン</strong> に変更し、<strong>パス2</strong>をクリックして名前を <strong>その他の国籍</strong> に変更します。
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0310.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0310.png" /></a>  </p>
+</li>
+<li>
+<p>スペインの横にある <strong>条件の編集</strong> をクリックし、次の条件を設定します。<br />
+<strong>nationality == Spain</strong>
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0320.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0320.png" /></a>  </p>
+</li>
+<li>
+<p><strong>その他の国籍</strong>のパスの<strong>Add +</strong> アイコンをクリックし、 <strong>ユーザーに提示する</strong> &gt; <strong>メッセージ</strong> をクリックします。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0340.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0340.png" /></a>  </p>
+</li>
+<li>
+<p><strong>ユーザー・アクティビティー2</strong> を選択し、鉛筆アイコンをクリックして名前を <strong>サポート対象外</strong> に変更します。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0350.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0350.png" /></a>  </p>
+</li>
+<li>
+<p><strong>メッセージ2</strong> を選択し、名前を <strong>サポート対象外メッセージ</strong> に変更して、次のメッセージを追加します。
+<div class="highlight"><pre><span></span><code>現在、スペイン国籍のみサポートしています。その他の国籍については、最寄りの支店へお越しください。
+</code></pre></div>
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0360.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0360.png" /></a>  </p>
+</li>
+</ol>
+<h2 id="human-in-the-loop">human-in-the-loopフォームの作成</h2>
+<p>ここでは、口座開設に必要な詳細な情報をユーザーが確認、入力するためのフォームを追加します。  </p>
+<ol>
+<li>
+<p><strong>スペイン</strong> のパスにカーソルを合わせて表示される <strong>+</strong> アイコンをクリックし、 <strong>フォームの追加</strong> をクリックします。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0370.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0370.png" /></a></p>
+</li>
+<li>
+<p>名前を<strong>アカウントの詳細</strong>に変更し、<strong>「キャンセル」ボタン</strong>のトグルをオフにます。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0375.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0375.png" /></a></p>
+</li>
+<li>
+<p><strong>フィールドの追加</strong> あるいは <strong>+</strong> アイコンをクリックし、<strong>ユーザーから収集する</strong>を選んで次のフィールドを追加していきます。  </p>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>姓</td>
+<td>テキスト</td>
+</tr>
+<tr>
+<td>名</td>
+<td>テキスト</td>
+</tr>
+<tr>
+<td>国籍</td>
+<td>テキスト</td>
+</tr>
+<tr>
+<td>パスポート番号</td>
+<td>テキスト</td>
+</tr>
+<tr>
+<td>生年月日</td>
+<td><strong>日付</strong></td>
+</tr>
+<tr>
+<td>連絡先電話番号</td>
+<td>テキスト</td>
+</tr>
+<tr>
+<td>年収</td>
+<td><strong>数値</strong></td>
+</tr>
+<tr>
+<td>口座種類</td>
+<td><strong>単一選択</strong></td>
+</tr>
+</tbody>
+</table>
+<p><a class="glightbox" href="../flow-OpenAccount_images/flow_image0376.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0376.png" /></a></p>
+</li>
+<li>
+<p>次のようになっているはずです。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0380.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0380.png" /></a></p>
+</li>
+<li>
+<p><strong>Account Type</strong> を選択して、ソース変数の <strong>(Expression)</strong> アイコンをクリックして、次の口座種類のリストを入力します。<br />
+["当座預金","普通預金"]<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0390.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0390.png" /></a></p>
+</li>
+<li>
+<p><strong>姓</strong>、<strong>名</strong>、<strong>国籍</strong>、<strong>パスポート番号</strong>、<strong>生年月日</strong> について、動作セクションの <strong>初期値</strong> を <strong>On</strong> に設定し、パスポートから抽出した変数をマッピングします。</p>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>マッピングする項目</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>姓</td>
+<td>surname</td>
+</tr>
+<tr>
+<td>名</td>
+<td>given_name</td>
+</tr>
+<tr>
+<td>国籍</td>
+<td>nationality</td>
+</tr>
+<tr>
+<td>パスポート番号</td>
+<td>passsport_number</td>
+</tr>
+<tr>
+<td>生年月日</td>
+<td>date_of_birth</td>
+</tr>
+</tbody>
+</table>
+<p><a class="glightbox" href="../flow-OpenAccount_images/flow_image0400.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0400.png" /></a></p>
+</li>
+<li>
+<p><strong>連絡先電話番号</strong> と <strong>口座種類</strong> については、<strong>Required</strong> を <strong>On</strong> にします。 <br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0410.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0410.png" /></a>  </p>
+</li>
+<li>
+<p>右上の <strong>×</strong> をクリックしてアカウント作成リクエストを閉じます。 <br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0420.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0420.png" /></a>  </p>
+</li>
+<li>
+<p><strong>ユーザー・アクティビティー3</strong> をドラッグ&amp;ドロップで見やすい位置に移動し、鉛筆アイコンをクリックして名前を <strong>アカウント作成リクエスト</strong> に変更します。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0430.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0430.png" /></a>  </p>
+</li>
+</ol>
+<h2 id="_6">生成プロンプトの追加</h2>
+<p>ここでは、生成 AI モデルを使用してパーソナライズされた確認メッセージを生成します。  </p>
+<ol>
+<li>
+<p><strong>アカウントの詳細</strong> のボックスの下の矢印にカーソルを合わせて表示される <strong>+</strong> アイコンをクリックし、 <strong>フローアクティビティを追加する</strong> &gt; <strong>生成プロンプト</strong> をクリックします。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0500.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0500.png" /></a></p>
+</li>
+<li>
+<p>モデルは「GPT-OSS」のまま変更せず、<strong>システム・プロンプト</strong> に次の内容を入力します。
+<div class="highlight"><pre><span></span><code>あなたは、口座開設に関する最終確認メッセージを生成するアシスタントです。提供されたユーザー情報をもとに、送信可能な完全なメッセージを作成してください。指示やコードは含めず、最終的な文章のみを出力してください。
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>追加 +</strong>ボタンから次の入力変数を追加します。テスト用のサンプル入力も指定してください。</p>
+<table>
+<thead>
+<tr>
+<th>名前</th>
+<th>データの型</th>
+<th>テスト値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>first_name</td>
+<td>ストリング</td>
+<td>(任意)</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>ストリング</td>
+<td>(任意)</td>
+</tr>
+<tr>
+<td>account_type</td>
+<td>ストリング</td>
+<td>普通預金 or 当座預金</td>
+</tr>
+<tr>
+<td>contact_phone_number</td>
+<td>ストリング</td>
+<td>(任意)</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>ユーザープロンプトで、以下を追加します。<br />
+     <div class="highlight"><pre><span></span><code>以下の情報を使用して確認メッセージを生成してください。
+名：{first_name}
+姓：{last_name}
+お客様の電話番号：{contact_phone_number}
+口座種別：{account_type}
+メッセージは、以下の要件を満たす必要があります。
+
+1.お客様のフルネームに対する挨拶と感謝の言葉から始めること
+2.口座開設の申請が正常に送信されたことを確認すること
+3.ランダムな8桁の参照番号を含めること
+4.次の手続きについて、当社の担当者がお客様の電話番号にお電話する旨を記載すること
+5.会社名「AgentXBankingCo.」で締めくくること
+</code></pre></div></p>
+<p><a class="glightbox" href="../flow-OpenAccount_images/flow_image0510.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0510.png" /></a></p>
+</li>
+<li>
+<p>確認メッセージの生成をテストするには、<strong>プレビューの生成</strong> をクリックします。右上の <strong>×</strong> をクリックして生成プロンプトを閉じます。 
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0520.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0520.png" /></a></p>
+</li>
+<li>
+<p>右上の <strong>×</strong> をクリックして生成プロンプトを閉じます。 
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0521.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0521.png" /></a></p>
+</li>
+<li>
+<p><strong>生成プロンプト</strong> のボックスの下の矢印にカーソルを合わせて表示される <strong>+</strong> アイコンをクリックし、 <strong>ユーザーに提示する</strong> &gt; <strong>メッセージ</strong> をクリックします。 
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0530.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0530.png" /></a></p>
+</li>
+<li>
+<p><strong>メッセージ2</strong> の名前を <strong>確認メッセージ</strong> に変更します。さらに、<strong>出力メッセージ</strong> の <strong>変数の選択</strong> をクリックして、 <strong>生成プロンプト</strong> &gt; <strong>value</strong> をマッピングします。
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0540.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0540.png" /></a></p>
+</li>
+<li>
+<p>これでエージェント型ワークフローの作成が完了し、以下のようになります。
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0550.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0550.png" /></a></p>
+</li>
+<li>
+<p>「完了」をクリックします。
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0560.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0560.png" /></a></p>
+</li>
+</ol>
+<h2 id="_7">エージェントへのツール追加とデプロイ</h2>
+<ol>
+<li>
+<p>Lab1で作成した <strong>XX-IBMInfo</strong> を開きます。<strong>ツールの追加</strong> ボタンをクリックします。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0600.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0600.png" /></a></p>
+</li>
+<li>
+<p><strong>ツールの追加</strong> ボタンをクリックします。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0610.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0610.png" /></a></p>
+</li>
+<li>
+<p><strong>ローカル・インスタンス</strong> を選択します。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0620.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0620.png" /></a></p>
+</li>
+<li>
+<p>作成した <strong>XX_CreateNewAccountWorkflow</strong> のチェックボックスを有効にして <strong>エージェントに追加</strong> ボタンをクリックします。（自分が作成したツールが見つかりにくい場合は検索ボックスを活用してください。）<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0630.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0630.png" /></a>  </p>
+</li>
+<li>
+<p><strong>動作</strong> の <strong>指示</strong> に次の内容を追記してください。<br />
+<div class="highlight"><pre><span></span><code>ユーザーが新しい銀行口座の開設を要求した場合は、ツール 「CreateNewAccountWorkflow」 を呼び出し、それ以外の出力は一切生成または表示しないでください。
+このツールがプロセス全体の処理およびユーザーへの最終的な応答の提示をすべて担当します。
+あなたの役割は、タスクをツールに委任することのみに限定されます。
+ツールの出力にはすでに必要なユーザー向けメッセージが含まれているため、繰り返し、要約、またはツールの出力内容を引用しないでください。
+</code></pre></div>
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0640.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0640.png" /></a>  </p>
+</li>
+<li>
+<p><strong>デプロイ</strong> をクリックし、<strong>デプロイ前のサマリー</strong>画面が表示されたらもう一度<strong>デプロイ</strong>をクリックします。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0650.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0650.png" /></a>  </p>
+</li>
+</ol>
+<h2 id="_8">エージェント型ワークフロー・ツールの実行</h2>
+<ol>
+<li>
+<p>左上のメニューから <strong>チャット</strong> を選択します。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0700.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0700.png" /></a></p>
+</li>
+<li>
+<p>エージェントのドロップダウン・リストから <strong>XX-IBMInfo</strong> を選択します。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0710.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0710.png" /></a></p>
+</li>
+<li>
+<p>チャット欄に「<strong>新しい銀行口座を開設する</strong>」と入力して送信します。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0720.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0720.png" /></a></p>
+</li>
+<li>
+<p><strong>ファイルの追加</strong> をクリックして、パスポート画像のファイルをアップロードして送信してください。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0730.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0730.png" /></a></p>
+</li>
+<li>
+<p>エージェント型ワークフローでパスポートの詳細情報を抽出し、抽出内容の信頼性が高くない場合には<strong>文書抽出のレビュー</strong>が表示され、ユーザーに確認を求めます。<strong>文書抽出のレビュー</strong>が表示された場合には <strong>表示</strong> をクリックしてください。信頼性高く抽出できた場合には<strong>文書抽出のレビュー</strong>は表示されませんので、このステップはスキップしてください。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0740.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0740.png" /></a>  </p>
+<ul>
+<li>抽出内容を確認し、必要に応じて修正します。  </li>
+<li>例として下の画像では <strong>生年月日</strong> を修正しています。  </li>
+<li>修正後、<strong>送信</strong> をクリックします。</li>
+<li><strong>抽出の確認</strong>画面が表示された場合は、 <strong>確認して送信</strong> をクリックして確定します。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0750.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0750.png" /></a></li>
+</ul>
+</li>
+<li>
+<p>パスポートの国籍がスペインかその他の国かで後続処理が変わります。</p>
+<ul>
+<li>スペインの場合<ol>
+<li><strong>アカウントの詳細</strong> 画面が表示されます。</li>
+<li>抽出された情報がフォームに事前入力されていることを確認します。</li>
+<li><strong>連絡先電話番号</strong>、<strong>年収</strong>、<strong>口座種類</strong>を入力します。</li>
+<li><strong>Submit</strong>をクリックします。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0770.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0770.png" /></a></li>
+</ol>
+</li>
+<li>その他の国籍の場合<ol>
+<li><strong>現在、スペイン国籍のみサポートしています。その他の国籍については、最寄りの支店へお越しください。</strong> と表示されます。<br />
+<a class="glightbox" href="../flow-OpenAccount_images/flow_image0760.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0760.png" /></a></li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="_9">お疲れさまでした！</h2>
+<p>このハンズオンでは、フロー・ビルダーを用いたエージェント型ワークフローの作成について説明しました。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.tabs", "navigation.sections", "content.code.copy", "toc.integrate"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dd8806f2.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
