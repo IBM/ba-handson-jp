@@ -1029,7 +1029,7 @@
 </li>
 <li>
 <p><strong>ユーザー・アクティビティー1</strong> を選択し、鉛筆アイコンをクリックして名前を <strong>パスポートのアップロード</strong> に変更します。<br />
-<a class="glightbox" href="../flow-OpenAccount_images/flow_image0080.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0080.png" /></a>  </p>
+<a class="glightbox" href="../flow-OpenAccount_images/%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%88%E3%81%8B%E3%82%89%E3%81%AE%E8%A9%B3%E7%B4%B0%E6%83%85%E5%A0%B1%E6%8A%BD%E5%87%BA_2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%88%E3%81%8B%E3%82%89%E3%81%AE%E8%A9%B3%E7%B4%B0%E6%83%85%E5%A0%B1%E6%8A%BD%E5%87%BA_2.png" /></a>  </p>
 </li>
 <li>
 <p><strong>メッセージ1</strong> を選択し、次のメッセージを追加します。
@@ -1070,11 +1070,11 @@
 </li>
 <li>
 <p><strong>説明</strong> と <strong>例</strong> のトグルをオンにして、それぞれ次の内容を追加後に<strong>文書に表示</strong>をクリックします。正しく値が取得できていることを確認し、<strong>←</strong> をクリックして前の画面に戻ります。<br />
-     &lt;説明&gt;
+<strong>説明:</strong>
      <div class="highlight"><pre><span></span><code>国籍を検出します。「Nationality」というフィールドで確認できます。
 国名が母国語で表示されている場合は、英語の正式な国名表記に変換してください。国籍形容詞は使用しないでください。
 </code></pre></div>
-     &lt;例&gt;</p>
+     <strong>例:</strong></p>
 <table>
 <thead>
 <tr>
@@ -1105,7 +1105,7 @@
 </li>
 <li>
 <p><strong>データ・タイプ</strong>を<strong>日付</strong>にします。<strong>説明</strong> のトグルをオンにして、次の内容を追加後に<strong>文書に表示</strong>をクリックします。(<strong>例</strong> のトグルはオフにします。)YYYY-MM-DD形式で値が正しく取得できていることを確認し、<strong>←</strong> をクリックして前の画面に戻ります。<br />
-     &lt;説明&gt;
+<strong>説明:</strong>
      <div class="highlight"><pre><span></span><code>パスポート画像から生年月日を抽出します。「生年月日（Date of Birth）」「生年月日（Date de naissance）」などのラベル、または同様の多言語表記を探します。日付はYYYY-MM-DD（例：1988-08-08）という一貫した形式で返します。
 </code></pre></div>
      <a class="glightbox" href="../flow-OpenAccount_images/flow_image0190.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0190.png" /></a></p>
@@ -1197,7 +1197,7 @@
 </tr>
 <tr>
 <td>生年月日</td>
-<td><strong>日付</strong></td>
+<td><strong>日付/時刻（入力タイプは日付）</strong></td>
 </tr>
 <tr>
 <td>連絡先電話番号</td>
@@ -1220,12 +1220,12 @@
 <a class="glightbox" href="../flow-OpenAccount_images/flow_image0380.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0380.png" /></a></p>
 </li>
 <li>
-<p><strong>Account Type</strong> を選択して、ソース変数の <strong>(Expression)</strong> アイコンをクリックして、次の口座種類のリストを入力します。<br />
+<p><strong>口座種類</strong> を選択して、ソース変数の <strong>Expression</strong> アイコンをクリックして、次の口座種類のリストを入力します。
 ["当座預金","普通預金"]<br />
 <a class="glightbox" href="../flow-OpenAccount_images/flow_image0390.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0390.png" /></a></p>
 </li>
 <li>
-<p><strong>姓</strong>、<strong>名</strong>、<strong>国籍</strong>、<strong>パスポート番号</strong>、<strong>生年月日</strong> について、動作セクションの <strong>初期値</strong> を <strong>On</strong> に設定し、パスポートから抽出した変数をマッピングします。</p>
+<p><strong>姓</strong>、<strong>名</strong>、<strong>国籍</strong>、<strong>パスポート番号</strong>、<strong>生年月日</strong> について、動作セクションの <strong>初期値</strong> を <strong>On</strong> に設定し、<strong>Variable</strong> &gt; <strong>ドキュメント抽出</strong> をクリックしてパスポートから抽出した変数をマッピングします。</p>
 <table>
 <thead>
 <tr>
@@ -1362,7 +1362,7 @@
 <h2 id="_7">エージェントへのツール追加とデプロイ</h2>
 <ol>
 <li>
-<p>Lab1で作成した <strong>XX-IBMInfo</strong> を開きます。<strong>ツールの追加</strong> ボタンをクリックします。<br />
+<p>Lab1で作成した <strong>XX-IBMInfo</strong> を開きます。<br />
 <a class="glightbox" href="../flow-OpenAccount_images/flow_image0600.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0600.png" /></a></p>
 </li>
 <li>
