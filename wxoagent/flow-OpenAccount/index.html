@@ -9,6 +9,10 @@
       
       
       
+        <link rel="prev" href="../tool/">
+      
+      
+        <link rel="next" href="../flow-userActivity/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -16,7 +20,7 @@
     
     
       
-        <title>エージェント型ワークフローを実装してみよう！ - Business Automation Handson</title>
+        <title>Lab3 flow - Business Automation Handson</title>
       
     
     
@@ -113,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              エージェント型ワークフローを実装してみよう！
+              Lab3 flow
             
           </span>
         </div>
@@ -169,10 +173,12 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../" class="md-tabs__link">
           
   
@@ -259,25 +265,30 @@
       
   
   
+    
   
   
+  
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
         
           
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -288,7 +299,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             watsonx Orchestrate Agentic
@@ -383,10 +394,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../flow/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Lab3 flow
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -395,6 +426,107 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      参考データについて
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      エージェント型ワークフローの作成
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      ドキュメントからの詳細情報抽出
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      ブランチ（分岐）の追加
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#human-in-the-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      human-in-the-loopフォームの作成
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      生成プロンプトの追加
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      エージェントへのツール追加とデプロイ
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      エージェント型ワークフロー・ツールの実行
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      お疲れさまでした！
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -857,7 +989,7 @@
 エージェント型ワークフローとは、エージェントが一連の処理を再利用可能な構造として実行する仕組みです。ツール呼び出し、入力取得、分岐やループなどを定義し、開始から完了までを自動管理します。
 このLabでは、パスポートの顔写真ページをもとに銀行口座開設を受け付けるエージェント型ワークフローをフロー・ビルダーを用いて定義し、エージェントから呼び出す方法について確認します。</p>
 <h2 id="_2">参考データについて</h2>
-<p>ここではパスポート画像の例として、こちらの論文「<a href="https://arxiv.org/html/2505.07540v1">SynID: Passport Synthetic Dataset for Presentation Attack Detection</a>{:target="_blank"}」に掲載されている合成パスポート画像を参照します。  </p>
+<p>ここではパスポート画像の例として、こちらの論文「<a href="https://arxiv.org/html/2505.07540v1" target="_blank">SynID: Passport Synthetic Dataset for Presentation Attack Detection</a>」に掲載されている合成パスポート画像を参照します。  </p>
 <p>本サイトでは、当該論文に含まれる画像ファイルの再配布や二次利用は行いません。実際の画像および詳細は、必ず原論文をご参照ください。  </p>
 <h2 id="_3">エージェント型ワークフローの作成</h2>
 <ol>
