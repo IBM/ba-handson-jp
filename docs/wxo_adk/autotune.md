@@ -23,10 +23,11 @@ Copilot機能は専用のサーバーを起動して使用します。
     ![alt text](autotune_images/image.png)
 
 ## Agentの改善
-1. ChatUIからfinance_agentを選択し、「IBMとOracleの会社情報を教えて？」と入力してみます。  
+1. ChatUIのトップページからfinance_agentを選択し、「IBMとOracleの会社情報を教えて？」と入力してみます。
+    ![alt text](autotune_images/image-15.png)  
 
     !!! note
-        AIGatewayのLabを行って、gpt-oss-120bを設定している場合にはデフォルトのモデルに戻してから実行してください。また、プレビュー画面からフィードバックを行った場合はDBに記録がされないため、チャットのUIから行ってください。  
+        AIGatewayのLabを行って、gpt-oss-120bを設定している場合にはデフォルトのモデルに戻してから実行してください。また、Agent Builderのプレビュー画面からフィードバックを行った場合はDBに記録がされないため、必ずChatUIから行ってください。
     
     以下のような返答があるはずです。  
     ![alt text](autotune_images/image-2.png)

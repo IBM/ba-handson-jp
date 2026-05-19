@@ -65,6 +65,7 @@
 6. まだ利用可能なToolなどを指定していないため、外部の処理を呼び出すことはできませんが、LLMによる基本的な会話は可能です。右側のチャット欄に以下の様に記入して返答を確認してみましょう。
     ```
         企業の業績を表す代表的な指標を5つ教えて。
+        企業の業績を表す代表的な指標を5つ教えて。
     ```
 
     ![alt text](agents_images/image-6.png)
@@ -81,6 +82,8 @@
     style: default
     name: finance_agent
     llm: watsonx/meta-llama/llama-3-2-90b-vision-instruct
+    description: 企業情報の専門家のエージェントです。
+    instructions: 企業情報について日本語で回答してください。
     description: 企業情報の専門家のエージェントです。
     instructions: 企業情報について日本語で回答してください。
     welcome_content:
@@ -126,6 +129,8 @@
     llm: watsonx/meta-llama/llama-3-2-90b-vision-instruct
     description: 企業情報の専門家のエージェントです。
     instructions: 企業情報について日本語で回答してください。
+    description: 企業情報の専門家のエージェントです。
+    instructions: 企業情報について日本語で回答してください。
     welcome_content:
         welcome_message: "企業情報エージェント"
         description: "企業情報についてはお任せください"
@@ -147,6 +152,8 @@
         - display_name: "大阪出身"
           condition: "顧客が大阪出身"
           action: "大阪弁で会話してください。"
+          condition: "顧客が大阪出身"
+          action: "大阪弁で会話してください。"
     ```
     !!!note
         tool呼び出しを実行させたい場合には以下の様に実行するtoolの名前を指定します。
@@ -157,6 +164,7 @@
 
 2. agents import　コマンドを用いてエージェントを更新します。
     ```
+        orchestrate agents import -f ./agents/finance_agent.yaml
         orchestrate agents import -f ./agents/finance_agent.yaml
     ```
 3. チャットをリセットしてから、**大阪から来ました**と入力し、ガイドラインが動作していることを確認してください。  

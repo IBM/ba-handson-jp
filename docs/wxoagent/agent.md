@@ -16,20 +16,20 @@
 ![alt text](agent_images/agent-image34.png)
 
 5. このエージェントの役割を説明に記載します。watsonx Orchestrateは記載した内容をもとにどのエージェントを呼び出すかを判断するため、適切な記載が求められます。  
-このハンズオンでは、説明に**IBMの会社情報に関する質問に回答するエージェントです**と設定し、**作成**をクリックします。  
+このハンズオンでは、説明に**IBMの会社情報に関する質問に回答するエージェントです。**と設定し、**作成**をクリックします。  
 ![alt text](agent_images/agent-image35.png)
 
 6. Agentが作成されました。先ほど入力した名前と説明が自動的に入っています。  
 ※エラーが発生する場合は、エージェントの名前が重複している可能性があります。イニシャルを変更するなどして再度試してみてください。  
 ![alt text](agent_images/agent-image36.png)
 
-7. LLMを**GPT-OSS 120B- OpenAI(via Groq)**に変更します。モデルを変更すると、規約に関するメッセージが表示されます。
-![alt text](agent_images/agent-image64.png)
+7. LLMが**GPT-OSS 120B- OpenAI(via Groq)**に設定されていることを確認します。サードパーティーのライセンスのため、規約に関するメッセージが表示されています。
+![alt text](agent_images/image-20.png)  
 
 8. ユーザーがエージェントを開くと表示される**ウェルカムメッセージ**と**スタータープロンプト**を設定します。ウェルカムメッセージに**こんにちは、IBMエージェントへようこそ**と入力します。
 ![alt text](agent_images/agent-image58.png)
 
-9. 続いて、スタータープロンプトにあるデフォルトの設定を削除します。削除後、**プロンプトの追加**ボタンをクリックします。**What is watsonx Orchestrate?**と入力後、再度**プロンプトの追加**ボタンをクリックし、もう一つ追加します。**IBMについて教えてください**と入力してください。
+9. 続いて、スタータープロンプトにあるデフォルトの設定を削除します。削除後、**プロンプトの追加**ボタンをクリックします。**watsonx Orchestrate とは何ですか？**と入力後、再度**プロンプトの追加**ボタンをクリックし、もう一つ追加します。**IBMについて教えてください**と入力してください。
 スタータープロンプトを設定することで、ユーザーはここをクリックすることで会話を始めることができるようになります。
 ![alt text](agent_images/agent-image59-1.png)
 
@@ -38,31 +38,31 @@
 
 ## 基本的な動きの確認
 1. 右側にプレビューチャットが表示されています。ここで簡単に作成したエージェントを試すことができます。  
-![alt text](agent_images/agent-image60.png)
+![alt text](agent_images/image-21.png)  
 
-2. まずは**What is watsonx Orchestrate?**と入力もしくはチャット上にある**What is watsonx Orchestrate?**を選択します。  
-![alt text](agent_images/agent-image37-1.png)
+2. まずは**watsonx Orchestrate とは何ですか？**と入力もしくはチャット上にある**watsonx Orchestrate とは何ですか？**を選択します。  
+![alt text](agent_images/image-22.png)
 
 3. watsonx Orchestrateに関する回答が返ってくることが確認できました。こちらは選択されたLLMが回答を作成しています。  
-![alt text](agent_images/agent-image08-1.png)
+![alt text](agent_images/image-23.png)
 
-4. 続いて、**What is the stock price of IBM?**と入力します。日付などをきかれた場合には、必要に応じて回答してください。  
-![alt text](agent_images/agent-image39.png)
+4. 続いて、**IBMの株価はいくらですか？**と入力します。日付などをきかれた場合には、必要に応じて回答してください。  
+![alt text](agent_images/image-24.png)
 
 5. その結果、最新の株価情報は得ることができないことを確認できます。  
-![alt text](agent_images/agent-image10.png)
+![alt text](agent_images/image-25.png)
   
 生成AIは案出し、要約などは得意ですが、新しい情報の取得は難しいことが確認できました。
 
 ## 動作の定義
 1. プレビューチャットに**IBMについて教えてください**と入力します。もしくはスタータープロンプトのIBMについて教えてくださいをクリックします。
-![alt text](agent_images/agent-image41.png)
+![alt text](agent_images/image-26.png)
 
 2. その結果、適切な回答が返ってきました。場合によっては、英語での返答となるケースがあります。そのような場合に備えて、ステップ3を行います。  
 ![alt text](agent_images/agent-image12.png)
 
-3. ユーザーが使いやすいよう利用ユーザーに合わせた動きを行うために、**動作**に応答の定義を行います。このハンズオンでは、日本人を対象としたAgentの作成のために、念のために**回答は必ず日本語で行ってください**と入力します。  
-![alt text](agent_images/agent-image43.png)
+3. ユーザーが使いやすいよう利用ユーザーに合わせた動きを行うために、**動作**に応答の定義を行います。このハンズオンでは、日本人を対象としたAgentの作成のために、念のために**回答は必ず日本語で行ってください。**と入力します。  
+![alt text](agent_images/image-27.png)
 
 <!--
 4. プレビューチャットをリフレッシュしてください。  
@@ -95,24 +95,33 @@ watsonx Orchestrateは組み込みのRAG (Retrieval Augmented Generation) 機能
 2. 知識の追加画面が出るので、**新しい知識**をクリックします。
 ![alt text](agent_images/image-7.png)
 
-2. 知識ソースの選択画面が出るので、**ファイルのアップロード**をクリックし、**次へ**ボタンをクリックします。  
+3. 知識ソースの選択画面が出るので、**ファイルのアップロード**をクリックし、**次へ**ボタンをクリックします。  
 ![alt text](agent_images/image-8.png)  
 
-3. 今回のハンズオンでは、[こちらのファイル](./files/2024-annual-report.pdf)を使用します。 ダウンロードして保存して使用してください。ボックスにドラッグするか、または青字のテキストをクリックしてファイル・アップロード・ウィンドウを開いて、ファイルをアップロードし、**次へ**をクリックします。   
+4. 今回のハンズオンでは、[こちらのファイル](./files/2024-annual-report.pdf)を使用します。 ダウンロードして保存して使用してください。ボックスにドラッグするか、または青字のテキストをクリックしてファイル・アップロード・ウィンドウを開いて、ファイルをアップロードし、**次へ**をクリックします。   
 ![alt text](agent_images/agent-image47.png)
 
-4.  エージェントが適切なタイミングで知識を使用するために、読み込むファイルがどのようなものであるかを定義する必要があります。 
+5.  エージェントが適切なタイミングで知識を使用するために、読み込むファイルがどのようなものであるかを定義する必要があります。 
 今回は、名前に**IBM年次報告書(2024)**、説明に**これは2024年のIBMの年次報告書です。財務情報とIBMのコア事業戦略を含んでいます**と入力し、**保存**ボタンをクリックしてください。  
 ![alt text](agent_images/image-9.png)  
 
-5. レポートが取り込まれるまでには少し時間がかかります。完了すると、ファイルが知識ソースのリストに表示されます。  
-![alt text](agent_images/image-10.png)  
+6. レポートが取り込まれるまでには少し時間がかかります。完了すると、ファイルが知識ソースのリストに表示されます。  
+![alt text](agent_images/image-28.png)  
 
-6. プレビューチャットで**IBMの2024 年のフリー・キャッシュ・フローはいくらですか**と入力します。  
-![alt text](agent_images/agent-image50.png)
+7. 知識ソースのリストの右上にある3点メニューをクリックし、**詳細の編集**を選択します。
+![alt text](agent_images/image-31.png)  
 
-7. watsonx Orchestrateが先ほど読み込んだファイルの内容をもとに、適切な回答を行っていることが確認できます。  
-![alt text](agent_images/agent-image21.png)
+8. 画面左にある**知識設定の編集**をクリックします。応答はデフォルトでは動的に設定されていますが、**クラシック**を選択して**保存**をクリックします。
+クラシックモードは、読み込ませたドキュメントから情報を取得して回答を生成しますが、動的モードは、取得した情報を回答生成に使用するだけでなく、AIエージェントがタスクを完了するためのコンテキストとして使用することも可能です。今回は、ドキュメントの内容に基づいて正確に回答してほしいため、クラシックモードを選択しています。
+![alt text](agent_images/image-32.png)  
+
+9. 左上の**YourInitials-IBMInfo**のリンクをクリックし、エージェント作成画面に戻ります。
+
+10. プレビューチャットで**IBMの2024 年のフリー・キャッシュ・フローはいくらですか**と入力します。  
+![alt text](agent_images/image-29.png)
+
+11. watsonx Orchestrateが先ほど読み込んだファイルの内容をもとに、適切な回答を行っていることが確認できます。  
+![alt text](agent_images/image-30.png)
   
 ドキュメントをアップロードすることで、エージェントに対して簡単にRAGを構成できることが確認できました。
 
@@ -122,7 +131,7 @@ watsonx Orchestrateは組み込みのRAG (Retrieval Augmented Generation) 機能
 ![alt text](agent_images/agent-image36-2.png)
 
 2. 特に何も入力せず、右下の**デプロイ**をクリックします。  
-![alt text](agent_images/agent-image51.png)
+![alt text](agent_images/image-33.png)
 
 3. これでデプロイが完了しました。  
 左上のメニューから**チャット**を選択すると、チャット画面に移動します。左上のエージェント選択メニューから作成したエージェントの名前を選択します。デプロイされていることが確認できました。  
@@ -138,7 +147,7 @@ watsonx Orchestrateは組み込みのRAG (Retrieval Augmented Generation) 機能
 ![alt text](agent_images/image-11.png)  
 
 3. 一方で、再度**IBMの今日の株価を教えてください**と入力すると、求めていた回答が返ってきませんでした。  
-![alt text](agent_images/agent-image27.png)
+![alt text](agent_images/image-34.png)  
 
 4. そのため、👎をクリックし、**未完了**を選択し、**送信**をクリックします。  
 ![alt text](agent_images/image-12.png)  
@@ -155,11 +164,11 @@ watsonx Orchestrateは組み込みのRAG (Retrieval Augmented Generation) 機能
 
 1. [こちらのリンク](./files/wxO_Overview.pptx)を右クリックしてファイルに保存してください。このファイルはIBM製品の一つwatsonx Orchestrateの概要について説明した資料です。
 
-2. チャット画面で、**watsonx Orchestrateのプランについて教えてください**のように入力してください。正しい回答は得られないはずです。  
+2. チャット画面で、**watsonx Orchestrateのプランについて教えてください**のように入力してください。LLMが何らかの回答を生成してくれる場合もありますが、根拠に基づく正しい回答は得られないはずです。  
 ![alt text](agent_images/image-18.png)
 
 3. 知識ソースのIBM年次報告書(2024)のボックス内にある**オプション**をクリックし、**詳細の編集**を選択します。
-![alt text](agent_images/image-16.png)
+![alt text](agent_images/image-31.png)
 
 4. 右にある**文書の追加**を選択し、先ほど実施した手順と同じようにPPTファイルをアップロードします。
 
@@ -170,11 +179,11 @@ watsonx Orchestrateは組み込みのRAG (Retrieval Augmented Generation) 機能
 ![alt text](agent_images/image-19.png)
 
 ## 参考：モデルの変更
-1. デフォルトでLLMが選択されています。現在のバージョンでは、**llama-3-2-90b-vision-instruct**が選択されています。  
-![alt text](agent_images/agent-image56.png)
+1. デフォルトでLLMが選択されています。現在のバージョンでは、**GPT-OSS 120B- OpenAI(via Groq)**が選択されています。  
+![alt text](agent_images/image-35.png)
 
 2. wxOがサポートしているモデルに切り替えることが可能になります。 
 現在サポートしているLLMは[こちら](https://www.ibm.com/docs/ja/watsonx/watson-orchestrate/base?topic=model-available-ai-models)です。  
-![alt text](agent_images/image-13.png)  
+![alt text](agent_images/image-36.png)  
 
 ユースケースに合わせたLLMを選択することで、適切な回答、処理を行うエージェントを作成することができます。
