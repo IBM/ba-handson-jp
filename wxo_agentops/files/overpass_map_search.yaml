@@ -1,0 +1,129 @@
+openapi: 3.0.0
+info:
+  title: OpenStreetMap Overpass API
+  description: >
+    OpenStreetMap の Overpass API を使って、指定した場所の周辺にある施設・地物を検索するツールです。
+    「新宿駅の近くのコンビニを探して」のように、場所名・施設種別・検索半径を指定して地図情報を取得できます。
+    Overpass QL クエリを直接組み立てて渡すことで、柔軟な地物検索が可能です。
+  version: '1.0'
+  contact:
+    name: OpenStreetMap Overpass API
+    url: https://overpass-api.de
+  license:
+    name: ODBL 1.0
+    url: https://opendatacommons.org/licenses/odbl/1-0/
+servers:
+  - url: https://overpass-api.de
+paths:
+  /api/interpreter:
+    get:
+      operationId: search_map_features_near_place
+      summary: search_map_features_near_place
+      description: >
+        OpenStreetMap の Overpass API を使って、指定した場所（例: 新宿駅、渋谷）の周辺にある
+        施設や地物（コンビニ、カフェ、病院、公園など）を検索します。
+        `data` パラメータに Overpass QL クエリを設定して呼び出します。
+        クエリは以下のような形式で組み立ててください：
+
+        - コンビニ（convenience store）を検索する場合:
+          `[out:json];node["amenity"="convenience"](around:500,35.6896,139.7006);out body;`
+
+        - カフェを検索する場合:
+          `[out:json];node["amenity"="cafe"](around:300,35.6580,139.7016);out body;`
+
+        主要な amenity タグ値:
+          convenience (コンビニ), cafe (カフェ), restaurant (レストラン),
+          hospital (病院), pharmacy (薬局), bank (銀行), atm (ATM),
+          post_office (郵便局), school (学校), parking (駐車場),
+          fast_food (ファストフード), bar (バー), pub (パブ),
+          fuel (ガソリンスタンド), supermarket (スーパー)
+
+        shop タグを使う場合の例 (コンビニは shop=convenience も有効):
+          `[out:json];(node["shop"="convenience"](around:500,35.6896,139.7006);way["shop"="convenience"](around:500,35.6896,139.7006););out body;`
+
+        座標は WGS84 緯度経度（例: 東京駅 lat=35.6812, lon=139.7671）を使用してください。
+        場所名から座標が不明な場合は Nominatim などのジオコーダーで事前に取得する必要があります。
+      parameters:
+        - name: data
+          in: query
+          required: true
+          description: >
+            Overpass QL クエリ文字列。必ず `[out:json]` で始め、JSON 形式で結果を返すようにしてください。
+            例: `[out:json];node["amenity"="convenience"](around:500,35.6896,139.7006);out body;`
+          schema:
+            type: string
+            example: '[out:json];node["amenity"="convenience"](around:500,35.6896,139.7006);out body;'
+      responses:
+        "200":
+          description: >
+            検索に成功した場合、OSM エレメント（ノード、ウェイ、リレーション）のリストを返します。
+            各エレメントには id、type、lat/lon（ノードの場合）、tags（名前・種別などのメタデータ）が含まれます。
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  version:
+                    type: number
+                    example: 0.6
+                    description: Overpass API のバージョン
+                  generator:
+                    type: string
+                    example: Overpass API 0.7.62
+                    description: レスポンスを生成したサーバー情報
+                  elements:
+                    type: array
+                    description: >
+                      検索結果の OSM エレメント一覧。各エレメントには施設の名前・種別・座標が含まれます。
+                    items:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          description: エレメントの種類（node / way / relation）
+                          example: node
+                        id:
+                          type: integer
+                          description: OSM エレメントの一意な ID
+                          example: 1234567890
+                        lat:
+                          type: number
+                          format: double
+                          description: 緯度（ノードの場合のみ）
+                          example: 35.6896
+                        lon:
+                          type: number
+                          format: double
+                          description: 経度（ノードの場合のみ）
+                          example: 139.7006
+                        tags:
+                          type: object
+                          description: >
+                            施設のメタデータ。name（名前）、amenity（施設種別）、
+                            opening_hours（営業時間）、phone（電話番号）などが含まれる場合があります。
+                          additionalProperties:
+                            type: string
+                          example:
+                            name: "セブン-イレブン 新宿西口店"
+                            amenity: "convenience"
+                            opening_hours: "24/7"
+        "400":
+          description: クエリが不正な場合に返されます。
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: エラーの詳細
+        "429":
+          description: リクエスト数の上限に達した場合に返されます。
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: レート制限エラーの詳細
