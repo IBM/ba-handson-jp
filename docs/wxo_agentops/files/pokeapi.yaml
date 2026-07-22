@@ -1,0 +1,191 @@
+openapi: 3.0.0
+info:
+  title: PokéAPI
+  description: >
+    PokéAPI を使って、ポケモンの情報を検索するツールです。
+    ポケモンの名前または図鑑番号を指定して、タイプ・ステータス・身長・体重・覚えるわざ・アビリティなどの
+    詳細情報を取得できます。
+    例: 「ピカチュウのタイプと種族値を教えて」「25番のポケモンは何？」
+  version: '1.0'
+  contact:
+    name: PokéAPI
+    url: https://pokeapi.co
+  license:
+    name: CC BY-NC 4.0
+    url: https://creativecommons.org/licenses/by-nc/4.0/
+servers:
+  - url: https://pokeapi.co
+paths:
+  /api/v2/pokemon/{name_or_id}:
+    get:
+      operationId: get_pokemon
+      summary: get_pokemon
+      description: >
+        ポケモンの名前（英語小文字）または図鑑番号を指定して、そのポケモンの詳細情報を返します。
+        タイプ・種族値（HP/攻撃/防御/特攻/特防/素早さ）・身長・体重・アビリティ・覚えるわざ の情報が含まれます。
+
+        ポケモン名は英語小文字で指定してください（例: pikachu, bulbasaur, charizard）。
+        図鑑番号でも検索できます（例: 25, 1, 6）。
+
+        主なポケモン名の例:
+          pikachu（ピカチュウ）, bulbasaur（フシギダネ）, charmander（ヒトカゲ）,
+          squirtle（ゼニガメ）, charizard（リザードン）, mewtwo（ミュウツー）,
+          gengar（ゲンガー）, eevee（イーブイ）, snorlax（カビゴン）,
+          lucario（ルカリオ）, garchomp（ガブリアス）
+      parameters:
+        - name: name_or_id
+          in: path
+          required: true
+          description: >
+            検索するポケモンの英語名（小文字）または全国図鑑番号。
+            例: "pikachu"、"charizard"、"25"、"6"
+          schema:
+            type: string
+            example: "pikachu"
+      responses:
+        "200":
+          description: >
+            ポケモンの詳細情報を返します。
+            タイプ・種族値・身長・体重・アビリティ・覚えるわざが含まれます。
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: 全国図鑑番号
+                    example: 25
+                  name:
+                    type: string
+                    description: ポケモンの英語名（小文字）
+                    example: pikachu
+                  height:
+                    type: integer
+                    description: 身長（デシメートル単位。10 = 1.0m）
+                    example: 4
+                  weight:
+                    type: integer
+                    description: 体重（ヘクトグラム単位。60 = 6.0kg）
+                    example: 60
+                  base_experience:
+                    type: integer
+                    description: 倒したときに得られる基本経験値
+                    example: 112
+                  types:
+                    type: array
+                    description: ポケモンのタイプ一覧（最大2つ）
+                    items:
+                      type: object
+                      properties:
+                        slot:
+                          type: integer
+                          description: タイプのスロット番号（1が第1タイプ）
+                          example: 1
+                        type:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                              description: タイプ名（英語）
+                              example: electric
+                            url:
+                              type: string
+                              description: タイプ詳細の API URL
+                  stats:
+                    type: array
+                    description: 種族値の一覧（HP / 攻撃 / 防御 / 特攻 / 特防 / 素早さ）
+                    items:
+                      type: object
+                      properties:
+                        base_stat:
+                          type: integer
+                          description: 種族値
+                          example: 35
+                        effort:
+                          type: integer
+                          description: 努力値の上昇量
+                          example: 0
+                        stat:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                              description: ステータス名（hp / attack / defense / special-attack / special-defense / speed）
+                              example: hp
+                            url:
+                              type: string
+                              description: ステータス詳細の API URL
+                  abilities:
+                    type: array
+                    description: アビリティ一覧
+                    items:
+                      type: object
+                      properties:
+                        ability:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                              description: アビリティ名（英語）
+                              example: static
+                            url:
+                              type: string
+                              description: アビリティ詳細の API URL
+                        is_hidden:
+                          type: boolean
+                          description: 隠れ特性かどうか
+                          example: false
+                        slot:
+                          type: integer
+                          description: アビリティのスロット番号
+                          example: 1
+                  moves:
+                    type: array
+                    description: 覚えるわざの一覧
+                    items:
+                      type: object
+                      properties:
+                        move:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                              description: わざ名（英語）
+                              example: thunder-shock
+                            url:
+                              type: string
+                              description: わざ詳細の API URL
+                  sprites:
+                    type: object
+                    description: ポケモンの画像 URL 一覧
+                    properties:
+                      front_default:
+                        type: string
+                        description: 正面のデフォルト画像 URL
+                        example: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
+                      front_shiny:
+                        type: string
+                        description: 正面の色違い画像 URL
+                  species:
+                    type: object
+                    description: ポケモンの種族情報
+                    properties:
+                      name:
+                        type: string
+                        description: 種族名
+                        example: pikachu
+                      url:
+                        type: string
+                        description: 種族詳細の API URL
+        "404":
+          description: 指定したポケモンが見つからない場合に返されます。ポケモン名のスペルが正しいか確認してください。
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: string
+                    description: エラーの詳細
+                    example: "Not Found"

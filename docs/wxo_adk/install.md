@@ -23,7 +23,10 @@ ADKを用いることで、より細かなエージェントの設定を行っ�
 
 5. 以下のコマンドで、venvを作成します。
     ```
+    ## windowsの場合
     python -m venv venv
+    ## mac/Linuxの場合
+    python3 -m venv venv
     ```
 
     ![alt text](install_images/image-5.png)

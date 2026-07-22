@@ -1,0 +1,187 @@
+openapi: 3.0.0
+info:
+  title: Nominatim Geocoding API
+  description: >
+    OpenStreetMap の Nominatim を使って、地名・住所・施設名などのテキストから
+    緯度経度（WGS84）を検索するジオコーディングツールです。
+    「新宿」「東京タワー」「渋谷駅」のような日本語の地名にも対応しています。
+    取得した緯度経度は Overpass API などの地図検索ツールと組み合わせて使用できます。
+  version: '1.0'
+  contact:
+    name: Nominatim / OpenStreetMap
+    url: https://nominatim.org
+  license:
+    name: ODbL 1.0
+    url: https://opendatacommons.org/licenses/odbl/1-0/
+  termsOfService: https://operations.osmfoundation.org/policies/nominatim/
+servers:
+  - url: https://nominatim.openstreetmap.org
+paths:
+  /search:
+    get:
+      operationId: geocode_place_name
+      summary: geocode_place_name
+      description: >
+        地名、住所、施設名などのテキストを入力として、その場所の緯度経度（lat/lon）を返します。
+        日本語の地名（例: 新宿、渋谷駅、東京タワー、大阪城）にも対応しています。
+        取得した lat/lon は Overpass API ツール（search_map_features_near_place）の
+        クエリ座標としてそのまま利用できます。
+
+        使用例:
+          - q="新宿駅"      → lat=35.6896, lon=139.7006
+          - q="東京タワー"   → lat=35.6586, lon=139.7454
+          - q="大阪城"       → lat=34.6873, lon=135.5262
+          - q="Shinjuku, Tokyo" (英語でも可)
+
+        複数の候補が返る場合があります。最初の結果（importance が最も高い）が
+        最も適切な候補です。
+      parameters:
+        - name: q
+          in: query
+          required: true
+          description: >
+            検索する地名・住所・施設名。日本語・英語どちらでも検索できます。
+            例: 「新宿駅」「東京タワー」「Shibuya, Tokyo」
+          schema:
+            type: string
+            example: "新宿駅"
+        - name: format
+          in: query
+          required: true
+          description: >
+            レスポンスの形式。必ず "jsonv2" を指定してください。
+          schema:
+            type: string
+            enum:
+              - jsonv2
+            default: jsonv2
+        - name: addressdetails
+          in: query
+          required: false
+          description: >
+            1 を指定すると、都道府県・市区町村・町名などの住所詳細が返されます。
+            デフォルトは 0（住所詳細なし）。
+          schema:
+            type: integer
+            enum:
+              - 0
+              - 1
+            default: 0
+        - name: limit
+          in: query
+          required: false
+          description: >
+            返す検索結果の最大件数（1〜50）。デフォルトは 5。
+            通常は 1 または 3 で十分です。
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 50
+            default: 5
+        - name: accept-language
+          in: query
+          required: false
+          description: >
+            返される地名の言語を指定します。
+            「ja」を指定すると日本語の地名が優先されます。
+          schema:
+            type: string
+            example: "ja"
+      responses:
+        "200":
+          description: >
+            検索に成功した場合、候補地のリストを返します。
+            各候補には place_id、display_name（表示名）、lat（緯度）、lon（経度）が含まれます。
+            結果が空配列の場合は、その地名が見つからなかったことを意味します。
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    place_id:
+                      type: integer
+                      description: Nominatim 内部の場所 ID
+                      example: 123456789
+                    licence:
+                      type: string
+                      description: データのライセンス情報
+                    osm_type:
+                      type: string
+                      description: OSM エレメントの種類（node / way / relation）
+                      example: relation
+                    osm_id:
+                      type: integer
+                      description: OpenStreetMap の エレメント ID
+                      example: 9876543
+                    lat:
+                      type: string
+                      description: >
+                        場所の緯度（WGS84）。文字列で返されます。
+                        Overpass API で使用する際は数値に変換してください。
+                      example: "35.6896067"
+                    lon:
+                      type: string
+                      description: >
+                        場所の経度（WGS84）。文字列で返されます。
+                        Overpass API で使用する際は数値に変換してください。
+                      example: "139.7005765"
+                    display_name:
+                      type: string
+                      description: >
+                        場所の完全な表示名（住所を含む）。
+                      example: "新宿駅, 新宿区, 東京都, 日本"
+                    place_rank:
+                      type: integer
+                      description: 場所の階層ランク（数値が小さいほど上位の行政区画）
+                    importance:
+                      type: number
+                      description: >
+                        検索結果の重要度スコア（0〜1）。値が大きいほど関連性が高い候補です。
+                      example: 0.72
+                    type:
+                      type: string
+                      description: OSM の地物タイプ（station, city, amenity など）
+                      example: station
+                    class:
+                      type: string
+                      description: OSM の地物クラス（railway, place, amenity など）
+                      example: railway
+                    address:
+                      type: object
+                      description: >
+                        住所の詳細情報。addressdetails=1 を指定した場合のみ返されます。
+                      properties:
+                        city:
+                          type: string
+                          description: 市区町村名
+                          example: 新宿区
+                        state:
+                          type: string
+                          description: 都道府県名
+                          example: 東京都
+                        country:
+                          type: string
+                          description: 国名
+                          example: 日本
+                        postcode:
+                          type: string
+                          description: 郵便番号
+                          example: "160-0022"
+        "400":
+          description: リクエストパラメータが不正な場合に返されます。
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: object
+                    properties:
+                      code:
+                        type: integer
+                        description: エラーコード
+                      message:
+                        type: string
+                        description: エラーの詳細メッセージ

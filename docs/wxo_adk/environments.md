@@ -2,16 +2,12 @@
 ADKのコマンドを用いることで、watsonx Orchestrateのサーバーに対して様々な処理を実行することが可能です。対象の環境は、  
 
 - watsonx Orchestrate Developer Edition
-- watsonx Orchestrate SaaS(IBMCloud/AWS)
+- watsonx Orchestrate SaaS（IBMCloud/AWS)
 - watsonx Orchestrate オンプレミス  
 
 のいずれも対応しています。これらの環境を複数登録し、対象の環境を切り替えてコマンドを発行することが可能です。
 
 ## Developer Editionの導入・環境の追加
-
-!!! note
-    ハンズオン環境にはADKおよびDeveloperEditionが導入済みで、サーバーの起動に必要なenvファイルの設定なども完了しています。以下の手順1,2はスキップし、3から開始してください。
-
 watsonx Orchestrate Devloper EditionはローカルPC上で動作するサーバーです。
 ここでは、インストール手順の詳細については説明せず、wasonx OrchestrateのSaaS版を使用してサーバーを起動する場合の設定について説明します。  
 詳細については、[ADKの公式サイト](https://developer.watson-orchestrate.ibm.com/developer_edition/wxOde_setup)の情報を参照してください。  
@@ -29,29 +25,14 @@ watsonx Orchestrate Devloper EditionはローカルPC上で動作するサーバ
     ```
 
     !!! note
-        ハンズオン環境では、上記値の他に、**WO_DEVELOPER_EDITION_SKIP_LOGIN**という値が設定されています。これは、新しいイメージがリリースされた際に、再ダウンロードを防ぐための物です。
+    ハンズオン環境では、上記値の他に、**WO_DEVELOPER_EDITION_SKIP_LOGIN**という値が設定されています。これは、新しいイメージがリリースされた際に、再ダウンロードを防ぐための物です。
     
 
-3. 以下のコマンドでサーバーを起動します。初回起動時には、イメージをダウンロードするため、時間がかかります。（数十分から数時間程度。ネットワーク環境に依存）  
-
-    !!! note
-        venvをactivateしていない場合には以下のコマンドを実行して下さい。  
-
-            ## windowsの場合
-            . ./venv/Scripts/activate
-            ## mac/Linuxの場合
-            source ./venv/bin/activate
-
-
+3. 以下のコマンドでサーバーを起動します。初回起動時には、イメージをダウンロードするため、時間がかかります。（数十分から数時間程度。ネットワーク環境に依存）
     ```
-        orchestrate server start -e ./env -l
+        orchestrate server start -e ./env
     ```
     ![alt text](environments_images/image-2.png)
-
-    !!! note
-        サーバー起動時に以下のようなエラーが発生する場合があります。Dockerレジストリへのログインがタイムアウトしていることが原因であることが多いため、このエラーが発生した場合は、再度コマンドを実行してみてください。
-        ![alt text](environments_images/image-13.png)
-
 4. env activate コマンドで、Developer Edition(local)をactiveにします。コマンドを発行した場合、activeになっているenvに対して操作が実行されることになります。  
     ```
         orchestrate env activate local
@@ -68,7 +49,7 @@ watsonx Orchestrate Devloper EditionはローカルPC上で動作するサーバ
         orchestrate chat start
     ```
     
-    ![alt text](environments_images/image-12.png)   
+   ![alt text](environments_images/image-12.png)   
     起動が成功した場合、自動的にUIが開くはずです。開かない場合は、ブラウザから**http://localhost:3000**にアクセスしてみてください。
     ![alt text](environments_images/image-9.png)
 

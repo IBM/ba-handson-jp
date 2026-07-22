@@ -74,6 +74,23 @@ nav:
   - langfuse: wxo_adk/langfuse.md
   - autotune: wxo_adk/autotune.md
 
+- watsonx Orchestrate ADK2:
+  - はじめに: wxo_adk/index_copy2.md
+  - install: wxo_adk/install_copy2.md
+  - env: wxo_adk/environments_copy2.md
+  - agent: wxo_adk/agents_copy2.md
+  - tool: wxo_adk/tools_copy2.md
+  - aigateway: wxo_adk/ai_gateway_copy2.md
+  - langfuse: wxo_adk/langfuse.md
+  - autotune: wxo_adk/autotune.md
+
+- watsonx Orchestrate AgentOps:
+  - はじめに: wxo_agentops/index.md
+  - Lab1 画面の確認と事前準備: wxo_agentops/intro.md
+  - Lab2 エージェントの分析: wxo_agentops/analyze.md
+  - Lab3 エージェントの管理・統制: wxo_agentops/control.md
+  - Option 音声エージェント: wxo_agentops/op-voice.md
+
 #- Business sAutomation Workflow:
 #  - はじめに: baw/index.md
 
