@@ -1355,13 +1355,13 @@
 ③ ドキュメント：製品ドキュメントに遷移します<br />
 ④ 最近の編集履歴：直近編集が行われたエージェントが表示されています。<br />
 ⑤ 注意事項：設計に不備があるエージェントに対するアラートや、対応が修正される洞察が記載されています。<br />
-<strong>アクション</strong> より、詳細の確認や対応するためのメニューに遷移できます。  </p>
+&emsp;<strong>アクション</strong> より、詳細の確認や対応するためのメニューに遷移できます。  </p>
 <p><a class="glightbox" href="../images/%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99_Dashboard-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99_Dashboard-02.png" /></a>  </p>
 <p>⑥ モデル状況：エージェントが利用している LLM の利用分布が表示されています。<br />
 ⑦ コントロール：エージェント、モデル、MCP ツールなどの各アセットに対するコントロール（ポリシー設定）の数が表示されています。  </p>
 <p><a class="glightbox" href="../images/%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99_Dashboard-03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99_Dashboard-03.png" /></a>  </p>
 <p>⑧ エージェントの利用分析：エージェントの開発・利用状況が確認できます。<br />
-　この画面ではエージェントの種類分布や、直近の利用実績情報が表示されており、特定のエージェント名をクリックすると <strong>Agent Builder</strong>（開発画面） へ、右側列にある <strong>分析の表示</strong> をクリックするとさらに詳細の分析情報へ遷移します。  </p>
+&emsp;この画面ではエージェントの種類分布や、直近の利用実績情報が表示されており、特定のエージェント名をクリックすると <strong>Agent Builder</strong>（開発画面） へ、右側列にある <strong>分析の表示</strong> をクリックするとさらに詳細の分析情報へ遷移します。  </p>
 <p><a class="glightbox" href="../images/%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99_Dashboard-Agent.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99_Dashboard-Agent.png" /></a>  </p>
 <p>⑨ Control Plane エージェント：このテナントで管理しているエージェントやアセットについて分析や洞察を質問することができる管理者用のエージェントです。</p>
 <h2 id="_4">サンプルエージェントの作成</h2>
@@ -1372,15 +1372,14 @@
 <li>このセクションでは、Agent Builder の基本的な説明や使い方は省略しています。初めての方は、まず <a href="https://ibm.github.io/ba-handson-jp/wxoagent/">こちらの基礎ハンズオン</a> を参照ください。</li>
 </ul>
 </div>
-<p>1. Control Plane 上部、または左上のハンバーガーメニュー &gt; ビルド より <strong>エージェントの作成</strong> ボタンを押下します。<br />
-   「最初から作成」を選んで、任意の名称と説明を付与したエージェントを作成してください。<br />
+<p>1. Control Plane 上部、または左上のハンバーガーメニュー &gt; <strong>ビルド</strong> より <strong>エージェントの作成</strong> ボタンを押下します。<br />
+&emsp;「最初から作成」を選んで、任意の名称と説明を付与したエージェントを作成してください。<br />
 <a class="glightbox" href="../images/%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99_CreateAgent.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99_CreateAgent.png" /></a>  </p>
 <p>2. 以下2つの OpenAPI ツールをダウンロードし、エージェントにインポートしてください<br />
-   ① <a href="../files/nominatim_geocode.yaml">Nominatim Geocoding ツール</a><br />
-     ▶ OpenStreetMap の Nominatim を使って、地名・住所・施設名などのテキストから
-    緯度経度（WGS84）を検索するツールです。<br />
-   ② <a href="../files/overpass_map_search.yaml">OpenStreetMap Overpass ツール</a><br />
-     ▶ OpenStreetMap の Overpass API を使って、指定した場所の周辺にある施設・地物を検索するツールです。<br />
+&emsp;① <a href="../files/nominatim_geocode.yaml">Nominatim Geocoding ツール</a><br />
+&emsp;&emsp;▶ OpenStreetMap の Nominatim を使って、地名・住所・施設名などのテキストから緯度経度（WGS84）を検索するツールです。<br />
+&emsp;② <a href="../files/overpass_map_search.yaml">OpenStreetMap Overpass ツール</a><br />
+&emsp;&emsp;▶ OpenStreetMap の Overpass API を使って、指定した場所の周辺にある施設・地物を検索するツールです。<br />
 <a class="glightbox" href="../images/%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99_AddTool-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99_AddTool-01.png" /></a><br />
 <a class="glightbox" href="../images/%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99_AddTool-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99_AddTool-02.png" /></a><br />
 <a class="glightbox" href="../images/%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99_AddTool-03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99_AddTool-03.png" /></a>  </p>
