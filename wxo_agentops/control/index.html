@@ -1463,10 +1463,10 @@
 <p>3. 作成可能なコントロールの一覧が表示されます。<br />
 <a class="glightbox" href="../images/%E7%B5%B1%E5%88%B6_CreateControl-08.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E7%B5%B1%E5%88%B6_CreateControl-08.png" /></a>  </p>
 <p><u>エージェントに対するコントロール</u><br />
-   ○ Content Guardrails：暴力的な言葉、ヘイトスピーチ、有害コンテンツ、偏見などの社会的に不適切なコンテンツを検出しブロック<br />
-   ○ Output Length Guard：最小文字数 / 最大文字数 / トークン長を強制 
-   ○ Regex Pattern：ユーザー定義の正規表現に一致するテキストを検出し、ブロックや置換 
-   ○ Secrets Detector：認証情報（API key やパスワードなど）を検出し、必要に応じて編集またはブロック<br />
+   ○ Content Guardrails：暴力的な言葉、ヘイトスピーチ、有害コンテンツ、偏見などの社会的に不適切なコンテンツを検出しブロック  <br>
+   ○ Output Length Guard：最小文字数 / 最大文字数 / トークン長を強制 <br>
+   ○ Regex Pattern：ユーザー定義の正規表現に一致するテキストを検出し、ブロックや置換 <br>
+   ○ Secrets Detector：認証情報（API key やパスワードなど）を検出し、必要に応じて編集またはブロック  <br>
    ○ PII Filter：メールアドレスなどの個人情報を検出しマスキング  </p>
 <p><u>ツールに対するコントロール</u><br />
    ○ Content Guardrails：（同上）<br />
@@ -1564,10 +1564,16 @@ watsonx Orchestrate は、外部のエージェントに対しても連携実行
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
-<li>A2A で接続したエージェントがうまく呼び出されない場合は、<strong>動作</strong> の欄に条件と動作について指示を記載します。</li>
+<li>A2A で接続したエージェントがうまく呼び出されない場合は、<strong>指示</strong> の欄に条件と動作について指示を記載します。</li>
 <li>A2A で接続したエージェントに対しても、設定したコントロールが適用されます。</li>
 </ul>
 </div>
+<p>10. 左上のハンバーガーメニュー &gt; 管理 &gt; コントロールから、再度<strong>コントロール</strong>の画面に戻ります。 <br>
+先程作成したコントロールのOptionsから編集を選択します。 <br>
+適用タイプを<strong>outpit</strong>にもチェックを入れてください。適用エージェントは、次の画面で追加・削除が可能です。
+ <a class="glightbox" href="../images/%E7%B5%B1%E5%88%B6_A2A-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E7%B5%B1%E5%88%B6_A2A-14.png" /></a>  </p>
+<p>11. 再度、左上のハンバーガーメニューから <strong>ビルド</strong> をクリックし、自身のエージェントを選択して Agent Builder を開き、Difyが呼ばれるエージェントを動かし、トレースを確認してください。
+&emsp;子エージェントのみを対象としたときと、親エージェントのみを対象とした際の違いについてご確認ください。</p>
 <h3 id="langgraph">LangGraph エージェントをインポート</h3>
 <p>TBA</p>
 
