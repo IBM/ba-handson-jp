@@ -30,11 +30,11 @@
    ○ PII Filter：メールアドレスなどの個人情報を検出しマスキング  
 
    <u>ツールに対するコントロール</u>  
-   ○ Content Guardrails：（同上）  
-   ○ Output Length Guard：（同上）  
-   ○ Rate Limiter：MCPツールの1分あたりの呼び出し回数を制御
-   ○ Secrets Detector：（同上）  
-   ○ SQL Sanitizer：実行前にツールへの入力データを検証・クリーンアップ
+   ○ Content Guardrails：（同上）  <br> 
+   ○ Output Length Guard：（同上）   <br>
+   ○ Rate Limiter：MCPツールの1分あたりの呼び出し回数を制御　 <br>
+   ○ Secrets Detector：（同上）   <br>
+   ○ SQL Sanitizer：実行前にツールへの入力データを検証・クリーンアップ 
 
    <u>モデルに対するコントロール</u>  
    ○ Fallback：メインモデルが機能しない場合や特定のエラーコードを返した場合に、自動的にバックアップモデルに切り替え  
