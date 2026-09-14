@@ -5,27 +5,27 @@ watsonx Orchestrateでは複数エージェント間の連携も簡単に行う�
 1. 左上のメニューを開き、**ビルド** を選択し、これまで作成してきたXX-IBMInfoエージェントを探して開きます。  
 ![alt text](multi_images/image-8.png)
 
-2. エージェントの欄の**エージェントの追加**ボタンをクリックしてください。  
-![alt text](multi_images/image-9.png)
+2. エージェント・タブを選択し、**エージェントの追加**ボタンをクリックしてください。  
+![alt text](multi_images/image-20.png)
 
 3. ダイアログが表示されるので、**ローカルインスタンス**を選択してください。  
-![alt text](multi_images/image-17.png)  
+![alt text](multi_images/image-21.png)
 
-4. 追加可能なAgentのリストが表示されるので、**yfinance_agent**を選択し、右下の**エージェントに追加**ボタンをクリックしてください。  
-![alt text](multi_images/image-11.png)
+4. 追加可能なAgentのリストが表示されます。検索欄に**yfinance**と入力すると**yfinance_agent**が表示されるので、そちら選択し、右下の**エージェントに追加**ボタンをクリックしてください。  
+![alt text](multi_images/image-23.png)
 
 5. yfinance_agentが追加されました。このエージェントは、2つのToolを用いて、株価や会社情報を取得可能なエージェントです。XX-IBMInfoエージェントは、このエージェントの説明を元に、必要に応じて処理をルーティングします。  
-![alt text](multi_images/image-12.png)
+![alt text](multi_images/image-24.png)
 
 ## エージェントの実行
 1. チャット欄に**IBMの株価を教えて**と入力してください。次の様に結果が返ってくるはずです  
-![alt text](multi_images/image-18.png)
+![alt text](multi_images/image-25.png)
 
-2. **理由の表示**をクリックし、ステップを展開して確認してください。おそらく、ステップ1でyfinance_agentに処理が転送され、ステップ2でToolが呼び出されて株価情報を取得しているはずです。  
-![alt text](multi_images/image-19.png)
+2. **理由の表示**をクリックし、ステップを展開して確認してください。ステップ1でyfinance_agentに処理が転送され、ステップ2でToolが呼び出されて株価情報を取得していることが確認できるはずです。  
+![alt text](multi_images/image-26.png)
 
-3. <オプション>**IBMとOracleの会社情報と株価を表形式で比較して**と入力してどの様な振る舞いになるか確認してみましょう。  
-![alt text](multi_images/image-16.png)
+3. <オプション>**IBMとOracleの会社情報と株価を表形式で比較して**　と入力してどの様な振る舞いになるか確認してみましょう。  
+![alt text](multi_images/image-27.png)
 
 ## お疲れさまでした！
 このハンズオンでは、複数エージェントを連携させるための設定を学び、これまで作成したエージェントに株価や会社情報を取得する機能を追加しました。

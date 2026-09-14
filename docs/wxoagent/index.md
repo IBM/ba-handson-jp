@@ -8,10 +8,11 @@ watsonx Orchestrateのハンズオンです。
 |[Lab0](intro.md)             |watsonx Orchestrateへのアクセス方法を確認してみよう！ |15           |
 |[Lab1](agent.md)       |AIAgentを作ってみよう！                      |20           |
 |[Lab2](tool.md)       |Toolを定義して呼び出してみよう！                      |20           |
-|[Lab3](flow-OpenAccount.md)       |フローを実装してみよう！                      |20           |
+|[Lab3](flow-userActivity.md)       |エージェント型ワークフローを実装してみよう！          |20           |
 |[Lab4](prebuild-box.md)       |プリビルド・エージェント/ツールを使ってみよう！                      |20           |
 |[Lab5](multi.md)       |複数エージェントを連携させてみよう！                      |10           |
-|オプション |自分独自のAgentを作ってみよう         |-           |
+|[オプション1](flow-OpenAccount.md)       |エージェント型ワークフローでドキュメント処理をしてみよう！  |40           |
+|オプション2 |自分独自のAgentを作ってみよう         |-           |
 
 ## 前提条件
  
