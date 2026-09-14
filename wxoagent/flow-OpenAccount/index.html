@@ -83,7 +83,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#idpintelligent-document-processing" class="md-skip">
           Skip to content
         </a>
       
@@ -504,7 +504,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       参考データについて
     </span>
@@ -513,7 +513,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       エージェント型ワークフローの作成
     </span>
@@ -522,7 +522,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       ドキュメントからの詳細情報抽出
     </span>
@@ -531,7 +531,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       ブランチ（分岐）の追加
     </span>
@@ -549,7 +549,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       生成プロンプトの追加
     </span>
@@ -558,7 +558,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       エージェントへのツール追加とデプロイ
     </span>
@@ -567,7 +567,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       エージェント型ワークフロー・ツールの実行
     </span>
@@ -576,7 +576,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       お疲れさまでした！
     </span>
@@ -1483,14 +1483,14 @@
 
 
 
-<h1 id="_1">エージェント型ワークフローを実装してみよう！</h1>
-<p>AIAgentはエージェンティックな振る舞いによって様々な処理を呼び出しますが、一連の処理を事前定義して制御したいケースもあります。
-エージェント型ワークフローとは、エージェントが一連の処理を再利用可能な構造として実行する仕組みです。ツール呼び出し、入力取得、分岐やループなどを定義し、開始から完了までを自動管理します。
-このLabでは、パスポートの顔写真ページをもとに銀行口座開設を受け付けるエージェント型ワークフローをフロー・ビルダーを用いて定義し、エージェントから呼び出す方法について確認します。</p>
-<h2 id="_2">参考データについて</h2>
+<h1 id="idpintelligent-document-processing">エージェント型ワークフローでドキュメント処理（IDP:Intelligent Document Processing）をしてみよう！</h1>
+<p>Lab3で学習したエージェント型ワークフローの応用・発展編となります。
+Lab3で扱ったノード以外にも、文書の分類・情報抽出などのIDP（ドキュメント処理）ノード、エージェントを呼び出すノード、生成プロンプトなど、より高度な業務処理を実現するための多彩なノードが用意されています。</p>
+<p>このオプションLabでは、それらのノードを活用した実践例として、パスポートの顔写真ページから必要情報を抽出して銀行口座開設を受け付けるエージェント型ワークフローを定義し、エージェントから呼び出す方法を確認します。</p>
+<h2 id="_1">参考データについて</h2>
 <p>ここではパスポート画像の例として、こちらの論文「<a href="https://arxiv.org/html/2505.07540v1" target="_blank">SynID: Passport Synthetic Dataset for Presentation Attack Detection</a>」に掲載されている合成パスポート画像を参照します。  </p>
 <p>本サイトでは、当該論文に含まれる画像ファイルの再配布や二次利用は行いません。実際の画像および詳細は、必ず原論文をご参照ください。  </p>
-<h2 id="_3">エージェント型ワークフローの作成</h2>
+<h2 id="_2">エージェント型ワークフローの作成</h2>
 <ol>
 <li>
 <p>左上のメニューから <strong>ビルド</strong> を選択します。<br />
@@ -1519,7 +1519,7 @@
 <a class="glightbox" href="../flow-OpenAccount_images/flow_image0060.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0060.png" /></a>  </p>
 </li>
 </ol>
-<h2 id="_4">ドキュメントからの詳細情報抽出</h2>
+<h2 id="_3">ドキュメントからの詳細情報抽出</h2>
 <p>ここでは、パスポート画像から口座開設に必要な詳細情報（パスポート番号、国籍、氏名などの構造化データ）を収集・抽出するためのユーザー・アクティビティとドキュメント抽出・アクティビティを設定します。</p>
 <ol>
 <li>
@@ -1528,7 +1528,7 @@
 </li>
 <li>
 <p><strong>ユーザー・アクティビティー1</strong> を選択し、鉛筆アイコンをクリックして名前を <strong>パスポートのアップロード</strong> に変更します。<br />
-<a class="glightbox" href="../flow-OpenAccount_images/%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%88%E3%81%8B%E3%82%89%E3%81%AE%E8%A9%B3%E7%B4%B0%E6%83%85%E5%A0%B1%E6%8A%BD%E5%87%BA_2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%88%E3%81%8B%E3%82%89%E3%81%AE%E8%A9%B3%E7%B4%B0%E6%83%85%E5%A0%B1%E6%8A%BD%E5%87%BA_2.png" /></a>  </p>
+<a class="glightbox" href="flow-OpenAccount_images/ドキュメントからの詳細情報抽出_2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="flow-OpenAccount_images/ドキュメントからの詳細情報抽出_2.png" /></a>  </p>
 </li>
 <li>
 <p><strong>メッセージ1</strong> を選択し、次のメッセージを追加します。
@@ -1626,7 +1626,7 @@
 <a class="glightbox" href="../flow-OpenAccount_images/flow_image0240.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0240.png" /></a> </p>
 </li>
 </ol>
-<h2 id="_5">ブランチ（分岐）の追加</h2>
+<h2 id="_4">ブランチ（分岐）の追加</h2>
 <p>ここでは、パスポートから抽出された国籍情報をもとにフローを条件分岐する処理を追加します。  </p>
 <ol>
 <li>
@@ -1770,7 +1770,7 @@
 <a class="glightbox" href="../flow-OpenAccount_images/flow_image0430.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0430.png" /></a>  </p>
 </li>
 </ol>
-<h2 id="_6">生成プロンプトの追加</h2>
+<h2 id="_5">生成プロンプトの追加</h2>
 <p>ここでは、生成 AI モデルを使用してパーソナライズされた確認メッセージを生成します。  </p>
 <ol>
 <li>
@@ -1858,7 +1858,7 @@
 <a class="glightbox" href="../flow-OpenAccount_images/flow_image0560.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0560.png" /></a></p>
 </li>
 </ol>
-<h2 id="_7">エージェントへのツール追加とデプロイ</h2>
+<h2 id="_6">エージェントへのツール追加とデプロイ</h2>
 <ol>
 <li>
 <p>Lab1で作成した <strong>XX-IBMInfo</strong> を開きます。<br />
@@ -1890,7 +1890,7 @@
 <a class="glightbox" href="../flow-OpenAccount_images/flow_image0650.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-OpenAccount_images/flow_image0650.png" /></a>  </p>
 </li>
 </ol>
-<h2 id="_8">エージェント型ワークフロー・ツールの実行</h2>
+<h2 id="_7">エージェント型ワークフロー・ツールの実行</h2>
 <ol>
 <li>
 <p>左上のメニューから <strong>チャット</strong> を選択します。<br />
@@ -1938,8 +1938,9 @@
 </ul>
 </li>
 </ol>
-<h2 id="_9">お疲れさまでした！</h2>
-<p>このハンズオンでは、フロー・ビルダーを用いたエージェント型ワークフローの作成について説明しました。</p>
+<h2 id="_8">お疲れさまでした！</h2>
+<p>このハンズオンでは、Lab3では使用しなかった文書の分類・情報抽出などのIDP（ドキュメント処理）ノードや生成プロンプトなどを活用し、パスポート画像から口座開設を受け付ける実践的なワークフローを作成しました。</p>
+<p>フロー・ビルダーではIDPノードやエージェントノードなどを組み合わせることで、ドキュメント処理や対話・意思決定を含む高度な一連の業務プロセスを柔軟に自動化できます。</p>
 
 
 

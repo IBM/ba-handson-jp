@@ -529,7 +529,7 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      シンプルなフローの作成と呼び出し
+      フローの作成の開始
     </span>
   </a>
   
@@ -538,7 +538,7 @@
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      データマッピング
+      ツールの配置とデータマッピング
     </span>
   </a>
   
@@ -547,7 +547,7 @@
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      エージェントへのツール追加とテスト実行
+      ブランチ(分岐)とユーザーアクティビティの定義
     </span>
   </a>
   
@@ -556,7 +556,7 @@
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      ブランチ(分岐)とユーザーアクティビティの定義
+      エージェントへのツール追加とテスト実行
     </span>
   </a>
   
@@ -1447,170 +1447,143 @@
 
 
 
-<h1 id="_1">フローを実装してみよう！</h1>
+<h1 id="_1">エージェント型ワークフローを実装してみよう！</h1>
 <p>AIAgentはエージェンティックな振る舞いによって様々な処理を呼び出しますが、事前にフローを定義してその振る舞いを完全に制御したいケースもあります。
+エージェント型ワークフローとは、エージェントが一連の処理を再利用可能な構造として実行する仕組みです。ツール呼び出し、入力取得、分岐やループなどを定義し、開始から完了までを自動管理します。<br />
 このLabでは、フロー・ビルダーを用いてフローを定義し、エージェントから呼び出す方法について確認します。</p>
-<h2 id="_2">シンプルなフローの作成と呼び出し</h2>
+<h2 id="_2">フローの作成の開始</h2>
 <ol>
 <li>
 <p>左上のメニューから <strong>ビルド</strong> を選択します。<br />
-<a class="glightbox" href="../flow_images/image.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/image.png" /></a>  </p>
+<a class="glightbox" href="../flow-userActivity_images/flow_ua_image0010.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0010.png" /></a>  </p>
 </li>
 <li>
 <p>左側の <strong>すべてのツール</strong> を選択し、<strong>ツールの作成</strong> をクリックします。<br />
-<a class="glightbox" href="../flow_images/flow_image0020.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0020.png" /></a></p>
+<a class="glightbox" href="../flow-userActivity_images/flow_ua_image0020.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0020.png" /></a>  </p>
 </li>
 <li>
 <p><strong>エージェント型ワークフロー</strong> をクリックします。<br />
-<a class="glightbox" href="../flow_images/image-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/image-1.png" /></a>  </p>
+<a class="glightbox" href="../flow-userActivity_images/flow_ua_image0030.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0030.png" /></a>  </p>
 </li>
 <li>
 <p>名前に<strong>XX_weatherFlow</strong> (XXにはイニシャルを設定してください。) を入力し、<strong>構築の開始</strong>ボタンをクリックします。<br />
-<a class="glightbox" href="../flow_images/image-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/image-2.png" /></a>  </p>
+<a class="glightbox" href="../flow-userActivity_images/flow_ua_image0040.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0040.png" /></a>  </p>
 </li>
 <li>
 <p>名前の右にある<strong>詳細の編集</strong>をクリックします。<br />
-<a class="glightbox" href="../flow_images/image-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/image-3.png" /></a>  </p>
-<ol>
-<li>次の値を設定します。<ul>
-<li>説明: 特定の都市の天気情報を取得する</li>
-</ul>
+<a class="glightbox" href="../flow-userActivity_images/flow_ua_image0050.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0050.png" /></a>  </p>
 </li>
-</ol>
+<li>
+<p><strong>説明</strong>に次の値を設定します。
+    <div class="highlight"><pre><span></span><code>特定の都市の緯度、経度から天気情報を取得し、都市の気温に応じた今日のおすすめの過ごし方を表示する。  
+</code></pre></div>
+    <a class="glightbox" href="../flow-userActivity_images/flow_ua_image0060.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0060.png" /></a>  </p>
 </li>
 <li>
 <p>左上の<strong>パラメーター</strong>タブをクリックします。</p>
 <ol>
-<li><strong>入力の追加</strong> ボタンを押して<strong>ストリング</strong>を選択し、次の値を設定してください。<ul>
-<li>名前: city_name </li>
-<li>説明: 都市名</li>
-</ul>
-</li>
 <li>
-<p>同様に以下二つの値も設定してください。</p>
-<ul>
-<li>名前: latitude  </li>
-<li>
-<p>説明: 緯度</p>
+<p>次の3つの値を設定します。<strong>入力の追加</strong> ボタンを押して<strong>ストリング</strong>を選択し、名前と説明を設定する作業を繰り返してください。  </p>
+<table>
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>city_name</td>
+<td>都市名</td>
+</tr>
+<tr>
+<td>latitude</td>
+<td>緯度</td>
+</tr>
+<tr>
+<td>longitude</td>
+<td>経度</td>
+</tr>
+</tbody>
+</table>
+<p><a class="glightbox" href="../flow-userActivity_images/flow_ua_image0070.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0070.png" /></a><br />
+    2. 下図のように設定されていることを確認し、<strong>完了</strong> をクリックします。<br />
+<a class="glightbox" href="../flow-userActivity_images/flow_ua_image0080.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0080.png" /></a>  </p>
 </li>
-<li>
-<p>名前: longitude </p>
-</li>
-<li>説明: 経度</li>
-</ul>
-</li>
-<li>
-<p><strong>出力の追加</strong>ボタンを押して<strong>ストリング</strong>を選択し、次の値を設定してください。</p>
-<ul>
-<li>名前: temp</li>
-<li>説明: 都市の気温</li>
-</ul>
-</li>
-<li><strong>完了</strong> をクリックします。<br />
-<a class="glightbox" href="../flow_images/image-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/image-4.png" /></a>  </li>
 </ol>
 </li>
-<li>
-<p>画面左上の <strong>＋</strong> アイコンをクリックし、<strong>ツール</strong>タブを選択します。検索ボックスに weather と入力し、表示された current weather for coordinates を <strong>開始</strong> と <strong>終了</strong> の間にドラッグ&amp;ドロップします.<br />
-<a class="glightbox" href="../flow_images/flow_image0060.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0060.png" /></a><br />
-<a class="glightbox" href="../flow_images/flow_image0070.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0070.png" /></a>  </p>
-</li>
 </ol>
-<h2 id="_3">データマッピング</h2>
+<h2 id="_3">ツールの配置とデータマッピング</h2>
 <ol>
 <li>
-<p>配置したcurrent weather for coordinatesをクリックし、表示された <strong>データマッピングの編集</strong> をクリックします。<br />
-<a class="glightbox" href="../flow_images/image-15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/image-15.png" /></a>  </p>
+<p>パレットの<strong>ツール</strong>タブを選択します。（パレットが表示されていない場合は、画面左上の<a class="glightbox" href="../flow-userActivity_images/flow_ua_image0100.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0100.png" /></a>アイコンをクリックすると表示されます。）検索ボックスに <strong>weather</strong> と入力し、表示された <strong>current weather for coordinates</strong> を <strong>入力</strong> と <strong>出力</strong> の間に <strong>ドラッグ&amp;ドロップ</strong> します.<br />
+<a class="glightbox" href="../flow-userActivity_images/flow_ua_image0110.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0110.png" /></a>  </p>
 </li>
 <li>
-<p>current_weatherにはオート・マップではなくtrueを設定するため、オート・マップ の×をクリックして削除します。<br />
-<a class="glightbox" href="../flow_images/image-16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/image-16.png" /></a><br />
-<a class="glightbox" href="../flow_images/image-17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/image-17.png" /></a>  </p>
+<p>配置したcurrent weather for coordinatesをクリックし、表示された <strong>データマッピングの編集</strong> をクリックします。<br />
+<a class="glightbox" href="../flow-userActivity_images/flow_ua_image0120.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0120.png" /></a>  </p>
+</li>
+<li>
+<p><strong>current_weather</strong> にはオート・マップではなくtrueを設定するため、オート・マップ の×をクリックして削除します。<br />
+<a class="glightbox" href="../flow-userActivity_images/flow_ua_image0130.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0130.png" /></a>  </p>
 </li>
 <li>
 <p>さらに <strong>値を入力してください</strong> をクリックし、<strong>はい</strong>に切り替えます。<br />
-<a class="glightbox" href="../flow_images/image-18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/image-18.png" /></a>  </p>
+<a class="glightbox" href="../flow-userActivity_images/flow_ua_image0140.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0140.png" /></a>  </p>
 </li>
 <li>
-<p><strong>自動マッピングが成功しない場合は、ユーザーにインプットを求めてください</strong>を<strong>オフ</strong>にします。
-<a class="glightbox" href="../flow_images/flow_image0112.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0112.png" /></a></p>
+<p><strong>自動マッピングが成功しない場合は、ユーザーにインプットを求めてください</strong>を<strong>オフ</strong>にします。<br />
+<a class="glightbox" href="../flow-userActivity_images/flow_ua_image0150.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0150.png" /></a>  </p>
 </li>
 <li>
-<p>右上の×をクリックしてマッピング画面を閉じます。</p>
-</li>
-<li>
-<p>右上の<strong>完了</strong>ボタンをクリックしてフロー・ビルダーを閉じます。<br />
-<a class="glightbox" href="../flow_images/image-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/image-6.png" /></a>  </p>
+<p>右上の×をクリックしてマッピング画面を閉じます。  </p>
 </li>
 </ol>
-<h2 id="_4">エージェントへのツール追加とテスト実行</h2>
+<h2 id="_4">ブランチ(分岐)とユーザーアクティビティの定義</h2>
+<p>ユーザーが入力した都市の気温に応じて、今日のおすすめの過ごし方を表示するように設定します。  </p>
 <ol>
 <li>
-<p>エージェント・ビルダーから先ほど作成したXX-IBMInfoを開き、<strong>ツールの追加</strong> ボタンをクリックします。<br />
-<a class="glightbox" href="../flow_images/flow_image0130.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0130.png" /></a></p>
+<p><strong>current weather for coordinates</strong> と <strong>出力</strong> の間の矢印にカーソルを合わせ、<strong>＋</strong> マークをクリックします。表示されたメニューから <strong>フロー制御を追加する</strong> → <strong>ブランチ</strong> を選択します。
+<a class="glightbox" href="../flow-userActivity_images/flow_ua_image0310.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0310.png" /></a>  </p>
 </li>
 <li>
-<p><strong>ローカル・インスタンス</strong> を選択します。<br />
-<a class="glightbox" href="../flow_images/image-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/image-7.png" /></a>  </p>
-</li>
-<li>
-<p>検索ボックスにXX_weatherと入力し、表示されたXX_weatherFlowのチェックボックスを有効にして エージェントに追加 ボタンをクリックします。<br />
-<a class="glightbox" href="../flow_images/flow_image0150.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0150.png" /></a>  </p>
-</li>
-<li>
-<p>前の演習で作成したcurrent weather for coordinatesを削除します。<br />
-<a class="glightbox" href="../flow_images/flow_image0160.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0160.png" /></a>  </p>
-</li>
-<li>
-<p>右側のプレビューで「東京の気温を教えて」と尋ねると、フローが呼び出されます。処理は非同期に実施され、応答を待っている間は追加の入力ができません。<br />
-<a class="glightbox" href="../flow_images/image-19.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/image-19.png" /></a>  </p>
-</li>
-</ol>
-<h2 id="_5">ブランチ(分岐)とユーザーアクティビティの定義</h2>
-<p>ユーザーが入力した都市の気温に応じて、今日のおすすめの過ごし方を表示するようにXX_weatherFlowを変更します。  </p>
-<ol>
-<li>
-<p>XX_weatherFlowの縦三点リーダーをクリックして表示されたメニューから <strong>フロー・ビルダーで開く</strong> をクリックします。<br />
-<a class="glightbox" href="../flow-userActivity_images/image.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/image.png" /></a>  </p>
-</li>
-<li>
-<p>current weather for coordinatesと出力の間の矢印にカーソルを合わせ、＋マークをクリックします。表示されたメニューから <strong>フロー制御を追加する</strong> → <strong>ブランチ</strong> を選択します。
-<a class="glightbox" href="../flow-userActivity_images/image-30.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/image-30.png" /></a>  </p>
-</li>
-<li>
-<p>追加した<strong>ブランチ1</strong>と<strong>出力</strong>の間の矢印(<strong>パス1</strong>)にカーソルを合わせて＋マークをクリックし、表示されたメニューから <strong>ユーザーに提示する</strong> → <strong>メッセージ</strong> を選択します。<br />
-<a class="glightbox" href="../flow-userActivity_images/image-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/image-4.png" /></a>  </p>
+<p>追加した <strong>ブランチ1</strong> と <strong>出力</strong> の間の矢印(<strong>パス1</strong>)にカーソルを合わせて <strong>＋</strong> マークをクリックし、表示されたメニューから <strong>ユーザーに提示する</strong> → <strong>メッセージ</strong> を選択します。<br />
+<a class="glightbox" href="../flow-userActivity_images/flow_ua_image0320.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0320.png" /></a>  </p>
 </li>
 <li>
 <p>パス2の <strong>Add</strong> をクリックし、表示されたメニューから同じく <strong>ユーザーに提示する</strong> → <strong>メッセージ</strong> を選択します。2つのメッセージは見やすいようにドラッグ&amp;ドロップで位置を調整してください。<br />
-<a class="glightbox" href="../flow-userActivity_images/image-28.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/image-28.png" /></a>  </p>
+<a class="glightbox" href="../flow-userActivity_images/flow_ua_image0330.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0330.png" /></a>  </p>
 </li>
 <li>
 <p>ブランチを編集します。</p>
 <ol>
 <li>
 <p><strong>ブランチ1</strong> をクリックして <strong>条件の編集</strong> をクリックします。<br />
-<a class="glightbox" href="../flow_images/flow_image0300.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow_images/flow_image0300.png" /></a>  </p>
+<a class="glightbox" href="../flow-userActivity_images/flow_ua_image0340.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0340.png" /></a>  </p>
 </li>
 <li>
 <p><strong>if</strong>の右にある <strong>+</strong> ボタンをクリックし、表示されたセレクト変数において <strong>current weather for coordinates</strong> &gt; <strong>current weather temperature</strong> を選択します。<br />
-<a class="glightbox" href="../flow-userActivity_images/image-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/image-5.png" /></a>  </p>
+<a class="glightbox" href="../flow-userActivity_images/flow_ua_image0350.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0350.png" /></a>  </p>
 </li>
 <li>
 <p><strong>オペレーター</strong> として <strong>&lt;=</strong> を選択します。<br />
-<a class="glightbox" href="../flow-userActivity_images/image-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/image-6.png" /></a>  </p>
+<a class="glightbox" href="../flow-userActivity_images/flow_ua_image0360.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0360.png" /></a>  </p>
 </li>
 <li>
 <p>値として <strong>15</strong> を設定します。<br />
-<a class="glightbox" href="../flow-userActivity_images/image-15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/image-15.png" /></a>  </p>
+<a class="glightbox" href="../flow-userActivity_images/flow_ua_image0370.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0370.png" /></a>  </p>
 </li>
 <li>
-<p>パス1の右にある鉛筆マークをクリックし、名前を <strong>15度以下</strong> に変更します。名前の左にある <strong>← (Back)</strong> をクリックしてブランチ1に戻ります。<br />
-<a class="glightbox" href="../flow-userActivity_images/image-16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/image-16.png" /></a>  </p>
+<p>パス1の右にある鉛筆マークをクリックし、名前を <strong>15度以下</strong> に変更します。<br />
+<a class="glightbox" href="../flow-userActivity_images/flow_ua_image0380.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0380.png" /></a>  </p>
 </li>
 <li>
-<p>パス2をクリックし、<strong>15度より高い</strong> に変更します。
- <a class="glightbox" href="../flow-userActivity_images/image-17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/image-17.png" /></a>  </p>
+<p>名前の左にある <strong>← (Back)</strong> をクリックしてブランチ1に戻ります。<br />
+<a class="glightbox" href="../flow-userActivity_images/flow_ua_image0390.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0390.png" /></a>  </p>
+</li>
+<li>
+<p>パス2をクリックし、<strong>15度より高い</strong> に変更します。<br />
+<a class="glightbox" href="../flow-userActivity_images/flow_ua_image0400.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0400.png" /></a>  </p>
 </li>
 </ol>
 </li>
@@ -1618,38 +1591,60 @@
 <p>次に <strong>メッセージ</strong> を編集します。</p>
 <ol>
 <li>
-<p><strong>メッセージ1</strong> をクリックし、出力メッセージに <strong>今日は肌寒いので、家で過ごすのがおすすめです。映画鑑賞などはいかがですか？</strong> と入力します。 
- メッセージ1の欄には <strong>寒い日の過ごし方</strong> と入力します。
- <a class="glightbox" href="../flow-userActivity_images/image-18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/image-18.png" /></a>  </p>
+<p><strong>メッセージ1</strong> をクリックし、次の値を設定します。<br />
+     名前:
+     <div class="highlight"><pre><span></span><code>寒い日の過ごし方
+</code></pre></div></p>
+<p>出力メッセージ:
+ <div class="highlight"><pre><span></span><code>今日は肌寒いので、家で過ごすのがおすすめです。映画鑑賞などはいかがですか？
+</code></pre></div></p>
+<p><a class="glightbox" href="../flow-userActivity_images/flow_ua_image0410.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0410.png" /></a>  </p>
 </li>
 <li>
-<p>次に <strong>メッセージ2</strong> をクリックし、出力メッセージに <strong>今日は暖かいので外出がおすすめです。お散歩やショッピングはいかがですか？</strong> と入力します。 
- メッセージ2の欄には <strong>暖かい日の過ごし方</strong> と入力します。
- <a class="glightbox" href="../flow-userActivity_images/image-29.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/image-29.png" /></a>  </p>
+<p>次に <strong>メッセージ2</strong> をクリックし、次の値を設定します。<br />
+     名前:
+     <div class="highlight"><pre><span></span><code>暖かい日の過ごし方
+</code></pre></div></p>
+<p>出力メッセージ:
+ <div class="highlight"><pre><span></span><code>今日は暖かいので外出がおすすめです。お散歩やショッピングはいかがですか？
+</code></pre></div></p>
+<p><a class="glightbox" href="../flow-userActivity_images/flow_ua_image0420.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0420.png" /></a>  </p>
 </li>
 </ol>
 </li>
 <li>
-<p>左上にある <strong>詳細の編集</strong> をクリックします。
-<a class="glightbox" href="../flow-userActivity_images/image-20.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/image-20.png" /></a>  </p>
-</li>
-<li>
-<p>AIエージェントが正しくフローを呼び出せるように、フローの説明を <strong>都市の気温に応じて、今日のおすすめの過ごし方を表示する。</strong> と書き換えて、<strong>完了</strong> をクリックします。
-<a class="glightbox" href="../flow-userActivity_images/image-26.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/image-26.png" /></a>  </p>
-</li>
-<li>
-<p>右上の <strong>完了</strong> ボタンをクリックして、フロー・ビルダーを閉じます。
-<a class="glightbox" href="../flow-userActivity_images/image-19.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/image-19.png" /></a></p>
-</li>
-<li>
-<p>右側のプレビューチャットで「今日のおすすめの過ごし方は？」と入力すると、今日いる都市名を質問されます。その都市の気温に応じて、先ほどフロー内で設定したおすすめの過ごし方が表示されます。
-<a class="glightbox" href="../flow-userActivity_images/image-27.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/image-27.png" /></a>  </p>
-</li>
-<li>
-<p>ただ、上記の設定だけではフローの実行後にLLMが独自で考えた過ごし方の提案も行われることが多くあります。もしそちらをなくしたい場合は、動作に <strong>XX_weatherFlowの実行完了後は、追加の出力を一切行わずに会話を終了してください。</strong> と追加すると改善されることがあります。
-GPT-OSSモデルへの効果的な指示の与え方は、<a href="https://www.ibm.com/docs/ja/watsonx/watson-orchestrate/base?topic=models-gpt-oss-model-behavior-instruction-guidelines">こちら</a>もご参照ください。</p>
+<p>右上の <strong>完了</strong> ボタンをクリックして、フロー・ビルダーを閉じます。<br />
+<a class="glightbox" href="../flow-userActivity_images/flow_ua_image0430.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0430.png" /></a>  </p>
 </li>
 </ol>
+<h2 id="_5">エージェントへのツール追加とテスト実行</h2>
+<ol>
+<li>
+<p>エージェント・ビルダーから先ほど作成したXX-IBMInfoを開き、<strong>ツールの追加</strong> ボタンをクリックします。<br />
+<a class="glightbox" href="../flow-userActivity_images/flow_ua_image0510.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0510.png" /></a>  </p>
+</li>
+<li>
+<p><strong>ローカル・インスタンス</strong> を選択します。<br />
+<a class="glightbox" href="../flow-userActivity_images/flow_ua_image0520.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0520.png" /></a>  </p>
+</li>
+<li>
+<p>検索ボックスに <strong>XX_weather</strong> と入力し、表示された <strong>XX_weatherFlow</strong> のチェックボックスを有効にして <strong>エージェントに追加</strong> ボタンをクリックします。<br />
+<a class="glightbox" href="../flow-userActivity_images/flow_ua_image0530.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0530.png" /></a>  </p>
+</li>
+<li>
+<p>前の演習で作成したcurrent weather for coordinatesを削除します。<br />
+<a class="glightbox" href="../flow-userActivity_images/flow_ua_image0540.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0540.png" /></a>  </p>
+</li>
+<li>
+<p>右側のプレビューチャットで「<strong>今日のおすすめの過ごし方は？</strong>」と入力すると、今日いる都市名を質問されます。その都市の気温に応じて、先ほどフロー内で設定したおすすめの過ごし方が表示されます。<br />
+<a class="glightbox" href="../flow-userActivity_images/flow_ua_image0550.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0550.png" /></a>  </p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>エージェント型ワークフローのデフォルト動作では、フロー完了後のエージェントによる要約出力は抑制されており、フローの出力結果がJSON形式でそのまま表示されます。ユーザーに自然な形でメッセージを表示するには、このハンズオンで使用したように <strong>ユーザーに提示する（メッセージ）ノード</strong> で固定メッセージを表示する方法のほか、<strong>生成プロンプトノード</strong> や <strong>エージェントノード</strong> を使用してLLMによる動的なメッセージ生成を行うことも可能です。<br />
+なお、ADKを使ってエージェント型ワークフローをコードで定義する場合は、<code>@flow</code> デコレーターの <code>suppress_agent_summarization=False</code> を指定することで、フロー完了後のエージェントによる要約出力は抑制を解除（エージェントが結果を要約して自然な文章で出力する）できます。詳細は<a href="https://developer.watson-orchestrate.ibm.com/tools/flows/building_flow#param-suppress-agent-summarization" target="_blank"><strong>こちら</strong></a>をご参照ください。</p>
+</div>
 <h2 id="_6">お疲れさまでした！</h2>
 <p>このハンズオンでは、フロー・ビルダーの使い方について説明しました。</p>
 

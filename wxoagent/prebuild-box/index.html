@@ -1443,33 +1443,47 @@
 また、接続(Connections)という仕組みを使うことで、接続情報を柔軟に管理、設定することが可能です。
 このLabでは、Boxへ接続可能なエージェントをテンプレートから構成し、利用する手順について説明します。</p>
 <h2 id="_2">接続の設定</h2>
-<p>定義済みの接続を確認し、Boxに接続するために必要な構成を行います。<br />
-1. 左側のメニューより、管理 &gt; 接続を選択してください。<br />
-<a class="glightbox" href="../prebuild-box_images/image.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild-box_images/image.png" /></a><br />
-2. 接続の管理画面が表示されます。  <br />
-3. <strong>事前作成</strong> を選択し、検索ボックスに、<strong>box</strong>と入力してください。Boxに関する接続が表示されるはずです。<br />
-<a class="glightbox" href="../prebuild-box_images/image-16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild-box_images/image-16.png" /></a> 
-4. boxの設定（テナント管理者のみ実行してください。共有のテナントを使用する場合は、管理者に設定を依頼してください。既に接続済みの場合はスキップして、次のステップの<strong>エージェントの作成</strong>に進んでください。）<br />
-Boxの右側の編集ボタンをクリックしてください。設定画面が開くので、<strong>チームの資格情報</strong>が選択されていることを確認してから、以下の値を設定し、<strong>接続</strong>ボタンをクリックしてください。
-なお、設定値はDraft/Liveの2つの値を設定することで、開発画面とデプロイされたToolで異なる接続情報を使い分けることが可能です。今回はDraftのみを設定してください。
-<a class="glightbox" href="../prebuild-box_images/image-17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild-box_images/image-17.png" /></a> </p>
+<p>定義済みの接続を確認し、Boxに接続するために必要な構成を行います。(※ハンズオンではあらかじめ講師が設定した接続を利用するため、各自で接続の設定を行う必要は在りません。手順を確認し、<strong>エージェントの作成</strong>のステップに進んでください)</p>
+<ol>
+<li>左側のメニューより、管理 &gt; セキュリティを選択してください。<br />
+<a class="glightbox" href="../prebuild_images/image-29.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild_images/image-29.png" /></a></li>
+<li>セキュリティ・コントロール・センターの画面が表示されるので、<strong>接続</strong>タブを選択してください。接続の一覧が表示されます。
+<a class="glightbox" href="../prebuild_images/image-30.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild_images/image-30.png" /></a>  </li>
+<li>
+<p><strong>事前作成</strong>のフィルタ・ボタンをクリックしてから右側の虫メガネアイコンをクリックし、検索ボックスに、<strong>box</strong>と入力してください。Boxに関する接続がいくつか表示されるはずです。  <strong>box</strong>という名前の接続の右側の3点リーダーをクリックし、<strong>接続の編集</strong>を選択します。
+<a class="glightbox" href="../prebuild-box_images/image-30.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild-box_images/image-30.png" /></a> </p>
+</li>
+<li>
+<p>boxへの接続を構成します。 <br>
+Boxの右側の編集ボタンをクリックしてください。以下のように設定します。<br>
+・認証タイプ：OAuth2許可コード　<br>
+・Server URL:https://box.com<br>
+・トークンURL:https://api.box.com/oauth2/token　<br>
+・許可URL：https://account.box.com/api/oauth2/authorize　<br>
+・クライアントID：box側で構成したアプリケーションのクライアントID　<br>
+・クライアント・シークレット：box側で構成したアプリケーションのクライアント・シークレット　<br>
+・資格情報タイプ：チームの資格情報　<br></p>
+</li>
+</ol>
+<!--
+- 範囲：許可するスコープ 例）manage:jira-project read:jira-work offline_access
+-->
+<p>なお、設定値はDraft/Liveの2つの値を設定することで、開発画面とデプロイされたToolで異なる接続情報を使い分けることが可能です。今回はDraftのみを設定してください。  </p>
 <h2 id="_3">エージェントの作成</h2>
 <p>カタログにあるBoxを用いるエージェントをテンプレートにしてエージェントを作成します。<br />
-1. 左側のメニューからビルドを開き、<strong>エージェントの作成</strong>ボタンをクリックしてください。<br />
-<a class="glightbox" href="../prebuild-box_images/image-18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild-box_images/image-18.png" /></a></p>
-<ol>
-<li>エージェント作成のウィザードが開くので、右側の<strong>テンプレートから作成</strong>を選択してください。<br />
-<a class="glightbox" href="../prebuild-box_images/image-19.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild-box_images/image-19.png" /></a></li>
-<li>検索Boxに<strong>File management</strong>と入力し、エンターキーを入力してください。Boxを使用するエージェントが表示されるので、<strong>File management</strong>を選択してください。
-<a class="glightbox" href="../prebuild-box_images/image-20.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild-box_images/image-20.png" /></a></li>
-<li>エージェントの詳細が表示されるので、内容を確認し、右下の<strong>テンプレートとして使用</strong>をクリックしてください。
-<a class="glightbox" href="../prebuild-box_images/image-21.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild-box_images/image-21.png" /></a></li>
-<li>エージェントが作成されます。共用の環境を使用している場合は、エージェントの名前の右側の編集ボタンをクリックし、あなたの名前を付けるなど、区別がつくようにしてください。  </li>
-<li>エージェントの設定を確認し、利用可能なツールや、動作の記述内容を確認してください。特に動作についてはかなり細かく設定がされていることが分かります。</li>
-</ol>
+1. 左側のメニューからビルドを開き、<strong>エージェントの作成</strong>ボタンをクリックしてください。  　<br>
+<a class="glightbox" href="../prebuild-box_images/image-18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild-box_images/image-18.png" /></a>　　<br>
+2. エージェント作成のウィザードが開くので、<strong>テンプレートから作成</strong>を選択してください。  　<br>
+<a class="glightbox" href="../prebuild_images/image-35.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild_images/image-35.png" /></a>　　<br>
+3. 検索ボックスに<strong>File management</strong>と入力してください。右にboxのアイコンがある、<strong>File management</strong>を選択してください。　<br>
+<a class="glightbox" href="../prebuild-box_images/image-31.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild-box_images/image-31.png" /></a>　　<br>
+4. エージェントの詳細が表示されるので、内容を確認し、右下の<strong>テンプレートとして使用</strong>をクリックしてください。　<br>
+<a class="glightbox" href="../prebuild-box_images/image-32.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild-box_images/image-32.png" /></a>　　<br>
+5. エージェントが作成されます。共用の環境を使用している場合は、エージェントの名前を編集し、あなたのイニシャルを追加するなど、区別がつくようにしてください。　　<br>
+6. エージェントの設定を確認し、利用可能なツールや、動作の記述内容を確認してください。特に動作についてはかなり細かく設定がされていることが分かります。</p>
 <h2 id="_4">エージェントの実行</h2>
 <ol>
-<li>右側のチャット欄に<strong>handsonというファイルの詳細を表形式で表示して</strong>と入力してください。<br />
+<li>右側のチャット欄に<strong>handson.docxというファイルの詳細を表形式で表示して</strong>と入力してください。<br />
 <a class="glightbox" href="../prebuild-box_images/image-27.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild-box_images/image-27.png" /></a></li>
 <li>
 <p>もしメンバー資格情報が設定されており、まだ接続が行われていない場合には、以下の様にパラメータを設定するフォームが表示されます。</p>
@@ -1480,8 +1494,8 @@ Boxの右側の編集ボタンをクリックしてください。設定画面�
 <p>Username,Passwordに講師から共有された値を入力して、<strong>接続</strong>ボタンをクリックしてください。UsernameやPasswordをコピー＆ペーストする際には、スペースなどが付加されていないことを確認してください。</p>
 </li>
 <li>
-<p>正しく接続された場合は、ファイルの詳細が表示されます。ツールの初回利用時には、バックグラウンドで導入を実施するので、時間をおいてから再度実行してくださいというメッセージが表示される場合があります。その場合は指示に従ってください。
-<a class="glightbox" href="../prebuild-box_images/image-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild-box_images/image-1.png" /></a>  </p>
+<p>正しく接続された場合は、ファイルの詳細が表示されます。ツールの初回利用時には、バックグラウンドで導入を実施するので、時間をおいてから再度実行してくださいというメッセージが表示される場合があります。その場合は指示に従ってください。 <br>
+<a class="glightbox" href="../prebuild-box_images/image-33.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild-box_images/image-33.png" /></a>  <br></p>
 </li>
 <li>
 <p>File managementエージェントはファイルのアップロードや削除など他にも機能があります。その他のツールも実行して動作を確認してみてください。例えば以下のような処理が可能です。   </p>

@@ -1443,50 +1443,63 @@
 また、接続(Connections)という仕組みを使うことで、接続情報を柔軟に管理、設定することが可能です。
 このLabでは、Jiraへ接続可能なエージェントをテンプレートから構成し、利用する手順について説明します。</p>
 <h2 id="_2">接続の設定</h2>
-<p>定義済みの接続を確認し、Jiraに接続するために必要な構成を行います。<br />
-1. 左側のメニューより、管理 &gt; 接続を選択してください。<br />
-<a class="glightbox" href="../prebuild_images/image-28.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild_images/image-28.png" /></a><br />
-2. 接続の管理画面が表示されます。  <br />
-3. 検索ボックスに、<strong>jira</strong>と入力してください。Jiraに関する2つの接続が表示されるはずです。</p>
-<ul>
-<li>Jiraは基本認証に必要な情報を設定する接続で、ユーザー毎に異なるユーザーIDとパスワードを設定します。このように、ユーザー毎に異なる値を設定する場合には、メンバー資格情報を使用します。</li>
-<li>Jira URLは、接続先のドメインを設定するためのキーと値のペア型の接続で、全体で共通の値を設定します。これをチームの資格情報と呼びます。チームの資格情報は管理者のみ設定可能です。  </li>
-</ul>
-<p><a class="glightbox" href="../prebuild_images/image-16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild_images/image-16.png" /></a>
-4. Jira URLの設定（テナント管理者のみ実行してください。共有のテナントを使用する場合は、管理者に設定を依頼してください。既に接続済みの場合はスキップして、Step5のJiraの設定に進んでください。）<br />
-Jira URLの右側の編集ボタンをクリックしてください。設定画面が開くので、<strong>チームの資格情報</strong>が選択されていることを確認してから、以下の値を設定し、<strong>接続</strong>ボタンをクリックしてください。 <br />
-なお、設定値はDraft/Liveの2つの値を設定することで、開発画面とデプロイされたToolで異なる接続情報を使い分けることが可能です。今回はDraftのみを設定してください。  </p>
-<ul>
-<li><strong>Base url</strong> :講師から共有されたドメイン名</li>
-</ul>
-<p><a class="glightbox" href="../prebuild_images/image-17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild_images/image-17.png" /></a><br />
-接続が成功したら、<strong>保存</strong>ボタンをクリックしてください。<br />
-5. Jiraの設定<br />
-次にJiraの右側の編集ボタンをクリックします。認証タイプとしては<strong>Basic Auth</strong>、<strong>メンバー資格情報</strong>が選択されていることを確認し、保存ボタンをクリックしてください。
-<a class="glightbox" href="../prebuild_images/image-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild_images/image-5.png" /></a></p>
+<p>定義済みの接続を確認し、Jiraに接続するために必要な構成を行います。(※ハンズオンではあらかじめ講師が設定した接続を利用するため、各自で接続の設定を行う必要は在りません。手順を確認し、<strong>エージェントの作成</strong>のステップに進んでください)</p>
+<ol>
+<li>左側のメニューより、管理 &gt; セキュリティを選択してください。<br />
+<a class="glightbox" href="../prebuild_images/image-29.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild_images/image-29.png" /></a></li>
+<li>セキュリティ・コントロール・センターの画面が表示されるので、<strong>接続</strong>タブを選択してください。接続の一覧が表示されます。
+<a class="glightbox" href="../prebuild_images/image-30.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild_images/image-30.png" /></a>    </li>
+<li>
+<p><strong>事前作成</strong>のフィルタ・ボタンをクリックしてから右側の虫メガネアイコンをクリックし、検索ボックスに、<strong>jira</strong>と入力してください。Jiraに関する接続がいくつか表示されるはずです。Jiraという名前の接続の右側の3点リーダーをクリックし、<strong>接続の編集</strong>を選択します。
+<a class="glightbox" href="../prebuild_images/image-31.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild_images/image-31.png" /></a></p>
+</li>
+<li>
+<p>Jiraへの接続を構成します。JiraはOAuth2許可コードに必要な情報を設定する接続です。ユーザー毎に異なる値を設定する場合にはユーザー、メンバー資格情報を使用します。必要なパラメータとサンプルの値は以下の通りです。特に範囲にoffline_accessを含める点に注意してください。これは、リフレッシュ・トークンを用いてトークンを更新する際に必要なスコープです。また、Jira側のアプリケーションに表示されているコールバックURLを登録する必要もあります。</p>
+</li>
+<li>
+<p>認証タイプ：OAuth2許可コード</p>
+</li>
+<li>Server URL:https://api.atlassian.com</li>
+<li>トークンURL:https://auth.atlassian.com/oauth/token</li>
+<li>許可URL：https://auth.atlassian.com/authorize</li>
+<li>クライアントID：Jira側で構成したアプリケーションのクライアントID</li>
+<li>クライアント・シークレット：Jira側で構成したアプリケーションのクライアント・シークレット</li>
+<li>
+<p>範囲：許可するスコープ 例）manage:jira-project read:jira-work offline_access</p>
+<p><a class="glightbox" href="../prebuild_images/image-32.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild_images/image-32.png" /></a>  </p>
+</li>
+</ol>
+<p>なお、設定値はDraft/Liveの2つの値を設定することで、開発画面とデプロイされたToolで異なる接続情報を使い分けることが可能です。今回はDraftのみを設定してください。  </p>
+<ol>
+<li>設定を保存すると、以下の様なダイアログが表示されるので、<strong>続行</strong>をクリックします。<br />
+<a class="glightbox" href="../prebuild_images/image-34.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild_images/image-34.png" /></a> <br />
+Jiraへのアクセスの許可を求められるので、 Acceptすることで構成は完了です！<br />
+<a class="glightbox" href="../prebuild_images/image-33.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild_images/image-33.png" /></a>  </li>
+</ol>
 <h2 id="_3">エージェントの作成</h2>
 <p>カタログにあるJiraを用いるAgentをテンプレートにしてAgentを作成します。<br />
 1. 左側のメニューからビルド &gt; エージェント・ビルダーと進み、<strong>エージェントの作成</strong>ボタンをクリックしてください。<br />
 <a class="glightbox" href="../prebuild_images/image-18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild_images/image-18.png" /></a>
-2. Agent作成のウィザードが開くので、右側の<strong>テンプレートから作成</strong>を選択してください。<br />
-<a class="glightbox" href="../prebuild_images/image-19.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild_images/image-19.png" /></a>
+2. Agent作成のウィザードが開くので、<strong>テンプレートから作成する</strong>を選択してください。<br />
+<a class="glightbox" href="../prebuild_images/image-35.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild_images/image-35.png" /></a>
 3. 検索Boxに<strong>issue manager</strong>と入力し、エンターキーを入力してください。Jiraを使用するエージェントが表示されるので、<strong>Issue manager</strong>を選択してください。
-<a class="glightbox" href="../prebuild_images/image-25.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild_images/image-25.png" /></a>
+<a class="glightbox" href="../prebuild_images/image-36.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild_images/image-36.png" /></a>
 4. エージェントの詳細が表示されるので、内容を確認し、右下の<strong>テンプレートとして使用</strong>をクリックしてください。
-<a class="glightbox" href="../prebuild_images/image-26.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild_images/image-26.png" /></a>
-5. エージェント作成されます。共用の環境を使用している場合は、エージェントの名前の右側の編集ボタンをクリックし、あなたの名前を付けるなど、区別がつくようにしてください。<br />
+<a class="glightbox" href="../prebuild_images/image-37.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild_images/image-37.png" /></a>
+5. Issue Managerという名前でエージェントが作成されます。共用の環境を使用している場合は、エージェントの名前を編集し、あなたのイニシャルを追加するなど、区別がつくようにしてください。<br />
+<a class="glightbox" href="../prebuild_images/image-38.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild_images/image-38.png" /></a>
 6. エージェントの設定を確認し、利用可能なツールや、動作の記述内容を確認してください。特に動作についてはかなり細かく設定がされていることが分かります。</p>
 <h2 id="_4">エージェントの実行</h2>
 <ol>
 <li>右側のチャット欄に<strong>プロジェクトのリストを表示して</strong>と入力してください。<br />
 <a class="glightbox" href="../prebuild_images/image-27.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild_images/image-27.png" /></a></li>
-<li>メンバー資格情報が設定されており、まだ接続が行われていない場合には、以下の様にパラメータを設定するフォームが表示されます。<br />
+<li>メンバー資格情報が設定されており、まだ接続が行われていない場合には、以下の様にパラメータを設定するフォームが表示されます。Username,Passwordに講師から共有された値を入力して、<strong>接続</strong>ボタンをクリックしてください。UsernameやPasswordをコピー＆ペーストする際には、スペースなどが付加されていないことを確認してください。<br />
 <a class="glightbox" href="../prebuild_images/image-22.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild_images/image-22.png" /></a></li>
-<li>Username,Passwordに講師から共有された値を入力して、<strong>接続</strong>ボタンをクリックしてください。UsernameやPasswordをコピー＆ペーストする際には、スペースなどが付加されていないことを確認してください。</li>
+<li>チーム資格情報を用いている場合はそのまま接続されます。</li>
 <li>正しく接続された場合には、プロジェクトの一覧が表示されます。ツールの初回利用時には、バックグラウンドで導入を実施するので、時間をおいてから再度実行してくださいというメッセージが表示される場合があります。その場合は指示に従ってください。
-<a class="glightbox" href="../prebuild_images/image-24.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild_images/image-24.png" /></a>  </li>
+<a class="glightbox" href="../prebuild_images/image-40.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../prebuild_images/image-40.png" /></a></li>
 <li>
-<p>Issue Manager Agentはissueの取得や作成など他にも機能があります。その他のツールも実行して動作を確認してください。例えば以下のような処理が可能です。   </p>
+<p>Issue Manager Agentはissueの取得や作成など他にも機能があります。その他のツールも実行して動作を確認してください。例えば以下のような処理が可能です。  </p>
 <ul>
 <li>issueの表示</li>
 <li>issueの作成</li>
