@@ -52,11 +52,11 @@ nav:
   - Lab0 intro: wxoagent/intro.md
   - Lab1 agent: wxoagent/agent.md
   - Lab2 tool: wxoagent/tool.md
-  - Lab3 flow: wxoagent/flow-OpenAccount.md
   - Lab3 flow user activity: wxoagent/flow-userActivity.md
   - Lab4 prebuild jira: wxoagent/prebuild.md
   - Lab4 prebuild box: wxoagent/prebuild-box.md
   - Lab5 multiagents: wxoagent/multi.md
+  - Optotion1 flow(IDP): wxoagent/flow-OpenAccount.md
 
 - watsonx Orchestrate Usecase:
   - はじめに: wxo_usecase/index.md
