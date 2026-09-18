@@ -1454,23 +1454,19 @@
 <h2 id="_2">フローの作成の開始</h2>
 <ol>
 <li>
-<p>左上のメニューから <strong>ビルド</strong> を選択します。<br />
+<p>左上のメニューから <strong>エージェント型ワークフロー</strong> を選択します。<br />
 <a class="glightbox" href="../flow-userActivity_images/flow_ua_image0010.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0010.png" /></a>  </p>
 </li>
 <li>
-<p>左側の <strong>すべてのツール</strong> を選択し、<strong>ツールの作成</strong> をクリックします。<br />
+<p><strong>エージェント型ワークフローを追加</strong> をクリックします。<br />
 <a class="glightbox" href="../flow-userActivity_images/flow_ua_image0020.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0020.png" /></a>  </p>
-</li>
-<li>
-<p><strong>エージェント型ワークフロー</strong> をクリックします。<br />
-<a class="glightbox" href="../flow-userActivity_images/flow_ua_image0030.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0030.png" /></a>  </p>
 </li>
 <li>
 <p>名前に<strong>XX_weatherFlow</strong> (XXにはイニシャルを設定してください。) を入力し、<strong>構築の開始</strong>ボタンをクリックします。<br />
 <a class="glightbox" href="../flow-userActivity_images/flow_ua_image0040.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0040.png" /></a>  </p>
 </li>
 <li>
-<p>名前の右にある<strong>詳細の編集</strong>をクリックします。<br />
+<p>名前の右にある<strong>フロー設定</strong>をクリックします。<br />
 <a class="glightbox" href="../flow-userActivity_images/flow_ua_image0050.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../flow-userActivity_images/flow_ua_image0050.png" /></a>  </p>
 </li>
 <li>
@@ -1488,19 +1484,23 @@
 <thead>
 <tr>
 <th>名前</th>
+<th>名前</th>
 <th>説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td>ストリング（string）</td>
 <td>city_name</td>
 <td>都市名</td>
 </tr>
 <tr>
+<td>10進法（decimal）</td>
 <td>latitude</td>
 <td>緯度</td>
 </tr>
 <tr>
+<td>10進法（decimal）</td>
 <td>longitude</td>
 <td>経度</td>
 </tr>
@@ -1647,6 +1647,18 @@
 </div>
 <h2 id="_6">お疲れさまでした！</h2>
 <p>このハンズオンでは、フロー・ビルダーの使い方について説明しました。</p>
+<div class="admonition tip">
+<p class="admonition-title">さらに複雑なフローを構築するために</p>
+<p>今回のハンズオンではツール・ブランチ・メッセージといった基本的なノードを中心に紹介しましたが、エージェント型ワークフローにはほかにも多彩なノードが用意されています。</p>
+<ul>
+<li><strong><a href="https://developer.watson-orchestrate.ibm.com/tools/flows/decisions_node" target="_blank">Decisionsノード</a></strong>: 条件テーブルを使った複雑なビジネスルールをフロー内に組み込めます。複数のルールを上から順に評価し、最初に一致した結果を返します。</li>
+<li><strong><a href="https://developer.watson-orchestrate.ibm.com/tools/flows/document_processing_nodes" target="_blank">Doc Processingノード</a></strong>: PDF や画像などのドキュメントからテキストやキーバリューペアを抽出し、そのデータをフローに取り込むことができます。</li>
+<li><strong><a href="https://developer.watson-orchestrate.ibm.com/tools/flows/overview" target="_blank">Promptノード</a></strong>: LLM を呼び出して、入力データに基づく情報の抽出・分類・生成を行い、動的な処理を実現できます。</li>
+<li><strong><a href="https://developer.watson-orchestrate.ibm.com/tools/flows/overview" target="_blank">Agentノード</a></strong>: 別のエージェントをサブタスクとして呼び出し、マルチエージェント構成のワークフローを構築できます。</li>
+<li><strong><a href="https://developer.watson-orchestrate.ibm.com/tools/flows/foreach_node" target="_blank">Foreach / Loopノード</a></strong>: リストの各要素に対して処理を繰り返したり、条件が満たされるまでループ処理を行うことができます。</li>
+</ul>
+<p>利用可能なノードタイプの全一覧は<a href="https://developer.watson-orchestrate.ibm.com/tools/flows/overview" target="_blank"><strong>こちら</strong></a>をご参照ください。これらのノードを組み合わせることで、単純なツール連携にとどまらない、より高度な自動化シナリオを実現できます。</p>
+</div>
 
 
 

@@ -1424,7 +1424,7 @@
 <p>この Lab では、Control Plane のダッシュボードや各機能を使ってエージェントの状況を分析します。</p>
 <h2 id="_2">エージェントの実行ログを分析</h2>
 <p>テスト実行したデータを用いて、どのようにエージェントの利用状況が確認できるか見てみましょう。  </p>
-<p>1. 左上のハンバーガーメニューから <strong>分析</strong> をクリックします。<br />
+<p>1. 左上のメニューから <strong>プログラム識別情報</strong> をクリックします。<br />
 &emsp;先ほど自身が作成したエージェントのデータが表示されていることが確認できます。<br />
 <a class="glightbox" href="../images/%E5%88%86%E6%9E%90_AgentAnalytics-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E5%88%86%E6%9E%90_AgentAnalytics-02.png" /></a>  </p>
 <div class="admonition note">
@@ -1505,13 +1505,18 @@
    もし <strong>会話のコンテキスト</strong> が英語になっている場合は、例として以下のように変更しておきます。<br />
    <div class="highlight"><pre><span></span><code>特定の地点付近のカフェ情報を検索したい。
 geocode_place_name ツールを使って当該地点の緯度と経度を取得し、その緯度と経度を使って search_map_features_near_place を呼び出すことで、カフェ情報を検索する。
-</code></pre></div>
-   <a class="glightbox" href="../images/%E5%88%86%E6%9E%90_CreateTestCase-07.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E5%88%86%E6%9E%90_CreateTestCase-07.png" /></a> 
-6. 保存できたら、 <strong>Evaluate</strong> タブをクリックし、評価管理画面に移動します。<br />
-&emsp;テストタブの左側には追加したテストケースが表示されています。評価タブを開き、<strong>新しい評価を開始する</strong> ボタンを押下して、作成したテストを選択し、テストを実行します。<br />
+</code></pre></div></p>
+<p>6. 保存できたら、 <strong>Evaluate</strong> タブをクリックし、評価管理画面に移動します。<br />
+&emsp;<strong>テスト</strong> タブをクリックすると追加したテストケースが確認できます。
+   <a class="glightbox" href="../images/%E5%88%86%E6%9E%90_CreateTestCase-07.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E5%88%86%E6%9E%90_CreateTestCase-07.png" /></a> </p>
+<p>7. 評価タブを開き、<strong>新しい評価を開始する</strong> ボタンを押下します。
+   <a class="glightbox" href="../images/%E5%88%86%E6%9E%90_CreateTestCase-08.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E5%88%86%E6%9E%90_CreateTestCase-08.png" /></a>  </p>
+<p>8. 作成したテストを選択し、<strong>次へ</strong>をクリックします。<strong>実行</strong>をクリックしてテストを実行します。<br />
 &emsp;テストの実行には数分かかります。<br />
-<a class="glightbox" href="../images/%E5%88%86%E6%9E%90_CreateTestCase-08.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E5%88%86%E6%9E%90_CreateTestCase-08.png" /></a>  </p>
-<p>7. テストが完了すると、先ほど設定した期待値通りに動いたかどうか等が確認できます。<br />
+<a class="glightbox" href="../images/%E5%88%86%E6%9E%90_CreateTestCase-09.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E5%88%86%E6%9E%90_CreateTestCase-09.png" /></a>  </p>
+<p>9. テストが完了したら結果をクリックします。<br />
+<a class="glightbox" href="../images/%E5%88%86%E6%9E%90_TestResult-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E5%88%86%E6%9E%90_TestResult-01.png" /></a>  </p>
+<p>10. 期待値通りに動いたかどうか等を確認します。<br />
 <a class="glightbox" href="../images/%E5%88%86%E6%9E%90_TestResult-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E5%88%86%E6%9E%90_TestResult-02.png" /></a>  </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1519,7 +1524,7 @@ geocode_place_name ツールを使って当該地点の緯度と経度を取得�
 <li>エージェントの動作 / ガイドライン / ツールなどに変更を加えた場合や、LLM を変更したとき、サービスのアップデートが行われた場合などにテストを行い、以前までと応答が大きく変わっていないかを確認するために利用できる機能です。  </li>
 </ul>
 </div>
-<p>8. もう一度 Control Plane のダッシュボードに戻ると、洞察のメッセージが無くなっていることが確認できます。  </p>
+<p>11. もう一度 Control Plane のダッシュボードに戻ると、洞察のメッセージが無くなっていることが確認できます。  </p>
 
 
 

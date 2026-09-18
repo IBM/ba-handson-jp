@@ -1426,51 +1426,65 @@
 <p>このセクションでは、watsonx Orchestrateの主な画面構成について学びます。</p>
 <ol>
 <li>
-<p>watsonx Orchestrateにログインします。<br />
-<a class="glightbox" href="../intro_images/image-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../intro_images/image-1.png" /></a></p>
-</li>
-<li>
-<p>IBM-idを入力して、<strong>Continue</strong> ボタンをクリックします。</p>
+<p>watsonx Orchestrateにアクセスし、ログインするためにIBM-idを入力して <strong>Continue</strong> ボタンをクリックします。<br />
+<a class="glightbox" href="../intro_images/image-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../intro_images/image-1.png" /></a>  </p>
 </li>
 <li>
 <p>複数テナントに所属する場合には、テナント選択画面が表示されるので、適切なテナント名を選択してください。<br />
 <a class="glightbox" href="../intro_images/image-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../intro_images/image-2.png" /></a></p>
 </li>
 <li>
-<p>以下のような画面が表示されます。（ツアーのダイアログが表示された場合にはスキップしてください。）<br />
-<a class="glightbox" href="../intro_images/image16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../intro_images/image16.png" /></a><br />
-<a class="glightbox" href="../intro_images/image17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../intro_images/image17.png" /></a>  </p>
-</li>
-<li>
-<p>詳細は以下の通りです。<br />
-    1.メニュー<br />
-    各画面へ遷移するためのメニューが表示されます。    </p>
-<p>2.ホーム<br />
-ホーム画面に戻ります。    </p>
-<p>3.チャット<br />
-watsonx Orchestrateへ様々な処理を依頼するためのチャット画面です。    </p>
-<p>4.ディスカバー<br />
-プリビルドされているエージェントやツールを探すことができます。  </p>
-<p>5.ビルド<br />
-エージェントを作成するメニューに移ります。プリビルドツールの組み合わせやプリビルドエージェントを選択することができます。  </p>
-<p>6.分析<br />
-エージェント使用状況のダッシュボードが表示されます。  </p>
-<p>7.AgentOpsエージェント<br />
-AIエージェントの評価・最適化・運用を支援するための運用管理エージェントを使用できます。  </p>
-<p>8.管理<br />
-管理をクリックするとセキュリティー、音声、電話、コントロールが表示されます。  </p>
-<p>9.セキュリティー<br />
-アプリケーションを使用するためのコネクタと認証情報を設定します。</p>
-<p>10.音声<br />
-音声入力・出力の設定が可能です。</p>
-<p>11.電話<br />
-SIPを使った電話通信の設定が可能です。</p>
-<p>12.コントロール<br />
-チャットの入出力に対してガードレールの設定が可能です。</p>
-<p>13.アシスタント・ビルダー<br />
-外部のWebサイトなどに組みこんだり、Slackなどのチャネルと統合可能なAIアシスタントの構成が可能です。  </p>
-<p>14.ヘルプ<br />
-ドキュメントとサポートの検索や、チュートリアルが受けられます。  </p>
+<p>以下のような画面が表示されます。（ツアーのダイアログが表示された場合にはスキップしてください。）
+   <a class="glightbox" href="../intro_images/image-21.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../intro_images/image-21.png" /></a></p>
+<p><strong>1.メニュー</strong>
+各画面へ遷移するためのメニューを表示。</p>
+<p><strong>2.ヘルプ</strong>
+ドキュメントとサポートの検索や、チュートリアルが受けられます。</p>
+<p><div style="display: flex; align-items: flex-start; gap: 24px;" markdown>
+<div markdown>
+<a class="glightbox" href="../intro_images/image-22.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../intro_images/image-22.png" width="600" /></a>
+</div>
+<div markdown></p>
+<p><strong>3.ホーム</strong>
+ホーム画面（Agentic Control Plane のダッシュボード）に戻る。AgentOpsのハンズオン参照。</p>
+<p><strong>4.チャット</strong>
+エンドユーザーがデプロイ済みのエージェントと会話するチャットインターフェースを表示。</p>
+<p><strong>5.カタログ</strong>
+IBM・パートナーが提供するプリビルトのエージェント・MCP サーバー・ツール・アプリを検索・評価・追加できるディスカバリーページ。</p>
+<p><strong>6.エージェント</strong>
+テナント内のネイティブエージェントを作成・管理する。</p>
+<p><strong>7.アシスタント</strong>
+watsonx Assistant ベースの会話型アシスタントを作成・管理する。</p>
+<p><strong>8.エージェント型ワークフロー</strong>
+複数エージェント・ツール・人間の承認ステップなどを組み合わせた自動化ワークフローをローコードで作成・管理する。</p>
+<p><strong>9.ツール</strong>
+エージェントが外部システムを操作するための Python ツール・OpenAPI ツール・Langflow ツールを作成・インポート・管理する。</p>
+<p><strong>10.知識</strong>
+エージェントが回答の根拠として参照するドキュメント（ナレッジベース）を登録・管理する。</p>
+<p><strong>11.音声構成</strong>
+エージェントを音声チャネルに対応させるための音声設定（言語・アクセント・発話速度・推論エンジンなど）を作成・管理する。</p>
+<p><strong>12.電話</strong>
+エージェントを電話チャネルに接続するための設定ページ。</p>
+<p><strong>13.最適化</strong>
+AgentOps エージェントとの会話 UI から 評価、最適化、デプロイの一連ループを行う。</p>
+<p><strong>14.プログラム識別情報</strong>
+エージェントの会話数・ユニークユーザー数・フィードバック評価などのパフォーマンスデータを可視化する分析ページ。</p>
+<p><strong>15.コントロール</strong>
+エージェント・モデル・ツールに適用するポリシー（コンテンツガードレール・PII フィルター・出力長制限・レート制限など）と、テナント全体に適用する企業制御（データ保持期間・ネットワーク制御・アナリティクスプライバシー）を一元管理する。</p>
+<p><strong>16.エージェントの権限</strong>
+テナント内の全エージェントがアクセス可能な接続・ツール・権限スコープを管理者が一元的に確認・管理する。エージェントと外部システム間のアクセス制御の透明性を確保する。</p>
+<p><strong>17.接続</strong>
+外部ビジネスシステム（HR・CRM・ITSM など）との認証設定（OAuth・API キー・Basic 認証等）を作成・管理する。</p>
+<p><strong>18.資格情報</strong>
+外部アプリケーションへの接続認証に使用するチーム資格情報（共有サービスアカウント）とメンバー資格情報（個人 ID）を管理する。</p>
+<p><strong>19.AIゲートウェイ</strong>
+外部 LLM・MCP サーバー・外部プラットフォームのエージェントを一元的に登録・ガバナンスするハブ。（Preview: 一般提供前の試験的機能）</p>
+<p><strong>20.アクセス管理</strong>
+テナントのメンバーを招待・管理し、ロールを割り当てる。</p>
+<p><strong>21.設定</strong>
+チャット履歴の保持期間・API キー生成・プラットフォーム表示言語・AI モデル選択可否・プレミアモデルの有効化・セキュリティ設定などのインスタンス全体の設定を管理する。</p>
+<p></div>
+</div></p>
 </li>
 <li>
 <p>テナントIDを取得するには、右上のイニシャルが表示されているアイコンをクリックし、製品情報を選択します。  </p>

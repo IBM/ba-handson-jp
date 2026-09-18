@@ -1375,15 +1375,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#langgraph" class="md-nav__link">
-    <span class="md-ellipsis">
-      LangGraph エージェントをインポート
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1457,7 +1448,7 @@
 <li>適用と運用監視：設定したコントロールは対象アセットが実行される際に自動的に適用され、結果を Control Plane ダッシュボードで確認</li>
 </ol>
 <p>各アセットにどのようなコントロールを適用できるのか確認し、実際に設定を行いましょう。  </p>
-<p>1. 左上のハンバーガーメニュー &gt; <strong>管理</strong> &gt; <strong>コントロール</strong> をクリックします。 </p>
+<p>1. 左上のメニューから <strong>コントロール</strong> をクリックします。 </p>
 <p>2. 画面中央または右側にある <strong>コントロールの作成</strong> ボタンをクリックします。<br />
 <a class="glightbox" href="../images/%E7%B5%B1%E5%88%B6_CreateControl-07.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E7%B5%B1%E5%88%B6_CreateControl-07.png" /></a>  </p>
 <p>3. 作成可能なコントロールの一覧が表示されます。<br />
@@ -1493,21 +1484,24 @@
 </ul>
 </div>
 <p>4. 今回は、エージェントに対する <strong>PII Filter</strong> コントロールを使い、ユーザーがメールアドレスを入力したらブロックするという設定を行ってみます。  </p>
-<p>5. 任意のコントロール名を入力し、以下のように設定します。<br />
-&emsp;他の項目はデフォルト状態のまま、<strong>次へ</strong> に進みます。<br />
+<p>5. 以下のように設定します。<br />
+&emsp;・コントロール・インスタンス名：[イニシャル] + [任意の名称]<br />
 &emsp;・適用タイプ：✅ Input<br />
 &emsp;・Detection Type：✅ Detect Email<br />
 &emsp;・Default mask strategy：Redact（別の文字でマスクする）<br />
+&emsp;他の項目はデフォルト状態のまま、<strong>次へ</strong> に進みます。<br />
 <a class="glightbox" href="../images/%E7%B5%B1%E5%88%B6_CreateControl-09.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E7%B5%B1%E5%88%B6_CreateControl-09.png" /></a>  </p>
 <p>6. <strong>資産の割り当て</strong> のページで、<strong>エージェントの追加</strong> をクリックし先ほど作成した自身のエージェントを選択します。<br />
 <a class="glightbox" href="../images/%E7%B5%B1%E5%88%B6_CreateControl-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E7%B5%B1%E5%88%B6_CreateControl-10.png" /></a>  </p>
 <p>7. <strong>レビュー</strong> のページで <strong>コントロールの作成</strong> ボタンを押下し、コントロールを作成します。<br />
 <a class="glightbox" href="../images/%E7%B5%B1%E5%88%B6_CreateControl-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E7%B5%B1%E5%88%B6_CreateControl-11.png" /></a>  </p>
-<p>8. 左上のハンバーガーメニューから <strong>ビルド</strong> をクリックし、自身のエージェントを選択して Agent Builder を開き、プレビューチャットでダミーのメールアドレスを含んだチャットを送信します。
+<p>8. 左上のメニューから <strong>エージェント</strong> をクリックし、自身のエージェントを選択して Agent Builder を開き、プレビューチャットでダミーのメールアドレスを含んだチャットを送信します。
    <div class="highlight"><pre><span></span><code>私のメールアドレスは test@testibm.com です
 </code></pre></div></p>
 <p>9. 適切なツールや処理は定義されていないため、おそらく LLM が作成した回答が返ってきます。 <br />
-   その返答の下の <strong>Debug</strong> のアイコンをクリックし、デバッグ画面でユーザーの入力ステップを確認すると、メールアドレス部分がマスクされていることが確認できます。<br />
+   その返答の下の <strong>Debug</strong> のアイコンをクリックします。
+   <a class="glightbox" href="../images/%E7%B5%B1%E5%88%B6_CreateControl-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E7%B5%B1%E5%88%B6_CreateControl-12.png" /></a>  </p>
+<p>10. デバッグ画面でユーザーの入力ステップを確認すると、メールアドレス部分がマスクされていることが確認できます。<br />
 <a class="glightbox" href="../images/%E7%B5%B1%E5%88%B6_TestControl-PiiRedact-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E7%B5%B1%E5%88%B6_TestControl-PiiRedact-02.png" /></a>  </p>
 <p>また、<a href="../analyze/">Lab2：エージェントの分析</a> で確認した分析ダッシュボードから個別の Conversation ログを見ても、同じようにマスクされていることが確認できます。  </p>
 <div class="admonition note">
@@ -1539,27 +1533,31 @@ watsonx Orchestrate は、外部のエージェントに対しても連携実行
     User --&gt; wxO
     wxO --&gt;|A2A| Dify
     Dify --&gt; LLM/Tool/etc.</code></pre>
-<p>1. 左上のハンバーガーメニューから <strong>ビルド</strong> をクリックし、自身のエージェントを選択して Agent Builder を開きます。</p>
-<p>2. <strong>Add Agents</strong> より、「インポート」を選びます。<br />
-&emsp;エージェント・タイプは「外部エージェント」を選択したまま <strong>次へ</strong> に進みます。<br />
+<p>1. 左上のメニューから <strong>エージェント</strong> をクリックし、自身のエージェントを選択して Agent Builder を開きます。</p>
+<p>2. <strong>エージェント</strong> タブより、<strong>エージェントの追加</strong>を選びます。<br />
+<a class="glightbox" href="../images/%E7%B5%B1%E5%88%B6_A2A-15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E7%B5%B1%E5%88%B6_A2A-15.png" /></a>  </p>
+<p>3. <strong>インポート</strong>を選びます。<br />
+<a class="glightbox" href="../images/%E7%B5%B1%E5%88%B6_A2A-16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E7%B5%B1%E5%88%B6_A2A-16.png" /></a>  </p>
+<p>4. エージェント・タイプは<strong>外部エージェント</strong>を選択し、 <strong>次へ</strong> に進みます。<br />
 <a class="glightbox" href="../images/%E7%B5%B1%E5%88%B6_A2A-08.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E7%B5%B1%E5%88%B6_A2A-08.png" /></a>  </p>
-<p>3. <strong>外部プロトコル</strong> は「A2A 標準を介した外部エージェント」を選択します。<br />
+<p>5. <strong>外部プロトコル</strong> は <strong>A2A 標準を介した外部エージェント</strong> を選択します。<br />
 &emsp;その他の項目は、講師から別途連携された Dify エージェントの接続情報を入力し、<strong>次へ</strong> をクリックします。<br />
 <a class="glightbox" href="../images/%E7%B5%B1%E5%88%B6_A2A-09.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E7%B5%B1%E5%88%B6_A2A-09.png" /></a>  </p>
-<p>4. <strong>接続</strong> の画面で <strong>A2Aエージェントの接続の追加</strong> または <strong>接続の追加</strong> をクリックし、接続設定画面に進みます。  </p>
-<p>5. <strong>接続の追加</strong> 画面では任意の接続 ID や説明を入力し、<strong>保存して続行</strong> をクリックします。<br />
+<p>6. <strong>接続</strong> の画面で <strong>A2Aエージェントの接続の追加</strong> または <strong>接続の追加</strong> をクリックし、接続設定画面に進みます。  </p>
+<p>7. <strong>接続の追加</strong> 画面では任意の接続 ID や説明を入力し、<strong>保存して続行</strong> をクリックします。<br />
 &emsp;接続追加の確認画面が表示されるので、<strong>続行</strong> をクリックします。<br />
 <a class="glightbox" href="../images/%E7%B5%B1%E5%88%B6_A2A-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E7%B5%B1%E5%88%B6_A2A-10.png" /></a>  </p>
-<p>6. <strong>ドラフト環境の構成</strong> では、講師から別途連携された Dify エージェントの接続情報(<strong>APIキー</strong>)を入力し、<strong>次へ</strong> をクリックします。<br />
+<p>8. <strong>ドラフト環境の構成</strong> では、講師から別途連携された Dify エージェントの接続情報(<strong>APIキー</strong>)を入力し、<strong>次へ</strong> をクリックします。<br />
 &emsp;<strong>ライブ環境の構成</strong> では、<strong>ドラフト設定の貼り付け</strong> をクリックし、<strong>完了</strong> します。
    <a class="glightbox" href="../images/%E7%B5%B1%E5%88%B6_A2A-04.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E7%B5%B1%E5%88%B6_A2A-04.png" /></a>  </p>
-<p>7. 手順4の画面に戻り、追加した接続情報が表示されていることを確認します。<br />
+<p>9. 手順6の画面に戻り、追加した接続情報が表示されていることを確認します。<br />
 &emsp;その接続のラジオボタンを選択し、<strong>完了</strong> をクリックします。<br />
 <a class="glightbox" href="../images/%E7%B5%B1%E5%88%B6_A2A-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E7%B5%B1%E5%88%B6_A2A-11.png" /></a>  </p>
-<p>8. コラボレーターとしてのエージェントが追加されていることを確認します。<br />
+<p>10. コラボレーターとしてのエージェントが追加されていることを確認します。<br />
 <a class="glightbox" href="../images/%E7%B5%B1%E5%88%B6_A2A-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E7%B5%B1%E5%88%B6_A2A-12.png" /></a>  </p>
-<p>9. 設定した Dify エージェントの情報を参考に、プレビューチャットでテストを行い、マルチエージェント呼び出しが出来ることを確認します。<br />
-<code>次の予定をJSON化してください：明日、15:00に田中さんと営業会議</code>
+<p>11. 設定した Dify エージェントの情報を参考に、プレビューチャットでテストを行い、マルチエージェント呼び出しが出来ることを確認します。<br />
+    <div class="highlight"><pre><span></span><code>次の予定をJSON化してください：明日、15:00に田中さんと営業会議
+</code></pre></div>
    <a class="glightbox" href="../images/%E7%B5%B1%E5%88%B6_A2A-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E7%B5%B1%E5%88%B6_A2A-13.png" /></a>  </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1568,14 +1566,13 @@ watsonx Orchestrate は、外部のエージェントに対しても連携実行
 <li>A2A で接続したエージェントに対しても、設定したコントロールが適用されます。</li>
 </ul>
 </div>
-<p>10. 左上のハンバーガーメニュー &gt; 管理 &gt; コントロールから、再度<strong>コントロール</strong>の画面に戻ります。 <br>
-先程作成したコントロールのOptionsから編集を選択します。 <br>
-適用タイプを<strong>outpit</strong>にもチェックを入れてください。適用エージェントは、次の画面で追加・削除が可能です。
- <a class="glightbox" href="../images/%E7%B5%B1%E5%88%B6_A2A-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E7%B5%B1%E5%88%B6_A2A-14.png" /></a>  </p>
-<p>11. 再度、左上のハンバーガーメニューから <strong>ビルド</strong> をクリックし、自身のエージェントを選択して Agent Builder を開き、Difyが呼ばれるエージェントを動かし、トレースを確認してください。
+<p>12. 左上のメニューから <strong>コントロール</strong> をクリックし、再度コントロールの画面に戻ります。<br />
+&emsp;先程作成したコントロールのOptionsから編集を選択します。<br />
+<a class="glightbox" href="../images/%E7%B5%B1%E5%88%B6_A2A-17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E7%B5%B1%E5%88%B6_A2A-17.png" /></a>  </p>
+<p>13. 適用タイプについて、<strong>output</strong>にもチェックを入れてください。適用エージェントは、次の画面で追加・削除が可能です。
+    <a class="glightbox" href="../images/%E7%B5%B1%E5%88%B6_A2A-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/%E7%B5%B1%E5%88%B6_A2A-14.png" /></a>  </p>
+<p>14. 再度、左上のメニューから <strong>エージェント</strong> をクリックし、自身のエージェントを選択して Agent Builder を開き、Difyが呼ばれるエージェントを動かし、トレースを確認してください。
 &emsp;子エージェントのみを対象としたときと、親エージェントのみを対象とした際の違いについてご確認ください。</p>
-<h3 id="langgraph">LangGraph エージェントをインポート</h3>
-<p>TBA</p>
 
 
 
