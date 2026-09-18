@@ -5,37 +5,33 @@ AIAgentはエージェンティックな振る舞いによって様々な処理�
 このLabでは、フロー・ビルダーを用いてフローを定義し、エージェントから呼び出す方法について確認します。
 
 ## フローの作成の開始
-1. 左上のメニューから **ビルド** を選択します。  
+1. 左上のメニューから **エージェント型ワークフロー** を選択します。  
 ![alt text](flow-userActivity_images/flow_ua_image0010.png)  
 
 
-2. 左側の **すべてのツール** を選択し、**ツールの作成** をクリックします。  
+2. **エージェント型ワークフローを追加** をクリックします。  
 ![alt text](flow-userActivity_images/flow_ua_image0020.png)  
 
-3. **エージェント型ワークフロー** をクリックします。  
-![alt text](flow-userActivity_images/flow_ua_image0030.png)  
-
-
-4. 名前に**XX_weatherFlow** (XXにはイニシャルを設定してください。) を入力し、**構築の開始**ボタンをクリックします。  
+3. 名前に**XX_weatherFlow** (XXにはイニシャルを設定してください。) を入力し、**構築の開始**ボタンをクリックします。  
 ![alt text](flow-userActivity_images/flow_ua_image0040.png)  
 
-5. 名前の右にある**詳細の編集**をクリックします。  
+4. 名前の右にある**フロー設定**をクリックします。  
 ![alt text](flow-userActivity_images/flow_ua_image0050.png)  
 
-6. **説明**に次の値を設定します。
+5. **説明**に次の値を設定します。
     ```    
     特定の都市の緯度、経度から天気情報を取得し、都市の気温に応じた今日のおすすめの過ごし方を表示する。  
     ```    
     ![alt text](flow-userActivity_images/flow_ua_image0060.png)  
 
-7. 左上の**パラメーター**タブをクリックします。
+6. 左上の**パラメーター**タブをクリックします。
     1. 次の3つの値を設定します。**入力の追加** ボタンを押して**ストリング**を選択し、名前と説明を設定する作業を繰り返してください。  
 
-         | 名前         | 説明      |  
-         | ----------- | -------- |  
-         | city_name   | 都市名    |  
-         | latitude    | 緯度      |  
-         | longitude   | 経度      |  
+         | 名前         | 名前         | 説明      |  
+         | ----------- | ----------- | -------- |  
+         | ストリング（string）| city_name   | 都市名    |  
+         | 10進法（decimal）  | latitude    | 緯度      |  
+         | 10進法（decimal）  | longitude   | 経度      |  
 
         ![alt text](flow-userActivity_images/flow_ua_image0070.png)  
     2. 下図のように設定されていることを確認し、**完了** をクリックします。  
@@ -145,3 +141,14 @@ AIAgentはエージェンティックな振る舞いによって様々な処理�
 
 ## お疲れさまでした！
 このハンズオンでは、フロー・ビルダーの使い方について説明しました。
+
+!!!tip "さらに複雑なフローを構築するために"
+    今回のハンズオンではツール・ブランチ・メッセージといった基本的なノードを中心に紹介しましたが、エージェント型ワークフローにはほかにも多彩なノードが用意されています。
+
+    - **[Decisionsノード](https://developer.watson-orchestrate.ibm.com/tools/flows/decisions_node){:target="_blank"}**: 条件テーブルを使った複雑なビジネスルールをフロー内に組み込めます。複数のルールを上から順に評価し、最初に一致した結果を返します。
+    - **[Doc Processingノード](https://developer.watson-orchestrate.ibm.com/tools/flows/document_processing_nodes){:target="_blank"}**: PDF や画像などのドキュメントからテキストやキーバリューペアを抽出し、そのデータをフローに取り込むことができます。
+    - **[Promptノード](https://developer.watson-orchestrate.ibm.com/tools/flows/overview){:target="_blank"}**: LLM を呼び出して、入力データに基づく情報の抽出・分類・生成を行い、動的な処理を実現できます。
+    - **[Agentノード](https://developer.watson-orchestrate.ibm.com/tools/flows/overview){:target="_blank"}**: 別のエージェントをサブタスクとして呼び出し、マルチエージェント構成のワークフローを構築できます。
+    - **[Foreach / Loopノード](https://developer.watson-orchestrate.ibm.com/tools/flows/foreach_node){:target="_blank"}**: リストの各要素に対して処理を繰り返したり、条件が満たされるまでループ処理を行うことができます。
+
+    利用可能なノードタイプの全一覧は[**こちら**](https://developer.watson-orchestrate.ibm.com/tools/flows/overview){:target="_blank"}をご参照ください。これらのノードを組み合わせることで、単純なツール連携にとどまらない、より高度な自動化シナリオを実現できます。

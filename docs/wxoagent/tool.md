@@ -10,7 +10,7 @@
 インポートします。インポートする前に、Lab1 で作成した AI エージェントで天気の質問に回答できるか確認してみましょう。
 
 1. 左上のメニューを開き、**チャット** を選択してください。  
-![alt text](image.png)  
+![alt text](tool_images/tool_image0010.png)  
 
 2. 左上のエージェントが **(YourInitials)-IBMInfo** になっていることを確認してください。  
 ![alt text](image-1.png)
@@ -27,8 +27,8 @@
     * ツールは、OpenAPI 形式 もしくは MCP に対応したものをインポート可能です。
     * Python でツールを実装し、SaaS 環境に導入することも可能です。  
 
-5. 左上のメニューを開き、**ビルド** を選択してください。  
-![alt text](image-2.png)  
+5. 左上のメニューを開き、**エージェント** を選択してください。  
+![alt text](tool_images/tool_image0010.png)  
 
 6. **(YourInitials)-IBMInfo** のエージェントをクリックします。  
 ![alt text](tool_images/image-60.png)

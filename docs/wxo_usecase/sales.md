@@ -23,7 +23,7 @@
 
 !!! note
     お客様名は「AA銀行」もしくは「BB自動車」で検索してください。<br>
-    また Slack へのメッセージ送信に必要なチャンネルIDは "C08NG6VCCE7" に指定してください。
+    また Slack へのメッセージ送信に必要なチャンネルIDは講師に確認してください。
 
 <br>
 案件が作成されると、Salesforce の 商談一覧には以下のように登録されます。  
@@ -55,7 +55,7 @@
     ユーザーに案件を作成したいと言われたら、必ず以下の順番で処理を実行してください。
     - ユーザーにお客様名を聞き、Retrieve Salesforce accounts を実行する
     - お客様名が正しいか確認し、Create an opportunity in Salesforce を実行する
-    - 案件を作成したというメッセージを Slack に送信する
+    - 案件を作成したというメッセージをSlack のチャンネルID "C0BV8LMSQ8P" に送信する
     ```
 
 また、ガイドラインには特定の条件下（例：あるツールの実行時）にエージェントに行ってほしいアクションや応答を指定します。
@@ -129,7 +129,7 @@
 
 <br> 
 AIエージェントで無事にシナリオを実行できたら、最後に Salesforce で案件を作成できているか確認してみましょう。  
-**List opportunities in Salesforce** というプリビルドツールをAIエージェントに追加し、**本日作成された案件リストを表形式で取得してください** と入力します。ご自身で作成した案件が表示されているか確認してみましょう。  
+**List opportunities in Salesforce** というプリビルドツールをAIエージェントに追加し、**案件リストを表形式で取得してください** と入力します。ご自身で作成した案件が表示されているか確認してみましょう。  
 ![alt text](sales_images/image-14.png)
 
 ## オプション: 様々なプリビルドツールの活用
@@ -137,15 +137,15 @@ Salesforce や Slack に関連するプリビルドツールは多数用意さ�
 これらのツールを組み合わせて、ご自身が使ってみたいエージェントを作成してみましょう。
 
 **参考ドキュメント:**  
-- [Salesforce プリビルドツール](https://www.ibm.com/docs/ja/watsonx/watson-orchestrate/base?topic=tools-sales#salesforce)  
-- [Slack プリビルドツール](https://www.ibm.com/docs/ja/watsonx/watson-orchestrate/base?topic=tools-productivity#slack)  
+- [Salesforce プリビルドツール](https://www.ibm.com/docs/ja/watsonx/watson-orchestrate/base?topic=tools-sales-operations#catalog-tools-sales-tools__sales-tools-for-sales-prospecting__title__1){:target="_blank"}  
+- [Slack プリビルドツール](https://www.ibm.com/docs/ja/watsonx/watson-orchestrate/base?topic=tools-productivity#catalog-tools-productivity-tools__slack__title__1){:target="_blank"}  
 
 
 ## オプション: 外部アプリケーションとの接続
 
 この Lab では Salesforce と Slack を watsonx Orchestrate に接続してエージェントを作成しました。ご自身で環境作成や接続も含めて試してみたい際は、以下の Qiita 記事をご参照ください。  
-- [Salesforce の環境作成と接続手順](https://qiita.com/y175/items/4aa9ee1fde4f12171ca3)  
-- [Slack の環境作成と接続手順](https://qiita.com/ikeda_24/items/7b94effc4eafd008203f)
+- [Salesforce の環境作成と接続手順](https://qiita.com/y175/items/4aa9ee1fde4f12171ca3){:target="_blank"}  
+- [Slack の環境作成と接続手順](https://qiita.com/ikeda_24/items/7b94effc4eafd008203f){:target="_blank"}
 
 
 ## お疲れ様でした！
