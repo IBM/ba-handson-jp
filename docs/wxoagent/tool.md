@@ -28,7 +28,7 @@
     * Python でツールを実装し、SaaS 環境に導入することも可能です。  
 
 5. 左上のメニューを開き、**エージェント** を選択してください。  
-![alt text](tool_images/tool_image0010.png)  
+![alt text](tool_images/tool_image0020.png)  
 
 6. **(YourInitials)-IBMInfo** のエージェントをクリックします。  
 ![alt text](tool_images/image-60.png)
