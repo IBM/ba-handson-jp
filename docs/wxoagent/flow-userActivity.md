@@ -90,31 +90,31 @@ AIAgentはエージェンティックな振る舞いによって様々な処理�
      ![alt text](flow-userActivity_images/flow_ua_image0400.png)  
 
 6. 次に **メッセージ** を編集します。
-     1. **メッセージ1** をクリックし、次の値を設定します。  
+     1. **メッセージ1** をクリックし、編集ボタンをクリックし、名前とエージェント・メッセージを以下のように指定します。
          名前:
          ```    
          寒い日の過ごし方
          ```  
 
-         出力メッセージ:
+         エージェント・メッセージ:
          ```    
          今日は肌寒いので、家で過ごすのがおすすめです。映画鑑賞などはいかがですか？
          ```   
 
-         ![alt text](flow-userActivity_images/flow_ua_image0410.png)  
+         ![alt text](flow-userActivity_images/image.png)
      
-     2. 次に **メッセージ2** をクリックし、次の値を設定します。  
+     2. 次に **メッセージ2** をクリックし、編集アイコンをクリックし、次の値を設定します。  
          名前:
          ```    
          暖かい日の過ごし方
          ```  
 
-         出力メッセージ:
+         エージェント・メッセージ:
          ```    
          今日は暖かいので外出がおすすめです。お散歩やショッピングはいかがですか？
          ```   
 
-         ![alt text](flow-userActivity_images/flow_ua_image0420.png)  
+         ![alt text](flow-userActivity_images/image-1.png)
 
 7. 右上の **完了** ボタンをクリックして、フロー・ビルダーを閉じます。  
 ![alt text](flow-userActivity_images/flow_ua_image0430.png)  
